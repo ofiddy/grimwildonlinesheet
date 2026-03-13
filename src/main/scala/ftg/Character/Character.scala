@@ -1,5 +1,6 @@
 package ftg.Character
 
 final case class Character(
-    profile: CharacterProfile
+    profile: CharacterProfile,
+    stats: CharacterBaseStats
 )
