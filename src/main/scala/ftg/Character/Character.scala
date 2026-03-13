@@ -2,5 +2,8 @@ package ftg.Character
 
 final case class Character(
     profile: CharacterProfile,
-    stats: CharacterBaseStats
+    stats: CharacterBaseStats,
+    conditions: List[Condition],
+    story: Story,
+    spark: Spark
 )
