@@ -5,5 +5,7 @@ final case class Character(
     stats: CharacterBaseStats,
     conditions: List[Condition],
     story: Story,
-    spark: Spark
+    spark: Spark,
+    details: CharacterDetails,
+    bonds: List[Bond]
 )

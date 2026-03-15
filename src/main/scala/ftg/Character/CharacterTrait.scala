@@ -31,3 +31,33 @@ object CharacterTrait {
       oneYouArent: Option[Trait]
   )
 }
+
+private type CharacterDesire
+
+object CharacterDesire {
+  val desireSystem = produceDetailSystem[CharacterDesire](
+    List(
+      "Belonging",
+      "Glory",
+      "Harmony",
+      "Honour",
+      "Justice",
+      "Knowledge",
+      "Love",
+      "Power",
+      "Renown",
+      "Thrills",
+      "Wealth",
+      "Wisdom"
+    )
+  )
+
+  opaque type PremadeDesire = desireSystem.Premade
+  opaque type CustomDesire  = desireSystem.Custom
+  opaque type Desire        = desireSystem.Detail
+
+  final case class DesireSection(
+      twoYouWant: List[Desire],
+      oneYouDont: Option[Desire]
+  )
+}

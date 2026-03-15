@@ -1,6 +1,7 @@
 package ftg.Character
 
-import ftg.Character.CharacterTrait.Trait
+import ftg.Character.CharacterTrait.TraitSection
+import ftg.Character.CharacterDesire.DesireSection
 
 opaque type Wise = String
 
@@ -9,5 +10,6 @@ opaque type Backgrounds = (Background, Background)
 
 case class CharacterDetails(
     backgrounds: Backgrounds,
-    traits: Trait
+    traits: TraitSection,
+    desires: DesireSection
 )
