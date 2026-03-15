@@ -7,5 +7,8 @@ final case class Character(
     story: Story,
     spark: Spark,
     details: CharacterDetails,
-    bonds: List[Bond]
+    bonds: List[Bond],
+    groupArc: StoryArc,
+    characterArc: StoryArc,
+    experience: Int
 )
