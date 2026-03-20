@@ -13,8 +13,8 @@ object WizardTalents {
     "Spellcraft",
     "You have spellcasting ability. You roll Wits to cast and the spell theorem you are casting serves as its touchstone. Each session, you can cast 4 spells and 2 potent spells. You choose which spell theorem to use when you cast. You can learn new spell theorems from studying and experimenting with scrolls. This consumes the scroll. [Growth: 2 levels/1 spell, potent spell, and spell theorem]".md,
     List(
-      TalentWidget("Spells", Checkbox withMin 0 withMax 4 withStart 0),
-      TalentWidget("Potent Spells", Checkbox withMin 0 withMax 2 withStart 0)
+      TalentWidget("Spells", Checkbox withMax 4 withStart 0),
+      TalentWidget("Potent Spells", Checkbox withMax 2 withStart 0)
     )
   )
 
@@ -51,7 +51,7 @@ object WizardTalents {
     "Familiar",
     "You manifest a small magical creature. You can communicate telepathically and send it on simple tasks, making a story roll to see how it goes. By entering a trance, you can use its senses. You can also **push yourself** to cast a spell through it. If your familiar takes damage, it vanishes and reappears at the start of the next session.".md,
     List(
-      TalentWidget("Push", Checkbox withMin 0 withMax 1 withStart 0)
+      TalentWidget("Push", Checkbox withMax 1 withStart 0)
     )
   )
 
@@ -59,7 +59,7 @@ object WizardTalents {
     "Mastered Theorem",
     "Choose one of your spell theorems. You take +1d when casting it and gain 1 extra ***potent spell*** casting of it per session. Your name becomes linked to it and it begins to spread in popularity throughout wizardry—track it with campaign pools.".md,
     List(
-      TalentWidget("Potent", Checkbox withMin 0 withMax 1 withStart 0)
+      TalentWidget("Potent", Checkbox withMax 1 withStart 0)
     )
   )
 
