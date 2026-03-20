@@ -1,5 +1,7 @@
 package ftg.Character
 
+import ftg.Talent.Talent
+
 final case class Character(
     profile: CharacterProfile,
     stats: CharacterBaseStats,
@@ -10,5 +12,8 @@ final case class Character(
     bonds: List[Bond],
     groupArc: StoryArc,
     characterArc: StoryArc,
-    experience: Int
+    experience: Int,
+    charClass: CharacterClass,
+    talents: List[Talent],
+    notes: String
 )
