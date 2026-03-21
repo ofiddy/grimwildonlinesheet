@@ -1,11 +1,9 @@
 package ftg.Character
 
-import ftg.Character.SelectableDetails.produceDetailSystem
-
 private type CharacterTrait
 
 object CharacterTrait {
-  val traitSystem = produceDetailSystem[CharacterTrait](
+  val traitSystem =
     List(
       "Brave",
       "Caring",
@@ -19,12 +17,11 @@ object CharacterTrait {
       "Quiet",
       "Rash",
       "Stubborn"
-    )
-  )
+    ).map(PremadeTrait(_))
 
-  opaque type PremadeTrait = traitSystem.Premade
-  opaque type CustomTrait  = traitSystem.Custom
-  opaque type Trait        = traitSystem.Detail
+  sealed trait Trait { def label: String }
+  final case class PremadeTrait(label: String) extends Trait
+  final case class CustomTrait(label: String)  extends Trait
 
   final case class TraitSection(
       twoYouAre: List[Trait],
@@ -35,7 +32,7 @@ object CharacterTrait {
 private type CharacterDesire
 
 object CharacterDesire {
-  val desireSystem = produceDetailSystem[CharacterDesire](
+  val desireSystem =
     List(
       "Belonging",
       "Glory",
@@ -49,12 +46,11 @@ object CharacterDesire {
       "Thrills",
       "Wealth",
       "Wisdom"
-    )
-  )
+    ).map(PremadeDesire(_))
 
-  opaque type PremadeDesire = desireSystem.Premade
-  opaque type CustomDesire  = desireSystem.Custom
-  opaque type Desire        = desireSystem.Detail
+  sealed trait Desire { def label: String }
+  final case class PremadeDesire(label: String) extends Desire
+  final case class CustomDesire(label: String)  extends Desire
 
   final case class DesireSection(
       twoYouWant: List[Desire],

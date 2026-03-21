@@ -6,10 +6,13 @@ import ftg.Character.CharacterDesire.DesireSection
 opaque type Wise = String
 
 final case class Background(description: String, wises: (Wise, Wise, Wise))
-opaque type Backgrounds = (Background, Background)
 
 case class CharacterDetails(
-    backgrounds: Backgrounds,
+    backgrounds: (Option[Background], Option[Background]),
     traits: TraitSection,
     desires: DesireSection
 )
+
+object Wise {
+  extension (s: String) def wise: Wise = s
+}

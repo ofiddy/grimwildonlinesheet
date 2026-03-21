@@ -2,6 +2,12 @@ package ftg.Character
 
 import ftg.Talent.Talent
 
+opaque type Experience = Int
+
+object Experience {
+  extension (i: Int) def xp: Experience = i
+}
+
 final case class Character(
     profile: CharacterProfile,
     stats: CharacterBaseStats,
@@ -12,7 +18,7 @@ final case class Character(
     bonds: List[Bond],
     groupArc: StoryArc,
     characterArc: StoryArc,
-    experience: Int,
+    experience: Experience,
     charClass: CharacterClass,
     talents: List[Talent],
     notes: String

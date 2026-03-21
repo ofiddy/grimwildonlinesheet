@@ -35,5 +35,4 @@ object PremadeBonds {
   )
 }
 
-opaque type PcName = String
-final case class Bond(pcName: PcName, bondDesc: BondDescription)
+final case class Bond(pcName: CharacterName, bondDesc: BondDescription)

@@ -14,3 +14,5 @@ trait PoolRollable[A] {
     }
   }
 }
+
+object DicePool

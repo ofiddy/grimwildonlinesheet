@@ -18,6 +18,17 @@ object BodyStats {
     def agility: StatPool            = b.rightPool
     def isBloodied: Option[DicePool] = b.markedPool
   }
+
+  protected final case class FluentWithBrawn(b: Int) {
+    infix def withAgility(a: Int): BodyStats =
+      StatGroup(
+        StatPool(DicePool(b), false),
+        StatPool(DicePool(a), false),
+        None
+      )
+  }
+
+  infix def withBrawn(b: Int) = FluentWithBrawn(b)
 }
 
 opaque type MentalStats = StatGroup
@@ -28,6 +39,17 @@ object MentalStats {
     def presence: StatPool          = m.rightPool
     def isRattled: Option[DicePool] = m.markedPool
   }
+
+  protected final case class FluentWithWits(w: Int) {
+    infix def withPresence(p: Int): MentalStats =
+      StatGroup(
+        StatPool(DicePool(w), false),
+        StatPool(DicePool(p), false),
+        None
+      )
+  }
+
+  infix def withWits(w: Int) = FluentWithWits(w)
 }
 
 final case class CharacterBaseStats(
