@@ -4066,6 +4066,669 @@ function $m_Lcats_syntax_FlatMapOps$() {
     if (!$n_Lcats_syntax_FlatMapOps$) $n_Lcats_syntax_FlatMapOps$ = new $c_Lcats_syntax_FlatMapOps$();
     return $n_Lcats_syntax_FlatMapOps$;
 }
+/** @constructor */ function $c_Lftg_Character_PremadeArcs$() {
+    this.Lftg_Character_PremadeArcs$__f_struggleArcs = null;
+    this.Lftg_Character_PremadeArcs$__f_growthArcs = null;
+    $n_Lftg_Character_PremadeArcs$ = this;
+    var this$3 = new $c_sci_$colon$colon("Build a Reputation", new $c_sci_$colon$colon("Explore the World", new $c_sci_$colon$colon("Finish the Mission", new $c_sci_$colon$colon("Make Things Right", new $c_sci_$colon$colon("Satisfy Desires", new $c_sci_$colon$colon("Uncover the Truth", $m_sci_Nil$()))))));
+    var f = (label)=>{
+        var label$1 = $as_T(label);
+        return new $c_Lftg_Character_AmbitionArc(label$1);
+    };
+    if (this$3 !== $m_sci_Nil$()) {
+        var x0 = this$3.sci_$colon$colon__f_head;
+        var h = new $c_sci_$colon$colon(f(x0), $m_sci_Nil$());
+        var t = h;
+        var rest = this$3.sci_$colon$colon__f_next;
+        while(rest !== $m_sci_Nil$()){
+            var x0$1 = $n(rest).head__O();
+            var nx = new $c_sci_$colon$colon(f(x0$1), $m_sci_Nil$());
+            $n(t).sci_$colon$colon__f_next = nx;
+            t = nx;
+            rest = $as_sci_List($n(rest).tail__O());
+        }
+    }
+    var this$5 = new $c_sci_$colon$colon("Come Unraveled", new $c_sci_$colon$colon("Doubt Convictions", new $c_sci_$colon$colon("Feed My Vices", new $c_sci_$colon$colon("Flirt With Betrayal", new $c_sci_$colon$colon("Keep a Secret", new $c_sci_$colon$colon("Survive the Storm", $m_sci_Nil$()))))));
+    var f$1 = (label$2)=>{
+        var label$3 = $as_T(label$2);
+        return new $c_Lftg_Character_StruggleArc(label$3);
+    };
+    if (this$5 === $m_sci_Nil$()) var $x_1 = $m_sci_Nil$();
+    else {
+        var x0$2 = this$5.sci_$colon$colon__f_head;
+        var h$1 = new $c_sci_$colon$colon(f$1(x0$2), $m_sci_Nil$());
+        var t$1 = h$1;
+        var rest$1 = this$5.sci_$colon$colon__f_next;
+        while(rest$1 !== $m_sci_Nil$()){
+            var x0$3 = $n(rest$1).head__O();
+            var nx$1 = new $c_sci_$colon$colon(f$1(x0$3), $m_sci_Nil$());
+            $n(t$1).sci_$colon$colon__f_next = nx$1;
+            t$1 = nx$1;
+            rest$1 = $as_sci_List($n(rest$1).tail__O());
+        }
+        var $x_1 = h$1;
+    }
+    this.Lftg_Character_PremadeArcs$__f_struggleArcs = $x_1;
+    var this$7 = new $c_sci_$colon$colon("Embrace Change", new $c_sci_$colon$colon("Escape My Past", new $c_sci_$colon$colon("Find Belonging", new $c_sci_$colon$colon("Just Enjoy Life", new $c_sci_$colon$colon("Prove Myself", new $c_sci_$colon$colon("Settle Debts", $m_sci_Nil$()))))));
+    var f$2 = (label$3$1)=>{
+        var label$4 = $as_T(label$3$1);
+        return new $c_Lftg_Character_GrowthArc(label$4);
+    };
+    if (this$7 === $m_sci_Nil$()) var $x_2 = $m_sci_Nil$();
+    else {
+        var x0$4 = this$7.sci_$colon$colon__f_head;
+        var h$2 = new $c_sci_$colon$colon(f$2(x0$4), $m_sci_Nil$());
+        var t$2 = h$2;
+        var rest$2 = this$7.sci_$colon$colon__f_next;
+        while(rest$2 !== $m_sci_Nil$()){
+            var x0$5 = $n(rest$2).head__O();
+            var nx$2 = new $c_sci_$colon$colon(f$2(x0$5), $m_sci_Nil$());
+            $n(t$2).sci_$colon$colon__f_next = nx$2;
+            t$2 = nx$2;
+            rest$2 = $as_sci_List($n(rest$2).tail__O());
+        }
+        var $x_2 = h$2;
+    }
+    this.Lftg_Character_PremadeArcs$__f_growthArcs = $x_2;
+}
+$c_Lftg_Character_PremadeArcs$.prototype = new $h_O();
+$c_Lftg_Character_PremadeArcs$.prototype.constructor = $c_Lftg_Character_PremadeArcs$;
+/** @constructor */ function $h_Lftg_Character_PremadeArcs$() {}
+$h_Lftg_Character_PremadeArcs$.prototype = $c_Lftg_Character_PremadeArcs$.prototype;
+var $d_Lftg_Character_PremadeArcs$ = new $TypeData().initClass($c_Lftg_Character_PremadeArcs$, "ftg.Character.PremadeArcs$", {
+    Lftg_Character_PremadeArcs$: 1
+});
+var $n_Lftg_Character_PremadeArcs$;
+function $m_Lftg_Character_PremadeArcs$() {
+    if (!$n_Lftg_Character_PremadeArcs$) $n_Lftg_Character_PremadeArcs$ = new $c_Lftg_Character_PremadeArcs$();
+    return $n_Lftg_Character_PremadeArcs$;
+}
+/** @constructor */ function $c_Lftg_Character_PremadeBonds$() {}
+$c_Lftg_Character_PremadeBonds$.prototype = new $h_O();
+$c_Lftg_Character_PremadeBonds$.prototype.constructor = $c_Lftg_Character_PremadeBonds$;
+/** @constructor */ function $h_Lftg_Character_PremadeBonds$() {}
+$h_Lftg_Character_PremadeBonds$.prototype = $c_Lftg_Character_PremadeBonds$.prototype;
+$c_Lftg_Character_PremadeBonds$.prototype.premadeLeftBonds__sci_List = function() {
+    return new $c_sci_$colon$colon("Deep", new $c_sci_$colon$colon("Complex", new $c_sci_$colon$colon("Growing", new $c_sci_$colon$colon("Lowkey", new $c_sci_$colon$colon("Playful", new $c_sci_$colon$colon("Tense", $m_sci_Nil$()))))));
+};
+$c_Lftg_Character_PremadeBonds$.prototype.premadeRightBonds__sci_List = function() {
+    return new $c_sci_$colon$colon("Affection", new $c_sci_$colon$colon("Camaraderie", new $c_sci_$colon$colon("Curiosity", new $c_sci_$colon$colon("Doubts", new $c_sci_$colon$colon("Respect", new $c_sci_$colon$colon("Rivalry", $m_sci_Nil$()))))));
+};
+var $d_Lftg_Character_PremadeBonds$ = new $TypeData().initClass($c_Lftg_Character_PremadeBonds$, "ftg.Character.PremadeBonds$", {
+    Lftg_Character_PremadeBonds$: 1
+});
+var $n_Lftg_Character_PremadeBonds$;
+function $m_Lftg_Character_PremadeBonds$() {
+    if (!$n_Lftg_Character_PremadeBonds$) $n_Lftg_Character_PremadeBonds$ = new $c_Lftg_Character_PremadeBonds$();
+    return $n_Lftg_Character_PremadeBonds$;
+}
+function $is_Lftg_Character_StoryArc(obj) {
+    return !!(obj && obj.$classData && obj.$classData.ancestors.Lftg_Character_StoryArc);
+}
+function $as_Lftg_Character_StoryArc(obj) {
+    return $is_Lftg_Character_StoryArc(obj) || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.StoryArc");
+}
+function $isArrayOf_Lftg_Character_StoryArc(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_StoryArc);
+}
+function $asArrayOf_Lftg_Character_StoryArc(obj, depth) {
+    return $isArrayOf_Lftg_Character_StoryArc(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.StoryArc;", depth);
+}
+/** @constructor */ function $c_Lftg_Talent_ClassTalents_FighterTalents$() {
+    this.Lftg_Talent_ClassTalents_FighterTalents$__f_weaponMastery = null;
+    this.Lftg_Talent_ClassTalents_FighterTalents$__f_bulwark = null;
+    this.Lftg_Talent_ClassTalents_FighterTalents$__f_gotYourBack = null;
+    this.Lftg_Talent_ClassTalents_FighterTalents$__f_measuredTones = null;
+    $n_Lftg_Talent_ClassTalents_FighterTalents$ = this;
+    var widgets = $m_sci_Nil$();
+    this.Lftg_Talent_ClassTalents_FighterTalents$__f_weaponMastery = new $c_Lftg_Talent_Talent("Weapon Mastery", "Choose a fighting style that you have mastered: *brawling*\u2014*dual-wielding*\u2014*one-handed weapons*\u2014*ranged weapons*\u2014*thrown weapons*\u2014*two-handed weapons*. You have a mastery die, a special d6. When you fight in your style, take +1d (*the mastery die*) on the roll. If the mastery die is a 6, it counts as a critical. If it\u2019s already a critical, **take spark**. [Growth: 3 levels/+1d mastery die]", widgets);
+    var $x_3 = $m_Lftg_Talent_TalentWidgets_TalentWidget$();
+    var this$4 = $n($m_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$().withMax__I__Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits(3));
+    var boxes = this$4.Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits__f_max;
+    var $x_2 = $x_3.apply__T__Lftg_Talent_TalentWidgets_TalentComponents_TalentComponent__Lftg_Talent_TalentWidgets_TalentWidget("Spells", new $c_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent(boxes, 0));
+    var $x_1 = $m_Lftg_Talent_TalentWidgets_TalentWidget$();
+    var this$6 = $n($m_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$().withMax__I__Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits(1));
+    var boxes$1 = this$6.Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits__f_max;
+    new $c_sci_$colon$colon($x_2, new $c_sci_$colon$colon($x_1.apply__T__Lftg_Talent_TalentWidgets_TalentComponents_TalentComponent__Lftg_Talent_TalentWidgets_TalentWidget("Potent", new $c_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent(boxes$1, 0)), $m_sci_Nil$()));
+    var widgets$2 = new $c_sci_$colon$colon($m_Lftg_Talent_TalentWidgets_TalentWidget$().apply__T__Lftg_Talent_TalentWidgets_TalentComponents_TalentComponent__Lftg_Talent_TalentWidgets_TalentWidget("Bulwark", $m_Lftg_Talent_TalentWidget_TalentComponents_FluentDicePoolComponent$().d__I__Lftg_DicePool_DicePool$__Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent(3, $m_Lftg_DicePool_DicePool$())), $m_sci_Nil$());
+    this.Lftg_Talent_ClassTalents_FighterTalents$__f_bulwark = new $c_Lftg_Talent_Talent("Bulwark", "Each session, you have a 3d Bulwark pool from armor or other defenses. When you get bloodied or dropped from physical damage, roll the pool. If dice remain, ignore the damage.", widgets$2);
+    var $x_4 = $m_Lftg_Talent_TalentWidgets_TalentWidget$();
+    var this$12 = $n($m_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$().withMax__I__Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits(1));
+    var boxes$2 = this$12.Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits__f_max;
+    new $c_sci_$colon$colon($x_4.apply__T__Lftg_Talent_TalentWidgets_TalentComponents_TalentComponent__Lftg_Talent_TalentWidgets_TalentWidget("Push", new $c_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent(boxes$2, 0)), $m_sci_Nil$());
+    var $x_5 = $m_Lftg_Talent_TalentWidgets_TalentWidget$();
+    var this$16 = $n($m_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$().withMax__I__Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits(1));
+    var boxes$3 = this$16.Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits__f_max;
+    var widgets$4 = new $c_sci_$colon$colon($x_5.apply__T__Lftg_Talent_TalentWidgets_TalentComponents_TalentComponent__Lftg_Talent_TalentWidgets_TalentWidget("Push", new $c_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent(boxes$3, 0)), $m_sci_Nil$());
+    this.Lftg_Talent_ClassTalents_FighterTalents$__f_gotYourBack = new $c_Lftg_Talent_Talent("Got Your Back", "You can **push yourself** to assist an ally after they roll a grim. The ally can also roll 1d. On a perfect, you both **take spark**.", widgets$4);
+    var $x_6 = $m_Lftg_Talent_TalentWidgets_TalentWidget$();
+    var this$20 = $n($m_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$().withMax__I__Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits(1));
+    var boxes$4 = this$20.Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits__f_max;
+    var widgets$5 = new $c_sci_$colon$colon($x_6.apply__T__Lftg_Talent_TalentWidgets_TalentComponents_TalentComponent__Lftg_Talent_TalentWidgets_TalentWidget("Push", new $c_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent(boxes$4, 0)), $m_sci_Nil$());
+    this.Lftg_Talent_ClassTalents_FighterTalents$__f_measuredTones = new $c_Lftg_Talent_Talent("Measured Tones", "When you speak in measured tones, people always stop and listen\u2014declare ***low risk*** if desired. Unless completely surprised, you can **push yourself** to ***interrupt*** an impact move initiating aggression. If you change their mind, **take spark**.", widgets$5);
+    var $x_7 = $m_Lftg_Talent_TalentWidgets_TalentWidget$();
+    var this$26 = $n($m_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$().withMax__I__Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits(1));
+    var boxes$5 = this$26.Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits__f_max;
+    new $c_sci_$colon$colon($x_7.apply__T__Lftg_Talent_TalentWidgets_TalentComponents_TalentComponent__Lftg_Talent_TalentWidgets_TalentWidget("Push", new $c_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent(boxes$5, 0)), $m_sci_Nil$());
+}
+$c_Lftg_Talent_ClassTalents_FighterTalents$.prototype = new $h_O();
+$c_Lftg_Talent_ClassTalents_FighterTalents$.prototype.constructor = $c_Lftg_Talent_ClassTalents_FighterTalents$;
+/** @constructor */ function $h_Lftg_Talent_ClassTalents_FighterTalents$() {}
+$h_Lftg_Talent_ClassTalents_FighterTalents$.prototype = $c_Lftg_Talent_ClassTalents_FighterTalents$.prototype;
+var $d_Lftg_Talent_ClassTalents_FighterTalents$ = new $TypeData().initClass($c_Lftg_Talent_ClassTalents_FighterTalents$, "ftg.Talent.ClassTalents.FighterTalents$", {
+    Lftg_Talent_ClassTalents_FighterTalents$: 1
+});
+var $n_Lftg_Talent_ClassTalents_FighterTalents$;
+function $m_Lftg_Talent_ClassTalents_FighterTalents$() {
+    if (!$n_Lftg_Talent_ClassTalents_FighterTalents$) $n_Lftg_Talent_ClassTalents_FighterTalents$ = new $c_Lftg_Talent_ClassTalents_FighterTalents$();
+    return $n_Lftg_Talent_ClassTalents_FighterTalents$;
+}
+/** @constructor */ function $c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$() {}
+$c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$.prototype = new $h_O();
+$c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$.prototype.constructor = $c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$;
+/** @constructor */ function $h_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$() {}
+$h_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$.prototype = $c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$.prototype;
+$c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$.prototype.withMax__I__Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits = function(i) {
+    var f = new $c_sjsr_AnonFunction1_$$Lambda$3aa60c34ef08a878abffbf4628007cc68fa3c7ab((_$1)=>{
+        $as_Lftg_Character_Character(_$1);
+        return i;
+    });
+    return new $c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits(f);
+};
+var $d_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$ = new $TypeData().initClass($c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$, "ftg.Talent.TalentWidget.TalentComponents.FluentCheckboxes$Checkbox$", {
+    Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$: 1
+});
+var $n_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$;
+function $m_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$() {
+    if (!$n_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$) $n_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$ = new $c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$();
+    return $n_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$Checkbox$;
+}
+/** @constructor */ function $c_Lftg_Talent_TalentWidget_TalentComponents_FluentDicePoolComponent$() {}
+$c_Lftg_Talent_TalentWidget_TalentComponents_FluentDicePoolComponent$.prototype = new $h_O();
+$c_Lftg_Talent_TalentWidget_TalentComponents_FluentDicePoolComponent$.prototype.constructor = $c_Lftg_Talent_TalentWidget_TalentComponents_FluentDicePoolComponent$;
+/** @constructor */ function $h_Lftg_Talent_TalentWidget_TalentComponents_FluentDicePoolComponent$() {}
+$h_Lftg_Talent_TalentWidget_TalentComponents_FluentDicePoolComponent$.prototype = $c_Lftg_Talent_TalentWidget_TalentComponents_FluentDicePoolComponent$.prototype;
+$c_Lftg_Talent_TalentWidget_TalentComponents_FluentDicePoolComponent$.prototype.d__I__Lftg_DicePool_DicePool$__Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent = function(i, x) {
+    var currentDice = new $c_Lftg_DicePool_DicePool(i);
+    var maxDice = new $c_sjsr_AnonFunction1_$$Lambda$3aa60c34ef08a878abffbf4628007cc68fa3c7ab((_$1)=>{
+        $as_Lftg_Character_Character(_$1);
+        return new $c_Lftg_DicePool_DicePool(i);
+    });
+    return new $c_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent(currentDice, maxDice);
+};
+var $d_Lftg_Talent_TalentWidget_TalentComponents_FluentDicePoolComponent$ = new $TypeData().initClass($c_Lftg_Talent_TalentWidget_TalentComponents_FluentDicePoolComponent$, "ftg.Talent.TalentWidget.TalentComponents.FluentDicePoolComponent$", {
+    Lftg_Talent_TalentWidget_TalentComponents_FluentDicePoolComponent$: 1
+});
+var $n_Lftg_Talent_TalentWidget_TalentComponents_FluentDicePoolComponent$;
+function $m_Lftg_Talent_TalentWidget_TalentComponents_FluentDicePoolComponent$() {
+    if (!$n_Lftg_Talent_TalentWidget_TalentComponents_FluentDicePoolComponent$) $n_Lftg_Talent_TalentWidget_TalentComponents_FluentDicePoolComponent$ = new $c_Lftg_Talent_TalentWidget_TalentComponents_FluentDicePoolComponent$();
+    return $n_Lftg_Talent_TalentWidget_TalentComponents_FluentDicePoolComponent$;
+}
+/** @constructor */ function $c_Lftg_page_CharacterHtmlRenderer$() {}
+$c_Lftg_page_CharacterHtmlRenderer$.prototype = new $h_O();
+$c_Lftg_page_CharacterHtmlRenderer$.prototype.constructor = $c_Lftg_page_CharacterHtmlRenderer$;
+/** @constructor */ function $h_Lftg_page_CharacterHtmlRenderer$() {}
+$h_Lftg_page_CharacterHtmlRenderer$.prototype = $c_Lftg_page_CharacterHtmlRenderer$.prototype;
+$c_Lftg_page_CharacterHtmlRenderer$.prototype.renderCharacter__Lftg_Character_Character__Ltyrian_Html = function(char) {
+    $m_Ltyrian_Html$();
+    var $x_1 = $m_sr_ScalaRunTime$();
+    var this$1 = $m_Ltyrian_Html$();
+    var children = $x_1.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $f_Ltyrian_HtmlTags__h1$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$1, "Grimwild Online Character Sheet"),
+        this.renderProfile__Lftg_Character_CharacterProfile__Ltyrian_Html($n(char).Lftg_Character_Character__f_profile),
+        this.renderStats__Lftg_Character_CharacterBaseStats__Ltyrian_Html($n(char).Lftg_Character_Character__f_stats)
+    ]));
+    var attributes = $m_sci_Nil$();
+    var this$3 = $n(children);
+    var children$1 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$3);
+    var key = $m_s_None$();
+    return new $c_Ltyrian_Tag("div", attributes, children$1, key);
+};
+$c_Lftg_page_CharacterHtmlRenderer$.prototype.renderProfile__Lftg_Character_CharacterProfile__Ltyrian_Html = function(profile) {
+    $m_Ltyrian_Html$();
+    var $x_6 = $m_sr_ScalaRunTime$();
+    var this$1 = $m_Ltyrian_Html$();
+    var $x_5 = $f_Ltyrian_HtmlTags__p$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$1, "Character Name");
+    var this$3 = $m_Ltyrian_Html$();
+    var c = $n(profile).Lftg_Character_CharacterProfile__f_characterName;
+    var $x_4 = $f_Ltyrian_HtmlTags__h2$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$3, c);
+    var this$4 = $m_Ltyrian_Html$();
+    var $x_3 = $f_Ltyrian_HtmlTags__p$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$4, "Player Name");
+    var this$6 = $m_Ltyrian_Html$();
+    var c$1 = $n(profile).Lftg_Character_CharacterProfile__f_playerName;
+    var $x_2 = $f_Ltyrian_HtmlTags__h2$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$6, c$1);
+    var this$7 = $m_Ltyrian_Html$();
+    var $x_1 = $f_Ltyrian_HtmlTags__h3$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$7, "Distinctive Features");
+    var this$9 = $m_Ltyrian_Html$();
+    var this$8 = $n($n(profile).Lftg_Character_CharacterProfile__f_distinctiveFeatures);
+    var plainText = $f_sc_IterableOnceOps__mkString__T__T__T__T(this$8, "", ", ", "");
+    var children = $x_6.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_5,
+        $x_4,
+        $x_3,
+        $x_2,
+        $x_1,
+        $f_Ltyrian_HtmlTags__p$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$9, plainText)
+    ]));
+    var attributes = $m_sci_Nil$();
+    var this$11 = $n(children);
+    var children$1 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$11);
+    var key = $m_s_None$();
+    return new $c_Ltyrian_Tag("div", attributes, children$1, key);
+};
+$c_Lftg_page_CharacterHtmlRenderer$.prototype.renderStats__Lftg_Character_CharacterBaseStats__Ltyrian_Html = function(stats) {
+    $m_Ltyrian_Html$();
+    var $x_1 = $m_sr_ScalaRunTime$();
+    $m_Ltyrian_Html$();
+    var style = $m_Ltyrian_Style$package$Style$().apply__T__T__T("background-color", "#DDDDDD");
+    $m_Ltyrian_Attribute$();
+    var this$3 = $n(style);
+    var attributes$27 = $x_1.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Attr.getArrayOf()).constr([
+        new $c_Ltyrian_Attribute("style", this$3)
+    ]));
+    var $x_60 = $m_sr_ScalaRunTime$();
+    $m_Ltyrian_Html$();
+    var $x_58 = $m_sr_ScalaRunTime$();
+    $m_Ltyrian_Html$();
+    var $x_56 = $m_sr_ScalaRunTime$();
+    var this$5 = $m_Ltyrian_Html$();
+    var $x_55 = $f_Ltyrian_HtmlTags__th$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$5, "Brawn");
+    var this$6 = $m_Ltyrian_Html$();
+    var $x_54 = $f_Ltyrian_HtmlTags__th$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$6, "Agility");
+    var this$7 = $m_Ltyrian_Html$();
+    var $x_53 = $f_Ltyrian_HtmlTags__th$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$7, "Wits");
+    var this$8 = $m_Ltyrian_Html$();
+    var children = $x_56.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_55,
+        $x_54,
+        $x_53,
+        $f_Ltyrian_HtmlTags__th$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$8, "Presence")
+    ]));
+    var attributes = $m_sci_Nil$();
+    var this$10 = $n(children);
+    var children$1 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$10);
+    var key = $m_s_None$();
+    var $x_57 = new $c_Ltyrian_Tag("tr", attributes, children$1, key);
+    $m_Ltyrian_Html$();
+    var $x_51 = $m_sr_ScalaRunTime$();
+    var this$17 = $m_Ltyrian_Html$();
+    var b = $n(stats).Lftg_Character_CharacterBaseStats__f_bodyStats;
+    var this$15 = $n($n($n(b).Lftg_Character_StatGroup__f_leftPool).Lftg_Character_StatPool__f_dice).Lftg_DicePool_DicePool__f_diceRemaining;
+    var plainText = "" + this$15;
+    var $x_50 = $f_Ltyrian_HtmlTags__td$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$17, plainText);
+    var this$21 = $m_Ltyrian_Html$();
+    var b$1 = $n(stats).Lftg_Character_CharacterBaseStats__f_bodyStats;
+    var this$19 = $n($n($n(b$1).Lftg_Character_StatGroup__f_rightPool).Lftg_Character_StatPool__f_dice).Lftg_DicePool_DicePool__f_diceRemaining;
+    var plainText$1 = "" + this$19;
+    var $x_49 = $f_Ltyrian_HtmlTags__td$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$21, plainText$1);
+    var this$25 = $m_Ltyrian_Html$();
+    var m = $n(stats).Lftg_Character_CharacterBaseStats__f_mentalStats;
+    var this$23 = $n($n($n(m).Lftg_Character_StatGroup__f_leftPool).Lftg_Character_StatPool__f_dice).Lftg_DicePool_DicePool__f_diceRemaining;
+    var plainText$2 = "" + this$23;
+    var $x_48 = $f_Ltyrian_HtmlTags__td$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$25, plainText$2);
+    var this$29 = $m_Ltyrian_Html$();
+    var m$1 = $n(stats).Lftg_Character_CharacterBaseStats__f_mentalStats;
+    var this$27 = $n($n($n(m$1).Lftg_Character_StatGroup__f_rightPool).Lftg_Character_StatPool__f_dice).Lftg_DicePool_DicePool__f_diceRemaining;
+    var plainText$3 = "" + this$27;
+    var children$2 = $x_51.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_50,
+        $x_49,
+        $x_48,
+        $f_Ltyrian_HtmlTags__td$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$29, plainText$3)
+    ]));
+    var attributes$1 = $m_sci_Nil$();
+    var this$31 = $n(children$2);
+    var children$3 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$31);
+    var key$1 = $m_s_None$();
+    var $x_52 = new $c_Ltyrian_Tag("tr", attributes$1, children$3, key$1);
+    $m_Ltyrian_Html$();
+    var $x_47 = $m_sr_ScalaRunTime$();
+    $m_Ltyrian_Html$();
+    var $x_45 = $m_sr_ScalaRunTime$();
+    $m_Ltyrian_Html$();
+    var $x_44 = $m_sr_ScalaRunTime$();
+    var $x_43 = $n($m_Ltyrian_Html$().Ltyrian_Html$__f_$u0060type$u0060$minusString).$colon$eq__T__Ltyrian_Attribute("checkbox");
+    var $x_42 = $n($m_Ltyrian_Html$().Ltyrian_Html$__f_value$minusString).$colon$eq__T__Ltyrian_PropertyString("isMarked");
+    var $x_41 = $m_Ltyrian_Html$().Ltyrian_Html$__f_checked$minusBoolean;
+    var b$2 = $n(stats).Lftg_Character_CharacterBaseStats__f_bodyStats;
+    var attributes$2 = $x_44.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Attr.getArrayOf()).constr([
+        $x_43,
+        $x_42,
+        $n($x_41).$colon$eq__Z__Ltyrian_PropertyBoolean($n($n(b$2).Lftg_Character_StatGroup__f_leftPool).Lftg_Character_StatPool__f_isMarked)
+    ]));
+    var this$37 = $n(attributes$2);
+    var attributes$3 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$37);
+    var children$4 = $m_sci_Nil$();
+    var key$2 = $m_s_None$();
+    var children$5 = $x_45.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        new $c_Ltyrian_Tag("input", attributes$3, children$4, key$2)
+    ]));
+    var attributes$4 = $m_sci_Nil$();
+    var this$42 = $n(children$5);
+    var children$6 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$42);
+    var key$3 = $m_s_None$();
+    var $x_46 = new $c_Ltyrian_Tag("td", attributes$4, children$6, key$3);
+    $m_Ltyrian_Html$();
+    var $x_39 = $m_sr_ScalaRunTime$();
+    $m_Ltyrian_Html$();
+    var $x_38 = $m_sr_ScalaRunTime$();
+    var $x_37 = $n($m_Ltyrian_Html$().Ltyrian_Html$__f_$u0060type$u0060$minusString).$colon$eq__T__Ltyrian_Attribute("checkbox");
+    var $x_36 = $n($m_Ltyrian_Html$().Ltyrian_Html$__f_value$minusString).$colon$eq__T__Ltyrian_PropertyString("isMarked");
+    var $x_35 = $m_Ltyrian_Html$().Ltyrian_Html$__f_checked$minusBoolean;
+    var b$3 = $n(stats).Lftg_Character_CharacterBaseStats__f_bodyStats;
+    var attributes$5 = $x_38.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Attr.getArrayOf()).constr([
+        $x_37,
+        $x_36,
+        $n($x_35).$colon$eq__Z__Ltyrian_PropertyBoolean($n($n(b$3).Lftg_Character_StatGroup__f_rightPool).Lftg_Character_StatPool__f_isMarked)
+    ]));
+    var this$48 = $n(attributes$5);
+    var attributes$6 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$48);
+    var children$7 = $m_sci_Nil$();
+    var key$4 = $m_s_None$();
+    var children$8 = $x_39.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        new $c_Ltyrian_Tag("input", attributes$6, children$7, key$4)
+    ]));
+    var attributes$7 = $m_sci_Nil$();
+    var this$53 = $n(children$8);
+    var children$9 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$53);
+    var key$5 = $m_s_None$();
+    var $x_40 = new $c_Ltyrian_Tag("td", attributes$7, children$9, key$5);
+    $m_Ltyrian_Html$();
+    var $x_33 = $m_sr_ScalaRunTime$();
+    $m_Ltyrian_Html$();
+    var $x_32 = $m_sr_ScalaRunTime$();
+    var $x_31 = $n($m_Ltyrian_Html$().Ltyrian_Html$__f_$u0060type$u0060$minusString).$colon$eq__T__Ltyrian_Attribute("checkbox");
+    var $x_30 = $n($m_Ltyrian_Html$().Ltyrian_Html$__f_value$minusString).$colon$eq__T__Ltyrian_PropertyString("isMarked");
+    var $x_29 = $m_Ltyrian_Html$().Ltyrian_Html$__f_checked$minusBoolean;
+    var m$2 = $n(stats).Lftg_Character_CharacterBaseStats__f_mentalStats;
+    var attributes$8 = $x_32.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Attr.getArrayOf()).constr([
+        $x_31,
+        $x_30,
+        $n($x_29).$colon$eq__Z__Ltyrian_PropertyBoolean($n($n(m$2).Lftg_Character_StatGroup__f_leftPool).Lftg_Character_StatPool__f_isMarked)
+    ]));
+    var this$59 = $n(attributes$8);
+    var attributes$9 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$59);
+    var children$10 = $m_sci_Nil$();
+    var key$6 = $m_s_None$();
+    var children$11 = $x_33.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        new $c_Ltyrian_Tag("input", attributes$9, children$10, key$6)
+    ]));
+    var attributes$10 = $m_sci_Nil$();
+    var this$64 = $n(children$11);
+    var children$12 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$64);
+    var key$7 = $m_s_None$();
+    var $x_34 = new $c_Ltyrian_Tag("td", attributes$10, children$12, key$7);
+    $m_Ltyrian_Html$();
+    var $x_28 = $m_sr_ScalaRunTime$();
+    $m_Ltyrian_Html$();
+    var $x_27 = $m_sr_ScalaRunTime$();
+    var $x_26 = $n($m_Ltyrian_Html$().Ltyrian_Html$__f_$u0060type$u0060$minusString).$colon$eq__T__Ltyrian_Attribute("checkbox");
+    var $x_25 = $n($m_Ltyrian_Html$().Ltyrian_Html$__f_value$minusString).$colon$eq__T__Ltyrian_PropertyString("isMarked");
+    var $x_24 = $m_Ltyrian_Html$().Ltyrian_Html$__f_checked$minusBoolean;
+    var m$3 = $n(stats).Lftg_Character_CharacterBaseStats__f_mentalStats;
+    var attributes$11 = $x_27.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Attr.getArrayOf()).constr([
+        $x_26,
+        $x_25,
+        $n($x_24).$colon$eq__Z__Ltyrian_PropertyBoolean($n($n(m$3).Lftg_Character_StatGroup__f_rightPool).Lftg_Character_StatPool__f_isMarked)
+    ]));
+    var this$70 = $n(attributes$11);
+    var attributes$12 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$70);
+    var children$13 = $m_sci_Nil$();
+    var key$8 = $m_s_None$();
+    var children$14 = $x_28.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        new $c_Ltyrian_Tag("input", attributes$12, children$13, key$8)
+    ]));
+    var attributes$13 = $m_sci_Nil$();
+    var this$75 = $n(children$14);
+    var children$15 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$75);
+    var key$9 = $m_s_None$();
+    var children$16 = $x_47.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_46,
+        $x_40,
+        $x_34,
+        new $c_Ltyrian_Tag("td", attributes$13, children$15, key$9)
+    ]));
+    var attributes$14 = $m_sci_Nil$();
+    var this$80 = $n(children$16);
+    var children$17 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$80);
+    var key$10 = $m_s_None$();
+    var children$18 = $x_58.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_57,
+        $x_52,
+        new $c_Ltyrian_Tag("tr", attributes$14, children$17, key$10)
+    ]));
+    var attributes$15 = $m_sci_Nil$();
+    var this$85 = $n(children$18);
+    var children$19 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$85);
+    var key$11 = $m_s_None$();
+    var $x_59 = new $c_Ltyrian_Tag("table", attributes$15, children$19, key$11);
+    $m_Ltyrian_Html$();
+    var $x_23 = $m_sr_ScalaRunTime$();
+    $m_Ltyrian_Html$();
+    var $x_21 = $m_sr_ScalaRunTime$();
+    var this$89 = $m_Ltyrian_Html$();
+    var $x_20 = $f_Ltyrian_HtmlTags__td$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$89, "Bloodied");
+    $m_Ltyrian_Html$();
+    var $x_19 = $m_sr_ScalaRunTime$();
+    $m_Ltyrian_Html$();
+    var $x_18 = $m_sr_ScalaRunTime$();
+    $m_Ltyrian_Html$();
+    var $x_16 = $m_sr_ScalaRunTime$();
+    var $x_15 = $n($m_Ltyrian_Html$().Ltyrian_Html$__f_$u0060type$u0060$minusString).$colon$eq__T__Ltyrian_Attribute("checkbox");
+    var $x_14 = $m_Ltyrian_Html$().Ltyrian_Html$__f_checked$minusBoolean;
+    var b$4 = $n(stats).Lftg_Character_CharacterBaseStats__f_bodyStats;
+    var this$91 = $n($n(b$4).Lftg_Character_StatGroup__f_markedPool);
+    var attributes$16 = $x_16.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Attr.getArrayOf()).constr([
+        $x_15,
+        $n($x_14).$colon$eq__Z__Ltyrian_PropertyBoolean(!this$91.isEmpty__Z())
+    ]));
+    var this$93 = $n(attributes$16);
+    var attributes$17 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$93);
+    var children$20 = $m_sci_Nil$();
+    var key$12 = $m_s_None$();
+    var $x_17 = new $c_Ltyrian_Tag("input", attributes$17, children$20, key$12);
+    var $x_13 = $m_Ltyrian_syntax$();
+    var b$5 = $n(stats).Lftg_Character_CharacterBaseStats__f_bodyStats;
+    var this$98 = $n($n(b$5).Lftg_Character_StatGroup__f_markedPool);
+    if (this$98.isEmpty__Z()) var $x_12 = $m_s_None$();
+    else {
+        var x0 = this$98.get__O();
+        var v = $as_Lftg_DicePool_DicePool(x0);
+        var this$101 = $m_Ltyrian_Html$();
+        var this$99 = $n(v).Lftg_DicePool_DicePool__f_diceRemaining;
+        var plainText$4 = "" + this$99;
+        var $x_12 = new $c_s_Some($f_Ltyrian_HtmlTags__button$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$101, plainText$4));
+    }
+    var children$21 = $x_18.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_17,
+        $x_13.orEmpty__s_Option__Ltyrian_Elem($x_12)
+    ]));
+    var attributes$18 = $m_sci_Nil$();
+    var this$103 = $n(children$21);
+    var children$22 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$103);
+    var key$13 = $m_s_None$();
+    var children$23 = $x_19.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        new $c_Ltyrian_Tag("div", attributes$18, children$22, key$13)
+    ]));
+    var attributes$19 = $m_sci_Nil$();
+    var this$108 = $n(children$23);
+    var children$24 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$108);
+    var key$14 = $m_s_None$();
+    var children$25 = $x_21.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_20,
+        new $c_Ltyrian_Tag("td", attributes$19, children$24, key$14)
+    ]));
+    var attributes$20 = $m_sci_Nil$();
+    var this$113 = $n(children$25);
+    var children$26 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$113);
+    var key$15 = $m_s_None$();
+    var $x_22 = new $c_Ltyrian_Tag("tr", attributes$20, children$26, key$15);
+    $m_Ltyrian_Html$();
+    var $x_11 = $m_sr_ScalaRunTime$();
+    var this$117 = $m_Ltyrian_Html$();
+    var $x_10 = $f_Ltyrian_HtmlTags__td$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$117, "Rattled");
+    $m_Ltyrian_Html$();
+    var $x_9 = $m_sr_ScalaRunTime$();
+    $m_Ltyrian_Html$();
+    var $x_8 = $m_sr_ScalaRunTime$();
+    $m_Ltyrian_Html$();
+    var $x_6 = $m_sr_ScalaRunTime$();
+    var $x_5 = $n($m_Ltyrian_Html$().Ltyrian_Html$__f_$u0060type$u0060$minusString).$colon$eq__T__Ltyrian_Attribute("checkbox");
+    var $x_4 = $m_Ltyrian_Html$().Ltyrian_Html$__f_checked$minusBoolean;
+    var m$4 = $n(stats).Lftg_Character_CharacterBaseStats__f_mentalStats;
+    var this$119 = $n($n(m$4).Lftg_Character_StatGroup__f_markedPool);
+    var attributes$21 = $x_6.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Attr.getArrayOf()).constr([
+        $x_5,
+        $n($x_4).$colon$eq__Z__Ltyrian_PropertyBoolean(!this$119.isEmpty__Z())
+    ]));
+    var this$121 = $n(attributes$21);
+    var attributes$22 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$121);
+    var children$27 = $m_sci_Nil$();
+    var key$16 = $m_s_None$();
+    var $x_7 = new $c_Ltyrian_Tag("input", attributes$22, children$27, key$16);
+    var $x_3 = $m_Ltyrian_syntax$();
+    var m$5 = $n(stats).Lftg_Character_CharacterBaseStats__f_mentalStats;
+    var this$126 = $n($n(m$5).Lftg_Character_StatGroup__f_markedPool);
+    if (this$126.isEmpty__Z()) var $x_2 = $m_s_None$();
+    else {
+        var x0$1 = this$126.get__O();
+        var v$1 = $as_Lftg_DicePool_DicePool(x0$1);
+        var this$129 = $m_Ltyrian_Html$();
+        var this$127 = $n(v$1).Lftg_DicePool_DicePool__f_diceRemaining;
+        var plainText$5 = "" + this$127;
+        var $x_2 = new $c_s_Some($f_Ltyrian_HtmlTags__button$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$129, plainText$5));
+    }
+    var children$28 = $x_8.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_7,
+        $x_3.orEmpty__s_Option__Ltyrian_Elem($x_2)
+    ]));
+    var attributes$23 = $m_sci_Nil$();
+    var this$131 = $n(children$28);
+    var children$29 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$131);
+    var key$17 = $m_s_None$();
+    var children$30 = $x_9.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        new $c_Ltyrian_Tag("div", attributes$23, children$29, key$17)
+    ]));
+    var attributes$24 = $m_sci_Nil$();
+    var this$136 = $n(children$30);
+    var children$31 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$136);
+    var key$18 = $m_s_None$();
+    var children$32 = $x_11.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_10,
+        new $c_Ltyrian_Tag("td", attributes$24, children$31, key$18)
+    ]));
+    var attributes$25 = $m_sci_Nil$();
+    var this$141 = $n(children$32);
+    var children$33 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$141);
+    var key$19 = $m_s_None$();
+    var children$34 = $x_23.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_22,
+        new $c_Ltyrian_Tag("tr", attributes$25, children$33, key$19)
+    ]));
+    var attributes$26 = $m_sci_Nil$();
+    var this$146 = $n(children$34);
+    var children$35 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$146);
+    var key$20 = $m_s_None$();
+    var children$36 = $x_60.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_59,
+        new $c_Ltyrian_Tag("table", attributes$26, children$35, key$20)
+    ]));
+    var this$151 = $n(attributes$27);
+    var attributes$28 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$151);
+    var this$153 = $n(children$36);
+    var children$37 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$153);
+    var key$21 = $m_s_None$();
+    return new $c_Ltyrian_Tag("div", attributes$28, children$37, key$21);
+};
+var $d_Lftg_page_CharacterHtmlRenderer$ = new $TypeData().initClass($c_Lftg_page_CharacterHtmlRenderer$, "ftg.page.CharacterHtmlRenderer$", {
+    Lftg_page_CharacterHtmlRenderer$: 1
+});
+var $n_Lftg_page_CharacterHtmlRenderer$;
+function $m_Lftg_page_CharacterHtmlRenderer$() {
+    if (!$n_Lftg_page_CharacterHtmlRenderer$) $n_Lftg_page_CharacterHtmlRenderer$ = new $c_Lftg_page_CharacterHtmlRenderer$();
+    return $n_Lftg_page_CharacterHtmlRenderer$;
+}
+/** @constructor */ function $c_Lftg_page_DefaultCharacter$() {
+    this.Lftg_page_DefaultCharacter$__f_detherilStarren = null;
+    $n_Lftg_page_DefaultCharacter$ = this;
+    var distinctiveFeatures = new $c_sci_$colon$colon("Blue jacket", new $c_sci_$colon$colon("No shirt", new $c_sci_$colon$colon("Left peg-leg", new $c_sci_$colon$colon("Extremely old", new $c_sci_$colon$colon("Huge beard", $m_sci_Nil$())))));
+    var profile = new $c_Lftg_Character_CharacterProfile("Detheril Starren", "Lucy Holderton", distinctiveFeatures);
+    var bodyStats = new $c_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn(2).withAgility__I__Lftg_Character_StatGroup(3);
+    var mentalStats = new $c_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits(2).withPresence__I__Lftg_Character_StatGroup(1);
+    var stats = new $c_Lftg_Character_CharacterBaseStats(bodyStats, mentalStats);
+    var conditions = $m_sci_Nil$();
+    var wises = new $c_T3("navigation", "folklore", "naval law");
+    var value = new $c_Lftg_Character_Background("Sailor", wises);
+    var _1 = new $c_s_Some(value);
+    var wises$1 = new $c_T3("first aid", "repair", "tactics");
+    var value$1 = new $c_Lftg_Character_Background("Old Soldier", wises$1);
+    var _2 = new $c_s_Some(value$1);
+    var backgrounds = new $c_T2(_1, _2);
+    var twoYouAre = new $c_sci_$colon$colon(new $c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait("Brave"), new $c_sci_$colon$colon(new $c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait("Stubborn"), $m_sci_Nil$()));
+    var value$2 = new $c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait("Honest");
+    var oneYouArent = new $c_s_Some(value$2);
+    var traits = new $c_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection(twoYouAre, oneYouArent);
+    var twoYouWant = new $c_sci_$colon$colon(new $c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire("Harmony"), new $c_sci_$colon$colon(new $c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire("Thrills"), $m_sci_Nil$()));
+    var value$3 = new $c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire("Power");
+    var oneYouDont = new $c_s_Some(value$3);
+    var desires = new $c_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection(twoYouWant, oneYouDont);
+    var details = new $c_Lftg_Character_CharacterDetails(backgrounds, traits, desires);
+    var this$39 = $n($m_Lftg_Character_PremadeBonds$().premadeLeftBonds__sci_List());
+    var labelLeft = $as_T($f_sc_LinearSeqOps__apply__I__O(this$39, 5));
+    var this$40 = $n($m_Lftg_Character_PremadeBonds$().premadeRightBonds__sci_List());
+    var labelRight = $as_T($f_sc_LinearSeqOps__apply__I__O(this$40, 1));
+    var bondDesc = new $c_Lftg_Character_PremadeBond(labelLeft, labelRight);
+    var $x_5 = new $c_Lftg_Character_Bond("Sora", bondDesc);
+    var this$44 = $n($m_Lftg_Character_PremadeBonds$().premadeLeftBonds__sci_List());
+    var labelLeft$1 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$44, 0));
+    var this$45 = $n($m_Lftg_Character_PremadeBonds$().premadeRightBonds__sci_List());
+    var labelRight$1 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$45, 3));
+    var bondDesc$1 = new $c_Lftg_Character_PremadeBond(labelLeft$1, labelRight$1);
+    var $x_4 = new $c_Lftg_Character_Bond("Malcolm", bondDesc$1);
+    var this$49 = $n($m_Lftg_Character_PremadeBonds$().premadeLeftBonds__sci_List());
+    var labelLeft$2 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$49, 2));
+    var this$50 = $n($m_Lftg_Character_PremadeBonds$().premadeRightBonds__sci_List());
+    var labelRight$2 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$50, 4));
+    var bondDesc$2 = new $c_Lftg_Character_PremadeBond(labelLeft$2, labelRight$2);
+    var $x_3 = new $c_Lftg_Character_Bond("Aust", bondDesc$2);
+    var this$54 = $n($m_Lftg_Character_PremadeBonds$().premadeLeftBonds__sci_List());
+    var labelLeft$3 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$54, 1));
+    var this$55 = $n($m_Lftg_Character_PremadeBonds$().premadeRightBonds__sci_List());
+    var labelRight$3 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$55, 1));
+    var bondDesc$3 = new $c_Lftg_Character_PremadeBond(labelLeft$3, labelRight$3);
+    var $x_2 = new $c_Lftg_Character_Bond("Glynrel", bondDesc$3);
+    var this$59 = $n($m_Lftg_Character_PremadeBonds$().premadeLeftBonds__sci_List());
+    var labelLeft$4 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$59, 4));
+    var this$60 = $n($m_Lftg_Character_PremadeBonds$().premadeRightBonds__sci_List());
+    var labelRight$4 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$60, 0));
+    var bondDesc$4 = new $c_Lftg_Character_PremadeBond(labelLeft$4, labelRight$4);
+    var $x_1 = new $c_Lftg_Character_Bond("Andromeda", bondDesc$4);
+    var this$64 = $n($m_Lftg_Character_PremadeBonds$().premadeLeftBonds__sci_List());
+    var labelLeft$5 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$64, 2));
+    var this$65 = $n($m_Lftg_Character_PremadeBonds$().premadeRightBonds__sci_List());
+    var labelRight$5 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$65, 3));
+    var bondDesc$5 = new $c_Lftg_Character_PremadeBond(labelLeft$5, labelRight$5);
+    var bonds = new $c_sci_$colon$colon($x_5, new $c_sci_$colon$colon($x_4, new $c_sci_$colon$colon($x_3, new $c_sci_$colon$colon($x_2, new $c_sci_$colon$colon($x_1, new $c_sci_$colon$colon(new $c_Lftg_Character_Bond("Stonarta", bondDesc$5), $m_sci_Nil$()))))));
+    var this$68 = $n($m_Lftg_Character_PremadeArcs$().Lftg_Character_PremadeArcs$__f_struggleArcs);
+    var groupArc = $as_Lftg_Character_StoryArc($f_sc_LinearSeqOps__apply__I__O(this$68, 5));
+    var this$69 = $n($m_Lftg_Character_PremadeArcs$().Lftg_Character_PremadeArcs$__f_growthArcs);
+    var characterArc = $as_Lftg_Character_StoryArc($f_sc_LinearSeqOps__apply__I__O(this$69, 5));
+    var charClass = $s_Lftg_Character_CharacterClass$__Fighter__Lftg_Character_CharacterClass();
+    var talents = new $c_sci_$colon$colon($m_Lftg_Talent_ClassTalents_FighterTalents$().Lftg_Talent_ClassTalents_FighterTalents$__f_weaponMastery, new $c_sci_$colon$colon($m_Lftg_Talent_ClassTalents_FighterTalents$().Lftg_Talent_ClassTalents_FighterTalents$__f_bulwark, new $c_sci_$colon$colon($m_Lftg_Talent_ClassTalents_FighterTalents$().Lftg_Talent_ClassTalents_FighterTalents$__f_gotYourBack, new $c_sci_$colon$colon($m_Lftg_Talent_ClassTalents_FighterTalents$().Lftg_Talent_ClassTalents_FighterTalents$__f_measuredTones, $m_sci_Nil$()))));
+    this.Lftg_page_DefaultCharacter$__f_detherilStarren = new $c_Lftg_Character_Character(profile, stats, conditions, 2, 2, details, bonds, groupArc, characterArc, 8, charClass, talents, "");
+}
+$c_Lftg_page_DefaultCharacter$.prototype = new $h_O();
+$c_Lftg_page_DefaultCharacter$.prototype.constructor = $c_Lftg_page_DefaultCharacter$;
+/** @constructor */ function $h_Lftg_page_DefaultCharacter$() {}
+$h_Lftg_page_DefaultCharacter$.prototype = $c_Lftg_page_DefaultCharacter$.prototype;
+var $d_Lftg_page_DefaultCharacter$ = new $TypeData().initClass($c_Lftg_page_DefaultCharacter$, "ftg.page.DefaultCharacter$", {
+    Lftg_page_DefaultCharacter$: 1
+});
+var $n_Lftg_page_DefaultCharacter$;
+function $m_Lftg_page_DefaultCharacter$() {
+    if (!$n_Lftg_page_DefaultCharacter$) $n_Lftg_page_DefaultCharacter$ = new $c_Lftg_page_DefaultCharacter$();
+    return $n_Lftg_page_DefaultCharacter$;
+}
 /** @constructor */ function $c_jl_FloatingPointBits$() {
     this.jl_FloatingPointBits$__f_java$lang$FloatingPointBits$$_areTypedArraysSupported = false;
     this.jl_FloatingPointBits$__f_arrayBuffer = null;
@@ -13278,6 +13941,22 @@ function $asArrayOf_Ltyrian_Attr(obj, depth) {
 var $d_Ltyrian_Attr = new $TypeData().initClass(1, "tyrian.Attr", {
     Ltyrian_Attr: 1
 });
+/** @constructor */ function $c_Ltyrian_AttributeNameString(name) {
+    this.Ltyrian_AttributeNameString__f_name = null;
+    this.Ltyrian_AttributeNameString__f_name = name;
+}
+$c_Ltyrian_AttributeNameString.prototype = new $h_O();
+$c_Ltyrian_AttributeNameString.prototype.constructor = $c_Ltyrian_AttributeNameString;
+/** @constructor */ function $h_Ltyrian_AttributeNameString() {}
+$h_Ltyrian_AttributeNameString.prototype = $c_Ltyrian_AttributeNameString.prototype;
+$c_Ltyrian_AttributeNameString.prototype.$colon$eq__T__Ltyrian_Attribute = function(value) {
+    $m_Ltyrian_Attribute$();
+    var this$1 = $n(this.Ltyrian_AttributeNameString__f_name);
+    return new $c_Ltyrian_Attribute(this$1, value);
+};
+var $d_Ltyrian_AttributeNameString = new $TypeData().initClass($c_Ltyrian_AttributeNameString, "tyrian.AttributeNameString", {
+    Ltyrian_AttributeNameString: 1
+});
 function $is_Ltyrian_Cmd(obj) {
     return !!(obj && obj.$classData && obj.$classData.ancestors.Ltyrian_Cmd);
 }
@@ -13478,8 +14157,10 @@ $c_Ltyrian_HTMLRendering$package$.prototype.render__Ltyrian_Html__T = function(h
     throw new $c_s_MatchError(html);
 };
 $c_Ltyrian_HTMLRendering$package$.prototype.render__Ltyrian_Attr__T = function(a) {
-    if (a instanceof $c_Ltyrian_Event) return "";
-    var a$2;
+    if (a instanceof $c_Ltyrian_Attribute) {
+        var a$2 = $as_Ltyrian_Attribute(a);
+        return $m_Ltyrian_HTMLRendering$package$().render__Ltyrian_Attribute__T(a$2);
+    }
     if ($is_Ltyrian_Property(a)) {
         var p = $as_Ltyrian_Property(a);
         return $m_Ltyrian_HTMLRendering$package$().render__Ltyrian_Property__T(p);
@@ -13517,22 +14198,52 @@ function $m_Ltyrian_HTMLRendering$package$() {
     if (!$n_Ltyrian_HTMLRendering$package$) $n_Ltyrian_HTMLRendering$package$ = new $c_Ltyrian_HTMLRendering$package$();
     return $n_Ltyrian_HTMLRendering$package$;
 }
-function $f_Ltyrian_HtmlAttributes__$init$__V($thiz) {}
-function $f_Ltyrian_HtmlAttributes__onClick__O__Ltyrian_Event($thiz, msg) {
-    var msg$1 = new $c_sjsr_AnonFunction1_$$Lambda$3aa60c34ef08a878abffbf4628007cc68fa3c7ab((_$8)=>msg);
-    return new $c_Ltyrian_Event("click", msg$1, true, true, true);
+function $f_Ltyrian_HtmlAttributes__$init$__V($thiz) {
+    $thiz.Ltyrian_Html$__f_$u0060type$u0060$minusString = new $c_Ltyrian_AttributeNameString("type");
+    $thiz.Ltyrian_Html$__f_checked$minusBoolean = new $c_Ltyrian_PropertyNameBoolean("checked");
+    $thiz.Ltyrian_Html$__f_value$minusString = new $c_Ltyrian_PropertyNameString("value");
 }
-function $f_Ltyrian_HtmlTags__button$minusrepeated$minuslist$minusplaintext__sci_Seq__T__Ltyrian_Html($thiz, attributes, plainText) {
-    var attributes$1 = $n(attributes).toList__sci_List();
-    var children = new $c_sci_$colon$colon(($m_Ltyrian_Html$(), new $c_Ltyrian_Text(plainText)), $m_sci_Nil$());
-    var key = $m_s_None$();
-    return new $c_Ltyrian_Tag("button", attributes$1, children, key);
-}
-function $f_Ltyrian_HtmlTags__div$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html($thiz, plainText) {
+function $f_Ltyrian_HtmlTags__button$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html($thiz, plainText) {
     var attributes = $m_sci_Nil$();
     var children = new $c_sci_$colon$colon(($m_Ltyrian_Html$(), new $c_Ltyrian_Text(plainText)), $m_sci_Nil$());
     var key = $m_s_None$();
-    return new $c_Ltyrian_Tag("div", attributes, children, key);
+    return new $c_Ltyrian_Tag("button", attributes, children, key);
+}
+function $f_Ltyrian_HtmlTags__h1$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html($thiz, plainText) {
+    var attributes = $m_sci_Nil$();
+    var children = new $c_sci_$colon$colon(($m_Ltyrian_Html$(), new $c_Ltyrian_Text(plainText)), $m_sci_Nil$());
+    var key = $m_s_None$();
+    return new $c_Ltyrian_Tag("h1", attributes, children, key);
+}
+function $f_Ltyrian_HtmlTags__h2$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html($thiz, plainText) {
+    var attributes = $m_sci_Nil$();
+    var children = new $c_sci_$colon$colon(($m_Ltyrian_Html$(), new $c_Ltyrian_Text(plainText)), $m_sci_Nil$());
+    var key = $m_s_None$();
+    return new $c_Ltyrian_Tag("h2", attributes, children, key);
+}
+function $f_Ltyrian_HtmlTags__h3$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html($thiz, plainText) {
+    var attributes = $m_sci_Nil$();
+    var children = new $c_sci_$colon$colon(($m_Ltyrian_Html$(), new $c_Ltyrian_Text(plainText)), $m_sci_Nil$());
+    var key = $m_s_None$();
+    return new $c_Ltyrian_Tag("h3", attributes, children, key);
+}
+function $f_Ltyrian_HtmlTags__p$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html($thiz, plainText) {
+    var attributes = $m_sci_Nil$();
+    var children = new $c_sci_$colon$colon(($m_Ltyrian_Html$(), new $c_Ltyrian_Text(plainText)), $m_sci_Nil$());
+    var key = $m_s_None$();
+    return new $c_Ltyrian_Tag("p", attributes, children, key);
+}
+function $f_Ltyrian_HtmlTags__td$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html($thiz, plainText) {
+    var attributes = $m_sci_Nil$();
+    var children = new $c_sci_$colon$colon(($m_Ltyrian_Html$(), new $c_Ltyrian_Text(plainText)), $m_sci_Nil$());
+    var key = $m_s_None$();
+    return new $c_Ltyrian_Tag("td", attributes, children, key);
+}
+function $f_Ltyrian_HtmlTags__th$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html($thiz, plainText) {
+    var attributes = $m_sci_Nil$();
+    var children = new $c_sci_$colon$colon(($m_Ltyrian_Html$(), new $c_Ltyrian_Text(plainText)), $m_sci_Nil$());
+    var key = $m_s_None$();
+    return new $c_Ltyrian_Tag("th", attributes, children, key);
 }
 function $is_Ltyrian_Location(obj) {
     return !!(obj && obj.$classData && obj.$classData.ancestors.Ltyrian_Location);
@@ -13550,6 +14261,36 @@ function $f_Ltyrian_LocationPlatform__fromJsLocation__Lorg_scalajs_dom_Location_
     var locationDetails = $m_Ltyrian_LocationDetails$().fromUrl__T__Ltyrian_LocationDetails($as_T(location.href));
     return new $c_Ltyrian_Location$Internal(locationDetails);
 }
+/** @constructor */ function $c_Ltyrian_PropertyNameBoolean(name) {
+    this.Ltyrian_PropertyNameBoolean__f_name = null;
+    this.Ltyrian_PropertyNameBoolean__f_name = name;
+}
+$c_Ltyrian_PropertyNameBoolean.prototype = new $h_O();
+$c_Ltyrian_PropertyNameBoolean.prototype.constructor = $c_Ltyrian_PropertyNameBoolean;
+/** @constructor */ function $h_Ltyrian_PropertyNameBoolean() {}
+$h_Ltyrian_PropertyNameBoolean.prototype = $c_Ltyrian_PropertyNameBoolean.prototype;
+$c_Ltyrian_PropertyNameBoolean.prototype.$colon$eq__Z__Ltyrian_PropertyBoolean = function(value) {
+    var this$1 = $n(this.Ltyrian_PropertyNameBoolean__f_name);
+    return new $c_Ltyrian_PropertyBoolean(this$1, value);
+};
+var $d_Ltyrian_PropertyNameBoolean = new $TypeData().initClass($c_Ltyrian_PropertyNameBoolean, "tyrian.PropertyNameBoolean", {
+    Ltyrian_PropertyNameBoolean: 1
+});
+/** @constructor */ function $c_Ltyrian_PropertyNameString(name) {
+    this.Ltyrian_PropertyNameString__f_name = null;
+    this.Ltyrian_PropertyNameString__f_name = name;
+}
+$c_Ltyrian_PropertyNameString.prototype = new $h_O();
+$c_Ltyrian_PropertyNameString.prototype.constructor = $c_Ltyrian_PropertyNameString;
+/** @constructor */ function $h_Ltyrian_PropertyNameString() {}
+$h_Ltyrian_PropertyNameString.prototype = $c_Ltyrian_PropertyNameString.prototype;
+$c_Ltyrian_PropertyNameString.prototype.$colon$eq__T__Ltyrian_PropertyString = function(value) {
+    var this$1 = $n(this.Ltyrian_PropertyNameString__f_name);
+    return new $c_Ltyrian_PropertyString(this$1, value);
+};
+var $d_Ltyrian_PropertyNameString = new $TypeData().initClass($c_Ltyrian_PropertyNameString, "tyrian.PropertyNameString", {
+    Ltyrian_PropertyNameString: 1
+});
 /** @constructor */ function $c_Ltyrian_Routing$() {}
 $c_Ltyrian_Routing$.prototype = new $h_O();
 $c_Ltyrian_Routing$.prototype.constructor = $c_Ltyrian_Routing$;
@@ -13580,6 +14321,36 @@ var $n_Ltyrian_Routing$;
 function $m_Ltyrian_Routing$() {
     if (!$n_Ltyrian_Routing$) $n_Ltyrian_Routing$ = new $c_Ltyrian_Routing$();
     return $n_Ltyrian_Routing$;
+}
+/** @constructor */ function $c_Ltyrian_Style$package$Style$() {
+    $n_Ltyrian_Style$package$Style$ = this;
+    $m_Ltyrian_Style$package$Style$().apply__T__T__T("", "");
+}
+$c_Ltyrian_Style$package$Style$.prototype = new $h_O();
+$c_Ltyrian_Style$package$Style$.prototype.constructor = $c_Ltyrian_Style$package$Style$;
+/** @constructor */ function $h_Ltyrian_Style$package$Style$() {}
+$h_Ltyrian_Style$package$Style$.prototype = $c_Ltyrian_Style$package$Style$.prototype;
+$c_Ltyrian_Style$package$Style$.prototype.apply__T__T__T = function(name, value) {
+    if (name === "") {
+        if (value === "") return "";
+        var this$2 = $n(value);
+        if ($uZ(this$2.endsWith(";"))) return value;
+        return value + ";";
+    }
+    if (value === "") {
+        var this$3 = $n(name);
+        if ($uZ(this$3.endsWith(";"))) return name;
+        return name + ";";
+    }
+    return name + ":" + value + ";";
+};
+var $d_Ltyrian_Style$package$Style$ = new $TypeData().initClass($c_Ltyrian_Style$package$Style$, "tyrian.Style$package$Style$", {
+    Ltyrian_Style$package$Style$: 1
+});
+var $n_Ltyrian_Style$package$Style$;
+function $m_Ltyrian_Style$package$Style$() {
+    if (!$n_Ltyrian_Style$package$Style$) $n_Ltyrian_Style$package$Style$ = new $c_Ltyrian_Style$package$Style$();
+    return $n_Ltyrian_Style$package$Style$;
 }
 function $is_Ltyrian_Sub(obj) {
     return !!(obj && obj.$classData && obj.$classData.ancestors.Ltyrian_Sub);
@@ -13625,18 +14396,28 @@ function $p_Ltyrian_TyrianApp__routeCurrentLocation__F1__Lcats_effect_kernel_Asy
     return new $c_Ltyrian_Cmd$Run(task, router, evidence$1);
 }
 function $p_Ltyrian_TyrianApp___init__sci_Map__T2($thiz, flags) {
-    var _2 = $m_Ltyrian_Cmd$None$();
-    var \u03B41$___1 = 0;
-    var \u03B41$___2 = _2;
+    matchResult1: {
+        var \u03B41$___1;
+        var \u03B41$___2;
+        var x1 = $thiz.init__sci_Map__T2(flags);
+        if (x1 !== null) {
+            var m = $n(x1)._1__O();
+            var cmd = $as_Ltyrian_Cmd($n(x1)._2__O());
+            var \u03B41$___1 = m;
+            var \u03B41$___2 = cmd;
+            break matchResult1;
+        }
+        throw new $c_s_MatchError(x1);
+    }
     var m$2 = \u03B41$___1;
     var cmd$2 = $as_Ltyrian_Cmd(\u03B41$___2);
-    var this$3 = $n(cmd$2);
+    var this$2 = $n(cmd$2);
     var other = $p_Ltyrian_TyrianApp__routeCurrentLocation__F1__Lcats_effect_kernel_Async__Ltyrian_Cmd($thiz, $m_Ltyrian_Routing$().none__O__F1($s_Lftg_Msg$__NoOp__Lftg_Msg()), $thiz.Lftg_GrimwildOnlineSheet$__f_tyrian$TyrianApp$$evidence$1);
-    var _2$1 = $m_Ltyrian_Cmd$().merge__Ltyrian_Cmd__Ltyrian_Cmd__Ltyrian_Cmd(this$3, other);
-    return new $c_T2(m$2, _2$1);
+    var _2 = $m_Ltyrian_Cmd$().merge__Ltyrian_Cmd__Ltyrian_Cmd__Ltyrian_Cmd(this$2, other);
+    return new $c_T2(m$2, _2);
 }
 function $p_Ltyrian_TyrianApp___update__O__F1($thiz, model) {
-    return new $c_sjsr_AnonFunction1_$$Lambda$3aa60c34ef08a878abffbf4628007cc68fa3c7ab((msg)=>$as_T2($n($thiz.update__I__F1($uI(model))).apply__O__O(msg)));
+    return new $c_sjsr_AnonFunction1_$$Lambda$3aa60c34ef08a878abffbf4628007cc68fa3c7ab((msg)=>$as_T2($n($thiz.update__Lftg_page_Model__F1($as_Lftg_page_Model(model))).apply__O__O(msg)));
 }
 function $p_Ltyrian_TyrianApp__onUrlChange__F1__Lcats_effect_kernel_Async__Ltyrian_Sub($thiz, router, evidence$1) {
     var subs = $m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Sub.getArrayOf()).constr([
@@ -13649,7 +14430,7 @@ function $p_Ltyrian_TyrianApp__onUrlChange__F1__Lcats_effect_kernel_Async__Ltyri
 }
 function $p_Ltyrian_TyrianApp___subscriptions__O__Ltyrian_Sub($thiz, model) {
     var this$1 = $n($p_Ltyrian_TyrianApp__onUrlChange__F1__Lcats_effect_kernel_Async__Ltyrian_Sub($thiz, $m_Ltyrian_Routing$().none__O__F1($s_Lftg_Msg$__NoOp__Lftg_Msg()), $thiz.Lftg_GrimwildOnlineSheet$__f_tyrian$TyrianApp$$evidence$1));
-    $uI(model);
+    $as_Lftg_page_Model(model);
     var other = $m_Ltyrian_Sub$None$();
     return $m_Ltyrian_Sub$().merge__Ltyrian_Sub__Ltyrian_Sub__Ltyrian_Sub(this$1, other);
 }
@@ -13658,7 +14439,10 @@ function $f_Ltyrian_TyrianApp__ready__Lorg_scalajs_dom_Element__sci_Map__V($thiz
     var router = $m_Ltyrian_Routing$().none__O__F1($s_Lftg_Msg$__NoOp__Lftg_Msg());
     var init = $p_Ltyrian_TyrianApp___init__sci_Map__T2($thiz, flags);
     var update = new $c_sjsr_AnonFunction1_$$Lambda$3aa60c34ef08a878abffbf4628007cc68fa3c7ab((model)=>$p_Ltyrian_TyrianApp___update__O__F1($thiz, model));
-    var view = new $c_sjsr_AnonFunction1_$$Lambda$3aa60c34ef08a878abffbf4628007cc68fa3c7ab((model$2)=>$thiz.view__I__Ltyrian_Html($uI(model$2)));
+    var view = new $c_sjsr_AnonFunction1_$$Lambda$3aa60c34ef08a878abffbf4628007cc68fa3c7ab((model$2)=>{
+        var model$1 = $as_Lftg_page_Model(model$2);
+        return $m_Lftg_page_CharacterHtmlRenderer$().renderCharacter__Lftg_Character_Character__Ltyrian_Html($n(model$1).Lftg_page_Model__f_character);
+    });
     var subscriptions = new $c_sjsr_AnonFunction1_$$Lambda$3aa60c34ef08a878abffbf4628007cc68fa3c7ab((model$3)=>$p_Ltyrian_TyrianApp___subscriptions__O__Ltyrian_Sub($thiz, model$3));
     var evidence$1 = $thiz.Lftg_GrimwildOnlineSheet$__f_tyrian$TyrianApp$$evidence$1;
     $x_1.apply__O__O($m_Ltyrian_runtime_TyrianRuntime$().apply__F1__Lorg_scalajs_dom_Element__O__Ltyrian_Cmd__F1__F1__F1__Lcats_effect_kernel_Async__O(router, node, $n(init)._1__O(), $as_Ltyrian_Cmd($n(init)._2__O()), update, view, subscriptions, evidence$1));
@@ -13777,7 +14561,17 @@ function $p_Ltyrian_runtime_Rendering$__interceptHref__sci_List__Z($thiz, attrs)
             var x$1 = $as_Ltyrian_Attr(x0);
             matchResult7: {
                 var $x_1;
-                var x$1$1, this$3, x54, $x_1;
+                if (x$1 instanceof $c_Ltyrian_Attribute) {
+                    $m_Ltyrian_Attribute$();
+                    var x$1$1 = $as_Ltyrian_Attribute(x$1);
+                    var this$3 = $n(x$1$1);
+                    var x54 = this$3.Ltyrian_Attribute__f_name;
+                    $n(x$1$1);
+                    if (x54 === "href") {
+                        var $x_1 = true;
+                        break matchResult7;
+                    }
+                }
                 var $x_1 = false;
             }
             if ($x_1) {
@@ -13796,19 +14590,7 @@ function $p_Ltyrian_runtime_Rendering$__interceptHref__sci_List__Z($thiz, attrs)
             var x$1$2 = $as_Ltyrian_Attr(x0$1);
             matchResult8: {
                 var $x_2;
-                if (x$1$2 instanceof $c_Ltyrian_Event) {
-                    var x$1$3 = $as_Ltyrian_Event(x$1$2);
-                    var this$7 = $n(x$1$3);
-                    var x59 = this$7.Ltyrian_Event__f_name;
-                    $n(x$1$3);
-                    $n(x$1$3);
-                    $n(x$1$3);
-                    $n(x$1$3);
-                    if (x59 === "click") {
-                        var $x_2 = true;
-                        break matchResult8;
-                    }
-                }
+                var x$1$3, x59, $x_2;
                 var $x_2 = false;
             }
             if ($x_2) {
@@ -14479,6 +15261,23 @@ var $n_Ltyrian_runtime_TyrianRuntime$;
 function $m_Ltyrian_runtime_TyrianRuntime$() {
     if (!$n_Ltyrian_runtime_TyrianRuntime$) $n_Ltyrian_runtime_TyrianRuntime$ = new $c_Ltyrian_runtime_TyrianRuntime$();
     return $n_Ltyrian_runtime_TyrianRuntime$;
+}
+/** @constructor */ function $c_Ltyrian_syntax$() {}
+$c_Ltyrian_syntax$.prototype = new $h_O();
+$c_Ltyrian_syntax$.prototype.constructor = $c_Ltyrian_syntax$;
+/** @constructor */ function $h_Ltyrian_syntax$() {}
+$h_Ltyrian_syntax$.prototype = $c_Ltyrian_syntax$.prototype;
+$c_Ltyrian_syntax$.prototype.orEmpty__s_Option__Ltyrian_Elem = function(oa) {
+    var this$1 = $n(oa);
+    return $as_Ltyrian_Elem(this$1.isEmpty__Z() ? $m_Ltyrian_Empty$() : this$1.get__O());
+};
+var $d_Ltyrian_syntax$ = new $TypeData().initClass($c_Ltyrian_syntax$, "tyrian.syntax$", {
+    Ltyrian_syntax$: 1
+});
+var $n_Ltyrian_syntax$;
+function $m_Ltyrian_syntax$() {
+    if (!$n_Ltyrian_syntax$) $n_Ltyrian_syntax$ = new $c_Ltyrian_syntax$();
+    return $n_Ltyrian_syntax$;
 }
 /** @constructor */ function $c_Lcats_Bifunctor$() {}
 $c_Lcats_Bifunctor$.prototype = new $h_O();
@@ -30986,6 +31785,43 @@ var $d_Lcats_package$$anon$3 = new $TypeData().initClass($c_Lcats_package$$anon$
     Ljava_io_Serializable: 1,
     Lcats_Align: 1
 });
+function $s_Lftg_Character_CharacterClass$__Fighter__Lftg_Character_CharacterClass() {
+    $m_Lftg_Character_CharacterClass$();
+    return $t_Lftg_Character_CharacterClass$__Fighter;
+}
+/** @constructor */ function $c_Lftg_Character_CharacterClass$() {
+    $n_Lftg_Character_CharacterClass$ = this;
+    $t_Lftg_Character_CharacterClass$__Fighter = new $c_Lftg_Character_CharacterClass$$anon$1("Fighter", 4);
+}
+$c_Lftg_Character_CharacterClass$.prototype = new $h_O();
+$c_Lftg_Character_CharacterClass$.prototype.constructor = $c_Lftg_Character_CharacterClass$;
+/** @constructor */ function $h_Lftg_Character_CharacterClass$() {}
+$h_Lftg_Character_CharacterClass$.prototype = $c_Lftg_Character_CharacterClass$.prototype;
+var $d_Lftg_Character_CharacterClass$ = new $TypeData().initClass($c_Lftg_Character_CharacterClass$, "ftg.Character.CharacterClass$", {
+    Lftg_Character_CharacterClass$: 1,
+    s_deriving_Mirror: 1,
+    s_deriving_Mirror$Sum: 1
+});
+var $n_Lftg_Character_CharacterClass$;
+function $m_Lftg_Character_CharacterClass$() {
+    if (!$n_Lftg_Character_CharacterClass$) $n_Lftg_Character_CharacterClass$ = new $c_Lftg_Character_CharacterClass$();
+    return $n_Lftg_Character_CharacterClass$;
+}
+/** @constructor */ function $c_Lftg_DicePool_DicePool$() {}
+$c_Lftg_DicePool_DicePool$.prototype = new $h_O();
+$c_Lftg_DicePool_DicePool$.prototype.constructor = $c_Lftg_DicePool_DicePool$;
+/** @constructor */ function $h_Lftg_DicePool_DicePool$() {}
+$h_Lftg_DicePool_DicePool$.prototype = $c_Lftg_DicePool_DicePool$.prototype;
+var $d_Lftg_DicePool_DicePool$ = new $TypeData().initClass($c_Lftg_DicePool_DicePool$, "ftg.DicePool.DicePool$", {
+    Lftg_DicePool_DicePool$: 1,
+    s_deriving_Mirror: 1,
+    s_deriving_Mirror$Product: 1
+});
+var $n_Lftg_DicePool_DicePool$;
+function $m_Lftg_DicePool_DicePool$() {
+    if (!$n_Lftg_DicePool_DicePool$) $n_Lftg_DicePool_DicePool$ = new $c_Lftg_DicePool_DicePool$();
+    return $n_Lftg_DicePool_DicePool$;
+}
 /** @constructor */ function $c_Lftg_GrimwildOnlineSheet$() {
     this.Lftg_GrimwildOnlineSheet$__f_tyrian$TyrianApp$$evidence$1 = null;
     this.Lftg_GrimwildOnlineSheet$__f_run = null;
@@ -30997,7 +31833,13 @@ $c_Lftg_GrimwildOnlineSheet$.prototype = new $h_O();
 $c_Lftg_GrimwildOnlineSheet$.prototype.constructor = $c_Lftg_GrimwildOnlineSheet$;
 /** @constructor */ function $h_Lftg_GrimwildOnlineSheet$() {}
 $h_Lftg_GrimwildOnlineSheet$.prototype = $c_Lftg_GrimwildOnlineSheet$.prototype;
-$c_Lftg_GrimwildOnlineSheet$.prototype.update__I__F1 = function(model) {
+$c_Lftg_GrimwildOnlineSheet$.prototype.init__sci_Map__T2 = function(flags) {
+    var character = $m_Lftg_page_DefaultCharacter$().Lftg_page_DefaultCharacter$__f_detherilStarren;
+    var _1 = new $c_Lftg_page_Model(character);
+    var _2 = $m_Ltyrian_Cmd$None$();
+    return new $c_T2(_1, _2);
+};
+$c_Lftg_GrimwildOnlineSheet$.prototype.update__Lftg_page_Model__F1 = function(model) {
     return new $c_sjsr_AnonFunction1_$$Lambda$3aa60c34ef08a878abffbf4628007cc68fa3c7ab((x$1)=>{
         var x$1$1 = $as_Lftg_Msg(x$1);
         var x = $s_Lftg_Msg$__Increment__Lftg_Msg();
@@ -31007,9 +31849,8 @@ $c_Lftg_GrimwildOnlineSheet$.prototype.update__I__F1 = function(model) {
             var $x_1 = this$1 === x$1$1;
         }
         if ($x_1) {
-            var _1 = 1 + model | 0;
             var _2 = $m_Ltyrian_Cmd$None$();
-            return new $c_T2(_1, _2);
+            return new $c_T2(model, _2);
         }
         var x$3 = $s_Lftg_Msg$__Decrement__Lftg_Msg();
         if (x$3 === null) var $x_2 = x$1$1 === null;
@@ -31018,9 +31859,8 @@ $c_Lftg_GrimwildOnlineSheet$.prototype.update__I__F1 = function(model) {
             var $x_2 = this$3 === x$1$1;
         }
         if ($x_2) {
-            var _1$1 = -1 + model | 0;
             var _2$1 = $m_Ltyrian_Cmd$None$();
-            return new $c_T2(_1$1, _2$1);
+            return new $c_T2(model, _2$1);
         }
         var x$5 = $s_Lftg_Msg$__NoOp__Lftg_Msg();
         if (x$5 === null) var $x_3 = x$1$1 === null;
@@ -31034,38 +31874,6 @@ $c_Lftg_GrimwildOnlineSheet$.prototype.update__I__F1 = function(model) {
         }
         throw new $c_s_MatchError(x$1$1);
     });
-};
-$c_Lftg_GrimwildOnlineSheet$.prototype.view__I__Ltyrian_Html = function(model) {
-    $m_Ltyrian_Html$();
-    var $x_5 = $m_sr_ScalaRunTime$();
-    var this$2 = $m_Ltyrian_Html$();
-    var $x_3 = $m_sr_ScalaRunTime$();
-    var this$1 = $m_Ltyrian_Html$();
-    var msg = $s_Lftg_Msg$__Decrement__Lftg_Msg();
-    var attributes = $x_3.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Attr.getArrayOf()).constr([
-        $f_Ltyrian_HtmlAttributes__onClick__O__Ltyrian_Event(this$1, msg)
-    ]));
-    var $x_4 = $f_Ltyrian_HtmlTags__button$minusrepeated$minuslist$minusplaintext__sci_Seq__T__Ltyrian_Html(this$2, attributes, "-");
-    var this$4 = $m_Ltyrian_Html$();
-    var plainText = "" + model;
-    var $x_2 = $f_Ltyrian_HtmlTags__div$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$4, plainText);
-    var this$6 = $m_Ltyrian_Html$();
-    var $x_1 = $m_sr_ScalaRunTime$();
-    var this$5 = $m_Ltyrian_Html$();
-    var msg$1 = $s_Lftg_Msg$__Increment__Lftg_Msg();
-    var attributes$1 = $x_1.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Attr.getArrayOf()).constr([
-        $f_Ltyrian_HtmlAttributes__onClick__O__Ltyrian_Event(this$5, msg$1)
-    ]));
-    var children = $x_5.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
-        $x_4,
-        $x_2,
-        $f_Ltyrian_HtmlTags__button$minusrepeated$minuslist$minusplaintext__sci_Seq__T__Ltyrian_Html(this$6, attributes$1, "+")
-    ]));
-    var attributes$2 = $m_sci_Nil$();
-    var this$8 = $n(children);
-    var children$1 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$8);
-    var key = $m_s_None$();
-    return new $c_Ltyrian_Tag("div", attributes$2, children$1, key);
 };
 $c_Lftg_GrimwildOnlineSheet$.prototype.launch = function(arg, ...rest) {
     switch($uI(rest.length)){
@@ -31139,6 +31947,25 @@ var $n_Lftg_Msg$;
 function $m_Lftg_Msg$() {
     if (!$n_Lftg_Msg$) $n_Lftg_Msg$ = new $c_Lftg_Msg$();
     return $n_Lftg_Msg$;
+}
+/** @constructor */ function $c_Lftg_Talent_TalentWidgets_TalentWidget$() {}
+$c_Lftg_Talent_TalentWidgets_TalentWidget$.prototype = new $h_O();
+$c_Lftg_Talent_TalentWidgets_TalentWidget$.prototype.constructor = $c_Lftg_Talent_TalentWidgets_TalentWidget$;
+/** @constructor */ function $h_Lftg_Talent_TalentWidgets_TalentWidget$() {}
+$h_Lftg_Talent_TalentWidgets_TalentWidget$.prototype = $c_Lftg_Talent_TalentWidgets_TalentWidget$.prototype;
+$c_Lftg_Talent_TalentWidgets_TalentWidget$.prototype.apply__T__Lftg_Talent_TalentWidgets_TalentComponents_TalentComponent__Lftg_Talent_TalentWidgets_TalentWidget = function(s, c) {
+    var label = new $c_s_Some(s);
+    return new $c_Lftg_Talent_TalentWidgets_TalentWidget(label, c);
+};
+var $d_Lftg_Talent_TalentWidgets_TalentWidget$ = new $TypeData().initClass($c_Lftg_Talent_TalentWidgets_TalentWidget$, "ftg.Talent.TalentWidgets.TalentWidget$", {
+    Lftg_Talent_TalentWidgets_TalentWidget$: 1,
+    s_deriving_Mirror: 1,
+    s_deriving_Mirror$Product: 1
+});
+var $n_Lftg_Talent_TalentWidgets_TalentWidget$;
+function $m_Lftg_Talent_TalentWidgets_TalentWidget$() {
+    if (!$n_Lftg_Talent_TalentWidgets_TalentWidget$) $n_Lftg_Talent_TalentWidgets_TalentWidget$ = new $c_Lftg_Talent_TalentWidgets_TalentWidget$();
+    return $n_Lftg_Talent_TalentWidgets_TalentWidget$;
 }
 /** @constructor */ function $c_jl_Class($data) {
     this.data = $data;
@@ -31434,6 +32261,18 @@ function $f_s_Product2__productElement__I__O($thiz, n) {
             return $thiz._2__O();
         default:
             throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), n + " is out of bounds (min 0, max 1)");
+    }
+}
+function $f_s_Product3__productElement__I__O($thiz, n) {
+    switch(n){
+        case 0:
+            return $thiz.T3__f__1;
+        case 1:
+            return $thiz.T3__f__2;
+        case 2:
+            return $thiz.T3__f__3;
+        default:
+            throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), n + " is out of bounds (min 0, max 2)");
     }
 }
 function $f_s_Product4__productElement__I__O($thiz, n) {
@@ -36375,6 +37214,1151 @@ var $d_Lcats_kernel_PartialOrder$$anon$1 = new $TypeData().initClass($c_Lcats_ke
     Ljava_io_Serializable: 1,
     Lcats_kernel_Eq: 1,
     Lcats_kernel_PartialOrder: 1
+});
+/** @constructor */ function $c_Lftg_Character_Background(description, wises) {
+    this.Lftg_Character_Background__f_description = null;
+    this.Lftg_Character_Background__f_wises = null;
+    this.Lftg_Character_Background__f_description = description;
+    this.Lftg_Character_Background__f_wises = wises;
+}
+$c_Lftg_Character_Background.prototype = new $h_O();
+$c_Lftg_Character_Background.prototype.constructor = $c_Lftg_Character_Background;
+/** @constructor */ function $h_Lftg_Character_Background() {}
+$h_Lftg_Character_Background.prototype = $c_Lftg_Character_Background.prototype;
+$c_Lftg_Character_Background.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Character_Background.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Lftg_Character_Background.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Character_Background) {
+        var x$0$2 = $as_Lftg_Character_Background(x$0);
+        if (this.Lftg_Character_Background__f_description === $n(x$0$2).Lftg_Character_Background__f_description) {
+            var x = this.Lftg_Character_Background__f_wises;
+            var x$2 = $n(x$0$2).Lftg_Character_Background__f_wises;
+            return x === null ? x$2 === null : $n(x).equals__O__Z(x$2);
+        } else return false;
+    } else return false;
+};
+$c_Lftg_Character_Background.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Character_Background.prototype.productArity__I = function() {
+    return 2;
+};
+$c_Lftg_Character_Background.prototype.productPrefix__T = function() {
+    return "Background";
+};
+$c_Lftg_Character_Background.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Lftg_Character_Background__f_description;
+    if (n === 1) return this.Lftg_Character_Background__f_wises;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+function $as_Lftg_Character_Background(obj) {
+    return obj instanceof $c_Lftg_Character_Background || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.Background");
+}
+function $isArrayOf_Lftg_Character_Background(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_Background);
+}
+function $asArrayOf_Lftg_Character_Background(obj, depth) {
+    return $isArrayOf_Lftg_Character_Background(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.Background;", depth);
+}
+var $d_Lftg_Character_Background = new $TypeData().initClass($c_Lftg_Character_Background, "ftg.Character.Background", {
+    Lftg_Character_Background: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_Character_Bond(pcName, bondDesc) {
+    this.Lftg_Character_Bond__f_pcName = null;
+    this.Lftg_Character_Bond__f_bondDesc = null;
+    this.Lftg_Character_Bond__f_pcName = pcName;
+    this.Lftg_Character_Bond__f_bondDesc = bondDesc;
+}
+$c_Lftg_Character_Bond.prototype = new $h_O();
+$c_Lftg_Character_Bond.prototype.constructor = $c_Lftg_Character_Bond;
+/** @constructor */ function $h_Lftg_Character_Bond() {}
+$h_Lftg_Character_Bond.prototype = $c_Lftg_Character_Bond.prototype;
+$c_Lftg_Character_Bond.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Character_Bond.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Lftg_Character_Bond.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Character_Bond) {
+        var x$0$2 = $as_Lftg_Character_Bond(x$0);
+        if (this.Lftg_Character_Bond__f_pcName === $n(x$0$2).Lftg_Character_Bond__f_pcName) {
+            var x = this.Lftg_Character_Bond__f_bondDesc;
+            var x$2 = $n(x$0$2).Lftg_Character_Bond__f_bondDesc;
+            return x === null ? x$2 === null : $n(x).equals__O__Z(x$2);
+        } else return false;
+    } else return false;
+};
+$c_Lftg_Character_Bond.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Character_Bond.prototype.productArity__I = function() {
+    return 2;
+};
+$c_Lftg_Character_Bond.prototype.productPrefix__T = function() {
+    return "Bond";
+};
+$c_Lftg_Character_Bond.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Lftg_Character_Bond__f_pcName;
+    if (n === 1) return this.Lftg_Character_Bond__f_bondDesc;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+function $as_Lftg_Character_Bond(obj) {
+    return obj instanceof $c_Lftg_Character_Bond || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.Bond");
+}
+function $isArrayOf_Lftg_Character_Bond(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_Bond);
+}
+function $asArrayOf_Lftg_Character_Bond(obj, depth) {
+    return $isArrayOf_Lftg_Character_Bond(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.Bond;", depth);
+}
+var $d_Lftg_Character_Bond = new $TypeData().initClass($c_Lftg_Character_Bond, "ftg.Character.Bond", {
+    Lftg_Character_Bond: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_Character_Character(profile, stats, conditions, story, spark, details, bonds, groupArc, characterArc, experience, charClass, talents, notes) {
+    this.Lftg_Character_Character__f_profile = null;
+    this.Lftg_Character_Character__f_stats = null;
+    this.Lftg_Character_Character__f_conditions = null;
+    this.Lftg_Character_Character__f_story = 0;
+    this.Lftg_Character_Character__f_spark = 0;
+    this.Lftg_Character_Character__f_details = null;
+    this.Lftg_Character_Character__f_bonds = null;
+    this.Lftg_Character_Character__f_groupArc = null;
+    this.Lftg_Character_Character__f_characterArc = null;
+    this.Lftg_Character_Character__f_experience = 0;
+    this.Lftg_Character_Character__f_charClass = null;
+    this.Lftg_Character_Character__f_talents = null;
+    this.Lftg_Character_Character__f_notes = null;
+    this.Lftg_Character_Character__f_profile = profile;
+    this.Lftg_Character_Character__f_stats = stats;
+    this.Lftg_Character_Character__f_conditions = conditions;
+    this.Lftg_Character_Character__f_story = story;
+    this.Lftg_Character_Character__f_spark = spark;
+    this.Lftg_Character_Character__f_details = details;
+    this.Lftg_Character_Character__f_bonds = bonds;
+    this.Lftg_Character_Character__f_groupArc = groupArc;
+    this.Lftg_Character_Character__f_characterArc = characterArc;
+    this.Lftg_Character_Character__f_experience = experience;
+    this.Lftg_Character_Character__f_charClass = charClass;
+    this.Lftg_Character_Character__f_talents = talents;
+    this.Lftg_Character_Character__f_notes = notes;
+}
+$c_Lftg_Character_Character.prototype = new $h_O();
+$c_Lftg_Character_Character.prototype.constructor = $c_Lftg_Character_Character;
+/** @constructor */ function $h_Lftg_Character_Character() {}
+$h_Lftg_Character_Character.prototype = $c_Lftg_Character_Character.prototype;
+$c_Lftg_Character_Character.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Character_Character.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Lftg_Character_Character.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Character_Character) {
+        var x$0$2 = $as_Lftg_Character_Character(x$0);
+        var x = this.Lftg_Character_Character__f_profile;
+        var x$2 = $n(x$0$2).Lftg_Character_Character__f_profile;
+        if (x === null ? x$2 === null : $n(x).equals__O__Z(x$2)) {
+            var x$3 = this.Lftg_Character_Character__f_stats;
+            var x$4 = $n(x$0$2).Lftg_Character_Character__f_stats;
+            var $x_8 = x$3 === null ? x$4 === null : $n(x$3).equals__O__Z(x$4);
+        } else var $x_8 = false;
+        if ($x_8) {
+            var x$5 = this.Lftg_Character_Character__f_conditions;
+            var x$6 = $n(x$0$2).Lftg_Character_Character__f_conditions;
+            var $x_7 = x$5 === null ? x$6 === null : $n(x$5).equals__O__Z(x$6);
+        } else var $x_7 = false;
+        if ($x_7 && this.Lftg_Character_Character__f_story === $n(x$0$2).Lftg_Character_Character__f_story && this.Lftg_Character_Character__f_spark === $n(x$0$2).Lftg_Character_Character__f_spark) {
+            var x$7 = this.Lftg_Character_Character__f_details;
+            var x$8 = $n(x$0$2).Lftg_Character_Character__f_details;
+            var $x_6 = x$7 === null ? x$8 === null : $n(x$7).equals__O__Z(x$8);
+        } else var $x_6 = false;
+        if ($x_6) {
+            var x$9 = this.Lftg_Character_Character__f_bonds;
+            var x$10 = $n(x$0$2).Lftg_Character_Character__f_bonds;
+            var $x_5 = x$9 === null ? x$10 === null : $n(x$9).equals__O__Z(x$10);
+        } else var $x_5 = false;
+        if ($x_5) {
+            var x$11 = this.Lftg_Character_Character__f_groupArc;
+            var x$12 = $n(x$0$2).Lftg_Character_Character__f_groupArc;
+            var $x_4 = x$11 === null ? x$12 === null : $n(x$11).equals__O__Z(x$12);
+        } else var $x_4 = false;
+        if ($x_4) {
+            var x$13 = this.Lftg_Character_Character__f_characterArc;
+            var x$14 = $n(x$0$2).Lftg_Character_Character__f_characterArc;
+            var $x_3 = x$13 === null ? x$14 === null : $n(x$13).equals__O__Z(x$14);
+        } else var $x_3 = false;
+        if ($x_3 && this.Lftg_Character_Character__f_experience === $n(x$0$2).Lftg_Character_Character__f_experience) {
+            var x$15 = this.Lftg_Character_Character__f_charClass;
+            var x$16 = $n(x$0$2).Lftg_Character_Character__f_charClass;
+            if (x$15 === null) var $x_2 = x$16 === null;
+            else {
+                var this$1 = $n(x$15);
+                var $x_2 = this$1 === x$16;
+            }
+        } else var $x_2 = false;
+        if ($x_2) {
+            var x$17 = this.Lftg_Character_Character__f_talents;
+            var x$18 = $n(x$0$2).Lftg_Character_Character__f_talents;
+            var $x_1 = x$17 === null ? x$18 === null : $n(x$17).equals__O__Z(x$18);
+        } else var $x_1 = false;
+        if ($x_1) return this.Lftg_Character_Character__f_notes === $n(x$0$2).Lftg_Character_Character__f_notes;
+        else return false;
+    } else return false;
+};
+$c_Lftg_Character_Character.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Character_Character.prototype.productArity__I = function() {
+    return 13;
+};
+$c_Lftg_Character_Character.prototype.productPrefix__T = function() {
+    return "Character";
+};
+$c_Lftg_Character_Character.prototype.productElement__I__O = function(n) {
+    switch(n){
+        case 0:
+            return this.Lftg_Character_Character__f_profile;
+        case 1:
+            return this.Lftg_Character_Character__f_stats;
+        case 2:
+            return this.Lftg_Character_Character__f_conditions;
+        case 3:
+            return this.Lftg_Character_Character__f_story;
+        case 4:
+            return this.Lftg_Character_Character__f_spark;
+        case 5:
+            return this.Lftg_Character_Character__f_details;
+        case 6:
+            return this.Lftg_Character_Character__f_bonds;
+        case 7:
+            return this.Lftg_Character_Character__f_groupArc;
+        case 8:
+            return this.Lftg_Character_Character__f_characterArc;
+        case 9:
+            return this.Lftg_Character_Character__f_experience;
+        case 10:
+            return this.Lftg_Character_Character__f_charClass;
+        case 11:
+            return this.Lftg_Character_Character__f_talents;
+        case 12:
+            return this.Lftg_Character_Character__f_notes;
+        default:
+            throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+    }
+};
+function $as_Lftg_Character_Character(obj) {
+    return obj instanceof $c_Lftg_Character_Character || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.Character");
+}
+function $isArrayOf_Lftg_Character_Character(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_Character);
+}
+function $asArrayOf_Lftg_Character_Character(obj, depth) {
+    return $isArrayOf_Lftg_Character_Character(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.Character;", depth);
+}
+var $d_Lftg_Character_Character = new $TypeData().initClass($c_Lftg_Character_Character, "ftg.Character.Character", {
+    Lftg_Character_Character: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_Character_CharacterBaseStats(bodyStats, mentalStats) {
+    this.Lftg_Character_CharacterBaseStats__f_bodyStats = null;
+    this.Lftg_Character_CharacterBaseStats__f_mentalStats = null;
+    this.Lftg_Character_CharacterBaseStats__f_bodyStats = bodyStats;
+    this.Lftg_Character_CharacterBaseStats__f_mentalStats = mentalStats;
+}
+$c_Lftg_Character_CharacterBaseStats.prototype = new $h_O();
+$c_Lftg_Character_CharacterBaseStats.prototype.constructor = $c_Lftg_Character_CharacterBaseStats;
+/** @constructor */ function $h_Lftg_Character_CharacterBaseStats() {}
+$h_Lftg_Character_CharacterBaseStats.prototype = $c_Lftg_Character_CharacterBaseStats.prototype;
+$c_Lftg_Character_CharacterBaseStats.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Character_CharacterBaseStats.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Lftg_Character_CharacterBaseStats.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Character_CharacterBaseStats) {
+        var x$0$2 = $as_Lftg_Character_CharacterBaseStats(x$0);
+        var x = this.Lftg_Character_CharacterBaseStats__f_bodyStats;
+        var x$2 = $n(x$0$2).Lftg_Character_CharacterBaseStats__f_bodyStats;
+        if (x === null ? x$2 === null : $n(x).equals__O__Z(x$2)) {
+            var x$3 = this.Lftg_Character_CharacterBaseStats__f_mentalStats;
+            var x$4 = $n(x$0$2).Lftg_Character_CharacterBaseStats__f_mentalStats;
+            return x$3 === null ? x$4 === null : $n(x$3).equals__O__Z(x$4);
+        } else return false;
+    } else return false;
+};
+$c_Lftg_Character_CharacterBaseStats.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Character_CharacterBaseStats.prototype.productArity__I = function() {
+    return 2;
+};
+$c_Lftg_Character_CharacterBaseStats.prototype.productPrefix__T = function() {
+    return "CharacterBaseStats";
+};
+$c_Lftg_Character_CharacterBaseStats.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Lftg_Character_CharacterBaseStats__f_bodyStats;
+    if (n === 1) return this.Lftg_Character_CharacterBaseStats__f_mentalStats;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+function $as_Lftg_Character_CharacterBaseStats(obj) {
+    return obj instanceof $c_Lftg_Character_CharacterBaseStats || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.CharacterBaseStats");
+}
+function $isArrayOf_Lftg_Character_CharacterBaseStats(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_CharacterBaseStats);
+}
+function $asArrayOf_Lftg_Character_CharacterBaseStats(obj, depth) {
+    return $isArrayOf_Lftg_Character_CharacterBaseStats(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.CharacterBaseStats;", depth);
+}
+var $d_Lftg_Character_CharacterBaseStats = new $TypeData().initClass($c_Lftg_Character_CharacterBaseStats, "ftg.Character.CharacterBaseStats", {
+    Lftg_Character_CharacterBaseStats: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn(b) {
+    this.Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn__f_b = 0;
+    this.Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn__f_b = b;
+}
+$c_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn.prototype = new $h_O();
+$c_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn.prototype.constructor = $c_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn;
+/** @constructor */ function $h_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn() {}
+$h_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn.prototype = $c_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn.prototype;
+$c_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn.prototype.hashCode__I = function() {
+    var acc = -889275714;
+    var hash = acc;
+    var data = $f_T__hashCode__I("FluentWithBrawn");
+    acc = $m_sr_Statics$().mix__I__I__I(hash, data);
+    var hash$1 = acc;
+    var data$1 = this.Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn__f_b;
+    acc = $m_sr_Statics$().mix__I__I__I(hash$1, data$1);
+    var hash$2 = acc;
+    return $m_sr_Statics$().finalizeHash__I__I__I(hash$2, 1);
+};
+$c_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn) {
+        var x$0$2 = $as_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn(x$0);
+        return this.Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn__f_b === $n(x$0$2).Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn__f_b;
+    } else return false;
+};
+$c_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn.prototype.productArity__I = function() {
+    return 1;
+};
+$c_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn.prototype.productPrefix__T = function() {
+    return "FluentWithBrawn";
+};
+$c_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn__f_b;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+$c_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn.prototype.withAgility__I__Lftg_Character_StatGroup = function(a) {
+    var diceRemaining = this.Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn__f_b;
+    var dice = new $c_Lftg_DicePool_DicePool(diceRemaining);
+    var leftPool = new $c_Lftg_Character_StatPool(dice, false);
+    var dice$1 = new $c_Lftg_DicePool_DicePool(a);
+    var rightPool = new $c_Lftg_Character_StatPool(dice$1, false);
+    var markedPool = $m_s_None$();
+    return new $c_Lftg_Character_StatGroup(leftPool, rightPool, markedPool);
+};
+function $as_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn(obj) {
+    return obj instanceof $c_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.CharacterBaseStats$package$BodyStats$FluentWithBrawn");
+}
+function $isArrayOf_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn);
+}
+function $asArrayOf_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn(obj, depth) {
+    return $isArrayOf_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.CharacterBaseStats$package$BodyStats$FluentWithBrawn;", depth);
+}
+var $d_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn = new $TypeData().initClass($c_Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn, "ftg.Character.CharacterBaseStats$package$BodyStats$FluentWithBrawn", {
+    Lftg_Character_CharacterBaseStats$package$BodyStats$FluentWithBrawn: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits(w) {
+    this.Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits__f_w = 0;
+    this.Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits__f_w = w;
+}
+$c_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits.prototype = new $h_O();
+$c_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits.prototype.constructor = $c_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits;
+/** @constructor */ function $h_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits() {}
+$h_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits.prototype = $c_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits.prototype;
+$c_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits.prototype.hashCode__I = function() {
+    var acc = -889275714;
+    var hash = acc;
+    var data = $f_T__hashCode__I("FluentWithWits");
+    acc = $m_sr_Statics$().mix__I__I__I(hash, data);
+    var hash$1 = acc;
+    var data$1 = this.Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits__f_w;
+    acc = $m_sr_Statics$().mix__I__I__I(hash$1, data$1);
+    var hash$2 = acc;
+    return $m_sr_Statics$().finalizeHash__I__I__I(hash$2, 1);
+};
+$c_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits) {
+        var x$0$2 = $as_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits(x$0);
+        return this.Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits__f_w === $n(x$0$2).Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits__f_w;
+    } else return false;
+};
+$c_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits.prototype.productArity__I = function() {
+    return 1;
+};
+$c_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits.prototype.productPrefix__T = function() {
+    return "FluentWithWits";
+};
+$c_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits__f_w;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+$c_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits.prototype.withPresence__I__Lftg_Character_StatGroup = function(p) {
+    var diceRemaining = this.Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits__f_w;
+    var dice = new $c_Lftg_DicePool_DicePool(diceRemaining);
+    var leftPool = new $c_Lftg_Character_StatPool(dice, false);
+    var dice$1 = new $c_Lftg_DicePool_DicePool(p);
+    var rightPool = new $c_Lftg_Character_StatPool(dice$1, false);
+    var markedPool = $m_s_None$();
+    return new $c_Lftg_Character_StatGroup(leftPool, rightPool, markedPool);
+};
+function $as_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits(obj) {
+    return obj instanceof $c_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.CharacterBaseStats$package$MentalStats$FluentWithWits");
+}
+function $isArrayOf_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits);
+}
+function $asArrayOf_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits(obj, depth) {
+    return $isArrayOf_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.CharacterBaseStats$package$MentalStats$FluentWithWits;", depth);
+}
+var $d_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits = new $TypeData().initClass($c_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits, "ftg.Character.CharacterBaseStats$package$MentalStats$FluentWithWits", {
+    Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_Character_CharacterDetails(backgrounds, traits, desires) {
+    this.Lftg_Character_CharacterDetails__f_backgrounds = null;
+    this.Lftg_Character_CharacterDetails__f_traits = null;
+    this.Lftg_Character_CharacterDetails__f_desires = null;
+    this.Lftg_Character_CharacterDetails__f_backgrounds = backgrounds;
+    this.Lftg_Character_CharacterDetails__f_traits = traits;
+    this.Lftg_Character_CharacterDetails__f_desires = desires;
+}
+$c_Lftg_Character_CharacterDetails.prototype = new $h_O();
+$c_Lftg_Character_CharacterDetails.prototype.constructor = $c_Lftg_Character_CharacterDetails;
+/** @constructor */ function $h_Lftg_Character_CharacterDetails() {}
+$h_Lftg_Character_CharacterDetails.prototype = $c_Lftg_Character_CharacterDetails.prototype;
+$c_Lftg_Character_CharacterDetails.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Character_CharacterDetails.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Lftg_Character_CharacterDetails.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Character_CharacterDetails) {
+        var x$0$2 = $as_Lftg_Character_CharacterDetails(x$0);
+        var x = this.Lftg_Character_CharacterDetails__f_backgrounds;
+        var x$2 = $n(x$0$2).Lftg_Character_CharacterDetails__f_backgrounds;
+        if (x === null ? x$2 === null : $n(x).equals__O__Z(x$2)) {
+            var x$3 = this.Lftg_Character_CharacterDetails__f_traits;
+            var x$4 = $n(x$0$2).Lftg_Character_CharacterDetails__f_traits;
+            var $x_2 = x$3 === null ? x$4 === null : $n(x$3).equals__O__Z(x$4);
+        } else var $x_2 = false;
+        if ($x_2) {
+            var x$5 = this.Lftg_Character_CharacterDetails__f_desires;
+            var x$6 = $n(x$0$2).Lftg_Character_CharacterDetails__f_desires;
+            var $x_1 = x$5 === null ? x$6 === null : $n(x$5).equals__O__Z(x$6);
+        } else var $x_1 = false;
+        if ($x_1) {
+            $n(x$0$2);
+            return true;
+        } else return false;
+    } else return false;
+};
+$c_Lftg_Character_CharacterDetails.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Character_CharacterDetails.prototype.productArity__I = function() {
+    return 3;
+};
+$c_Lftg_Character_CharacterDetails.prototype.productPrefix__T = function() {
+    return "CharacterDetails";
+};
+$c_Lftg_Character_CharacterDetails.prototype.productElement__I__O = function(n) {
+    switch(n){
+        case 0:
+            return this.Lftg_Character_CharacterDetails__f_backgrounds;
+        case 1:
+            return this.Lftg_Character_CharacterDetails__f_traits;
+        case 2:
+            return this.Lftg_Character_CharacterDetails__f_desires;
+        default:
+            throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+    }
+};
+function $as_Lftg_Character_CharacterDetails(obj) {
+    return obj instanceof $c_Lftg_Character_CharacterDetails || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.CharacterDetails");
+}
+function $isArrayOf_Lftg_Character_CharacterDetails(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_CharacterDetails);
+}
+function $asArrayOf_Lftg_Character_CharacterDetails(obj, depth) {
+    return $isArrayOf_Lftg_Character_CharacterDetails(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.CharacterDetails;", depth);
+}
+var $d_Lftg_Character_CharacterDetails = new $TypeData().initClass($c_Lftg_Character_CharacterDetails, "ftg.Character.CharacterDetails", {
+    Lftg_Character_CharacterDetails: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_Character_CharacterProfile(characterName, playerName, distinctiveFeatures) {
+    this.Lftg_Character_CharacterProfile__f_characterName = null;
+    this.Lftg_Character_CharacterProfile__f_playerName = null;
+    this.Lftg_Character_CharacterProfile__f_distinctiveFeatures = null;
+    this.Lftg_Character_CharacterProfile__f_characterName = characterName;
+    this.Lftg_Character_CharacterProfile__f_playerName = playerName;
+    this.Lftg_Character_CharacterProfile__f_distinctiveFeatures = distinctiveFeatures;
+}
+$c_Lftg_Character_CharacterProfile.prototype = new $h_O();
+$c_Lftg_Character_CharacterProfile.prototype.constructor = $c_Lftg_Character_CharacterProfile;
+/** @constructor */ function $h_Lftg_Character_CharacterProfile() {}
+$h_Lftg_Character_CharacterProfile.prototype = $c_Lftg_Character_CharacterProfile.prototype;
+$c_Lftg_Character_CharacterProfile.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Character_CharacterProfile.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Lftg_Character_CharacterProfile.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Character_CharacterProfile) {
+        var x$0$2 = $as_Lftg_Character_CharacterProfile(x$0);
+        if (this.Lftg_Character_CharacterProfile__f_characterName === $n(x$0$2).Lftg_Character_CharacterProfile__f_characterName && this.Lftg_Character_CharacterProfile__f_playerName === $n(x$0$2).Lftg_Character_CharacterProfile__f_playerName) {
+            var x = this.Lftg_Character_CharacterProfile__f_distinctiveFeatures;
+            var x$2 = $n(x$0$2).Lftg_Character_CharacterProfile__f_distinctiveFeatures;
+            return x === null ? x$2 === null : $n(x).equals__O__Z(x$2);
+        } else return false;
+    } else return false;
+};
+$c_Lftg_Character_CharacterProfile.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Character_CharacterProfile.prototype.productArity__I = function() {
+    return 3;
+};
+$c_Lftg_Character_CharacterProfile.prototype.productPrefix__T = function() {
+    return "CharacterProfile";
+};
+$c_Lftg_Character_CharacterProfile.prototype.productElement__I__O = function(n) {
+    switch(n){
+        case 0:
+            return this.Lftg_Character_CharacterProfile__f_characterName;
+        case 1:
+            return this.Lftg_Character_CharacterProfile__f_playerName;
+        case 2:
+            return this.Lftg_Character_CharacterProfile__f_distinctiveFeatures;
+        default:
+            throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+    }
+};
+function $as_Lftg_Character_CharacterProfile(obj) {
+    return obj instanceof $c_Lftg_Character_CharacterProfile || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.CharacterProfile");
+}
+function $isArrayOf_Lftg_Character_CharacterProfile(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_CharacterProfile);
+}
+function $asArrayOf_Lftg_Character_CharacterProfile(obj, depth) {
+    return $isArrayOf_Lftg_Character_CharacterProfile(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.CharacterProfile;", depth);
+}
+var $d_Lftg_Character_CharacterProfile = new $TypeData().initClass($c_Lftg_Character_CharacterProfile, "ftg.Character.CharacterProfile", {
+    Lftg_Character_CharacterProfile: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection(twoYouWant, oneYouDont) {
+    this.Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection__f_twoYouWant = null;
+    this.Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection__f_oneYouDont = null;
+    this.Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection__f_twoYouWant = twoYouWant;
+    this.Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection__f_oneYouDont = oneYouDont;
+}
+$c_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection.prototype = new $h_O();
+$c_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection.prototype.constructor = $c_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection;
+/** @constructor */ function $h_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection() {}
+$h_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection.prototype = $c_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection.prototype;
+$c_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection) {
+        var x$0$2 = $as_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection(x$0);
+        var x = this.Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection__f_twoYouWant;
+        var x$2 = $n(x$0$2).Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection__f_twoYouWant;
+        if (x === null ? x$2 === null : $n(x).equals__O__Z(x$2)) {
+            var x$3 = this.Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection__f_oneYouDont;
+            var x$4 = $n(x$0$2).Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection__f_oneYouDont;
+            return x$3 === null ? x$4 === null : $n(x$3).equals__O__Z(x$4);
+        } else return false;
+    } else return false;
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection.prototype.productArity__I = function() {
+    return 2;
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection.prototype.productPrefix__T = function() {
+    return "DesireSection";
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection__f_twoYouWant;
+    if (n === 1) return this.Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection__f_oneYouDont;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+function $as_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection(obj) {
+    return obj instanceof $c_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.CharacterTrait$package$CharacterDesire$DesireSection");
+}
+function $isArrayOf_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection);
+}
+function $asArrayOf_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection(obj, depth) {
+    return $isArrayOf_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.CharacterTrait$package$CharacterDesire$DesireSection;", depth);
+}
+var $d_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection = new $TypeData().initClass($c_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection, "ftg.Character.CharacterTrait$package$CharacterDesire$DesireSection", {
+    Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection(twoYouAre, oneYouArent) {
+    this.Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection__f_twoYouAre = null;
+    this.Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection__f_oneYouArent = null;
+    this.Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection__f_twoYouAre = twoYouAre;
+    this.Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection__f_oneYouArent = oneYouArent;
+}
+$c_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection.prototype = new $h_O();
+$c_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection.prototype.constructor = $c_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection;
+/** @constructor */ function $h_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection() {}
+$h_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection.prototype = $c_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection.prototype;
+$c_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection) {
+        var x$0$2 = $as_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection(x$0);
+        var x = this.Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection__f_twoYouAre;
+        var x$2 = $n(x$0$2).Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection__f_twoYouAre;
+        if (x === null ? x$2 === null : $n(x).equals__O__Z(x$2)) {
+            var x$3 = this.Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection__f_oneYouArent;
+            var x$4 = $n(x$0$2).Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection__f_oneYouArent;
+            return x$3 === null ? x$4 === null : $n(x$3).equals__O__Z(x$4);
+        } else return false;
+    } else return false;
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection.prototype.productArity__I = function() {
+    return 2;
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection.prototype.productPrefix__T = function() {
+    return "TraitSection";
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection__f_twoYouAre;
+    if (n === 1) return this.Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection__f_oneYouArent;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+function $as_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection(obj) {
+    return obj instanceof $c_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.CharacterTrait$package$CharacterTrait$TraitSection");
+}
+function $isArrayOf_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection);
+}
+function $asArrayOf_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection(obj, depth) {
+    return $isArrayOf_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.CharacterTrait$package$CharacterTrait$TraitSection;", depth);
+}
+var $d_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection = new $TypeData().initClass($c_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection, "ftg.Character.CharacterTrait$package$CharacterTrait$TraitSection", {
+    Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_Character_StatGroup(leftPool, rightPool, markedPool) {
+    this.Lftg_Character_StatGroup__f_leftPool = null;
+    this.Lftg_Character_StatGroup__f_rightPool = null;
+    this.Lftg_Character_StatGroup__f_markedPool = null;
+    this.Lftg_Character_StatGroup__f_leftPool = leftPool;
+    this.Lftg_Character_StatGroup__f_rightPool = rightPool;
+    this.Lftg_Character_StatGroup__f_markedPool = markedPool;
+}
+$c_Lftg_Character_StatGroup.prototype = new $h_O();
+$c_Lftg_Character_StatGroup.prototype.constructor = $c_Lftg_Character_StatGroup;
+/** @constructor */ function $h_Lftg_Character_StatGroup() {}
+$h_Lftg_Character_StatGroup.prototype = $c_Lftg_Character_StatGroup.prototype;
+$c_Lftg_Character_StatGroup.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Character_StatGroup.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Lftg_Character_StatGroup.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Character_StatGroup) {
+        var x$0$2 = $as_Lftg_Character_StatGroup(x$0);
+        var x = this.Lftg_Character_StatGroup__f_leftPool;
+        var x$2 = $n(x$0$2).Lftg_Character_StatGroup__f_leftPool;
+        if (x === null ? x$2 === null : $n(x).equals__O__Z(x$2)) {
+            var x$3 = this.Lftg_Character_StatGroup__f_rightPool;
+            var x$4 = $n(x$0$2).Lftg_Character_StatGroup__f_rightPool;
+            var $x_1 = x$3 === null ? x$4 === null : $n(x$3).equals__O__Z(x$4);
+        } else var $x_1 = false;
+        if ($x_1) {
+            var x$5 = this.Lftg_Character_StatGroup__f_markedPool;
+            var x$6 = $n(x$0$2).Lftg_Character_StatGroup__f_markedPool;
+            return x$5 === null ? x$6 === null : $n(x$5).equals__O__Z(x$6);
+        } else return false;
+    } else return false;
+};
+$c_Lftg_Character_StatGroup.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Character_StatGroup.prototype.productArity__I = function() {
+    return 3;
+};
+$c_Lftg_Character_StatGroup.prototype.productPrefix__T = function() {
+    return "StatGroup";
+};
+$c_Lftg_Character_StatGroup.prototype.productElement__I__O = function(n) {
+    switch(n){
+        case 0:
+            return this.Lftg_Character_StatGroup__f_leftPool;
+        case 1:
+            return this.Lftg_Character_StatGroup__f_rightPool;
+        case 2:
+            return this.Lftg_Character_StatGroup__f_markedPool;
+        default:
+            throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+    }
+};
+function $as_Lftg_Character_StatGroup(obj) {
+    return obj instanceof $c_Lftg_Character_StatGroup || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.StatGroup");
+}
+function $isArrayOf_Lftg_Character_StatGroup(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_StatGroup);
+}
+function $asArrayOf_Lftg_Character_StatGroup(obj, depth) {
+    return $isArrayOf_Lftg_Character_StatGroup(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.StatGroup;", depth);
+}
+var $d_Lftg_Character_StatGroup = new $TypeData().initClass($c_Lftg_Character_StatGroup, "ftg.Character.StatGroup", {
+    Lftg_Character_StatGroup: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_Character_StatPool(dice, isMarked) {
+    this.Lftg_Character_StatPool__f_dice = null;
+    this.Lftg_Character_StatPool__f_isMarked = false;
+    this.Lftg_Character_StatPool__f_dice = dice;
+    this.Lftg_Character_StatPool__f_isMarked = isMarked;
+}
+$c_Lftg_Character_StatPool.prototype = new $h_O();
+$c_Lftg_Character_StatPool.prototype.constructor = $c_Lftg_Character_StatPool;
+/** @constructor */ function $h_Lftg_Character_StatPool() {}
+$h_Lftg_Character_StatPool.prototype = $c_Lftg_Character_StatPool.prototype;
+$c_Lftg_Character_StatPool.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Character_StatPool.prototype.hashCode__I = function() {
+    var acc = -889275714;
+    var hash = acc;
+    var data = $f_T__hashCode__I("StatPool");
+    acc = $m_sr_Statics$().mix__I__I__I(hash, data);
+    var hash$1 = acc;
+    var x = this.Lftg_Character_StatPool__f_dice;
+    var data$1 = $m_sr_Statics$().anyHash__O__I(x);
+    acc = $m_sr_Statics$().mix__I__I__I(hash$1, data$1);
+    var hash$2 = acc;
+    var data$2 = this.Lftg_Character_StatPool__f_isMarked ? 1231 : 1237;
+    acc = $m_sr_Statics$().mix__I__I__I(hash$2, data$2);
+    var hash$3 = acc;
+    return $m_sr_Statics$().finalizeHash__I__I__I(hash$3, 2);
+};
+$c_Lftg_Character_StatPool.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Character_StatPool) {
+        var x$0$2 = $as_Lftg_Character_StatPool(x$0);
+        if (this.Lftg_Character_StatPool__f_isMarked === $n(x$0$2).Lftg_Character_StatPool__f_isMarked) {
+            var x = this.Lftg_Character_StatPool__f_dice;
+            var x$2 = $n(x$0$2).Lftg_Character_StatPool__f_dice;
+            return x === null ? x$2 === null : $n(x).equals__O__Z(x$2);
+        } else return false;
+    } else return false;
+};
+$c_Lftg_Character_StatPool.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Character_StatPool.prototype.productArity__I = function() {
+    return 2;
+};
+$c_Lftg_Character_StatPool.prototype.productPrefix__T = function() {
+    return "StatPool";
+};
+$c_Lftg_Character_StatPool.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Lftg_Character_StatPool__f_dice;
+    if (n === 1) return this.Lftg_Character_StatPool__f_isMarked;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+function $as_Lftg_Character_StatPool(obj) {
+    return obj instanceof $c_Lftg_Character_StatPool || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.StatPool");
+}
+function $isArrayOf_Lftg_Character_StatPool(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_StatPool);
+}
+function $asArrayOf_Lftg_Character_StatPool(obj, depth) {
+    return $isArrayOf_Lftg_Character_StatPool(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.StatPool;", depth);
+}
+var $d_Lftg_Character_StatPool = new $TypeData().initClass($c_Lftg_Character_StatPool, "ftg.Character.StatPool", {
+    Lftg_Character_StatPool: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_DicePool_DicePool(diceRemaining) {
+    this.Lftg_DicePool_DicePool__f_diceRemaining = 0;
+    this.Lftg_DicePool_DicePool__f_diceRemaining = diceRemaining;
+}
+$c_Lftg_DicePool_DicePool.prototype = new $h_O();
+$c_Lftg_DicePool_DicePool.prototype.constructor = $c_Lftg_DicePool_DicePool;
+/** @constructor */ function $h_Lftg_DicePool_DicePool() {}
+$h_Lftg_DicePool_DicePool.prototype = $c_Lftg_DicePool_DicePool.prototype;
+$c_Lftg_DicePool_DicePool.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_DicePool_DicePool.prototype.hashCode__I = function() {
+    var acc = -889275714;
+    var hash = acc;
+    var data = $f_T__hashCode__I("DicePool");
+    acc = $m_sr_Statics$().mix__I__I__I(hash, data);
+    var hash$1 = acc;
+    var data$1 = this.Lftg_DicePool_DicePool__f_diceRemaining;
+    acc = $m_sr_Statics$().mix__I__I__I(hash$1, data$1);
+    var hash$2 = acc;
+    return $m_sr_Statics$().finalizeHash__I__I__I(hash$2, 1);
+};
+$c_Lftg_DicePool_DicePool.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_DicePool_DicePool) {
+        var x$0$2 = $as_Lftg_DicePool_DicePool(x$0);
+        return this.Lftg_DicePool_DicePool__f_diceRemaining === $n(x$0$2).Lftg_DicePool_DicePool__f_diceRemaining;
+    } else return false;
+};
+$c_Lftg_DicePool_DicePool.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_DicePool_DicePool.prototype.productArity__I = function() {
+    return 1;
+};
+$c_Lftg_DicePool_DicePool.prototype.productPrefix__T = function() {
+    return "DicePool";
+};
+$c_Lftg_DicePool_DicePool.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Lftg_DicePool_DicePool__f_diceRemaining;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+function $as_Lftg_DicePool_DicePool(obj) {
+    return obj instanceof $c_Lftg_DicePool_DicePool || obj === null ? obj : $throwClassCastException(obj, "ftg.DicePool.DicePool");
+}
+function $isArrayOf_Lftg_DicePool_DicePool(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_DicePool_DicePool);
+}
+function $asArrayOf_Lftg_DicePool_DicePool(obj, depth) {
+    return $isArrayOf_Lftg_DicePool_DicePool(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.DicePool.DicePool;", depth);
+}
+var $d_Lftg_DicePool_DicePool = new $TypeData().initClass($c_Lftg_DicePool_DicePool, "ftg.DicePool.DicePool", {
+    Lftg_DicePool_DicePool: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_Talent_Talent(name, description, widgets) {
+    this.Lftg_Talent_Talent__f_name = null;
+    this.Lftg_Talent_Talent__f_description = null;
+    this.Lftg_Talent_Talent__f_widgets = null;
+    this.Lftg_Talent_Talent__f_name = name;
+    this.Lftg_Talent_Talent__f_description = description;
+    this.Lftg_Talent_Talent__f_widgets = widgets;
+}
+$c_Lftg_Talent_Talent.prototype = new $h_O();
+$c_Lftg_Talent_Talent.prototype.constructor = $c_Lftg_Talent_Talent;
+/** @constructor */ function $h_Lftg_Talent_Talent() {}
+$h_Lftg_Talent_Talent.prototype = $c_Lftg_Talent_Talent.prototype;
+$c_Lftg_Talent_Talent.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Talent_Talent.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Lftg_Talent_Talent.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Talent_Talent) {
+        var x$0$2 = $as_Lftg_Talent_Talent(x$0);
+        if (this.Lftg_Talent_Talent__f_name === $n(x$0$2).Lftg_Talent_Talent__f_name && this.Lftg_Talent_Talent__f_description === $n(x$0$2).Lftg_Talent_Talent__f_description) {
+            var x = this.Lftg_Talent_Talent__f_widgets;
+            var x$2 = $n(x$0$2).Lftg_Talent_Talent__f_widgets;
+            return x === null ? x$2 === null : $n(x).equals__O__Z(x$2);
+        } else return false;
+    } else return false;
+};
+$c_Lftg_Talent_Talent.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Talent_Talent.prototype.productArity__I = function() {
+    return 3;
+};
+$c_Lftg_Talent_Talent.prototype.productPrefix__T = function() {
+    return "Talent";
+};
+$c_Lftg_Talent_Talent.prototype.productElement__I__O = function(n) {
+    switch(n){
+        case 0:
+            return this.Lftg_Talent_Talent__f_name;
+        case 1:
+            return this.Lftg_Talent_Talent__f_description;
+        case 2:
+            return this.Lftg_Talent_Talent__f_widgets;
+        default:
+            throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+    }
+};
+function $as_Lftg_Talent_Talent(obj) {
+    return obj instanceof $c_Lftg_Talent_Talent || obj === null ? obj : $throwClassCastException(obj, "ftg.Talent.Talent");
+}
+function $isArrayOf_Lftg_Talent_Talent(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Talent_Talent);
+}
+function $asArrayOf_Lftg_Talent_Talent(obj, depth) {
+    return $isArrayOf_Lftg_Talent_Talent(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Talent.Talent;", depth);
+}
+var $d_Lftg_Talent_Talent = new $TypeData().initClass($c_Lftg_Talent_Talent, "ftg.Talent.Talent", {
+    Lftg_Talent_Talent: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits(max) {
+    this.Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits__f_max = null;
+    this.Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits__f_max = max;
+}
+$c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits.prototype = new $h_O();
+$c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits.prototype.constructor = $c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits;
+/** @constructor */ function $h_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits() {}
+$h_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits.prototype = $c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits.prototype;
+$c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits) {
+        var x$0$2 = $as_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits(x$0);
+        var x = this.Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits__f_max;
+        var x$2 = $n(x$0$2).Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits__f_max;
+        if (x === null ? x$2 === null : $n(x).equals__O__Z(x$2)) {
+            $n(x$0$2);
+            return true;
+        } else return false;
+    } else return false;
+};
+$c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits.prototype.productArity__I = function() {
+    return 1;
+};
+$c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits.prototype.productPrefix__T = function() {
+    return "CheckboxWithLimits";
+};
+$c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits__f_max;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+function $as_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits(obj) {
+    return obj instanceof $c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits || obj === null ? obj : $throwClassCastException(obj, "ftg.Talent.TalentWidget.TalentComponents.FluentCheckboxes$CheckboxWithLimits");
+}
+function $isArrayOf_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits);
+}
+function $asArrayOf_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits(obj, depth) {
+    return $isArrayOf_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Talent.TalentWidget.TalentComponents.FluentCheckboxes$CheckboxWithLimits;", depth);
+}
+var $d_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits = new $TypeData().initClass($c_Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits, "ftg.Talent.TalentWidget.TalentComponents.FluentCheckboxes$CheckboxWithLimits", {
+    Lftg_Talent_TalentWidget_TalentComponents_FluentCheckboxes$CheckboxWithLimits: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_Talent_TalentWidgets_TalentWidget(label, component) {
+    this.Lftg_Talent_TalentWidgets_TalentWidget__f_label = null;
+    this.Lftg_Talent_TalentWidgets_TalentWidget__f_component = null;
+    this.Lftg_Talent_TalentWidgets_TalentWidget__f_label = label;
+    this.Lftg_Talent_TalentWidgets_TalentWidget__f_component = component;
+}
+$c_Lftg_Talent_TalentWidgets_TalentWidget.prototype = new $h_O();
+$c_Lftg_Talent_TalentWidgets_TalentWidget.prototype.constructor = $c_Lftg_Talent_TalentWidgets_TalentWidget;
+/** @constructor */ function $h_Lftg_Talent_TalentWidgets_TalentWidget() {}
+$h_Lftg_Talent_TalentWidgets_TalentWidget.prototype = $c_Lftg_Talent_TalentWidgets_TalentWidget.prototype;
+$c_Lftg_Talent_TalentWidgets_TalentWidget.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Talent_TalentWidgets_TalentWidget.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Lftg_Talent_TalentWidgets_TalentWidget.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Talent_TalentWidgets_TalentWidget) {
+        var x$0$2 = $as_Lftg_Talent_TalentWidgets_TalentWidget(x$0);
+        var x = this.Lftg_Talent_TalentWidgets_TalentWidget__f_label;
+        var x$2 = $n(x$0$2).Lftg_Talent_TalentWidgets_TalentWidget__f_label;
+        if (x === null ? x$2 === null : $n(x).equals__O__Z(x$2)) {
+            var x$3 = this.Lftg_Talent_TalentWidgets_TalentWidget__f_component;
+            var x$4 = $n(x$0$2).Lftg_Talent_TalentWidgets_TalentWidget__f_component;
+            return x$3 === null ? x$4 === null : $n(x$3).equals__O__Z(x$4);
+        } else return false;
+    } else return false;
+};
+$c_Lftg_Talent_TalentWidgets_TalentWidget.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Talent_TalentWidgets_TalentWidget.prototype.productArity__I = function() {
+    return 2;
+};
+$c_Lftg_Talent_TalentWidgets_TalentWidget.prototype.productPrefix__T = function() {
+    return "TalentWidget";
+};
+$c_Lftg_Talent_TalentWidgets_TalentWidget.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Lftg_Talent_TalentWidgets_TalentWidget__f_label;
+    if (n === 1) return this.Lftg_Talent_TalentWidgets_TalentWidget__f_component;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+function $as_Lftg_Talent_TalentWidgets_TalentWidget(obj) {
+    return obj instanceof $c_Lftg_Talent_TalentWidgets_TalentWidget || obj === null ? obj : $throwClassCastException(obj, "ftg.Talent.TalentWidgets.TalentWidget");
+}
+function $isArrayOf_Lftg_Talent_TalentWidgets_TalentWidget(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Talent_TalentWidgets_TalentWidget);
+}
+function $asArrayOf_Lftg_Talent_TalentWidgets_TalentWidget(obj, depth) {
+    return $isArrayOf_Lftg_Talent_TalentWidgets_TalentWidget(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Talent.TalentWidgets.TalentWidget;", depth);
+}
+var $d_Lftg_Talent_TalentWidgets_TalentWidget = new $TypeData().initClass($c_Lftg_Talent_TalentWidgets_TalentWidget, "ftg.Talent.TalentWidgets.TalentWidget", {
+    Lftg_Talent_TalentWidgets_TalentWidget: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_page_Model(character) {
+    this.Lftg_page_Model__f_character = null;
+    this.Lftg_page_Model__f_character = character;
+}
+$c_Lftg_page_Model.prototype = new $h_O();
+$c_Lftg_page_Model.prototype.constructor = $c_Lftg_page_Model;
+/** @constructor */ function $h_Lftg_page_Model() {}
+$h_Lftg_page_Model.prototype = $c_Lftg_page_Model.prototype;
+$c_Lftg_page_Model.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_page_Model.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Lftg_page_Model.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_page_Model) {
+        var x$0$2 = $as_Lftg_page_Model(x$0);
+        var x = this.Lftg_page_Model__f_character;
+        var x$2 = $n(x$0$2).Lftg_page_Model__f_character;
+        return x === null ? x$2 === null : $n(x).equals__O__Z(x$2);
+    } else return false;
+};
+$c_Lftg_page_Model.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_page_Model.prototype.productArity__I = function() {
+    return 1;
+};
+$c_Lftg_page_Model.prototype.productPrefix__T = function() {
+    return "Model";
+};
+$c_Lftg_page_Model.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Lftg_page_Model__f_character;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+function $as_Lftg_page_Model(obj) {
+    return obj instanceof $c_Lftg_page_Model || obj === null ? obj : $throwClassCastException(obj, "ftg.page.Model");
+}
+function $isArrayOf_Lftg_page_Model(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_page_Model);
+}
+function $asArrayOf_Lftg_page_Model(obj, depth) {
+    return $isArrayOf_Lftg_page_Model(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.page.Model;", depth);
+}
+var $d_Lftg_page_Model = new $TypeData().initClass($c_Lftg_page_Model, "ftg.page.Model", {
+    Lftg_page_Model: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
 });
 function $as_Ljava_io_IOException(obj) {
     return obj === null ? obj : $throwClassCastException(obj, "java.io.IOException");
@@ -42725,6 +44709,323 @@ var $d_Lcats_kernel_Order$$anon$2 = new $TypeData().initClass($c_Lcats_kernel_Or
     Lcats_kernel_PartialOrder: 1,
     Lcats_kernel_Order: 1
 });
+/** @constructor */ function $c_Lftg_Character_AmbitionArc(label) {
+    this.Lftg_Character_AmbitionArc__f_label = null;
+    this.Lftg_Character_AmbitionArc__f_label = label;
+}
+$c_Lftg_Character_AmbitionArc.prototype = new $h_O();
+$c_Lftg_Character_AmbitionArc.prototype.constructor = $c_Lftg_Character_AmbitionArc;
+/** @constructor */ function $h_Lftg_Character_AmbitionArc() {}
+$h_Lftg_Character_AmbitionArc.prototype = $c_Lftg_Character_AmbitionArc.prototype;
+$c_Lftg_Character_AmbitionArc.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Character_AmbitionArc.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Lftg_Character_AmbitionArc.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Character_AmbitionArc) {
+        var x$0$2 = $as_Lftg_Character_AmbitionArc(x$0);
+        return this.Lftg_Character_AmbitionArc__f_label === $n(x$0$2).Lftg_Character_AmbitionArc__f_label;
+    } else return false;
+};
+$c_Lftg_Character_AmbitionArc.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Character_AmbitionArc.prototype.productArity__I = function() {
+    return 1;
+};
+$c_Lftg_Character_AmbitionArc.prototype.productPrefix__T = function() {
+    return "AmbitionArc";
+};
+$c_Lftg_Character_AmbitionArc.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Lftg_Character_AmbitionArc__f_label;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+function $as_Lftg_Character_AmbitionArc(obj) {
+    return obj instanceof $c_Lftg_Character_AmbitionArc || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.AmbitionArc");
+}
+function $isArrayOf_Lftg_Character_AmbitionArc(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_AmbitionArc);
+}
+function $asArrayOf_Lftg_Character_AmbitionArc(obj, depth) {
+    return $isArrayOf_Lftg_Character_AmbitionArc(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.AmbitionArc;", depth);
+}
+var $d_Lftg_Character_AmbitionArc = new $TypeData().initClass($c_Lftg_Character_AmbitionArc, "ftg.Character.AmbitionArc", {
+    Lftg_Character_AmbitionArc: 1,
+    Lftg_Character_StoryArc: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_Character_CharacterClass() {}
+$c_Lftg_Character_CharacterClass.prototype = new $h_O();
+$c_Lftg_Character_CharacterClass.prototype.constructor = $c_Lftg_Character_CharacterClass;
+/** @constructor */ function $h_Lftg_Character_CharacterClass() {}
+$h_Lftg_Character_CharacterClass.prototype = $c_Lftg_Character_CharacterClass.prototype;
+$c_Lftg_Character_CharacterClass.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+/** @constructor */ function $c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire(label) {
+    this.Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire__f_label = null;
+    this.Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire__f_label = label;
+}
+$c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire.prototype = new $h_O();
+$c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire.prototype.constructor = $c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire;
+/** @constructor */ function $h_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire() {}
+$h_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire.prototype = $c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire.prototype;
+$c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire) {
+        var x$0$2 = $as_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire(x$0);
+        return this.Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire__f_label === $n(x$0$2).Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire__f_label;
+    } else return false;
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire.prototype.productArity__I = function() {
+    return 1;
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire.prototype.productPrefix__T = function() {
+    return "PremadeDesire";
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire__f_label;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+function $as_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire(obj) {
+    return obj instanceof $c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.CharacterTrait$package$CharacterDesire$PremadeDesire");
+}
+function $isArrayOf_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire);
+}
+function $asArrayOf_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire(obj, depth) {
+    return $isArrayOf_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.CharacterTrait$package$CharacterDesire$PremadeDesire;", depth);
+}
+var $d_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire = new $TypeData().initClass($c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire, "ftg.Character.CharacterTrait$package$CharacterDesire$PremadeDesire", {
+    Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire: 1,
+    Lftg_Character_CharacterTrait$package$CharacterDesire$Desire: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait(label) {
+    this.Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait__f_label = null;
+    this.Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait__f_label = label;
+}
+$c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait.prototype = new $h_O();
+$c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait.prototype.constructor = $c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait;
+/** @constructor */ function $h_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait() {}
+$h_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait.prototype = $c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait.prototype;
+$c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait) {
+        var x$0$2 = $as_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait(x$0);
+        return this.Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait__f_label === $n(x$0$2).Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait__f_label;
+    } else return false;
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait.prototype.productArity__I = function() {
+    return 1;
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait.prototype.productPrefix__T = function() {
+    return "PremadeTrait";
+};
+$c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait__f_label;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+function $as_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait(obj) {
+    return obj instanceof $c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.CharacterTrait$package$CharacterTrait$PremadeTrait");
+}
+function $isArrayOf_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait);
+}
+function $asArrayOf_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait(obj, depth) {
+    return $isArrayOf_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.CharacterTrait$package$CharacterTrait$PremadeTrait;", depth);
+}
+var $d_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait = new $TypeData().initClass($c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait, "ftg.Character.CharacterTrait$package$CharacterTrait$PremadeTrait", {
+    Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait: 1,
+    Lftg_Character_CharacterTrait$package$CharacterTrait$Trait: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_Character_GrowthArc(label) {
+    this.Lftg_Character_GrowthArc__f_label = null;
+    this.Lftg_Character_GrowthArc__f_label = label;
+}
+$c_Lftg_Character_GrowthArc.prototype = new $h_O();
+$c_Lftg_Character_GrowthArc.prototype.constructor = $c_Lftg_Character_GrowthArc;
+/** @constructor */ function $h_Lftg_Character_GrowthArc() {}
+$h_Lftg_Character_GrowthArc.prototype = $c_Lftg_Character_GrowthArc.prototype;
+$c_Lftg_Character_GrowthArc.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Character_GrowthArc.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Lftg_Character_GrowthArc.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Character_GrowthArc) {
+        var x$0$2 = $as_Lftg_Character_GrowthArc(x$0);
+        return this.Lftg_Character_GrowthArc__f_label === $n(x$0$2).Lftg_Character_GrowthArc__f_label;
+    } else return false;
+};
+$c_Lftg_Character_GrowthArc.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Character_GrowthArc.prototype.productArity__I = function() {
+    return 1;
+};
+$c_Lftg_Character_GrowthArc.prototype.productPrefix__T = function() {
+    return "GrowthArc";
+};
+$c_Lftg_Character_GrowthArc.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Lftg_Character_GrowthArc__f_label;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+function $as_Lftg_Character_GrowthArc(obj) {
+    return obj instanceof $c_Lftg_Character_GrowthArc || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.GrowthArc");
+}
+function $isArrayOf_Lftg_Character_GrowthArc(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_GrowthArc);
+}
+function $asArrayOf_Lftg_Character_GrowthArc(obj, depth) {
+    return $isArrayOf_Lftg_Character_GrowthArc(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.GrowthArc;", depth);
+}
+var $d_Lftg_Character_GrowthArc = new $TypeData().initClass($c_Lftg_Character_GrowthArc, "ftg.Character.GrowthArc", {
+    Lftg_Character_GrowthArc: 1,
+    Lftg_Character_StoryArc: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_Character_PremadeBond(labelLeft, labelRight) {
+    this.Lftg_Character_PremadeBond__f_labelLeft = null;
+    this.Lftg_Character_PremadeBond__f_labelRight = null;
+    this.Lftg_Character_PremadeBond__f_labelLeft = labelLeft;
+    this.Lftg_Character_PremadeBond__f_labelRight = labelRight;
+}
+$c_Lftg_Character_PremadeBond.prototype = new $h_O();
+$c_Lftg_Character_PremadeBond.prototype.constructor = $c_Lftg_Character_PremadeBond;
+/** @constructor */ function $h_Lftg_Character_PremadeBond() {}
+$h_Lftg_Character_PremadeBond.prototype = $c_Lftg_Character_PremadeBond.prototype;
+$c_Lftg_Character_PremadeBond.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Character_PremadeBond.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Lftg_Character_PremadeBond.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Character_PremadeBond) {
+        var x$0$2 = $as_Lftg_Character_PremadeBond(x$0);
+        return this.Lftg_Character_PremadeBond__f_labelLeft === $n(x$0$2).Lftg_Character_PremadeBond__f_labelLeft && this.Lftg_Character_PremadeBond__f_labelRight === $n(x$0$2).Lftg_Character_PremadeBond__f_labelRight;
+    } else return false;
+};
+$c_Lftg_Character_PremadeBond.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Character_PremadeBond.prototype.productArity__I = function() {
+    return 2;
+};
+$c_Lftg_Character_PremadeBond.prototype.productPrefix__T = function() {
+    return "PremadeBond";
+};
+$c_Lftg_Character_PremadeBond.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Lftg_Character_PremadeBond__f_labelLeft;
+    if (n === 1) return this.Lftg_Character_PremadeBond__f_labelRight;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+function $as_Lftg_Character_PremadeBond(obj) {
+    return obj instanceof $c_Lftg_Character_PremadeBond || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.PremadeBond");
+}
+function $isArrayOf_Lftg_Character_PremadeBond(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_PremadeBond);
+}
+function $asArrayOf_Lftg_Character_PremadeBond(obj, depth) {
+    return $isArrayOf_Lftg_Character_PremadeBond(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.PremadeBond;", depth);
+}
+var $d_Lftg_Character_PremadeBond = new $TypeData().initClass($c_Lftg_Character_PremadeBond, "ftg.Character.PremadeBond", {
+    Lftg_Character_PremadeBond: 1,
+    Lftg_Character_BondDescription: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_Character_StruggleArc(label) {
+    this.Lftg_Character_StruggleArc__f_label = null;
+    this.Lftg_Character_StruggleArc__f_label = label;
+}
+$c_Lftg_Character_StruggleArc.prototype = new $h_O();
+$c_Lftg_Character_StruggleArc.prototype.constructor = $c_Lftg_Character_StruggleArc;
+/** @constructor */ function $h_Lftg_Character_StruggleArc() {}
+$h_Lftg_Character_StruggleArc.prototype = $c_Lftg_Character_StruggleArc.prototype;
+$c_Lftg_Character_StruggleArc.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Character_StruggleArc.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Lftg_Character_StruggleArc.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Character_StruggleArc) {
+        var x$0$2 = $as_Lftg_Character_StruggleArc(x$0);
+        return this.Lftg_Character_StruggleArc__f_label === $n(x$0$2).Lftg_Character_StruggleArc__f_label;
+    } else return false;
+};
+$c_Lftg_Character_StruggleArc.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Character_StruggleArc.prototype.productArity__I = function() {
+    return 1;
+};
+$c_Lftg_Character_StruggleArc.prototype.productPrefix__T = function() {
+    return "StruggleArc";
+};
+$c_Lftg_Character_StruggleArc.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Lftg_Character_StruggleArc__f_label;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+function $as_Lftg_Character_StruggleArc(obj) {
+    return obj instanceof $c_Lftg_Character_StruggleArc || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.StruggleArc");
+}
+function $isArrayOf_Lftg_Character_StruggleArc(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_StruggleArc);
+}
+function $asArrayOf_Lftg_Character_StruggleArc(obj, depth) {
+    return $isArrayOf_Lftg_Character_StruggleArc(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.StruggleArc;", depth);
+}
+var $d_Lftg_Character_StruggleArc = new $TypeData().initClass($c_Lftg_Character_StruggleArc, "ftg.Character.StruggleArc", {
+    Lftg_Character_StruggleArc: 1,
+    Lftg_Character_StoryArc: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
 /** @constructor */ function $c_Lftg_Msg() {}
 $c_Lftg_Msg.prototype = new $h_O();
 $c_Lftg_Msg.prototype.constructor = $c_Lftg_Msg;
@@ -42742,6 +45043,135 @@ function $isArrayOf_Lftg_Msg(obj, depth) {
 function $asArrayOf_Lftg_Msg(obj, depth) {
     return $isArrayOf_Lftg_Msg(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Msg;", depth);
 }
+/** @constructor */ function $c_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent(boxes, marked) {
+    this.Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent__f_boxes = null;
+    this.Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent__f_marked = 0;
+    this.Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent__f_boxes = boxes;
+    this.Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent__f_marked = marked;
+}
+$c_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent.prototype = new $h_O();
+$c_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent.prototype.constructor = $c_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent;
+/** @constructor */ function $h_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent() {}
+$h_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent.prototype = $c_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent.prototype;
+$c_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent.prototype.hashCode__I = function() {
+    var acc = -889275714;
+    var hash = acc;
+    var data = $f_T__hashCode__I("CheckboxesComponent");
+    acc = $m_sr_Statics$().mix__I__I__I(hash, data);
+    var hash$1 = acc;
+    var x = this.Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent__f_boxes;
+    var data$1 = $m_sr_Statics$().anyHash__O__I(x);
+    acc = $m_sr_Statics$().mix__I__I__I(hash$1, data$1);
+    var hash$2 = acc;
+    var data$2 = this.Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent__f_marked;
+    acc = $m_sr_Statics$().mix__I__I__I(hash$2, data$2);
+    var hash$3 = acc;
+    return $m_sr_Statics$().finalizeHash__I__I__I(hash$3, 2);
+};
+$c_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent) {
+        var x$0$2 = $as_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent(x$0);
+        if (this.Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent__f_marked === $n(x$0$2).Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent__f_marked) {
+            var x = this.Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent__f_boxes;
+            var x$2 = $n(x$0$2).Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent__f_boxes;
+            return x === null ? x$2 === null : $n(x).equals__O__Z(x$2);
+        } else return false;
+    } else return false;
+};
+$c_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent.prototype.productArity__I = function() {
+    return 2;
+};
+$c_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent.prototype.productPrefix__T = function() {
+    return "CheckboxesComponent";
+};
+$c_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent__f_boxes;
+    if (n === 1) return this.Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent__f_marked;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+function $as_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent(obj) {
+    return obj instanceof $c_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent || obj === null ? obj : $throwClassCastException(obj, "ftg.Talent.TalentWidget.TalentComponents.CheckboxesComponent");
+}
+function $isArrayOf_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent);
+}
+function $asArrayOf_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent(obj, depth) {
+    return $isArrayOf_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Talent.TalentWidget.TalentComponents.CheckboxesComponent;", depth);
+}
+var $d_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent = new $TypeData().initClass($c_Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent, "ftg.Talent.TalentWidget.TalentComponents.CheckboxesComponent", {
+    Lftg_Talent_TalentWidget_TalentComponents_CheckboxesComponent: 1,
+    Lftg_Talent_TalentWidgets_TalentComponents_TalentComponent: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent(currentDice, maxDice) {
+    this.Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent__f_currentDice = null;
+    this.Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent__f_maxDice = null;
+    this.Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent__f_currentDice = currentDice;
+    this.Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent__f_maxDice = maxDice;
+}
+$c_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent.prototype = new $h_O();
+$c_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent.prototype.constructor = $c_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent;
+/** @constructor */ function $h_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent() {}
+$h_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent.prototype = $c_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent.prototype;
+$c_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent) {
+        var x$0$2 = $as_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent(x$0);
+        var x = this.Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent__f_currentDice;
+        var x$2 = $n(x$0$2).Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent__f_currentDice;
+        if (x === null ? x$2 === null : $n(x).equals__O__Z(x$2)) {
+            var x$3 = this.Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent__f_maxDice;
+            var x$4 = $n(x$0$2).Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent__f_maxDice;
+            return x$3 === null ? x$4 === null : $n(x$3).equals__O__Z(x$4);
+        } else return false;
+    } else return false;
+};
+$c_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent.prototype.toString__T = function() {
+    return $m_sr_ScalaRunTime$()._toString__s_Product__T(this);
+};
+$c_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent.prototype.productArity__I = function() {
+    return 2;
+};
+$c_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent.prototype.productPrefix__T = function() {
+    return "DicePoolComponent";
+};
+$c_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent__f_currentDice;
+    if (n === 1) return this.Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent__f_maxDice;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+function $as_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent(obj) {
+    return obj instanceof $c_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent || obj === null ? obj : $throwClassCastException(obj, "ftg.Talent.TalentWidget.TalentComponents.DicePoolComponent");
+}
+function $isArrayOf_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent);
+}
+function $asArrayOf_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent(obj, depth) {
+    return $isArrayOf_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Talent.TalentWidget.TalentComponents.DicePoolComponent;", depth);
+}
+var $d_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent = new $TypeData().initClass($c_Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent, "ftg.Talent.TalentWidget.TalentComponents.DicePoolComponent", {
+    Lftg_Talent_TalentWidget_TalentComponents_DicePoolComponent: 1,
+    Lftg_Talent_TalentWidgets_TalentComponents_TalentComponent: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
 function $ct_Ljava_io_FilterOutputStream__Ljava_io_OutputStream__($thiz, out) {
     return $thiz;
 }
@@ -43808,6 +46238,60 @@ function $asArrayOf_T2(obj, depth) {
 var $d_T2 = new $TypeData().initClass($c_T2, "scala.Tuple2", {
     T2: 1,
     s_Product2: 1,
+    s_Product: 1,
+    s_Equals: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_T3(_1, _2, _3) {
+    this.T3__f__1 = null;
+    this.T3__f__2 = null;
+    this.T3__f__3 = null;
+    this.T3__f__1 = _1;
+    this.T3__f__2 = _2;
+    this.T3__f__3 = _3;
+}
+$c_T3.prototype = new $h_O();
+$c_T3.prototype.constructor = $c_T3;
+/** @constructor */ function $h_T3() {}
+$h_T3.prototype = $c_T3.prototype;
+$c_T3.prototype.productArity__I = function() {
+    return 3;
+};
+$c_T3.prototype.productElement__I__O = function(n) {
+    return $f_s_Product3__productElement__I__O(this, n);
+};
+$c_T3.prototype.toString__T = function() {
+    return "(" + this.T3__f__1 + "," + this.T3__f__2 + "," + this.T3__f__3 + ")";
+};
+$c_T3.prototype.productPrefix__T = function() {
+    return "Tuple3";
+};
+$c_T3.prototype.productIterator__sc_Iterator = function() {
+    return new $c_sr_ScalaRunTime$$anon$1(this);
+};
+$c_T3.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_T3.prototype.equals__O__Z = function(x$1) {
+    if (this === x$1) return true;
+    else if (x$1 instanceof $c_T3) {
+        var Tuple3$1 = $as_T3(x$1);
+        return $m_sr_BoxesRunTime$().equals__O__O__Z(this.T3__f__1, $n(Tuple3$1).T3__f__1) && $m_sr_BoxesRunTime$().equals__O__O__Z(this.T3__f__2, $n(Tuple3$1).T3__f__2) && $m_sr_BoxesRunTime$().equals__O__O__Z(this.T3__f__3, $n(Tuple3$1).T3__f__3);
+    } else return false;
+};
+function $as_T3(obj) {
+    return obj instanceof $c_T3 || obj === null ? obj : $throwClassCastException(obj, "scala.Tuple3");
+}
+function $isArrayOf_T3(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.T3);
+}
+function $asArrayOf_T3(obj, depth) {
+    return $isArrayOf_T3(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lscala.Tuple3;", depth);
+}
+var $d_T3 = new $TypeData().initClass($c_T3, "scala.Tuple3", {
+    T3: 1,
+    s_Product3: 1,
     s_Product: 1,
     s_Equals: 1,
     Ljava_io_Serializable: 1
@@ -47741,8 +50225,46 @@ var $d_Lsnabbdom_VNode$Text = new $TypeData().initClass($c_Lsnabbdom_VNode$Text,
     s_Product: 1,
     Ljava_io_Serializable: 1
 });
+/** @constructor */ function $c_Ltyrian_Attribute(name, value) {
+    this.Ltyrian_Attribute__f_name = null;
+    this.Ltyrian_Attribute__f_value = null;
+    this.Ltyrian_Attribute__f_name = name;
+    this.Ltyrian_Attribute__f_value = value;
+}
+$c_Ltyrian_Attribute.prototype = new $h_O();
+$c_Ltyrian_Attribute.prototype.constructor = $c_Ltyrian_Attribute;
+/** @constructor */ function $h_Ltyrian_Attribute() {}
+$h_Ltyrian_Attribute.prototype = $c_Ltyrian_Attribute.prototype;
+$c_Ltyrian_Attribute.prototype.toString__T = function() {
+    return $m_Ltyrian_HTMLRendering$package$().render__Ltyrian_Attr__T(this);
+};
+$c_Ltyrian_Attribute.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Ltyrian_Attribute.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Ltyrian_Attribute.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Ltyrian_Attribute) {
+        var x$0$2 = $as_Ltyrian_Attribute(x$0);
+        return this.Ltyrian_Attribute__f_name === $n(x$0$2).Ltyrian_Attribute__f_name && this.Ltyrian_Attribute__f_value === $n(x$0$2).Ltyrian_Attribute__f_value;
+    } else return false;
+};
+$c_Ltyrian_Attribute.prototype.productArity__I = function() {
+    return 2;
+};
+$c_Ltyrian_Attribute.prototype.productPrefix__T = function() {
+    return "Attribute";
+};
+$c_Ltyrian_Attribute.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Ltyrian_Attribute__f_name;
+    if (n === 1) return this.Ltyrian_Attribute__f_value;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
 function $as_Ltyrian_Attribute(obj) {
-    return obj === null ? obj : $throwClassCastException(obj, "tyrian.Attribute");
+    return obj instanceof $c_Ltyrian_Attribute || obj === null ? obj : $throwClassCastException(obj, "tyrian.Attribute");
 }
 function $isArrayOf_Ltyrian_Attribute(obj, depth) {
     return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Ltyrian_Attribute);
@@ -47750,6 +50272,13 @@ function $isArrayOf_Ltyrian_Attribute(obj, depth) {
 function $asArrayOf_Ltyrian_Attribute(obj, depth) {
     return $isArrayOf_Ltyrian_Attribute(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Ltyrian.Attribute;", depth);
 }
+var $d_Ltyrian_Attribute = new $TypeData().initClass($c_Ltyrian_Attribute, "tyrian.Attribute", {
+    Ltyrian_Attribute: 1,
+    Ltyrian_Attr: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
 function $as_Ltyrian_Cmd$Batch(obj) {
     return obj === null ? obj : $throwClassCastException(obj, "tyrian.Cmd$Batch");
 }
@@ -47907,88 +50436,8 @@ function $isArrayOf_Ltyrian_Cmd$SideEffect(obj, depth) {
 function $asArrayOf_Ltyrian_Cmd$SideEffect(obj, depth) {
     return $isArrayOf_Ltyrian_Cmd$SideEffect(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Ltyrian.Cmd$SideEffect;", depth);
 }
-/** @constructor */ function $c_Ltyrian_Event(name, msg, preventDefault, stopPropagation, stopImmediatePropagation) {
-    this.Ltyrian_Event__f_name = null;
-    this.Ltyrian_Event__f_msg = null;
-    this.Ltyrian_Event__f_preventDefault = false;
-    this.Ltyrian_Event__f_stopPropagation = false;
-    this.Ltyrian_Event__f_stopImmediatePropagation = false;
-    this.Ltyrian_Event__f_name = name;
-    this.Ltyrian_Event__f_msg = msg;
-    this.Ltyrian_Event__f_preventDefault = preventDefault;
-    this.Ltyrian_Event__f_stopPropagation = stopPropagation;
-    this.Ltyrian_Event__f_stopImmediatePropagation = stopImmediatePropagation;
-}
-$c_Ltyrian_Event.prototype = new $h_O();
-$c_Ltyrian_Event.prototype.constructor = $c_Ltyrian_Event;
-/** @constructor */ function $h_Ltyrian_Event() {}
-$h_Ltyrian_Event.prototype = $c_Ltyrian_Event.prototype;
-$c_Ltyrian_Event.prototype.toString__T = function() {
-    return $m_Ltyrian_HTMLRendering$package$().render__Ltyrian_Attr__T(this);
-};
-$c_Ltyrian_Event.prototype.productIterator__sc_Iterator = function() {
-    return new $c_s_Product$$anon$1(this);
-};
-$c_Ltyrian_Event.prototype.hashCode__I = function() {
-    var acc = -889275714;
-    var hash = acc;
-    var data = $f_T__hashCode__I("Event");
-    acc = $m_sr_Statics$().mix__I__I__I(hash, data);
-    var hash$1 = acc;
-    var x = this.Ltyrian_Event__f_name;
-    var data$1 = $m_sr_Statics$().anyHash__O__I(x);
-    acc = $m_sr_Statics$().mix__I__I__I(hash$1, data$1);
-    var hash$2 = acc;
-    var x$1 = this.Ltyrian_Event__f_msg;
-    var data$2 = $m_sr_Statics$().anyHash__O__I(x$1);
-    acc = $m_sr_Statics$().mix__I__I__I(hash$2, data$2);
-    var hash$3 = acc;
-    var data$3 = this.Ltyrian_Event__f_preventDefault ? 1231 : 1237;
-    acc = $m_sr_Statics$().mix__I__I__I(hash$3, data$3);
-    var hash$4 = acc;
-    var data$4 = this.Ltyrian_Event__f_stopPropagation ? 1231 : 1237;
-    acc = $m_sr_Statics$().mix__I__I__I(hash$4, data$4);
-    var hash$5 = acc;
-    var data$5 = this.Ltyrian_Event__f_stopImmediatePropagation ? 1231 : 1237;
-    acc = $m_sr_Statics$().mix__I__I__I(hash$5, data$5);
-    var hash$6 = acc;
-    return $m_sr_Statics$().finalizeHash__I__I__I(hash$6, 5);
-};
-$c_Ltyrian_Event.prototype.equals__O__Z = function(x$0) {
-    if (this === x$0) return true;
-    else if (x$0 instanceof $c_Ltyrian_Event) {
-        var x$0$2 = $as_Ltyrian_Event(x$0);
-        if (this.Ltyrian_Event__f_preventDefault === $n(x$0$2).Ltyrian_Event__f_preventDefault && this.Ltyrian_Event__f_stopPropagation === $n(x$0$2).Ltyrian_Event__f_stopPropagation && this.Ltyrian_Event__f_stopImmediatePropagation === $n(x$0$2).Ltyrian_Event__f_stopImmediatePropagation && this.Ltyrian_Event__f_name === $n(x$0$2).Ltyrian_Event__f_name) {
-            var x = this.Ltyrian_Event__f_msg;
-            var x$2 = $n(x$0$2).Ltyrian_Event__f_msg;
-            return x === null ? x$2 === null : $n(x).equals__O__Z(x$2);
-        } else return false;
-    } else return false;
-};
-$c_Ltyrian_Event.prototype.productArity__I = function() {
-    return 5;
-};
-$c_Ltyrian_Event.prototype.productPrefix__T = function() {
-    return "Event";
-};
-$c_Ltyrian_Event.prototype.productElement__I__O = function(n) {
-    switch(n){
-        case 0:
-            return this.Ltyrian_Event__f_name;
-        case 1:
-            return this.Ltyrian_Event__f_msg;
-        case 2:
-            return this.Ltyrian_Event__f_preventDefault;
-        case 3:
-            return this.Ltyrian_Event__f_stopPropagation;
-        case 4:
-            return this.Ltyrian_Event__f_stopImmediatePropagation;
-        default:
-            throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
-    }
-};
 function $as_Ltyrian_Event(obj) {
-    return obj instanceof $c_Ltyrian_Event || obj === null ? obj : $throwClassCastException(obj, "tyrian.Event");
+    return obj === null ? obj : $throwClassCastException(obj, "tyrian.Event");
 }
 function $isArrayOf_Ltyrian_Event(obj, depth) {
     return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Ltyrian_Event);
@@ -47996,13 +50445,6 @@ function $isArrayOf_Ltyrian_Event(obj, depth) {
 function $asArrayOf_Ltyrian_Event(obj, depth) {
     return $isArrayOf_Ltyrian_Event(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Ltyrian.Event;", depth);
 }
-var $d_Ltyrian_Event = new $TypeData().initClass($c_Ltyrian_Event, "tyrian.Event", {
-    Ltyrian_Event: 1,
-    Ltyrian_Attr: 1,
-    s_Equals: 1,
-    s_Product: 1,
-    Ljava_io_Serializable: 1
-});
 /** @constructor */ function $c_Ltyrian_Location$External(locationDetails) {
     this.Ltyrian_Location$External__f_locationDetails = null;
     this.Ltyrian_Location$External__f_isInternal = false;
@@ -48378,14 +50820,31 @@ $c_Ltyrian_runtime_Rendering$$anon$1.prototype.constructor = $c_Ltyrian_runtime_
 /** @constructor */ function $h_Ltyrian_runtime_Rendering$$anon$1() {}
 $h_Ltyrian_runtime_Rendering$$anon$1.prototype = $c_Ltyrian_runtime_Rendering$$anon$1.prototype;
 $c_Ltyrian_runtime_Rendering$$anon$1.prototype.isDefinedAt__Ltyrian_Attr__Z = function(x) {
-    var x$1;
-    var x$1$1;
-    return false;
+    if (x instanceof $c_Ltyrian_Attribute) {
+        $m_Ltyrian_Attribute$();
+        var x$1 = $as_Ltyrian_Attribute(x);
+        $n(x$1);
+        $n(x$1);
+        return true;
+    } else {
+        var x$1$1;
+        return false;
+    }
 };
 $c_Ltyrian_runtime_Rendering$$anon$1.prototype.applyOrElse__Ltyrian_Attr__F1__O = function(x, default$1) {
-    var x$1, this$2, x15, this$3, x16, _2;
-    var x$1$1, x12, _2$1;
-    return $n(default$1).apply__O__O(x);
+    if (x instanceof $c_Ltyrian_Attribute) {
+        $m_Ltyrian_Attribute$();
+        var x$1 = $as_Ltyrian_Attribute(x);
+        var this$2 = $n(x$1);
+        var x15 = this$2.Ltyrian_Attribute__f_name;
+        var this$3 = $n(x$1);
+        var x16 = this$3.Ltyrian_Attribute__f_value;
+        var _2 = new $c_Lsnabbdom_AttrValue$StringAttrValue(x16);
+        return new $c_T2(x15, _2);
+    } else {
+        var x$1$1, x12, _2$1;
+        return $n(default$1).apply__O__O(x);
+    }
 };
 $c_Ltyrian_runtime_Rendering$$anon$1.prototype.isDefinedAt__O__Z = function(x) {
     return this.isDefinedAt__Ltyrian_Attr__Z($as_Ltyrian_Attr(x));
@@ -48406,14 +50865,34 @@ $c_Ltyrian_runtime_Rendering$$anon$2.prototype.constructor = $c_Ltyrian_runtime_
 /** @constructor */ function $h_Ltyrian_runtime_Rendering$$anon$2() {}
 $h_Ltyrian_runtime_Rendering$$anon$2.prototype = $c_Ltyrian_runtime_Rendering$$anon$2.prototype;
 $c_Ltyrian_runtime_Rendering$$anon$2.prototype.isDefinedAt__Ltyrian_Attr__Z = function(x) {
-    var x$1;
-    var x$1$1;
-    return false;
+    if (x instanceof $c_Ltyrian_PropertyString) {
+        var x$1 = $as_Ltyrian_PropertyString(x);
+        $n(x$1);
+        $n(x$1);
+        return true;
+    } else if (x instanceof $c_Ltyrian_PropertyBoolean) {
+        var x$1$1 = $as_Ltyrian_PropertyBoolean(x);
+        $n(x$1$1);
+        $n(x$1$1);
+        return true;
+    } else return false;
 };
 $c_Ltyrian_runtime_Rendering$$anon$2.prototype.applyOrElse__Ltyrian_Attr__F1__O = function(x, default$1) {
-    var x$1, x33, x34;
-    var x$1$1, x29, x30;
-    return $n(default$1).apply__O__O(x);
+    if (x instanceof $c_Ltyrian_PropertyString) {
+        var x$1 = $as_Ltyrian_PropertyString(x);
+        var this$2 = $n(x$1);
+        var x33 = this$2.Ltyrian_PropertyString__f_name;
+        var this$3 = $n(x$1);
+        var x34 = this$3.Ltyrian_PropertyString__f_value;
+        return new $c_T2(x33, x34);
+    } else if (x instanceof $c_Ltyrian_PropertyBoolean) {
+        var x$1$1 = $as_Ltyrian_PropertyBoolean(x);
+        var this$6 = $n(x$1$1);
+        var x29 = this$6.Ltyrian_PropertyBoolean__f_name;
+        var this$7 = $n(x$1$1);
+        var x30 = this$7.Ltyrian_PropertyBoolean__f_value;
+        return new $c_T2(x29, x30);
+    } else return $n(default$1).apply__O__O(x);
 };
 $c_Ltyrian_runtime_Rendering$$anon$2.prototype.isDefinedAt__O__Z = function(x) {
     return this.isDefinedAt__Ltyrian_Attr__Z($as_Ltyrian_Attr(x));
@@ -48437,40 +50916,12 @@ $c_Ltyrian_runtime_Rendering$$anon$3.prototype.constructor = $c_Ltyrian_runtime_
 /** @constructor */ function $h_Ltyrian_runtime_Rendering$$anon$3() {}
 $h_Ltyrian_runtime_Rendering$$anon$3.prototype = $c_Ltyrian_runtime_Rendering$$anon$3.prototype;
 $c_Ltyrian_runtime_Rendering$$anon$3.prototype.isDefinedAt__Ltyrian_Attr__Z = function(x) {
-    if (x instanceof $c_Ltyrian_Event) {
-        var x$1 = $as_Ltyrian_Event(x);
-        $n(x$1);
-        $n(x$1);
-        $n(x$1);
-        $n(x$1);
-        $n(x$1);
-        return true;
-    } else return false;
+    var x$1;
+    return false;
 };
 $c_Ltyrian_runtime_Rendering$$anon$3.prototype.applyOrElse__Ltyrian_Attr__F1__O = function(x, default$1) {
-    if (x instanceof $c_Ltyrian_Event) {
-        var x$1 = $as_Ltyrian_Event(x);
-        var this$2 = $n(x$1);
-        var x46 = this$2.Ltyrian_Event__f_name;
-        var this$3 = $n(x$1);
-        var x47 = this$3.Ltyrian_Event__f_msg;
-        var this$4 = $n(x$1);
-        var x48 = this$4.Ltyrian_Event__f_preventDefault;
-        var this$5 = $n(x$1);
-        var x49 = this$5.Ltyrian_Event__f_stopPropagation;
-        var this$6 = $n(x$1);
-        var x50 = this$6.Ltyrian_Event__f_stopImmediatePropagation;
-        var callback = new $c_sjsr_AnonFunction1_$$Lambda$3aa60c34ef08a878abffbf4628007cc68fa3c7ab((e)=>{
-            if (x48) e.preventDefault();
-            if (x49) e.stopPropagation();
-            if (x50) e.stopImmediatePropagation();
-            $n(this.Ltyrian_runtime_Rendering$$anon$3__f_onMsg$1).apply__O__O($n(x47).apply__O__O(e));
-        });
-        var _2 = $m_Lsnabbdom_EventHandler$().apply__sci_Seq__Lsnabbdom_EventHandler($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_F1.getArrayOf()).constr([
-            callback
-        ])));
-        return new $c_T2(x46, _2);
-    } else return $n(default$1).apply__O__O(x);
+    var x$1, x46, x47, x48, x49, x50, callback, e, _2;
+    return $n(default$1).apply__O__O(x);
 };
 $c_Ltyrian_runtime_Rendering$$anon$3.prototype.isDefinedAt__O__Z = function(x) {
     return this.isDefinedAt__Ltyrian_Attr__Z($as_Ltyrian_Attr(x));
@@ -48491,11 +50942,26 @@ $c_Ltyrian_runtime_Rendering$$anon$4.prototype.constructor = $c_Ltyrian_runtime_
 /** @constructor */ function $h_Ltyrian_runtime_Rendering$$anon$4() {}
 $h_Ltyrian_runtime_Rendering$$anon$4.prototype = $c_Ltyrian_runtime_Rendering$$anon$4.prototype;
 $c_Ltyrian_runtime_Rendering$$anon$4.prototype.isDefinedAt__Ltyrian_Attr__Z = function(x) {
-    var x$1, this$2, x67;
+    if (x instanceof $c_Ltyrian_Attribute) {
+        $m_Ltyrian_Attribute$();
+        var x$1 = $as_Ltyrian_Attribute(x);
+        var this$2 = $n(x$1);
+        var x67 = this$2.Ltyrian_Attribute__f_name;
+        $n(x$1);
+        if (x67 === "href") return true;
+    }
     return false;
 };
 $c_Ltyrian_runtime_Rendering$$anon$4.prototype.applyOrElse__Ltyrian_Attr__F1__O = function(x, default$1) {
-    var x$1, this$2, x72, this$3, x73;
+    if (x instanceof $c_Ltyrian_Attribute) {
+        $m_Ltyrian_Attribute$();
+        var x$1 = $as_Ltyrian_Attribute(x);
+        var this$2 = $n(x$1);
+        var x72 = this$2.Ltyrian_Attribute__f_name;
+        var this$3 = $n(x$1);
+        var x73 = this$3.Ltyrian_Attribute__f_value;
+        if (x72 === "href") return x73;
+    }
     return $n(default$1).apply__O__O(x);
 };
 $c_Ltyrian_runtime_Rendering$$anon$4.prototype.isDefinedAt__O__Z = function(x) {
@@ -53550,6 +56016,9 @@ var $d_s_reflect_ClassTag$GenericClassTag = new $TypeData().initClass($c_s_refle
     s_Equals: 1
 });
 /** @constructor */ function $c_Ltyrian_Html$() {
+    this.Ltyrian_Html$__f_$u0060type$u0060$minusString = null;
+    this.Ltyrian_Html$__f_checked$minusBoolean = null;
+    this.Ltyrian_Html$__f_value$minusString = null;
     $n_Ltyrian_Html$ = this;
     $f_Ltyrian_HtmlAttributes__$init$__V(this);
 }
@@ -53570,8 +56039,65 @@ function $m_Ltyrian_Html$() {
     if (!$n_Ltyrian_Html$) $n_Ltyrian_Html$ = new $c_Ltyrian_Html$();
     return $n_Ltyrian_Html$;
 }
+/** @constructor */ function $c_Ltyrian_PropertyBoolean(name, value) {
+    this.Ltyrian_PropertyBoolean__f_name = null;
+    this.Ltyrian_PropertyBoolean__f_value = false;
+    this.Ltyrian_PropertyBoolean__f_valueOf = false;
+    this.Ltyrian_PropertyBoolean__f_name = name;
+    this.Ltyrian_PropertyBoolean__f_value = value;
+    this.Ltyrian_PropertyBoolean__f_valueOf = value;
+}
+$c_Ltyrian_PropertyBoolean.prototype = new $h_O();
+$c_Ltyrian_PropertyBoolean.prototype.constructor = $c_Ltyrian_PropertyBoolean;
+/** @constructor */ function $h_Ltyrian_PropertyBoolean() {}
+$h_Ltyrian_PropertyBoolean.prototype = $c_Ltyrian_PropertyBoolean.prototype;
+$c_Ltyrian_PropertyBoolean.prototype.toString__T = function() {
+    return $m_Ltyrian_HTMLRendering$package$().render__Ltyrian_Attr__T(this);
+};
+$c_Ltyrian_PropertyBoolean.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Ltyrian_PropertyBoolean.prototype.hashCode__I = function() {
+    var acc = -889275714;
+    var hash = acc;
+    var data = $f_T__hashCode__I("PropertyBoolean");
+    acc = $m_sr_Statics$().mix__I__I__I(hash, data);
+    var hash$1 = acc;
+    var x = this.Ltyrian_PropertyBoolean__f_name;
+    var data$1 = $m_sr_Statics$().anyHash__O__I(x);
+    acc = $m_sr_Statics$().mix__I__I__I(hash$1, data$1);
+    var hash$2 = acc;
+    var data$2 = this.Ltyrian_PropertyBoolean__f_value ? 1231 : 1237;
+    acc = $m_sr_Statics$().mix__I__I__I(hash$2, data$2);
+    var hash$3 = acc;
+    return $m_sr_Statics$().finalizeHash__I__I__I(hash$3, 2);
+};
+$c_Ltyrian_PropertyBoolean.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Ltyrian_PropertyBoolean) {
+        var x$0$2 = $as_Ltyrian_PropertyBoolean(x$0);
+        return this.Ltyrian_PropertyBoolean__f_value === $n(x$0$2).Ltyrian_PropertyBoolean__f_value && this.Ltyrian_PropertyBoolean__f_name === $n(x$0$2).Ltyrian_PropertyBoolean__f_name;
+    } else return false;
+};
+$c_Ltyrian_PropertyBoolean.prototype.productArity__I = function() {
+    return 2;
+};
+$c_Ltyrian_PropertyBoolean.prototype.productPrefix__T = function() {
+    return "PropertyBoolean";
+};
+$c_Ltyrian_PropertyBoolean.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Ltyrian_PropertyBoolean__f_name;
+    if (n === 1) return this.Ltyrian_PropertyBoolean__f_value;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+$c_Ltyrian_PropertyBoolean.prototype.name__T = function() {
+    return this.Ltyrian_PropertyBoolean__f_name;
+};
+$c_Ltyrian_PropertyBoolean.prototype.valueOf__O = function() {
+    return this.Ltyrian_PropertyBoolean__f_valueOf;
+};
 function $as_Ltyrian_PropertyBoolean(obj) {
-    return obj === null ? obj : $throwClassCastException(obj, "tyrian.PropertyBoolean");
+    return obj instanceof $c_Ltyrian_PropertyBoolean || obj === null ? obj : $throwClassCastException(obj, "tyrian.PropertyBoolean");
 }
 function $isArrayOf_Ltyrian_PropertyBoolean(obj, depth) {
     return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Ltyrian_PropertyBoolean);
@@ -53579,8 +56105,62 @@ function $isArrayOf_Ltyrian_PropertyBoolean(obj, depth) {
 function $asArrayOf_Ltyrian_PropertyBoolean(obj, depth) {
     return $isArrayOf_Ltyrian_PropertyBoolean(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Ltyrian.PropertyBoolean;", depth);
 }
+var $d_Ltyrian_PropertyBoolean = new $TypeData().initClass($c_Ltyrian_PropertyBoolean, "tyrian.PropertyBoolean", {
+    Ltyrian_PropertyBoolean: 1,
+    Ltyrian_Attr: 1,
+    Ltyrian_Property: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
+/** @constructor */ function $c_Ltyrian_PropertyString(name, value) {
+    this.Ltyrian_PropertyString__f_name = null;
+    this.Ltyrian_PropertyString__f_value = null;
+    this.Ltyrian_PropertyString__f_valueOf = null;
+    this.Ltyrian_PropertyString__f_name = name;
+    this.Ltyrian_PropertyString__f_value = value;
+    this.Ltyrian_PropertyString__f_valueOf = value;
+}
+$c_Ltyrian_PropertyString.prototype = new $h_O();
+$c_Ltyrian_PropertyString.prototype.constructor = $c_Ltyrian_PropertyString;
+/** @constructor */ function $h_Ltyrian_PropertyString() {}
+$h_Ltyrian_PropertyString.prototype = $c_Ltyrian_PropertyString.prototype;
+$c_Ltyrian_PropertyString.prototype.toString__T = function() {
+    return $m_Ltyrian_HTMLRendering$package$().render__Ltyrian_Attr__T(this);
+};
+$c_Ltyrian_PropertyString.prototype.productIterator__sc_Iterator = function() {
+    return new $c_s_Product$$anon$1(this);
+};
+$c_Ltyrian_PropertyString.prototype.hashCode__I = function() {
+    var this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__Z__I(this, -889275714, false);
+};
+$c_Ltyrian_PropertyString.prototype.equals__O__Z = function(x$0) {
+    if (this === x$0) return true;
+    else if (x$0 instanceof $c_Ltyrian_PropertyString) {
+        var x$0$2 = $as_Ltyrian_PropertyString(x$0);
+        return this.Ltyrian_PropertyString__f_name === $n(x$0$2).Ltyrian_PropertyString__f_name && this.Ltyrian_PropertyString__f_value === $n(x$0$2).Ltyrian_PropertyString__f_value;
+    } else return false;
+};
+$c_Ltyrian_PropertyString.prototype.productArity__I = function() {
+    return 2;
+};
+$c_Ltyrian_PropertyString.prototype.productPrefix__T = function() {
+    return "PropertyString";
+};
+$c_Ltyrian_PropertyString.prototype.productElement__I__O = function(n) {
+    if (n === 0) return this.Ltyrian_PropertyString__f_name;
+    if (n === 1) return this.Ltyrian_PropertyString__f_value;
+    throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+$c_Ltyrian_PropertyString.prototype.name__T = function() {
+    return this.Ltyrian_PropertyString__f_name;
+};
+$c_Ltyrian_PropertyString.prototype.valueOf__O = function() {
+    return this.Ltyrian_PropertyString__f_valueOf;
+};
 function $as_Ltyrian_PropertyString(obj) {
-    return obj === null ? obj : $throwClassCastException(obj, "tyrian.PropertyString");
+    return obj instanceof $c_Ltyrian_PropertyString || obj === null ? obj : $throwClassCastException(obj, "tyrian.PropertyString");
 }
 function $isArrayOf_Ltyrian_PropertyString(obj, depth) {
     return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Ltyrian_PropertyString);
@@ -53588,6 +56168,14 @@ function $isArrayOf_Ltyrian_PropertyString(obj, depth) {
 function $asArrayOf_Ltyrian_PropertyString(obj, depth) {
     return $isArrayOf_Ltyrian_PropertyString(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Ltyrian.PropertyString;", depth);
 }
+var $d_Ltyrian_PropertyString = new $TypeData().initClass($c_Ltyrian_PropertyString, "tyrian.PropertyString", {
+    Ltyrian_PropertyString: 1,
+    Ltyrian_Attr: 1,
+    Ltyrian_Property: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1
+});
 function $as_Ltyrian_RawTag(obj) {
     return obj === null ? obj : $throwClassCastException(obj, "tyrian.RawTag");
 }
@@ -57507,6 +60095,38 @@ var $d_Lcats_instances_Function1Instances$$anon$6 = new $TypeData().initClass($c
     Lcats_arrow_Choice: 1,
     Lcats_arrow_ArrowChoice: 1,
     Lcats_arrow_CommutativeArrow: 1
+});
+/** @constructor */ function $c_Lftg_Character_CharacterClass$$anon$1(\u03B4name$2, _$ordinal$2) {
+    this.Lftg_Character_CharacterClass$$anon$1__f_$name$1 = null;
+    this.Lftg_Character_CharacterClass$$anon$1__f_$name$1 = \u03B4name$2;
+}
+$c_Lftg_Character_CharacterClass$$anon$1.prototype = new $h_Lftg_Character_CharacterClass();
+$c_Lftg_Character_CharacterClass$$anon$1.prototype.constructor = $c_Lftg_Character_CharacterClass$$anon$1;
+/** @constructor */ function $h_Lftg_Character_CharacterClass$$anon$1() {}
+$h_Lftg_Character_CharacterClass$$anon$1.prototype = $c_Lftg_Character_CharacterClass$$anon$1.prototype;
+$c_Lftg_Character_CharacterClass$$anon$1.prototype.productArity__I = function() {
+    return 0;
+};
+$c_Lftg_Character_CharacterClass$$anon$1.prototype.productElement__I__O = function(n) {
+    return $f_sr_EnumValue__productElement__I__O(this, n);
+};
+$c_Lftg_Character_CharacterClass$$anon$1.prototype.productPrefix__T = function() {
+    return this.Lftg_Character_CharacterClass$$anon$1__f_$name$1;
+};
+$c_Lftg_Character_CharacterClass$$anon$1.prototype.toString__T = function() {
+    return this.Lftg_Character_CharacterClass$$anon$1__f_$name$1;
+};
+var $d_Lftg_Character_CharacterClass$$anon$1 = new $TypeData().initClass($c_Lftg_Character_CharacterClass$$anon$1, "ftg.Character.CharacterClass$$anon$1", {
+    Lftg_Character_CharacterClass$$anon$1: 1,
+    Lftg_Character_CharacterClass: 1,
+    s_Equals: 1,
+    s_Product: 1,
+    Ljava_io_Serializable: 1,
+    s_reflect_Enum: 1,
+    sr_EnumValue: 1,
+    s_deriving_Mirror: 1,
+    s_deriving_Mirror$Product: 1,
+    s_deriving_Mirror$Singleton: 1
 });
 /** @constructor */ function $c_Lftg_Msg$$anon$1(\u03B4name$2, _$ordinal$2) {
     this.Lftg_Msg$$anon$1__f_$name$1 = null;
@@ -71651,6 +74271,7 @@ function $m_Lcats_implicits$() {
 }
 $L0 = new $c_RTLong(0, 0);
 $d_J.zero = $L0;
+var $t_Lftg_Character_CharacterClass$__Fighter = null;
 var $t_Lftg_Msg$__Increment = null;
 var $t_Lftg_Msg$__Decrement = null;
 var $t_Lftg_Msg$__NoOp = null;

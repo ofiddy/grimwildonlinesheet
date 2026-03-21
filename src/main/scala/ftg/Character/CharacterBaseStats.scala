@@ -14,9 +14,10 @@ opaque type BodyStats = StatGroup
 
 object BodyStats {
   extension (b: BodyStats) {
-    def brawn: StatPool              = b.leftPool
-    def agility: StatPool            = b.rightPool
-    def isBloodied: Option[DicePool] = b.markedPool
+    def brawn: StatPool            = b.leftPool
+    def agility: StatPool          = b.rightPool
+    def isBloodied: Boolean        = b.markedPool.isDefined
+    def bloodied: Option[DicePool] = b.markedPool
   }
 
   protected final case class FluentWithBrawn(b: Int) {
@@ -35,9 +36,10 @@ opaque type MentalStats = StatGroup
 
 object MentalStats {
   extension (m: MentalStats) {
-    def wits: StatPool              = m.leftPool
-    def presence: StatPool          = m.rightPool
-    def isRattled: Option[DicePool] = m.markedPool
+    def wits: StatPool            = m.leftPool
+    def presence: StatPool        = m.rightPool
+    def isRattled: Boolean        = m.markedPool.isDefined
+    def rattled: Option[DicePool] = m.markedPool
   }
 
   protected final case class FluentWithWits(w: Int) {

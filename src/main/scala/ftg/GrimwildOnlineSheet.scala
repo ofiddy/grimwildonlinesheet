@@ -5,6 +5,9 @@ import tyrian.Html.*
 import tyrian.*
 
 import scala.scalajs.js.annotation.*
+import ftg.page.DefaultCharacter
+import ftg.page.Model
+import ftg.page.CharacterHtmlRenderer.renderCharacter
 
 @JSExportTopLevel("TyrianApp")
 object GrimwildOnlineSheet extends TyrianIOApp[Msg, Model]:
@@ -13,24 +16,18 @@ object GrimwildOnlineSheet extends TyrianIOApp[Msg, Model]:
     Routing.none(Msg.NoOp)
 
   def init(flags: Map[String, String]): (Model, Cmd[IO, Msg]) =
-    (0, Cmd.None)
+    (Model(DefaultCharacter.detherilStarren), Cmd.None)
 
   def update(model: Model): Msg => (Model, Cmd[IO, Msg]) =
-    case Msg.Increment => (model + 1, Cmd.None)
-    case Msg.Decrement => (model - 1, Cmd.None)
+    case Msg.Increment => (model, Cmd.None)
+    case Msg.Decrement => (model, Cmd.None)
     case Msg.NoOp      => (model, Cmd.None)
 
   def view(model: Model): Html[Msg] =
-    div(
-      button(onClick(Msg.Decrement))("-"),
-      div(model.toString),
-      button(onClick(Msg.Increment))("+")
-    )
+    renderCharacter(model.character)
 
   def subscriptions(model: Model): Sub[IO, Msg] =
     Sub.None
-
-type Model = Int
 
 enum Msg:
   case Increment, Decrement, NoOp

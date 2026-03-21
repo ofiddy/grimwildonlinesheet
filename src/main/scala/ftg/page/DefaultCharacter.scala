@@ -14,6 +14,7 @@ import ftg.Character.CharacterTrait.PremadeTrait
 import ftg.Character.CharacterName.*
 import ftg.Character.PlayerName.*
 import ftg.Character.Wise.*
+import ftg.Character.DistinctiveFeature.*
 import ftg.Character.CharacterDesire.DesireSection
 import ftg.Character.CharacterDesire.PremadeDesire
 import ftg.Character.Bond
@@ -31,7 +32,13 @@ object DefaultCharacter {
     CharacterProfile(
       "Detheril Starren".charName,
       "Lucy Holderton".playerName,
-      Nil
+      List(
+        "Blue jacket".distinctiveFeature,
+        "No shirt".distinctiveFeature,
+        "Left peg-leg".distinctiveFeature,
+        "Extremely old".distinctiveFeature,
+        "Huge beard".distinctiveFeature
+      )
     ),
     CharacterBaseStats(
       BodyStats withBrawn 2 withAgility 3,
