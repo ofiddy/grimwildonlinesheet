@@ -7,12 +7,24 @@ import tyrian.syntax.*
 import ftg.Character.CharacterProfile
 import ftg.Character.CharacterBaseStats
 import tyrian.CSS
+import ftg.Character.Condition
+import ftg.Character.ShortTermCondition
+import ftg.Character.LongTermCondition
+import ftg.Character.PermanentCondition
+import ftg.Character.UrgentCondition
+import ftg.Character.Story
+import scala.Range
+import ftg.Character.Story.toInt
+import ftg.Character.Story.startingStory
+import ftg.Character.Spark
 
 object CharacterHtmlRenderer {
   def renderCharacter[T](char: Character): Html[T] = div(
     h1("Grimwild Online Character Sheet"),
     renderProfile(char.profile),
-    renderStats(char.stats)
+    renderStats(char.stats),
+    renderConditions(char.conditions),
+    renderStoryAndSpark(char.story, char.spark)
   )
 
   def renderProfile[T](profile: CharacterProfile): Html[T] = div(
@@ -101,4 +113,41 @@ object CharacterHtmlRenderer {
         )
       )
     )
+
+  def renderConditions[T](conditions: List[Condition]): Html[T] =
+    div(
+      h3("Conditions"),
+      ul(
+        conditions.map(c => li(displayCondition(c)))
+      ),
+      p(em("VEX:"), span(" FIGHT–FLIGHT–FREEZE–FREAKOUT"))
+    )
+
+  def renderStoryAndSpark[T](story: Story, spark: Spark): Html[T] = div(
+    table(
+      tr(
+        td(em("STORY")) +:
+          createAndFillCheckboxes(
+            story.toInt,
+            startingStory.toInt - story.toInt
+          ).map(b => td(b))
+      ),
+      tr(
+        td(em("SPARK")) +:
+          createAndFillCheckboxes(spark.toInt, 2 - spark.toInt).map(b => td(b))
+      )
+    )
+  )
+
+  def displayCondition(condition: Condition): String = condition match
+    case ShortTermCondition(name)    => name
+    case LongTermCondition(name)     => name
+    case PermanentCondition(name)    => name
+    case UrgentCondition(name, pool) => s"${name} ${pool.diceRemaining}d"
+
+  def createAndFillCheckboxes[T](filled: Int, empty: Int): List[Html[T]] =
+    Range(0, filled + empty)
+      .map(i => input(`type` := "checkbox", `checked` := i < filled))
+      .toList
+
 }

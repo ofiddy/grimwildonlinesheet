@@ -4066,6 +4066,18 @@ function $m_Lcats_syntax_FlatMapOps$() {
     if (!$n_Lcats_syntax_FlatMapOps$) $n_Lcats_syntax_FlatMapOps$ = new $c_Lcats_syntax_FlatMapOps$();
     return $n_Lcats_syntax_FlatMapOps$;
 }
+function $is_Lftg_Character_Condition(obj) {
+    return !!(obj && obj.$classData && obj.$classData.ancestors.Lftg_Character_Condition);
+}
+function $as_Lftg_Character_Condition(obj) {
+    return $is_Lftg_Character_Condition(obj) || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.Condition");
+}
+function $isArrayOf_Lftg_Character_Condition(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_Condition);
+}
+function $asArrayOf_Lftg_Character_Condition(obj, depth) {
+    return $isArrayOf_Lftg_Character_Condition(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.Condition;", depth);
+}
 /** @constructor */ function $c_Lftg_Character_PremadeArcs$() {
     this.Lftg_Character_PremadeArcs$__f_struggleArcs = null;
     this.Lftg_Character_PremadeArcs$__f_growthArcs = null;
@@ -4276,7 +4288,9 @@ $c_Lftg_page_CharacterHtmlRenderer$.prototype.renderCharacter__Lftg_Character_Ch
     var children = $x_1.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
         $f_Ltyrian_HtmlTags__h1$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$1, "Grimwild Online Character Sheet"),
         this.renderProfile__Lftg_Character_CharacterProfile__Ltyrian_Html($n(char).Lftg_Character_Character__f_profile),
-        this.renderStats__Lftg_Character_CharacterBaseStats__Ltyrian_Html($n(char).Lftg_Character_Character__f_stats)
+        this.renderStats__Lftg_Character_CharacterBaseStats__Ltyrian_Html($n(char).Lftg_Character_Character__f_stats),
+        this.renderConditions__sci_List__Ltyrian_Html($n(char).Lftg_Character_Character__f_conditions),
+        this.renderStoryAndSpark__I__I__Ltyrian_Html($n(char).Lftg_Character_Character__f_story, $n(char).Lftg_Character_Character__f_spark)
     ]));
     var attributes = $m_sci_Nil$();
     var this$3 = $n(children);
@@ -4639,6 +4653,207 @@ $c_Lftg_page_CharacterHtmlRenderer$.prototype.renderStats__Lftg_Character_Charac
     var children$37 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$153);
     var key$21 = $m_s_None$();
     return new $c_Ltyrian_Tag("div", attributes$28, children$37, key$21);
+};
+$c_Lftg_page_CharacterHtmlRenderer$.prototype.renderConditions__sci_List__Ltyrian_Html = function(conditions) {
+    $m_Ltyrian_Html$();
+    var $x_5 = $m_sr_ScalaRunTime$();
+    var this$1 = $m_Ltyrian_Html$();
+    var $x_4 = $f_Ltyrian_HtmlTags__h3$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$1, "Conditions");
+    $m_Ltyrian_Html$();
+    var this$3 = $n(conditions);
+    var f = (c)=>{
+        var c$1 = $as_Lftg_Character_Condition(c);
+        var this$2 = $m_Ltyrian_Html$();
+        var plainText = $m_Lftg_page_CharacterHtmlRenderer$().displayCondition__Lftg_Character_Condition__T(c$1);
+        return $f_Ltyrian_HtmlTags__li$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$2, plainText);
+    };
+    if (this$3 === $m_sci_Nil$()) var children = $m_sci_Nil$();
+    else {
+        var x0 = this$3.head__O();
+        var h = new $c_sci_$colon$colon(f(x0), $m_sci_Nil$());
+        var t = h;
+        var rest = $as_sci_List(this$3.tail__O());
+        while(rest !== $m_sci_Nil$()){
+            var x0$1 = $n(rest).head__O();
+            var nx = new $c_sci_$colon$colon(f(x0$1), $m_sci_Nil$());
+            $n(t).sci_$colon$colon__f_next = nx;
+            t = nx;
+            rest = $as_sci_List($n(rest).tail__O());
+        }
+        var children = h;
+    }
+    var attributes = $m_sci_Nil$();
+    var key = $m_s_None$();
+    var $x_3 = new $c_Ltyrian_Tag("ul", attributes, children, key);
+    $m_Ltyrian_Html$();
+    var $x_2 = $m_sr_ScalaRunTime$();
+    var this$7 = $m_Ltyrian_Html$();
+    var $x_1 = $f_Ltyrian_HtmlTags__em$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$7, "VEX:");
+    var this$8 = $m_Ltyrian_Html$();
+    var children$1 = $x_2.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_1,
+        $f_Ltyrian_HtmlTags__span$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$8, " FIGHT\u2013FLIGHT\u2013FREEZE\u2013FREAKOUT")
+    ]));
+    var attributes$1 = $m_sci_Nil$();
+    var this$10 = $n(children$1);
+    var children$2 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$10);
+    var key$1 = $m_s_None$();
+    var children$3 = $x_5.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_4,
+        $x_3,
+        new $c_Ltyrian_Tag("p", attributes$1, children$2, key$1)
+    ]));
+    var attributes$2 = $m_sci_Nil$();
+    var this$15 = $n(children$3);
+    var children$4 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$15);
+    var key$2 = $m_s_None$();
+    return new $c_Ltyrian_Tag("div", attributes$2, children$4, key$2);
+};
+$c_Lftg_page_CharacterHtmlRenderer$.prototype.renderStoryAndSpark__I__I__Ltyrian_Html = function(story, spark) {
+    $m_Ltyrian_Html$();
+    var $x_5 = $m_sr_ScalaRunTime$();
+    $m_Ltyrian_Html$();
+    var $x_4 = $m_sr_ScalaRunTime$();
+    $m_Ltyrian_Html$();
+    $m_Ltyrian_Html$();
+    var $x_2 = $m_sr_ScalaRunTime$();
+    var this$1 = $m_Ltyrian_Html$();
+    var children = $x_2.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $f_Ltyrian_HtmlTags__em$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$1, "STORY")
+    ]));
+    var attributes = $m_sci_Nil$();
+    var this$3 = $n(children);
+    var children$1 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$3);
+    var key = $m_s_None$();
+    var elem$1 = new $c_Ltyrian_Tag("td", attributes, children$1, key);
+    var this$15 = $n(this.createAndFillCheckboxes__I__I__sci_List(story, 2 - story | 0));
+    var f = (b)=>{
+        var b$1 = $as_Ltyrian_Html(b);
+        $m_Ltyrian_Html$();
+        var children$2 = $m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+            b$1
+        ]));
+        var attributes$1 = $m_sci_Nil$();
+        var this$11 = $n(children$2);
+        var children$3 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$11);
+        var key$1 = $m_s_None$();
+        return new $c_Ltyrian_Tag("td", attributes$1, children$3, key$1);
+    };
+    if (this$15 === $m_sci_Nil$()) var this$16 = $m_sci_Nil$();
+    else {
+        var x0 = this$15.head__O();
+        var h = new $c_sci_$colon$colon(f(x0), $m_sci_Nil$());
+        var t = h;
+        var rest = $as_sci_List(this$15.tail__O());
+        while(rest !== $m_sci_Nil$()){
+            var x0$1 = $n(rest).head__O();
+            var nx = new $c_sci_$colon$colon(f(x0$1), $m_sci_Nil$());
+            $n(t).sci_$colon$colon__f_next = nx;
+            t = nx;
+            rest = $as_sci_List($n(rest).tail__O());
+        }
+        var this$16 = h;
+    }
+    var children$4 = this$16.prepended__O__sci_List(elem$1);
+    var attributes$2 = $m_sci_Nil$();
+    var key$2 = $m_s_None$();
+    var $x_3 = new $c_Ltyrian_Tag("tr", attributes$2, children$4, key$2);
+    $m_Ltyrian_Html$();
+    $m_Ltyrian_Html$();
+    var $x_1 = $m_sr_ScalaRunTime$();
+    var this$20 = $m_Ltyrian_Html$();
+    var children$5 = $x_1.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $f_Ltyrian_HtmlTags__em$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$20, "SPARK")
+    ]));
+    var attributes$3 = $m_sci_Nil$();
+    var this$22 = $n(children$5);
+    var children$6 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$22);
+    var key$3 = $m_s_None$();
+    var elem$2 = new $c_Ltyrian_Tag("td", attributes$3, children$6, key$3);
+    var this$33 = $n(this.createAndFillCheckboxes__I__I__sci_List(spark, 2 - spark | 0));
+    var f$1 = (b$2)=>{
+        var b$3 = $as_Ltyrian_Html(b$2);
+        $m_Ltyrian_Html$();
+        var children$7 = $m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+            b$3
+        ]));
+        var attributes$4 = $m_sci_Nil$();
+        var this$29 = $n(children$7);
+        var children$8 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$29);
+        var key$4 = $m_s_None$();
+        return new $c_Ltyrian_Tag("td", attributes$4, children$8, key$4);
+    };
+    if (this$33 === $m_sci_Nil$()) var this$34 = $m_sci_Nil$();
+    else {
+        var x0$2 = this$33.head__O();
+        var h$1 = new $c_sci_$colon$colon(f$1(x0$2), $m_sci_Nil$());
+        var t$1 = h$1;
+        var rest$1 = $as_sci_List(this$33.tail__O());
+        while(rest$1 !== $m_sci_Nil$()){
+            var x0$3 = $n(rest$1).head__O();
+            var nx$1 = new $c_sci_$colon$colon(f$1(x0$3), $m_sci_Nil$());
+            $n(t$1).sci_$colon$colon__f_next = nx$1;
+            t$1 = nx$1;
+            rest$1 = $as_sci_List($n(rest$1).tail__O());
+        }
+        var this$34 = h$1;
+    }
+    var children$9 = this$34.prepended__O__sci_List(elem$2);
+    var attributes$5 = $m_sci_Nil$();
+    var key$5 = $m_s_None$();
+    var children$10 = $x_4.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_3,
+        new $c_Ltyrian_Tag("tr", attributes$5, children$9, key$5)
+    ]));
+    var attributes$6 = $m_sci_Nil$();
+    var this$39 = $n(children$10);
+    var children$11 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$39);
+    var key$6 = $m_s_None$();
+    var children$12 = $x_5.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        new $c_Ltyrian_Tag("table", attributes$6, children$11, key$6)
+    ]));
+    var attributes$7 = $m_sci_Nil$();
+    var this$44 = $n(children$12);
+    var children$13 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$44);
+    var key$7 = $m_s_None$();
+    return new $c_Ltyrian_Tag("div", attributes$7, children$13, key$7);
+};
+$c_Lftg_page_CharacterHtmlRenderer$.prototype.displayCondition__Lftg_Character_Condition__T = function(condition) {
+    var x$1, x14;
+    var x$1$1, x11;
+    var x$1$2, x8;
+    var x$1$3, x4, x5;
+    throw new $c_s_MatchError(condition);
+};
+$c_Lftg_page_CharacterHtmlRenderer$.prototype.createAndFillCheckboxes__I__I__sci_List = function(filled, empty) {
+    var end = filled + empty | 0;
+    var isEmpty = end <= 0;
+    if (isEmpty) var scala$collection$immutable$Range$$numRangeElements = 0;
+    else {
+        var hi = end >> 31;
+        var scala$collection$immutable$Range$$numRangeElements = (hi === 0 ? (-2147483648 ^ end) > -1 : hi > 0) ? -1 : end;
+    }
+    var scala$collection$immutable$Range$$lastElement = -1 + end | 0;
+    if (scala$collection$immutable$Range$$numRangeElements < 0) $m_sci_Range$().scala$collection$immutable$Range$$fail__I__I__I__Z__E(0, end, 1, false);
+    var b = $m_sci_IndexedSeq$().newBuilder__scm_Builder();
+    var it = new $c_sci_RangeIterator(0, 1, scala$collection$immutable$Range$$lastElement, isEmpty);
+    while(it.sci_RangeIterator__f__hasNext){
+        var this$9 = $n(b);
+        var x0 = it.next__I();
+        $m_Ltyrian_Html$();
+        var attributes = $m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Attr.getArrayOf()).constr([
+            $n($m_Ltyrian_Html$().Ltyrian_Html$__f_$u0060type$u0060$minusString).$colon$eq__T__Ltyrian_Attribute("checkbox"),
+            $n($m_Ltyrian_Html$().Ltyrian_Html$__f_checked$minusBoolean).$colon$eq__Z__Ltyrian_PropertyBoolean(x0 < filled)
+        ]));
+        var this$5 = $n(attributes);
+        var attributes$1 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$5);
+        var children = $m_sci_Nil$();
+        var key = $m_s_None$();
+        var elem = new $c_Ltyrian_Tag("input", attributes$1, children, key);
+        this$9.addOne__O__scm_Growable(elem);
+    }
+    var this$10 = $n($as_sci_IndexedSeq($n(b).result__O()));
+    return $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$10);
 };
 var $d_Lftg_page_CharacterHtmlRenderer$ = new $TypeData().initClass($c_Lftg_page_CharacterHtmlRenderer$, "ftg.page.CharacterHtmlRenderer$", {
     Lftg_page_CharacterHtmlRenderer$: 1
@@ -10352,6 +10567,7 @@ function $p_s_package$__BigInt$lzycompute__s_math_BigInt$($thiz) {
     this.s_package$__f_Stream = null;
     this.s_package$__f_LazyList = null;
     this.s_package$__f_Vector = null;
+    this.s_package$__f_Range = null;
     this.s_package$__f_Ordering = null;
     this.s_package$__f_Left = null;
     this.s_package$__f_Right = null;
@@ -10364,6 +10580,7 @@ function $p_s_package$__BigInt$lzycompute__s_math_BigInt$($thiz) {
     this.s_package$__f_Stream = $m_sci_Stream$();
     this.s_package$__f_LazyList = $m_sci_LazyList$();
     this.s_package$__f_Vector = $m_sci_Vector$();
+    this.s_package$__f_Range = $m_sci_Range$();
     this.s_package$__f_Ordering = $m_s_math_Ordering$();
     this.s_package$__f_Left = $m_s_util_Left$();
     this.s_package$__f_Right = $m_s_util_Right$();
@@ -14209,6 +14426,12 @@ function $f_Ltyrian_HtmlTags__button$minusno_attrs$minuslist$minusplaintext__T__
     var key = $m_s_None$();
     return new $c_Ltyrian_Tag("button", attributes, children, key);
 }
+function $f_Ltyrian_HtmlTags__em$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html($thiz, plainText) {
+    var attributes = $m_sci_Nil$();
+    var children = new $c_sci_$colon$colon(($m_Ltyrian_Html$(), new $c_Ltyrian_Text(plainText)), $m_sci_Nil$());
+    var key = $m_s_None$();
+    return new $c_Ltyrian_Tag("em", attributes, children, key);
+}
 function $f_Ltyrian_HtmlTags__h1$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html($thiz, plainText) {
     var attributes = $m_sci_Nil$();
     var children = new $c_sci_$colon$colon(($m_Ltyrian_Html$(), new $c_Ltyrian_Text(plainText)), $m_sci_Nil$());
@@ -14227,11 +14450,23 @@ function $f_Ltyrian_HtmlTags__h3$minusno_attrs$minuslist$minusplaintext__T__Ltyr
     var key = $m_s_None$();
     return new $c_Ltyrian_Tag("h3", attributes, children, key);
 }
+function $f_Ltyrian_HtmlTags__li$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html($thiz, plainText) {
+    var attributes = $m_sci_Nil$();
+    var children = new $c_sci_$colon$colon(($m_Ltyrian_Html$(), new $c_Ltyrian_Text(plainText)), $m_sci_Nil$());
+    var key = $m_s_None$();
+    return new $c_Ltyrian_Tag("li", attributes, children, key);
+}
 function $f_Ltyrian_HtmlTags__p$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html($thiz, plainText) {
     var attributes = $m_sci_Nil$();
     var children = new $c_sci_$colon$colon(($m_Ltyrian_Html$(), new $c_Ltyrian_Text(plainText)), $m_sci_Nil$());
     var key = $m_s_None$();
     return new $c_Ltyrian_Tag("p", attributes, children, key);
+}
+function $f_Ltyrian_HtmlTags__span$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html($thiz, plainText) {
+    var attributes = $m_sci_Nil$();
+    var children = new $c_sci_$colon$colon(($m_Ltyrian_Html$(), new $c_Ltyrian_Text(plainText)), $m_sci_Nil$());
+    var key = $m_s_None$();
+    return new $c_Ltyrian_Tag("span", attributes, children, key);
 }
 function $f_Ltyrian_HtmlTags__td$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html($thiz, plainText) {
     var attributes = $m_sci_Nil$();
@@ -44921,6 +45156,24 @@ var $d_Lftg_Character_GrowthArc = new $TypeData().initClass($c_Lftg_Character_Gr
     s_Product: 1,
     Ljava_io_Serializable: 1
 });
+function $as_Lftg_Character_LongTermCondition(obj) {
+    return obj === null ? obj : $throwClassCastException(obj, "ftg.Character.LongTermCondition");
+}
+function $isArrayOf_Lftg_Character_LongTermCondition(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_LongTermCondition);
+}
+function $asArrayOf_Lftg_Character_LongTermCondition(obj, depth) {
+    return $isArrayOf_Lftg_Character_LongTermCondition(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.LongTermCondition;", depth);
+}
+function $as_Lftg_Character_PermanentCondition(obj) {
+    return obj === null ? obj : $throwClassCastException(obj, "ftg.Character.PermanentCondition");
+}
+function $isArrayOf_Lftg_Character_PermanentCondition(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_PermanentCondition);
+}
+function $asArrayOf_Lftg_Character_PermanentCondition(obj, depth) {
+    return $isArrayOf_Lftg_Character_PermanentCondition(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.PermanentCondition;", depth);
+}
 /** @constructor */ function $c_Lftg_Character_PremadeBond(labelLeft, labelRight) {
     this.Lftg_Character_PremadeBond__f_labelLeft = null;
     this.Lftg_Character_PremadeBond__f_labelRight = null;
@@ -44975,6 +45228,15 @@ var $d_Lftg_Character_PremadeBond = new $TypeData().initClass($c_Lftg_Character_
     s_Product: 1,
     Ljava_io_Serializable: 1
 });
+function $as_Lftg_Character_ShortTermCondition(obj) {
+    return obj === null ? obj : $throwClassCastException(obj, "ftg.Character.ShortTermCondition");
+}
+function $isArrayOf_Lftg_Character_ShortTermCondition(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_ShortTermCondition);
+}
+function $asArrayOf_Lftg_Character_ShortTermCondition(obj, depth) {
+    return $isArrayOf_Lftg_Character_ShortTermCondition(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.ShortTermCondition;", depth);
+}
 /** @constructor */ function $c_Lftg_Character_StruggleArc(label) {
     this.Lftg_Character_StruggleArc__f_label = null;
     this.Lftg_Character_StruggleArc__f_label = label;
@@ -45026,6 +45288,15 @@ var $d_Lftg_Character_StruggleArc = new $TypeData().initClass($c_Lftg_Character_
     s_Product: 1,
     Ljava_io_Serializable: 1
 });
+function $as_Lftg_Character_UrgentCondition(obj) {
+    return obj === null ? obj : $throwClassCastException(obj, "ftg.Character.UrgentCondition");
+}
+function $isArrayOf_Lftg_Character_UrgentCondition(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_UrgentCondition);
+}
+function $asArrayOf_Lftg_Character_UrgentCondition(obj, depth) {
+    return $isArrayOf_Lftg_Character_UrgentCondition(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.UrgentCondition;", depth);
+}
 /** @constructor */ function $c_Lftg_Msg() {}
 $c_Lftg_Msg.prototype = new $h_O();
 $c_Lftg_Msg.prototype.constructor = $c_Lftg_Msg;
@@ -68701,6 +68972,9 @@ $c_sci_List.prototype.$colon$colon$colon__sci_List__sci_List = function(prefix) 
 };
 $c_sci_List.prototype.isEmpty__Z = function() {
     return this === $m_sci_Nil$();
+};
+$c_sci_List.prototype.prepended__O__sci_List = function(elem) {
+    return new $c_sci_$colon$colon(elem, this);
 };
 $c_sci_List.prototype.prependedAll__sc_IterableOnce__sci_List = function(prefix) {
     if (prefix instanceof $c_sci_List) {
