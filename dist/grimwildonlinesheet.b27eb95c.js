@@ -4066,6 +4066,30 @@ function $m_Lcats_syntax_FlatMapOps$() {
     if (!$n_Lcats_syntax_FlatMapOps$) $n_Lcats_syntax_FlatMapOps$ = new $c_Lcats_syntax_FlatMapOps$();
     return $n_Lcats_syntax_FlatMapOps$;
 }
+function $is_Lftg_Character_CharacterTrait$package$CharacterDesire$Desire(obj) {
+    return !!(obj && obj.$classData && obj.$classData.ancestors.Lftg_Character_CharacterTrait$package$CharacterDesire$Desire);
+}
+function $as_Lftg_Character_CharacterTrait$package$CharacterDesire$Desire(obj) {
+    return $is_Lftg_Character_CharacterTrait$package$CharacterDesire$Desire(obj) || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.CharacterTrait$package$CharacterDesire$Desire");
+}
+function $isArrayOf_Lftg_Character_CharacterTrait$package$CharacterDesire$Desire(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_CharacterTrait$package$CharacterDesire$Desire);
+}
+function $asArrayOf_Lftg_Character_CharacterTrait$package$CharacterDesire$Desire(obj, depth) {
+    return $isArrayOf_Lftg_Character_CharacterTrait$package$CharacterDesire$Desire(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.CharacterTrait$package$CharacterDesire$Desire;", depth);
+}
+function $is_Lftg_Character_CharacterTrait$package$CharacterTrait$Trait(obj) {
+    return !!(obj && obj.$classData && obj.$classData.ancestors.Lftg_Character_CharacterTrait$package$CharacterTrait$Trait);
+}
+function $as_Lftg_Character_CharacterTrait$package$CharacterTrait$Trait(obj) {
+    return $is_Lftg_Character_CharacterTrait$package$CharacterTrait$Trait(obj) || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.CharacterTrait$package$CharacterTrait$Trait");
+}
+function $isArrayOf_Lftg_Character_CharacterTrait$package$CharacterTrait$Trait(obj, depth) {
+    return !!(obj && obj.$classData && obj.$classData.arrayDepth === depth && obj.$classData.arrayBase.ancestors.Lftg_Character_CharacterTrait$package$CharacterTrait$Trait);
+}
+function $asArrayOf_Lftg_Character_CharacterTrait$package$CharacterTrait$Trait(obj, depth) {
+    return $isArrayOf_Lftg_Character_CharacterTrait$package$CharacterTrait$Trait(obj, depth) || obj === null ? obj : $throwArrayCastException(obj, "Lftg.Character.CharacterTrait$package$CharacterTrait$Trait;", depth);
+}
 function $is_Lftg_Character_Condition(obj) {
     return !!(obj && obj.$classData && obj.$classData.ancestors.Lftg_Character_Condition);
 }
@@ -4858,31 +4882,31 @@ $c_Lftg_page_CharacterHtmlRenderer$.prototype.createAndFillCheckboxes__I__I__sci
 };
 $c_Lftg_page_CharacterHtmlRenderer$.prototype.renderCharacterDetails__Lftg_Character_CharacterDetails__Ltyrian_Html = function(details) {
     $m_Ltyrian_Html$();
-    var $x_7 = $m_sr_ScalaRunTime$();
+    var $x_10 = $m_sr_ScalaRunTime$();
     var this$1 = $m_Ltyrian_Html$();
-    var $x_6 = $f_Ltyrian_HtmlTags__h2$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$1, "Character Details");
+    var $x_9 = $f_Ltyrian_HtmlTags__h2$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$1, "Character Details");
     $m_Ltyrian_Html$();
-    var $x_5 = $m_sr_ScalaRunTime$();
+    var $x_7 = $m_sr_ScalaRunTime$();
     $m_Ltyrian_Html$();
-    var $x_4 = $m_sr_ScalaRunTime$();
+    var $x_6 = $m_sr_ScalaRunTime$();
     var this$2 = $m_Ltyrian_Html$();
-    var $x_3 = $f_Ltyrian_HtmlTags__th$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$2, "Background");
+    var $x_5 = $f_Ltyrian_HtmlTags__th$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$2, "Background");
     var this$3 = $m_Ltyrian_Html$();
-    var $x_2 = $f_Ltyrian_HtmlTags__th$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$3, "Wise");
+    var $x_4 = $f_Ltyrian_HtmlTags__th$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$3, "Wise");
     var this$4 = $m_Ltyrian_Html$();
-    var $x_1 = $f_Ltyrian_HtmlTags__th$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$4, "Wise");
+    var $x_3 = $f_Ltyrian_HtmlTags__th$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$4, "Wise");
     var this$5 = $m_Ltyrian_Html$();
-    var children = $x_4.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+    var children = $x_6.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_5,
+        $x_4,
         $x_3,
-        $x_2,
-        $x_1,
         $f_Ltyrian_HtmlTags__th$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$5, "Wise")
     ]));
     var attributes = $m_sci_Nil$();
     var this$7 = $n(children);
     var children$1 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$7);
     var key = $m_s_None$();
-    var children$2 = $x_5.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+    var children$2 = $x_7.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
         new $c_Ltyrian_Tag("tr", attributes, children$1, key),
         this.renderBackgroundRows__Lftg_Character_Background__Ltyrian_Html($as_Lftg_Character_Background($n($n(details).Lftg_Character_CharacterDetails__f_backgrounds)._1__O())),
         this.renderBackgroundRows__Lftg_Character_Background__Ltyrian_Html($as_Lftg_Character_Background($n($n(details).Lftg_Character_CharacterDetails__f_backgrounds)._2__O()))
@@ -4891,22 +4915,134 @@ $c_Lftg_page_CharacterHtmlRenderer$.prototype.renderCharacterDetails__Lftg_Chara
     var this$12 = $n(children$2);
     var children$3 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$12);
     var key$1 = $m_s_None$();
-    var children$4 = $x_7.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
-        $x_6,
-        new $c_Ltyrian_Tag("table", attributes$1, children$3, key$1)
+    var $x_8 = new $c_Ltyrian_Tag("table", attributes$1, children$3, key$1);
+    $m_Ltyrian_Html$();
+    var attributes$4 = $m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Attr.getArrayOf()).constr([
+        $m_Ltyrian_Html$().styles__sci_Seq__Ltyrian_Attr($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_T.getArrayOf()).constr([
+            $m_Ltyrian_Style$package$Style$().apply__T__T__T("display", "flex"),
+            $m_Ltyrian_Style$package$Style$().apply__T__T__T("gap", "10px")
+        ])))
     ]));
+    var $x_2 = $m_sr_ScalaRunTime$();
+    $m_Ltyrian_Html$();
+    var this$18 = $m_Ltyrian_Html$();
+    var elem$3 = $f_Ltyrian_HtmlTags__h3$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$18, "Traits");
+    var this$20 = $n($n($n(details).Lftg_Character_CharacterDetails__f_traits).Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection__f_twoYouAre);
+    var f = (t)=>{
+        var t$1 = $as_Lftg_Character_CharacterTrait$package$CharacterTrait$Trait(t);
+        var this$19 = $m_Ltyrian_Html$();
+        var plainText = "\u2714\ufe0f " + $n(t$1).Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait__f_label;
+        return $f_Ltyrian_HtmlTags__p$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$19, plainText);
+    };
+    if (this$20 === $m_sci_Nil$()) var this$21 = $m_sci_Nil$();
+    else {
+        var x0 = this$20.head__O();
+        var h = new $c_sci_$colon$colon(f(x0), $m_sci_Nil$());
+        var t$2 = h;
+        var rest = $as_sci_List(this$20.tail__O());
+        while(rest !== $m_sci_Nil$()){
+            var x0$1 = $n(rest).head__O();
+            var nx = new $c_sci_$colon$colon(f(x0$1), $m_sci_Nil$());
+            $n(t$2).sci_$colon$colon__f_next = nx;
+            t$2 = nx;
+            rest = $as_sci_List($n(rest).tail__O());
+        }
+        var this$21 = h;
+    }
+    var this$23 = $n(this$21.prepended__O__sci_List(elem$3));
+    var this$22 = $m_Ltyrian_Html$();
+    matchResult2: {
+        var plainText$1;
+        var x15 = $n($n(details).Lftg_Character_CharacterDetails__f_traits).Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection__f_oneYouArent;
+        var x = $m_s_None$();
+        if (x === x15) {
+            var plainText$1 = "\u274c";
+            break matchResult2;
+        }
+        if (x15 instanceof $c_s_Some) {
+            var t$2$1 = $as_Lftg_Character_CharacterTrait$package$CharacterTrait$Trait($n($as_s_Some(x15)).s_Some__f_value);
+            var plainText$1 = "\u274c " + $n(t$2$1).Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait__f_label;
+            break matchResult2;
+        }
+        throw new $c_s_MatchError(x15);
+    }
+    var elem = $f_Ltyrian_HtmlTags__p$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$22, plainText$1);
+    var children$4 = $as_sci_List($f_sc_StrictOptimizedSeqOps__appended__O__O(this$23, elem));
     var attributes$2 = $m_sci_Nil$();
-    var this$17 = $n(children$4);
-    var children$5 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$17);
     var key$2 = $m_s_None$();
-    return new $c_Ltyrian_Tag("div", attributes$2, children$5, key$2);
+    var $x_1 = new $c_Ltyrian_Tag("div", attributes$2, children$4, key$2);
+    $m_Ltyrian_Html$();
+    var this$27 = $m_Ltyrian_Html$();
+    var elem$4 = $f_Ltyrian_HtmlTags__h3$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$27, "Desires");
+    var this$29 = $n($n($n(details).Lftg_Character_CharacterDetails__f_desires).Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection__f_twoYouWant);
+    var f$1 = (t$3)=>{
+        var t$4 = $as_Lftg_Character_CharacterTrait$package$CharacterDesire$Desire(t$3);
+        var this$28 = $m_Ltyrian_Html$();
+        var plainText$2 = "\u2714\ufe0f " + $n(t$4).Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire__f_label;
+        return $f_Ltyrian_HtmlTags__p$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$28, plainText$2);
+    };
+    if (this$29 === $m_sci_Nil$()) var this$30 = $m_sci_Nil$();
+    else {
+        var x0$2 = this$29.head__O();
+        var h$1 = new $c_sci_$colon$colon(f$1(x0$2), $m_sci_Nil$());
+        var t$5 = h$1;
+        var rest$1 = $as_sci_List(this$29.tail__O());
+        while(rest$1 !== $m_sci_Nil$()){
+            var x0$3 = $n(rest$1).head__O();
+            var nx$1 = new $c_sci_$colon$colon(f$1(x0$3), $m_sci_Nil$());
+            $n(t$5).sci_$colon$colon__f_next = nx$1;
+            t$5 = nx$1;
+            rest$1 = $as_sci_List($n(rest$1).tail__O());
+        }
+        var this$30 = h$1;
+    }
+    var this$32 = $n(this$30.prepended__O__sci_List(elem$4));
+    var this$31 = $m_Ltyrian_Html$();
+    matchResult3: {
+        var plainText$3;
+        var x18 = $n($n(details).Lftg_Character_CharacterDetails__f_desires).Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection__f_oneYouDont;
+        var x$3 = $m_s_None$();
+        if (x$3 === x18) {
+            var plainText$3 = "\u274c";
+            break matchResult3;
+        }
+        if (x18 instanceof $c_s_Some) {
+            var t$4$1 = $as_Lftg_Character_CharacterTrait$package$CharacterDesire$Desire($n($as_s_Some(x18)).s_Some__f_value);
+            var plainText$3 = "\u274c " + $n(t$4$1).Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire__f_label;
+            break matchResult3;
+        }
+        throw new $c_s_MatchError(x18);
+    }
+    var elem$1 = $f_Ltyrian_HtmlTags__p$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$31, plainText$3);
+    var children$5 = $as_sci_List($f_sc_StrictOptimizedSeqOps__appended__O__O(this$32, elem$1));
+    var attributes$3 = $m_sci_Nil$();
+    var key$3 = $m_s_None$();
+    var children$6 = $x_2.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_1,
+        new $c_Ltyrian_Tag("div", attributes$3, children$5, key$3)
+    ]));
+    var this$37 = $n(attributes$4);
+    var attributes$5 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$37);
+    var this$39 = $n(children$6);
+    var children$7 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$39);
+    var key$4 = $m_s_None$();
+    var children$8 = $x_10.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_9,
+        $x_8,
+        new $c_Ltyrian_Tag("div", attributes$5, children$7, key$4)
+    ]));
+    var attributes$6 = $m_sci_Nil$();
+    var this$44 = $n(children$8);
+    var children$9 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$44);
+    var key$5 = $m_s_None$();
+    return new $c_Ltyrian_Tag("div", attributes$6, children$9, key$5);
 };
 $c_Lftg_page_CharacterHtmlRenderer$.prototype.renderBackgroundRows__Lftg_Character_Background__Ltyrian_Html = function(background) {
     $m_Ltyrian_Html$();
     var this$2 = $m_Ltyrian_Html$();
     var this$1 = $n($n(background).Lftg_Character_Background__f_description);
     var plainText = $as_T(this$1.isEmpty__Z() ? "" : this$1.get__O());
-    var elem$3 = $f_Ltyrian_HtmlTags__td$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$2, plainText);
+    var elem$5 = $f_Ltyrian_HtmlTags__td$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$2, plainText);
     var this$3 = $n($n(background).Lftg_Character_Background__f_wises);
     var this$5 = new $c_sr_ScalaRunTime$$anon$1(this$3);
     var this$9 = $n($m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$5));
@@ -4939,7 +5075,7 @@ $c_Lftg_page_CharacterHtmlRenderer$.prototype.renderBackgroundRows__Lftg_Charact
         }
         var this$10 = h;
     }
-    var children = this$10.prepended__O__sci_List(elem$3);
+    var children = this$10.prepended__O__sci_List(elem$5);
     var attributes = $m_sci_Nil$();
     var key = $m_s_None$();
     return new $c_Ltyrian_Tag("tr", attributes, children, key);
@@ -14653,8 +14789,9 @@ function $m_Ltyrian_Routing$() {
     return $n_Ltyrian_Routing$;
 }
 /** @constructor */ function $c_Ltyrian_Style$package$Style$() {
+    this.Ltyrian_Style$package$Style$__f_empty = null;
     $n_Ltyrian_Style$package$Style$ = this;
-    $m_Ltyrian_Style$package$Style$().apply__T__T__T("", "");
+    this.Ltyrian_Style$package$Style$__f_empty = $m_Ltyrian_Style$package$Style$().apply__T__T__T("", "");
 }
 $c_Ltyrian_Style$package$Style$.prototype = new $h_O();
 $c_Ltyrian_Style$package$Style$.prototype.constructor = $c_Ltyrian_Style$package$Style$;
@@ -14673,6 +14810,26 @@ $c_Ltyrian_Style$package$Style$.prototype.apply__T__T__T = function(name, value)
         return name + ";";
     }
     return name + ":" + value + ";";
+};
+$c_Ltyrian_Style$package$Style$.prototype.combine__T__T__T = function(a, b) {
+    var this$1 = $n(a);
+    var this$2 = $n(b);
+    return this$1 + this$2;
+};
+$c_Ltyrian_Style$package$Style$.prototype.combineAll__sci_List__T = function(styles) {
+    var this$1 = $n(styles);
+    var z = $m_Ltyrian_Style$package$Style$().Ltyrian_Style$package$Style$__f_empty;
+    var acc = z;
+    var these = this$1;
+    while(!$n(these).isEmpty__Z()){
+        var x0 = acc;
+        var x1 = $n(these).head__O();
+        var a = $as_T(x0);
+        var b = $as_T(x1);
+        acc = $m_Ltyrian_Style$package$Style$().combine__T__T__T(a, b);
+        these = $as_sc_LinearSeq($n(these).tail__O());
+    }
+    return $as_T(acc);
 };
 var $d_Ltyrian_Style$package$Style$ = new $TypeData().initClass($c_Ltyrian_Style$package$Style$, "tyrian.Style$package$Style$", {
     Ltyrian_Style$package$Style$: 1
@@ -55223,6 +55380,15 @@ function $f_sc_MapOps__addString__scm_StringBuilder__T__T__T__scm_StringBuilder(
     var this$2 = new $c_sc_Iterator$$anon$9(this$1, f);
     return $f_sc_IterableOnceOps__addString__scm_StringBuilder__T__T__T__scm_StringBuilder(this$2, sb, start, sep, end);
 }
+function $f_sc_StrictOptimizedSeqOps__appended__O__O($thiz, elem) {
+    var b = $n($thiz.iterableFactory__sc_SeqFactory()).newBuilder__scm_Builder();
+    $f_scm_Builder__sizeHint__sc_IterableOnce__I__V($n(b), $thiz, 1);
+    var this$1 = $n(b);
+    this$1.addAll__sc_IterableOnce__scm_Growable($thiz);
+    var this$2 = $n(b);
+    this$2.addOne__O__scm_Growable(elem);
+    return $n(b).result__O();
+}
 function $f_sc_StrictOptimizedSeqOps__appendedAll__sc_IterableOnce__O($thiz, suffix) {
     var b = $n($thiz.iterableFactory__sc_SeqFactory()).newBuilder__scm_Builder();
     var this$1 = $n(b);
@@ -56394,6 +56560,11 @@ $c_Ltyrian_Html$.prototype = new $h_O();
 $c_Ltyrian_Html$.prototype.constructor = $c_Ltyrian_Html$;
 /** @constructor */ function $h_Ltyrian_Html$() {}
 $h_Ltyrian_Html$.prototype = $c_Ltyrian_Html$.prototype;
+$c_Ltyrian_Html$.prototype.styles__sci_Seq__Ltyrian_Attr = function(styles) {
+    $m_Ltyrian_Attribute$();
+    var this$1 = $n($m_Ltyrian_Style$package$Style$().combineAll__sci_List__T($n(styles).toList__sci_List()));
+    return new $c_Ltyrian_Attribute("style", this$1);
+};
 var $d_Ltyrian_Html$ = new $TypeData().initClass($c_Ltyrian_Html$, "tyrian.Html$", {
     Ltyrian_Html$: 1,
     Ltyrian_HtmlTags: 1,

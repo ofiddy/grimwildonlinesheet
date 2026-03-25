@@ -164,6 +164,22 @@ object CharacterHtmlRenderer {
       ),
       renderBackgroundRows(details.backgrounds._1),
       renderBackgroundRows(details.backgrounds._2)
+    ),
+    div(styles(CSS.`display`("flex"), CSS.`gap`("10px")))(
+      div(
+        h3("Traits") +:
+          details.traits.twoYouAre.map(t => p(s"✔️ ${t.label}")) :+
+          p(details.traits.oneYouArent match
+            case None    => "❌"
+            case Some(t) => s"❌ ${t.label}")
+      ),
+      div(
+        h3("Desires") +:
+          details.desires.twoYouWant.map(t => p(s"✔️ ${t.label}")) :+
+          p(details.desires.oneYouDont match
+            case None    => "❌"
+            case Some(t) => s"❌ ${t.label}")
+      )
     )
   )
 
