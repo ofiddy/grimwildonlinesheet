@@ -4290,7 +4290,8 @@ $c_Lftg_page_CharacterHtmlRenderer$.prototype.renderCharacter__Lftg_Character_Ch
         this.renderProfile__Lftg_Character_CharacterProfile__Ltyrian_Html($n(char).Lftg_Character_Character__f_profile),
         this.renderStats__Lftg_Character_CharacterBaseStats__Ltyrian_Html($n(char).Lftg_Character_Character__f_stats),
         this.renderConditions__sci_List__Ltyrian_Html($n(char).Lftg_Character_Character__f_conditions),
-        this.renderStoryAndSpark__I__I__Ltyrian_Html($n(char).Lftg_Character_Character__f_story, $n(char).Lftg_Character_Character__f_spark)
+        this.renderStoryAndSpark__I__I__Ltyrian_Html($n(char).Lftg_Character_Character__f_story, $n(char).Lftg_Character_Character__f_spark),
+        this.renderCharacterDetails__Lftg_Character_CharacterDetails__Ltyrian_Html($n(char).Lftg_Character_Character__f_details)
     ]));
     var attributes = $m_sci_Nil$();
     var this$3 = $n(children);
@@ -4855,6 +4856,94 @@ $c_Lftg_page_CharacterHtmlRenderer$.prototype.createAndFillCheckboxes__I__I__sci
     var this$10 = $n($as_sci_IndexedSeq($n(b).result__O()));
     return $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$10);
 };
+$c_Lftg_page_CharacterHtmlRenderer$.prototype.renderCharacterDetails__Lftg_Character_CharacterDetails__Ltyrian_Html = function(details) {
+    $m_Ltyrian_Html$();
+    var $x_7 = $m_sr_ScalaRunTime$();
+    var this$1 = $m_Ltyrian_Html$();
+    var $x_6 = $f_Ltyrian_HtmlTags__h2$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$1, "Character Details");
+    $m_Ltyrian_Html$();
+    var $x_5 = $m_sr_ScalaRunTime$();
+    $m_Ltyrian_Html$();
+    var $x_4 = $m_sr_ScalaRunTime$();
+    var this$2 = $m_Ltyrian_Html$();
+    var $x_3 = $f_Ltyrian_HtmlTags__th$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$2, "Background");
+    var this$3 = $m_Ltyrian_Html$();
+    var $x_2 = $f_Ltyrian_HtmlTags__th$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$3, "Wise");
+    var this$4 = $m_Ltyrian_Html$();
+    var $x_1 = $f_Ltyrian_HtmlTags__th$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$4, "Wise");
+    var this$5 = $m_Ltyrian_Html$();
+    var children = $x_4.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_3,
+        $x_2,
+        $x_1,
+        $f_Ltyrian_HtmlTags__th$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$5, "Wise")
+    ]));
+    var attributes = $m_sci_Nil$();
+    var this$7 = $n(children);
+    var children$1 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$7);
+    var key = $m_s_None$();
+    var children$2 = $x_5.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        new $c_Ltyrian_Tag("tr", attributes, children$1, key),
+        this.renderBackgroundRows__Lftg_Character_Background__Ltyrian_Html($as_Lftg_Character_Background($n($n(details).Lftg_Character_CharacterDetails__f_backgrounds)._1__O())),
+        this.renderBackgroundRows__Lftg_Character_Background__Ltyrian_Html($as_Lftg_Character_Background($n($n(details).Lftg_Character_CharacterDetails__f_backgrounds)._2__O()))
+    ]));
+    var attributes$1 = $m_sci_Nil$();
+    var this$12 = $n(children$2);
+    var children$3 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$12);
+    var key$1 = $m_s_None$();
+    var children$4 = $x_7.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_6,
+        new $c_Ltyrian_Tag("table", attributes$1, children$3, key$1)
+    ]));
+    var attributes$2 = $m_sci_Nil$();
+    var this$17 = $n(children$4);
+    var children$5 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$17);
+    var key$2 = $m_s_None$();
+    return new $c_Ltyrian_Tag("div", attributes$2, children$5, key$2);
+};
+$c_Lftg_page_CharacterHtmlRenderer$.prototype.renderBackgroundRows__Lftg_Character_Background__Ltyrian_Html = function(background) {
+    $m_Ltyrian_Html$();
+    var this$2 = $m_Ltyrian_Html$();
+    var this$1 = $n($n(background).Lftg_Character_Background__f_description);
+    var plainText = $as_T(this$1.isEmpty__Z() ? "" : this$1.get__O());
+    var elem$3 = $f_Ltyrian_HtmlTags__td$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$2, plainText);
+    var this$3 = $n($n(background).Lftg_Character_Background__f_wises);
+    var this$5 = new $c_sr_ScalaRunTime$$anon$1(this$3);
+    var this$9 = $n($m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$5));
+    var f = (_$1)=>{
+        if (_$1 instanceof $c_s_Some) {
+            var wise = $n($as_s_Some(_$1)).s_Some__f_value;
+            var this$7 = $m_Ltyrian_Html$();
+            var plainText$1 = $dp_toString__T($n(wise));
+            return $f_Ltyrian_HtmlTags__td$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$7, plainText$1);
+        }
+        var x = $m_s_None$();
+        if (x === _$1) {
+            var this$8 = $m_Ltyrian_Html$();
+            return $f_Ltyrian_HtmlTags__td$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$8, "");
+        }
+        throw new $c_s_MatchError(_$1);
+    };
+    if (this$9 === $m_sci_Nil$()) var this$10 = $m_sci_Nil$();
+    else {
+        var x0 = this$9.head__O();
+        var h = new $c_sci_$colon$colon(f(x0), $m_sci_Nil$());
+        var t = h;
+        var rest = $as_sci_List(this$9.tail__O());
+        while(rest !== $m_sci_Nil$()){
+            var x0$1 = $n(rest).head__O();
+            var nx = new $c_sci_$colon$colon(f(x0$1), $m_sci_Nil$());
+            $n(t).sci_$colon$colon__f_next = nx;
+            t = nx;
+            rest = $as_sci_List($n(rest).tail__O());
+        }
+        var this$10 = h;
+    }
+    var children = this$10.prepended__O__sci_List(elem$3);
+    var attributes = $m_sci_Nil$();
+    var key = $m_s_None$();
+    return new $c_Ltyrian_Tag("tr", attributes, children, key);
+};
 var $d_Lftg_page_CharacterHtmlRenderer$ = new $TypeData().initClass($c_Lftg_page_CharacterHtmlRenderer$, "ftg.page.CharacterHtmlRenderer$", {
     Lftg_page_CharacterHtmlRenderer$: 1
 });
@@ -4872,62 +4961,68 @@ function $m_Lftg_page_CharacterHtmlRenderer$() {
     var mentalStats = new $c_Lftg_Character_CharacterBaseStats$package$MentalStats$FluentWithWits(2).withPresence__I__Lftg_Character_StatGroup(1);
     var stats = new $c_Lftg_Character_CharacterBaseStats(bodyStats, mentalStats);
     var conditions = $m_sci_Nil$();
-    var wises = new $c_T3("navigation", "folklore", "naval law");
-    var value = new $c_Lftg_Character_Background("Sailor", wises);
-    var _1 = new $c_s_Some(value);
-    var wises$1 = new $c_T3("first aid", "repair", "tactics");
-    var value$1 = new $c_Lftg_Character_Background("Old Soldier", wises$1);
-    var _2 = new $c_s_Some(value$1);
-    var backgrounds = new $c_T2(_1, _2);
+    var description = new $c_s_Some("Sailor");
+    var _1 = new $c_s_Some("navigation");
+    var _2 = new $c_s_Some("folklore");
+    var _3 = new $c_s_Some("naval law");
+    var wises = new $c_T3(_1, _2, _3);
+    var _1$2 = new $c_Lftg_Character_Background(description, wises);
+    var description$1 = new $c_s_Some("Old Soldier");
+    var _1$1 = new $c_s_Some("first aid");
+    var _2$1 = new $c_s_Some("repair");
+    var _3$1 = new $c_s_Some("tactics");
+    var wises$1 = new $c_T3(_1$1, _2$1, _3$1);
+    var _2$2 = new $c_Lftg_Character_Background(description$1, wises$1);
+    var backgrounds = new $c_T2(_1$2, _2$2);
     var twoYouAre = new $c_sci_$colon$colon(new $c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait("Brave"), new $c_sci_$colon$colon(new $c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait("Stubborn"), $m_sci_Nil$()));
-    var value$2 = new $c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait("Honest");
-    var oneYouArent = new $c_s_Some(value$2);
+    var value = new $c_Lftg_Character_CharacterTrait$package$CharacterTrait$PremadeTrait("Honest");
+    var oneYouArent = new $c_s_Some(value);
     var traits = new $c_Lftg_Character_CharacterTrait$package$CharacterTrait$TraitSection(twoYouAre, oneYouArent);
     var twoYouWant = new $c_sci_$colon$colon(new $c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire("Harmony"), new $c_sci_$colon$colon(new $c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire("Thrills"), $m_sci_Nil$()));
-    var value$3 = new $c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire("Power");
-    var oneYouDont = new $c_s_Some(value$3);
+    var value$1 = new $c_Lftg_Character_CharacterTrait$package$CharacterDesire$PremadeDesire("Power");
+    var oneYouDont = new $c_s_Some(value$1);
     var desires = new $c_Lftg_Character_CharacterTrait$package$CharacterDesire$DesireSection(twoYouWant, oneYouDont);
     var details = new $c_Lftg_Character_CharacterDetails(backgrounds, traits, desires);
-    var this$39 = $n($m_Lftg_Character_PremadeBonds$().premadeLeftBonds__sci_List());
-    var labelLeft = $as_T($f_sc_LinearSeqOps__apply__I__O(this$39, 5));
-    var this$40 = $n($m_Lftg_Character_PremadeBonds$().premadeRightBonds__sci_List());
-    var labelRight = $as_T($f_sc_LinearSeqOps__apply__I__O(this$40, 1));
+    var this$49 = $n($m_Lftg_Character_PremadeBonds$().premadeLeftBonds__sci_List());
+    var labelLeft = $as_T($f_sc_LinearSeqOps__apply__I__O(this$49, 5));
+    var this$50 = $n($m_Lftg_Character_PremadeBonds$().premadeRightBonds__sci_List());
+    var labelRight = $as_T($f_sc_LinearSeqOps__apply__I__O(this$50, 1));
     var bondDesc = new $c_Lftg_Character_PremadeBond(labelLeft, labelRight);
     var $x_5 = new $c_Lftg_Character_Bond("Sora", bondDesc);
-    var this$44 = $n($m_Lftg_Character_PremadeBonds$().premadeLeftBonds__sci_List());
-    var labelLeft$1 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$44, 0));
-    var this$45 = $n($m_Lftg_Character_PremadeBonds$().premadeRightBonds__sci_List());
-    var labelRight$1 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$45, 3));
+    var this$54 = $n($m_Lftg_Character_PremadeBonds$().premadeLeftBonds__sci_List());
+    var labelLeft$1 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$54, 0));
+    var this$55 = $n($m_Lftg_Character_PremadeBonds$().premadeRightBonds__sci_List());
+    var labelRight$1 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$55, 3));
     var bondDesc$1 = new $c_Lftg_Character_PremadeBond(labelLeft$1, labelRight$1);
     var $x_4 = new $c_Lftg_Character_Bond("Malcolm", bondDesc$1);
-    var this$49 = $n($m_Lftg_Character_PremadeBonds$().premadeLeftBonds__sci_List());
-    var labelLeft$2 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$49, 2));
-    var this$50 = $n($m_Lftg_Character_PremadeBonds$().premadeRightBonds__sci_List());
-    var labelRight$2 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$50, 4));
+    var this$59 = $n($m_Lftg_Character_PremadeBonds$().premadeLeftBonds__sci_List());
+    var labelLeft$2 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$59, 2));
+    var this$60 = $n($m_Lftg_Character_PremadeBonds$().premadeRightBonds__sci_List());
+    var labelRight$2 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$60, 4));
     var bondDesc$2 = new $c_Lftg_Character_PremadeBond(labelLeft$2, labelRight$2);
     var $x_3 = new $c_Lftg_Character_Bond("Aust", bondDesc$2);
-    var this$54 = $n($m_Lftg_Character_PremadeBonds$().premadeLeftBonds__sci_List());
-    var labelLeft$3 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$54, 1));
-    var this$55 = $n($m_Lftg_Character_PremadeBonds$().premadeRightBonds__sci_List());
-    var labelRight$3 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$55, 1));
+    var this$64 = $n($m_Lftg_Character_PremadeBonds$().premadeLeftBonds__sci_List());
+    var labelLeft$3 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$64, 1));
+    var this$65 = $n($m_Lftg_Character_PremadeBonds$().premadeRightBonds__sci_List());
+    var labelRight$3 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$65, 1));
     var bondDesc$3 = new $c_Lftg_Character_PremadeBond(labelLeft$3, labelRight$3);
     var $x_2 = new $c_Lftg_Character_Bond("Glynrel", bondDesc$3);
-    var this$59 = $n($m_Lftg_Character_PremadeBonds$().premadeLeftBonds__sci_List());
-    var labelLeft$4 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$59, 4));
-    var this$60 = $n($m_Lftg_Character_PremadeBonds$().premadeRightBonds__sci_List());
-    var labelRight$4 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$60, 0));
+    var this$69 = $n($m_Lftg_Character_PremadeBonds$().premadeLeftBonds__sci_List());
+    var labelLeft$4 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$69, 4));
+    var this$70 = $n($m_Lftg_Character_PremadeBonds$().premadeRightBonds__sci_List());
+    var labelRight$4 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$70, 0));
     var bondDesc$4 = new $c_Lftg_Character_PremadeBond(labelLeft$4, labelRight$4);
     var $x_1 = new $c_Lftg_Character_Bond("Andromeda", bondDesc$4);
-    var this$64 = $n($m_Lftg_Character_PremadeBonds$().premadeLeftBonds__sci_List());
-    var labelLeft$5 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$64, 2));
-    var this$65 = $n($m_Lftg_Character_PremadeBonds$().premadeRightBonds__sci_List());
-    var labelRight$5 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$65, 3));
+    var this$74 = $n($m_Lftg_Character_PremadeBonds$().premadeLeftBonds__sci_List());
+    var labelLeft$5 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$74, 2));
+    var this$75 = $n($m_Lftg_Character_PremadeBonds$().premadeRightBonds__sci_List());
+    var labelRight$5 = $as_T($f_sc_LinearSeqOps__apply__I__O(this$75, 3));
     var bondDesc$5 = new $c_Lftg_Character_PremadeBond(labelLeft$5, labelRight$5);
     var bonds = new $c_sci_$colon$colon($x_5, new $c_sci_$colon$colon($x_4, new $c_sci_$colon$colon($x_3, new $c_sci_$colon$colon($x_2, new $c_sci_$colon$colon($x_1, new $c_sci_$colon$colon(new $c_Lftg_Character_Bond("Stonarta", bondDesc$5), $m_sci_Nil$()))))));
-    var this$68 = $n($m_Lftg_Character_PremadeArcs$().Lftg_Character_PremadeArcs$__f_struggleArcs);
-    var groupArc = $as_Lftg_Character_StoryArc($f_sc_LinearSeqOps__apply__I__O(this$68, 5));
-    var this$69 = $n($m_Lftg_Character_PremadeArcs$().Lftg_Character_PremadeArcs$__f_growthArcs);
-    var characterArc = $as_Lftg_Character_StoryArc($f_sc_LinearSeqOps__apply__I__O(this$69, 5));
+    var this$78 = $n($m_Lftg_Character_PremadeArcs$().Lftg_Character_PremadeArcs$__f_struggleArcs);
+    var groupArc = $as_Lftg_Character_StoryArc($f_sc_LinearSeqOps__apply__I__O(this$78, 5));
+    var this$79 = $n($m_Lftg_Character_PremadeArcs$().Lftg_Character_PremadeArcs$__f_growthArcs);
+    var characterArc = $as_Lftg_Character_StoryArc($f_sc_LinearSeqOps__apply__I__O(this$79, 5));
     var charClass = $s_Lftg_Character_CharacterClass$__Fighter__Lftg_Character_CharacterClass();
     var talents = new $c_sci_$colon$colon($m_Lftg_Talent_ClassTalents_FighterTalents$().Lftg_Talent_ClassTalents_FighterTalents$__f_weaponMastery, new $c_sci_$colon$colon($m_Lftg_Talent_ClassTalents_FighterTalents$().Lftg_Talent_ClassTalents_FighterTalents$__f_bulwark, new $c_sci_$colon$colon($m_Lftg_Talent_ClassTalents_FighterTalents$().Lftg_Talent_ClassTalents_FighterTalents$__f_gotYourBack, new $c_sci_$colon$colon($m_Lftg_Talent_ClassTalents_FighterTalents$().Lftg_Talent_ClassTalents_FighterTalents$__f_measuredTones, $m_sci_Nil$()))));
     this.Lftg_page_DefaultCharacter$__f_detherilStarren = new $c_Lftg_Character_Character(profile, stats, conditions, 2, 2, details, bonds, groupArc, characterArc, 8, charClass, talents, "");
@@ -37471,10 +37566,12 @@ $c_Lftg_Character_Background.prototype.equals__O__Z = function(x$0) {
     if (this === x$0) return true;
     else if (x$0 instanceof $c_Lftg_Character_Background) {
         var x$0$2 = $as_Lftg_Character_Background(x$0);
-        if (this.Lftg_Character_Background__f_description === $n(x$0$2).Lftg_Character_Background__f_description) {
-            var x = this.Lftg_Character_Background__f_wises;
-            var x$2 = $n(x$0$2).Lftg_Character_Background__f_wises;
-            return x === null ? x$2 === null : $n(x).equals__O__Z(x$2);
+        var x = this.Lftg_Character_Background__f_description;
+        var x$2 = $n(x$0$2).Lftg_Character_Background__f_description;
+        if (x === null ? x$2 === null : $n(x).equals__O__Z(x$2)) {
+            var x$3 = this.Lftg_Character_Background__f_wises;
+            var x$4 = $n(x$0$2).Lftg_Character_Background__f_wises;
+            return x$3 === null ? x$4 === null : $n(x$3).equals__O__Z(x$4);
         } else return false;
     } else return false;
 };

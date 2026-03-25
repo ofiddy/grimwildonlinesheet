@@ -17,6 +17,8 @@ import scala.Range
 import ftg.Character.Story.toInt
 import ftg.Character.Story.startingStory
 import ftg.Character.Spark
+import ftg.Character.CharacterDetails
+import ftg.Character.Background
 
 object CharacterHtmlRenderer {
   def renderCharacter[T](char: Character): Html[T] = div(
@@ -24,7 +26,8 @@ object CharacterHtmlRenderer {
     renderProfile(char.profile),
     renderStats(char.stats),
     renderConditions(char.conditions),
-    renderStoryAndSpark(char.story, char.spark)
+    renderStoryAndSpark(char.story, char.spark),
+    renderCharacterDetails(char.details)
   )
 
   def renderProfile[T](profile: CharacterProfile): Html[T] = div(
@@ -149,5 +152,28 @@ object CharacterHtmlRenderer {
     Range(0, filled + empty)
       .map(i => input(`type` := "checkbox", `checked` := i < filled))
       .toList
+
+  def renderCharacterDetails[T](details: CharacterDetails): Html[T] = div(
+    h2("Character Details"),
+    table(
+      tr(
+        th("Background"),
+        th("Wise"),
+        th("Wise"),
+        th("Wise")
+      ),
+      renderBackgroundRows(details.backgrounds._1),
+      renderBackgroundRows(details.backgrounds._2)
+    )
+  )
+
+  def renderBackgroundRows[T](background: Background): Html[T] = tr(
+    td(background.description.getOrElse("")) +:
+      background.wises.productIterator.toList.map {
+        _ match
+          case Some(wise) => td(wise.toString)
+          case None       => td("")
+      }
+  )
 
 }

@@ -49,17 +49,13 @@ object DefaultCharacter {
     Spark.startingSpark,
     CharacterDetails(
       (
-        Some(
-          Background(
-            "Sailor",
-            ("navigation".wise, "folklore".wise, "naval law".wise)
-          )
+        Background(
+          "Sailor",
+          ("navigation".wise, "folklore".wise, "naval law".wise)
         ),
-        Some(
-          Background(
-            "Old Soldier",
-            ("first aid".wise, "repair".wise, "tactics".wise)
-          )
+        Background(
+          "Old Soldier",
+          ("first aid".wise, "repair".wise, "tactics".wise)
         )
       ),
       TraitSection(
