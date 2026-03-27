@@ -4315,7 +4315,8 @@ $c_Lftg_page_CharacterHtmlRenderer$.prototype.renderCharacter__Lftg_Character_Ch
         this.renderStats__Lftg_Character_CharacterBaseStats__Ltyrian_Html($n(char).Lftg_Character_Character__f_stats),
         this.renderConditions__sci_List__Ltyrian_Html($n(char).Lftg_Character_Character__f_conditions),
         this.renderStoryAndSpark__I__I__Ltyrian_Html($n(char).Lftg_Character_Character__f_story, $n(char).Lftg_Character_Character__f_spark),
-        this.renderCharacterDetails__Lftg_Character_CharacterDetails__Ltyrian_Html($n(char).Lftg_Character_Character__f_details)
+        this.renderCharacterDetails__Lftg_Character_CharacterDetails__Ltyrian_Html($n(char).Lftg_Character_Character__f_details),
+        this.renderBonds__sci_List__Ltyrian_Html($n(char).Lftg_Character_Character__f_bonds)
     ]));
     var attributes = $m_sci_Nil$();
     var this$3 = $n(children);
@@ -5079,6 +5080,92 @@ $c_Lftg_page_CharacterHtmlRenderer$.prototype.renderBackgroundRows__Lftg_Charact
     var attributes = $m_sci_Nil$();
     var key = $m_s_None$();
     return new $c_Ltyrian_Tag("tr", attributes, children, key);
+};
+$c_Lftg_page_CharacterHtmlRenderer$.prototype.renderBonds__sci_List__Ltyrian_Html = function(bonds) {
+    $m_Ltyrian_Html$();
+    var $x_7 = $m_sr_ScalaRunTime$();
+    var this$1 = $m_Ltyrian_Html$();
+    var $x_6 = $f_Ltyrian_HtmlTags__h2$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$1, "Bonds");
+    $m_Ltyrian_Html$();
+    var $x_4 = $m_sr_ScalaRunTime$();
+    var this$2 = $m_Ltyrian_Html$();
+    var $x_3 = $f_Ltyrian_HtmlTags__li$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$2, "Change a Bond: The other PC takes spark");
+    var this$3 = $m_Ltyrian_Html$();
+    var children = $x_4.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_3,
+        $f_Ltyrian_HtmlTags__li$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$3, "Quarrel: Both take spark")
+    ]));
+    var attributes = $m_sci_Nil$();
+    var this$5 = $n(children);
+    var children$1 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$5);
+    var key = $m_s_None$();
+    var $x_5 = new $c_Ltyrian_Tag("ul", attributes, children$1, key);
+    $m_Ltyrian_Html$();
+    $m_Ltyrian_Html$();
+    var $x_2 = $m_sr_ScalaRunTime$();
+    var this$9 = $m_Ltyrian_Html$();
+    var $x_1 = $f_Ltyrian_HtmlTags__th$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$9, "PC");
+    var this$10 = $m_Ltyrian_Html$();
+    var children$2 = $x_2.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_1,
+        $f_Ltyrian_HtmlTags__th$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$10, "Bond")
+    ]));
+    var attributes$1 = $m_sci_Nil$();
+    var this$12 = $n(children$2);
+    var children$3 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$12);
+    var key$1 = $m_s_None$();
+    var elem$6 = new $c_Ltyrian_Tag("tr", attributes$1, children$3, key$1);
+    var this$16 = $n(bonds);
+    var f = (bond)=>{
+        var bond$1 = $as_Lftg_Character_Bond(bond);
+        return $m_Lftg_page_CharacterHtmlRenderer$().renderBond__Lftg_Character_Bond__Ltyrian_Html(bond$1);
+    };
+    if (this$16 === $m_sci_Nil$()) var this$17 = $m_sci_Nil$();
+    else {
+        var x0 = this$16.head__O();
+        var h = new $c_sci_$colon$colon(f(x0), $m_sci_Nil$());
+        var t = h;
+        var rest = $as_sci_List(this$16.tail__O());
+        while(rest !== $m_sci_Nil$()){
+            var x0$1 = $n(rest).head__O();
+            var nx = new $c_sci_$colon$colon(f(x0$1), $m_sci_Nil$());
+            $n(t).sci_$colon$colon__f_next = nx;
+            t = nx;
+            rest = $as_sci_List($n(rest).tail__O());
+        }
+        var this$17 = h;
+    }
+    var children$4 = new $c_sci_$colon$colon(elem$6, this$17);
+    var attributes$2 = $m_sci_Nil$();
+    var key$2 = $m_s_None$();
+    var children$5 = $x_7.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_6,
+        $x_5,
+        new $c_Ltyrian_Tag("table", attributes$2, children$4, key$2)
+    ]));
+    var attributes$3 = $m_sci_Nil$();
+    var this$22 = $n(children$5);
+    var children$6 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$22);
+    var key$3 = $m_s_None$();
+    return new $c_Ltyrian_Tag("div", attributes$3, children$6, key$3);
+};
+$c_Lftg_page_CharacterHtmlRenderer$.prototype.renderBond__Lftg_Character_Bond__Ltyrian_Html = function(bond) {
+    $m_Ltyrian_Html$();
+    var $x_2 = $m_sr_ScalaRunTime$();
+    var this$2 = $m_Ltyrian_Html$();
+    var c = $n(bond).Lftg_Character_Bond__f_pcName;
+    var $x_1 = $f_Ltyrian_HtmlTags__td$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$2, c);
+    var this$3 = $m_Ltyrian_Html$();
+    var plainText = $n($n(bond).Lftg_Character_Bond__f_bondDesc).label__T();
+    var children = $x_2.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_1,
+        $f_Ltyrian_HtmlTags__td$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$3, plainText)
+    ]));
+    var attributes = $m_sci_Nil$();
+    var this$5 = $n(children);
+    var children$1 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$5);
+    var key = $m_s_None$();
+    return new $c_Ltyrian_Tag("tr", attributes, children$1, key);
 };
 var $d_Lftg_page_CharacterHtmlRenderer$ = new $TypeData().initClass($c_Lftg_page_CharacterHtmlRenderer$, "ftg.page.CharacterHtmlRenderer$", {
     Lftg_page_CharacterHtmlRenderer$: 1
@@ -45465,6 +45552,9 @@ $c_Lftg_Character_PremadeBond.prototype.productElement__I__O = function(n) {
     if (n === 0) return this.Lftg_Character_PremadeBond__f_labelLeft;
     if (n === 1) return this.Lftg_Character_PremadeBond__f_labelRight;
     throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+$c_Lftg_Character_PremadeBond.prototype.label__T = function() {
+    return this.Lftg_Character_PremadeBond__f_labelLeft + " " + this.Lftg_Character_PremadeBond__f_labelRight;
 };
 function $as_Lftg_Character_PremadeBond(obj) {
     return obj instanceof $c_Lftg_Character_PremadeBond || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.PremadeBond");

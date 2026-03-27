@@ -19,6 +19,7 @@ import ftg.Character.Story.startingStory
 import ftg.Character.Spark
 import ftg.Character.CharacterDetails
 import ftg.Character.Background
+import ftg.Character.Bond
 
 object CharacterHtmlRenderer {
   def renderCharacter[T](char: Character): Html[T] = div(
@@ -27,7 +28,8 @@ object CharacterHtmlRenderer {
     renderStats(char.stats),
     renderConditions(char.conditions),
     renderStoryAndSpark(char.story, char.spark),
-    renderCharacterDetails(char.details)
+    renderCharacterDetails(char.details),
+    renderBonds(char.bonds)
   )
 
   def renderProfile[T](profile: CharacterProfile): Html[T] = div(
@@ -190,6 +192,25 @@ object CharacterHtmlRenderer {
           case Some(wise) => td(wise.toString)
           case None       => td("")
       }
+  )
+
+  def renderBonds[T](bonds: List[Bond]): Html[T] = div(
+    h2("Bonds"),
+    ul(
+      li("Change a Bond: The other PC takes spark"),
+      li("Quarrel: Both take spark")
+    ),
+    table(
+      tr(
+        th("PC"),
+        th("Bond")
+      ) :: bonds.map(renderBond)
+    )
+  )
+
+  def renderBond[T](bond: Bond): Html[T] = tr(
+    td(bond.pcName.label),
+    td(bond.bondDesc.label)
   )
 
 }
