@@ -4316,7 +4316,9 @@ $c_Lftg_page_CharacterHtmlRenderer$.prototype.renderCharacter__Lftg_Character_Ch
         this.renderConditions__sci_List__Ltyrian_Html($n(char).Lftg_Character_Character__f_conditions),
         this.renderStoryAndSpark__I__I__Ltyrian_Html($n(char).Lftg_Character_Character__f_story, $n(char).Lftg_Character_Character__f_spark),
         this.renderCharacterDetails__Lftg_Character_CharacterDetails__Ltyrian_Html($n(char).Lftg_Character_Character__f_details),
-        this.renderBonds__sci_List__Ltyrian_Html($n(char).Lftg_Character_Character__f_bonds)
+        this.renderBonds__sci_List__Ltyrian_Html($n(char).Lftg_Character_Character__f_bonds),
+        this.renderStoryArcs__Lftg_Character_StoryArc__Lftg_Character_StoryArc__Ltyrian_Html($n(char).Lftg_Character_Character__f_groupArc, $n(char).Lftg_Character_Character__f_characterArc),
+        this.renderExperience__I__Ltyrian_Html($n(char).Lftg_Character_Character__f_experience)
     ]));
     var attributes = $m_sci_Nil$();
     var this$3 = $n(children);
@@ -5166,6 +5168,191 @@ $c_Lftg_page_CharacterHtmlRenderer$.prototype.renderBond__Lftg_Character_Bond__L
     var children$1 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$5);
     var key = $m_s_None$();
     return new $c_Ltyrian_Tag("tr", attributes, children$1, key);
+};
+$c_Lftg_page_CharacterHtmlRenderer$.prototype.renderStoryArcs__Lftg_Character_StoryArc__Lftg_Character_StoryArc__Ltyrian_Html = function(groupArc, charArc) {
+    $m_Ltyrian_Html$();
+    var $x_11 = $m_sr_ScalaRunTime$();
+    var this$1 = $m_Ltyrian_Html$();
+    var $x_10 = $f_Ltyrian_HtmlTags__h2$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$1, "Story Arcs");
+    var this$2 = $m_Ltyrian_Html$();
+    var $x_9 = $f_Ltyrian_HtmlTags__p$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$2, "Finish or move on from an arc: take spark");
+    $m_Ltyrian_Html$();
+    var $x_8 = $m_sr_ScalaRunTime$();
+    $m_Ltyrian_Html$();
+    var $x_6 = $m_sr_ScalaRunTime$();
+    $m_Ltyrian_Html$();
+    var $x_4 = $m_sr_ScalaRunTime$();
+    var this$3 = $m_Ltyrian_Html$();
+    var children = $x_4.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $f_Ltyrian_HtmlTags__b$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$3, "Story Arc")
+    ]));
+    var attributes = $m_sci_Nil$();
+    var this$5 = $n(children);
+    var children$1 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$5);
+    var key = $m_s_None$();
+    var $x_5 = new $c_Ltyrian_Tag("td", attributes, children$1, key);
+    var this$9 = $m_Ltyrian_Html$();
+    var plainText = $n(groupArc).label__T();
+    var children$2 = $x_6.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_5,
+        $f_Ltyrian_HtmlTags__td$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$9, plainText)
+    ]));
+    var attributes$1 = $m_sci_Nil$();
+    var this$11 = $n(children$2);
+    var children$3 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$11);
+    var key$1 = $m_s_None$();
+    var $x_7 = new $c_Ltyrian_Tag("tr", attributes$1, children$3, key$1);
+    $m_Ltyrian_Html$();
+    var $x_3 = $m_sr_ScalaRunTime$();
+    $m_Ltyrian_Html$();
+    var $x_1 = $m_sr_ScalaRunTime$();
+    var this$15 = $m_Ltyrian_Html$();
+    var children$4 = $x_1.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $f_Ltyrian_HtmlTags__b$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$15, "Character Arc")
+    ]));
+    var attributes$2 = $m_sci_Nil$();
+    var this$17 = $n(children$4);
+    var children$5 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$17);
+    var key$2 = $m_s_None$();
+    var $x_2 = new $c_Ltyrian_Tag("td", attributes$2, children$5, key$2);
+    var this$21 = $m_Ltyrian_Html$();
+    var plainText$1 = $n(charArc).label__T();
+    var children$6 = $x_3.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_2,
+        $f_Ltyrian_HtmlTags__td$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$21, plainText$1)
+    ]));
+    var attributes$3 = $m_sci_Nil$();
+    var this$23 = $n(children$6);
+    var children$7 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$23);
+    var key$3 = $m_s_None$();
+    var children$8 = $x_8.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_7,
+        new $c_Ltyrian_Tag("tr", attributes$3, children$7, key$3)
+    ]));
+    var attributes$4 = $m_sci_Nil$();
+    var this$28 = $n(children$8);
+    var children$9 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$28);
+    var key$4 = $m_s_None$();
+    var children$10 = $x_11.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_10,
+        $x_9,
+        new $c_Ltyrian_Tag("table", attributes$4, children$9, key$4)
+    ]));
+    var attributes$5 = $m_sci_Nil$();
+    var this$33 = $n(children$10);
+    var children$11 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$33);
+    var key$5 = $m_s_None$();
+    return new $c_Ltyrian_Tag("div", attributes$5, children$11, key$5);
+};
+$c_Lftg_page_CharacterHtmlRenderer$.prototype.renderExperience__I__Ltyrian_Html = function(exp) {
+    $m_Ltyrian_Html$();
+    var attributes = $m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Attr.getArrayOf()).constr([
+        $m_Ltyrian_Html$().styles__sci_Seq__Ltyrian_Attr($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_T.getArrayOf()).constr([
+            $m_Ltyrian_Style$package$Style$().apply__T__T__T("background-color", "#DDDDDD")
+        ])))
+    ]));
+    var $x_2 = $m_sr_ScalaRunTime$();
+    var this$2 = $m_Ltyrian_Html$();
+    var $x_1 = $f_Ltyrian_HtmlTags__h2$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$2, "Experience");
+    var this$3 = $m_Ltyrian_Html$();
+    var children = $x_2.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Elem.getArrayOf()).constr([
+        $x_1,
+        $f_Ltyrian_HtmlTags__b$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html(this$3, "Each session, take 1 XP."),
+        this.renderExperienceBlocks__I__Ltyrian_Html(exp)
+    ]));
+    var this$5 = $n(attributes);
+    var attributes$1 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$5);
+    var this$7 = $n(children);
+    var children$1 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$7);
+    var key = $m_s_None$();
+    return new $c_Ltyrian_Tag("div", attributes$1, children$1, key);
+};
+$c_Lftg_page_CharacterHtmlRenderer$.prototype.renderExperienceBlocks__I__Ltyrian_Html = function(exp) {
+    return this.renderExperienceBlocks__I__sci_List__sci_List__Ltyrian_Html(exp, new $c_sci_$colon$colon(2, new $c_sci_$colon$colon(3, new $c_sci_$colon$colon(4, new $c_sci_$colon$colon(5, new $c_sci_$colon$colon(6, new $c_sci_$colon$colon(7, $m_sci_Nil$())))))), new $c_sci_$colon$colon($m_sci_Nil$(), $m_sci_Nil$()));
+};
+$c_Lftg_page_CharacterHtmlRenderer$.prototype.renderExperienceBlocks__I__sci_List__sci_List__Ltyrian_Html = function(exp, breakpoints, rows) {
+    var rows$tailLocal1 = rows;
+    var breakpoints$tailLocal1 = breakpoints;
+    while(true){
+        var x24 = breakpoints$tailLocal1;
+        if (x24 instanceof $c_sci_$colon$colon) {
+            var x25 = $as_sci_$colon$colon(x24);
+            var x27 = $n(x25).sci_$colon$colon__f_next;
+            var b = $uI($n(x25).sci_$colon$colon__f_head);
+            var _1 = $n(rows$tailLocal1).head__O();
+            var _2 = $n(rows$tailLocal1).tail__O();
+            var row = $as_sci_List(_1);
+            var finishedRows = $as_sci_List(_2);
+            var this$4 = $n(rows$tailLocal1);
+            var this$3 = $m_s_$less$colon$less$();
+            var toIterableOnce = this$3.s_$less$colon$less$__f_singleton;
+            var this$5 = $n($as_sc_SeqOps($f_sc_StrictOptimizedIterableOps__flatten__F1__O(this$4, toIterableOnce)));
+            var numCreated = this$5.length__I();
+            $m_Ltyrian_Html$();
+            var $x_3 = $m_sr_ScalaRunTime$();
+            var $x_2 = $n($m_Ltyrian_Html$().Ltyrian_Html$__f_$u0060type$u0060$minusString).$colon$eq__T__Ltyrian_Attribute("checkbox");
+            var $x_1 = $n($m_Ltyrian_Html$().Ltyrian_Html$__f_checked$minusBoolean).$colon$eq__Z__Ltyrian_PropertyBoolean(numCreated < exp);
+            $m_Ltyrian_Attribute$();
+            var value = "" + numCreated;
+            var attributes = $x_3.wrapRefArray__AO__sci_ArraySeq(new ($d_Ltyrian_Attr.getArrayOf()).constr([
+                $x_2,
+                $x_1,
+                new $c_Ltyrian_Attribute("num", value)
+            ]));
+            var this$10 = $n(attributes);
+            var attributes$1 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(this$10);
+            var children = $m_sci_Nil$();
+            var key = $m_s_None$();
+            var newCheckbox = new $c_Ltyrian_Tag("input", attributes$1, children, key);
+            var this$14 = $n(row);
+            var newRow = $as_sci_List($f_sc_StrictOptimizedSeqOps__appended__O__O(this$14, newCheckbox));
+            var this$15 = $n(newRow);
+            if (this$15.length__I() >= b) {
+                var elem$7 = $m_sci_Nil$();
+                var this$16 = $n(finishedRows);
+                var this$17 = new $c_sci_$colon$colon(newRow, this$16);
+                var rows$tailLocal1$tmp1 = new $c_sci_$colon$colon(elem$7, this$17);
+                breakpoints$tailLocal1 = x27;
+                rows$tailLocal1 = rows$tailLocal1$tmp1;
+                continue;
+            } else {
+                var this$18 = $n(finishedRows);
+                rows$tailLocal1 = new $c_sci_$colon$colon(newRow, this$18);
+                continue;
+            }
+        }
+        var x = $m_sci_Nil$();
+        if (x.equals__O__Z(x24)) {
+            $m_Ltyrian_Html$();
+            var this$22 = $n($n(rows$tailLocal1).reverse__sci_List());
+            var f = (_$2)=>{
+                var _$2$1 = $as_sci_List(_$2);
+                $m_Ltyrian_Html$();
+                var attributes$2 = $m_sci_Nil$();
+                var key$1 = $m_s_None$();
+                return new $c_Ltyrian_Tag("div", attributes$2, _$2$1, key$1);
+            };
+            if (this$22 === $m_sci_Nil$()) var children$1 = $m_sci_Nil$();
+            else {
+                var x0 = this$22.head__O();
+                var h = new $c_sci_$colon$colon(f(x0), $m_sci_Nil$());
+                var t = h;
+                var rest = $as_sci_List(this$22.tail__O());
+                while(rest !== $m_sci_Nil$()){
+                    var x0$1 = $n(rest).head__O();
+                    var nx = new $c_sci_$colon$colon(f(x0$1), $m_sci_Nil$());
+                    $n(t).sci_$colon$colon__f_next = nx;
+                    t = nx;
+                    rest = $as_sci_List($n(rest).tail__O());
+                }
+                var children$1 = h;
+            }
+            var attributes$3 = $m_sci_Nil$();
+            var key$2 = $m_s_None$();
+            return new $c_Ltyrian_Tag("div", attributes$3, children$1, key$2);
+        }
+        throw new $c_s_MatchError(x24);
+    }
 };
 var $d_Lftg_page_CharacterHtmlRenderer$ = new $TypeData().initClass($c_Lftg_page_CharacterHtmlRenderer$, "ftg.page.CharacterHtmlRenderer$", {
     Lftg_page_CharacterHtmlRenderer$: 1
@@ -14737,6 +14924,12 @@ function $f_Ltyrian_HtmlAttributes__$init$__V($thiz) {
     $thiz.Ltyrian_Html$__f_$u0060type$u0060$minusString = new $c_Ltyrian_AttributeNameString("type");
     $thiz.Ltyrian_Html$__f_checked$minusBoolean = new $c_Ltyrian_PropertyNameBoolean("checked");
     $thiz.Ltyrian_Html$__f_value$minusString = new $c_Ltyrian_PropertyNameString("value");
+}
+function $f_Ltyrian_HtmlTags__b$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html($thiz, plainText) {
+    var attributes = $m_sci_Nil$();
+    var children = new $c_sci_$colon$colon(($m_Ltyrian_Html$(), new $c_Ltyrian_Text(plainText)), $m_sci_Nil$());
+    var key = $m_s_None$();
+    return new $c_Ltyrian_Tag("b", attributes, children, key);
 }
 function $f_Ltyrian_HtmlTags__button$minusno_attrs$minuslist$minusplaintext__T__Ltyrian_Html($thiz, plainText) {
     var attributes = $m_sci_Nil$();
@@ -41699,6 +41892,16 @@ function $f_sc_StrictOptimizedIterableOps__flatMap__F1__O($thiz, f) {
     }
     return $n(b).result__O();
 }
+function $f_sc_StrictOptimizedIterableOps__flatten__F1__O($thiz, toIterableOnce) {
+    var b = $n($thiz.iterableFactory__sc_IterableFactory()).newBuilder__scm_Builder();
+    var it = $thiz.iterator__sc_Iterator();
+    while($n(it).hasNext__Z()){
+        var this$1 = $n(b);
+        var elems = $as_sc_IterableOnce($n(toIterableOnce).apply__O__O($n(it).next__O()));
+        this$1.addAll__sc_IterableOnce__scm_Growable(elems);
+    }
+    return $n(b).result__O();
+}
 function $f_sc_StrictOptimizedIterableOps__zipWithIndex__O($thiz) {
     var b = $n($thiz.iterableFactory__sc_IterableFactory()).newBuilder__scm_Builder();
     var i = 0;
@@ -45320,6 +45523,9 @@ $c_Lftg_Character_AmbitionArc.prototype.productElement__I__O = function(n) {
     if (n === 0) return this.Lftg_Character_AmbitionArc__f_label;
     throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
 };
+$c_Lftg_Character_AmbitionArc.prototype.label__T = function() {
+    return this.Lftg_Character_AmbitionArc__f_label;
+};
 function $as_Lftg_Character_AmbitionArc(obj) {
     return obj instanceof $c_Lftg_Character_AmbitionArc || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.AmbitionArc");
 }
@@ -45481,6 +45687,9 @@ $c_Lftg_Character_GrowthArc.prototype.productElement__I__O = function(n) {
     if (n === 0) return this.Lftg_Character_GrowthArc__f_label;
     throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
 };
+$c_Lftg_Character_GrowthArc.prototype.label__T = function() {
+    return this.Lftg_Character_GrowthArc__f_label;
+};
 function $as_Lftg_Character_GrowthArc(obj) {
     return obj instanceof $c_Lftg_Character_GrowthArc || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.GrowthArc");
 }
@@ -45615,6 +45824,9 @@ $c_Lftg_Character_StruggleArc.prototype.productPrefix__T = function() {
 $c_Lftg_Character_StruggleArc.prototype.productElement__I__O = function(n) {
     if (n === 0) return this.Lftg_Character_StruggleArc__f_label;
     throw $ct_jl_IndexOutOfBoundsException__T__(new $c_jl_IndexOutOfBoundsException(), "" + n);
+};
+$c_Lftg_Character_StruggleArc.prototype.label__T = function() {
+    return this.Lftg_Character_StruggleArc__f_label;
 };
 function $as_Lftg_Character_StruggleArc(obj) {
     return obj instanceof $c_Lftg_Character_StruggleArc || obj === null ? obj : $throwClassCastException(obj, "ftg.Character.StruggleArc");

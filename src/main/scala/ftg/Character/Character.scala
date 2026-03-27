@@ -5,7 +5,8 @@ import ftg.Talent.Talent
 opaque type Experience = Int
 
 object Experience {
-  extension (i: Int) def xp: Experience = i
+  extension (i: Int) def xp: Experience    = i
+  extension (x: Experience) def toInt: Int = x
 }
 
 final case class Character(

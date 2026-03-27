@@ -20,6 +20,10 @@ import ftg.Character.Spark
 import ftg.Character.CharacterDetails
 import ftg.Character.Background
 import ftg.Character.Bond
+import ftg.Character.StoryArc
+import ftg.Character.Experience
+import scala.annotation.tailrec
+import tyrian.Attribute
 
 object CharacterHtmlRenderer {
   def renderCharacter[T](char: Character): Html[T] = div(
@@ -29,7 +33,9 @@ object CharacterHtmlRenderer {
     renderConditions(char.conditions),
     renderStoryAndSpark(char.story, char.spark),
     renderCharacterDetails(char.details),
-    renderBonds(char.bonds)
+    renderBonds(char.bonds),
+    renderStoryArcs(char.groupArc, char.characterArc),
+    renderExperience(char.experience)
   )
 
   def renderProfile[T](profile: CharacterProfile): Html[T] = div(
@@ -212,5 +218,60 @@ object CharacterHtmlRenderer {
     td(bond.pcName.label),
     td(bond.bondDesc.label)
   )
+
+  def renderStoryArcs[T](groupArc: StoryArc, charArc: StoryArc): Html[T] = div(
+    h2("Story Arcs"),
+    p("Finish or move on from an arc: take spark"),
+    table(
+      tr(
+        td(b("Story Arc")),
+        td(groupArc.label)
+      ),
+      tr(
+        td(b("Character Arc")),
+        td(charArc.label)
+      )
+    )
+  )
+
+  def renderExperience[T](exp: Experience): Html[T] =
+    div(styles(CSS.`background-color`("#DDDDDD")))(
+      h2("Experience"),
+      b("Each session, take 1 XP."),
+      renderExperienceBlocks[T](exp)
+    )
+
+  def renderExperienceBlocks[T](exp: Experience): Html[T] =
+    renderExperienceBlocks(exp, List(2, 3, 4, 5, 6, 7), List(Nil))
+
+  @tailrec
+  def renderExperienceBlocks[T](
+      exp: Experience,
+      breakpoints: List[Int],
+      rows: List[List[Html[T]]]
+  ): Html[T] = breakpoints match
+    case b :: bs =>
+      val (row, finishedRows) = (rows.head, rows.tail)
+      val numCreated          = rows.flatten.size
+      val newCheckbox =
+        input(
+          `type`    := "checkbox",
+          `checked` := numCreated < exp.toInt,
+          Attribute("num", numCreated.toString)
+        )
+      val newRow = row :+ newCheckbox
+      if newRow.size >= b then
+        renderExperienceBlocks(
+          exp,
+          bs,
+          List() :: (newRow :: finishedRows)
+        )
+      else
+        renderExperienceBlocks(
+          exp,
+          breakpoints,
+          newRow :: finishedRows
+        )
+    case Nil => div(rows.reverse.map(div(_)))
 
 }
