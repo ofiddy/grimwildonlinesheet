@@ -6,5 +6,6 @@ sealed trait Msg
 
 object Msg {
   final case class SheetMsg(cmd: CharCommand) extends Msg
+  object BlurMsg                              extends Msg
   object NoOpMsg                              extends Msg
 }

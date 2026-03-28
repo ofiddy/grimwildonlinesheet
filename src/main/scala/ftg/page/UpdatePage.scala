@@ -9,12 +9,18 @@ import ftg.command.CharCommand
 import ftg.command.PureCommand
 import ftg.command.EffectCommand
 import ftg.command.ModifyCharacter.modify
+import ftg.page.cmds.GwCmds
+import ftg.page.Msg.BlurMsg
 
 object UpdatePage {
   def update(model: Model): Msg => (Model, Cmd[IO, Msg]) =
     case NoOpMsg => (model, Cmd.None)
     case m @ SheetMsg(cmd) =>
-      (Model(applySheetCommand(model.character, cmd), m :: model.log), Cmd.None)
+      (
+        Model(applySheetCommand(model.character, cmd), m :: model.log),
+        Cmd.None
+      )
+    case BlurMsg => (model, GwCmds.unfocusCurrentblur)
 
   def applySheetCommand(character: Character, cmd: CharCommand): Character =
     cmd match
