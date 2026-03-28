@@ -45,3 +45,4 @@ bin/
 yarn.lock
 node_modules/
 dist/
+.parcel-cache/
