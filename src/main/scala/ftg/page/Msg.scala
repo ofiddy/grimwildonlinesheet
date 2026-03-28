@@ -4,4 +4,7 @@ import ftg.command.CharCommand
 
 sealed trait Msg
 
-final case class SheetCommand(cmd: CharCommand) extends Msg
+object Msg {
+  final case class SheetMsg(cmd: CharCommand) extends Msg
+  object NoOpMsg                              extends Msg
+}
