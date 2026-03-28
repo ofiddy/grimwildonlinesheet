@@ -27,6 +27,8 @@ import tyrian.Attribute
 import ftg.command.ChangeName
 import ftg.page.Msg.SheetMsg
 
+import org.scalajs.dom.html
+
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
     h1("Grimwild Online Character Sheet"),
@@ -46,7 +48,16 @@ object CharacterHtmlRenderer {
       styles(CSS.font("24pt bold")),
       `type`  := "text",
       `value` := profile.characterName.label,
-      onInput(s => SheetMsg(ChangeName(s, profile.characterName)))
+      onEvent(
+        "blur",
+        e =>
+          SheetMsg(
+            ChangeName(
+              e.target.asInstanceOf[html.Input].value,
+              profile.characterName
+            )
+          )
+      )
     ),
     p("Player Name"),
     h2(profile.playerName.label),
