@@ -6,6 +6,7 @@ import tyrian.Html.*
 import tyrian.syntax.*
 import ftg.Character.CharacterProfile
 import ftg.Character.CharacterBaseStats
+import ftg.Character.CharacterName.*
 import tyrian.CSS
 import ftg.Character.Condition
 import ftg.Character.ShortTermCondition
@@ -27,10 +28,12 @@ import tyrian.Attribute
 import ftg.command.ChangeName
 import ftg.page.Msg.SheetMsg
 
-import tyrian.Tyrian
 import ftg.page.Msg.NoOpMsg
+import ftg.page.elems.ExitableInput.exitableTextInput
 
 object CharacterHtmlRenderer {
+  given noOpMsg: Msg = NoOpMsg
+
   def renderCharacter(char: Character): Html[Msg] = div(
     h1("Grimwild Online Character Sheet"),
     renderProfile(char.profile),
@@ -45,30 +48,13 @@ object CharacterHtmlRenderer {
 
   def renderProfile(profile: CharacterProfile): Html[Msg] = div(
     p("Character Name"),
-    input(
+    exitableTextInput(
       styles(CSS.font("24pt bold")),
-      `type`  := "text",
-      `value` := profile.characterName.label,
-      onKeyDown(e =>
-        if e.code == "Enter" then
-          SheetMsg(
-            ChangeName(
-              e.target.asInstanceOf[Tyrian.HTMLInputElement].value,
-              profile.characterName
-            )
-          )
-        else NoOpMsg
-      ).noPreventDefault,
-      onEvent(
-        "blur",
-        e =>
-          SheetMsg(
-            ChangeName(
-              e.target.asInstanceOf[Tyrian.HTMLInputElement].value,
-              profile.characterName
-            )
-          )
-      )
+      `value` := profile.characterName.label
+    )(s =>
+      if s.charName != profile.characterName then
+        SheetMsg(ChangeName(s, profile.characterName))
+      else NoOpMsg
     ),
     p("Player Name"),
     h2(profile.playerName.label),
