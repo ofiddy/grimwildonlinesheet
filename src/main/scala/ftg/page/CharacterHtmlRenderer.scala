@@ -27,7 +27,8 @@ import tyrian.Attribute
 import ftg.command.ChangeName
 import ftg.page.Msg.SheetMsg
 
-import org.scalajs.dom.html
+import tyrian.Tyrian
+import ftg.page.Msg.NoOpMsg
 
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
@@ -48,12 +49,22 @@ object CharacterHtmlRenderer {
       styles(CSS.font("24pt bold")),
       `type`  := "text",
       `value` := profile.characterName.label,
+      onKeyDown(e =>
+        if e.code == "Enter" then
+          SheetMsg(
+            ChangeName(
+              e.target.asInstanceOf[Tyrian.HTMLInputElement].value,
+              profile.characterName
+            )
+          )
+        else NoOpMsg
+      ).noPreventDefault,
       onEvent(
         "blur",
         e =>
           SheetMsg(
             ChangeName(
-              e.target.asInstanceOf[html.Input].value,
+              e.target.asInstanceOf[Tyrian.HTMLInputElement].value,
               profile.characterName
             )
           )
