@@ -24,9 +24,11 @@ import ftg.Character.StoryArc
 import ftg.Character.Experience
 import scala.annotation.tailrec
 import tyrian.Attribute
+import ftg.command.ChangeName
+import ftg.page.Msg.SheetMsg
 
 object CharacterHtmlRenderer {
-  def renderCharacter[T](char: Character): Html[T] = div(
+  def renderCharacter(char: Character): Html[Msg] = div(
     h1("Grimwild Online Character Sheet"),
     renderProfile(char.profile),
     renderStats(char.stats),
@@ -38,9 +40,14 @@ object CharacterHtmlRenderer {
     renderExperience(char.experience)
   )
 
-  def renderProfile[T](profile: CharacterProfile): Html[T] = div(
+  def renderProfile(profile: CharacterProfile): Html[Msg] = div(
     p("Character Name"),
-    h2(profile.characterName.label),
+    input(
+      styles(CSS.font("24pt bold")),
+      `type`  := "text",
+      `value` := profile.characterName.label,
+      onInput(s => SheetMsg(ChangeName(s, profile.characterName)))
+    ),
     p("Player Name"),
     h2(profile.playerName.label),
     h3("Distinctive Features"),

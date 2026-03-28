@@ -13,8 +13,8 @@ import ftg.command.ModifyCharacter.modify
 object UpdatePage {
   def update(model: Model): Msg => (Model, Cmd[IO, Msg]) =
     case NoOpMsg => (model, Cmd.None)
-    case SheetMsg(cmd) =>
-      (Model(applySheetCommand(model.character, cmd)), Cmd.None)
+    case m @ SheetMsg(cmd) =>
+      (Model(applySheetCommand(model.character, cmd), m :: model.log), Cmd.None)
 
   def applySheetCommand(character: Character, cmd: CharCommand): Character =
     cmd match

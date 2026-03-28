@@ -1,3 +1,5 @@
 package ftg.page
 
-final case class Model(character: ftg.Character.Character)
+import ftg.page.Msg.SheetMsg
+
+final case class Model(character: ftg.Character.Character, log: List[SheetMsg])
