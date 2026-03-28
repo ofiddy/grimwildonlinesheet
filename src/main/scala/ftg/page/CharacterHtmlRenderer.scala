@@ -25,15 +25,9 @@ import ftg.Character.StoryArc
 import ftg.Character.Experience
 import scala.annotation.tailrec
 import tyrian.Attribute
-import ftg.command.ChangeName
-import ftg.page.Msg.SheetMsg
-
-import ftg.page.Msg.NoOpMsg
-import ftg.page.elems.ExitableInput.exitableTextInput
+import ftg.page.elems.SheetInputs.charNameInput
 
 object CharacterHtmlRenderer {
-  given noOpMsg: Msg = NoOpMsg
-
   def renderCharacter(char: Character): Html[Msg] = div(
     h1("Grimwild Online Character Sheet"),
     renderProfile(char.profile),
@@ -48,14 +42,7 @@ object CharacterHtmlRenderer {
 
   def renderProfile(profile: CharacterProfile): Html[Msg] = div(
     p("Character Name"),
-    exitableTextInput(
-      styles(CSS.font("24pt bold")),
-      `value` := profile.characterName.label
-    )(s =>
-      if s.charName != profile.characterName then
-        SheetMsg(ChangeName(s, profile.characterName))
-      else NoOpMsg
-    ),
+    charNameInput(profile.characterName),
     p("Player Name"),
     h2(profile.playerName.label),
     h3("Distinctive Features"),
