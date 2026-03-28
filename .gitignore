@@ -44,3 +44,4 @@ bin/
 *.class
 yarn.lock
 node_modules/
+dist/
