@@ -1,13 +1,13 @@
 package ftg.Character
 
-opaque type CharacterName      = String
-opaque type PlayerName         = String
-opaque type DistinctiveFeature = String
+opaque type CharacterName       = String
+opaque type PlayerName          = String
+opaque type DistinctiveFeatures = String
 
 final case class CharacterProfile(
     characterName: CharacterName,
     playerName: PlayerName,
-    distinctiveFeatures: List[DistinctiveFeature]
+    distinctiveFeatures: DistinctiveFeatures
 )
 
 object CharacterName {
@@ -20,7 +20,7 @@ object PlayerName {
   extension (c: PlayerName) def label: String      = c
 }
 
-object DistinctiveFeature {
-  extension (s: String) def distinctiveFeature: DistinctiveFeature = s
-  extension (c: DistinctiveFeature) def label: String              = c
+object DistinctiveFeatures {
+  extension (s: String) def distinctiveFeatures: DistinctiveFeatures = s
+  extension (c: DistinctiveFeatures) def label: String               = c
 }

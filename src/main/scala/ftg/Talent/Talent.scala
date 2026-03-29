@@ -8,6 +8,10 @@ extension (s: String) {
   def md: Markdown = s
 }
 
+extension (m: Markdown) {
+  def toRawString: String = m
+}
+
 final case class Talent(
     name: String,
     description: Markdown,

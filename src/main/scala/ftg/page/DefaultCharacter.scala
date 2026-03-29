@@ -14,7 +14,6 @@ import ftg.Character.CharacterTrait.PremadeTrait
 import ftg.Character.CharacterName.*
 import ftg.Character.PlayerName.*
 import ftg.Character.Wise.*
-import ftg.Character.DistinctiveFeature.*
 import ftg.Character.CharacterDesire.DesireSection
 import ftg.Character.CharacterDesire.PremadeDesire
 import ftg.Character.Bond
@@ -26,19 +25,14 @@ import ftg.Character.PremadeArcs.growthArcs
 import ftg.Character.Experience.*
 import ftg.Character.CharacterClass
 import ftg.Talent.ClassTalents.FighterTalents
+import ftg.Character.DistinctiveFeatures.distinctiveFeatures
 
 object DefaultCharacter {
   val detherilStarren = Character(
     CharacterProfile(
       "Detheril Starren".charName,
       "Lucy Holderton".playerName,
-      List(
-        "Blue jacket".distinctiveFeature,
-        "No shirt".distinctiveFeature,
-        "Left peg-leg".distinctiveFeature,
-        "Extremely old".distinctiveFeature,
-        "Huge beard".distinctiveFeature
-      )
+      "Blue jacket, No shirt, Left peg-leg, Extremely old, Huge beard".distinctiveFeatures
     ),
     CharacterBaseStats(
       BodyStats withBrawn 2 withAgility 3,

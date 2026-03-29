@@ -47,7 +47,7 @@ object CharacterHtmlRenderer {
     p("Player Name"),
     playerNameInput(profile.playerName),
     h3("Distinctive Features"),
-    p(profile.distinctiveFeatures.mkString(", "))
+    p(profile.distinctiveFeatures.label)
   )
 
   def renderStats[T](stats: CharacterBaseStats): Html[T] =
