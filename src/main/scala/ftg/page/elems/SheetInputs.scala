@@ -11,7 +11,10 @@ import ftg.page.Msg.NoOpMsg
 import ftg.page.Msg
 import ftg.Character.PlayerName
 import ftg.Character.PlayerName.*
-import ftg.command.ChangePlayerName
+import ftg.command.*
+import ftg.Character.DistinctiveFeatures
+import ftg.Character.DistinctiveFeatures.distinctiveFeatures
+import ftg.page.elems.ExitableTextArea.exitableTextArea
 
 object SheetInputs {
   def handleCharNameChange(name: CharacterName): (String => Msg) = s =>
@@ -31,4 +34,15 @@ object SheetInputs {
     styles(CSS.font("18pt bold")),
     `value` := name.label
   )(handlePlayerNameChange(name))
+
+  def handleDistinctiveFeaturesChange(
+      dfs: DistinctiveFeatures
+  ): (String => Msg) = s =>
+    if s.distinctiveFeatures != dfs then
+      SheetMsg(ChangeDistinctiveFeatures(s, dfs))
+    else NoOpMsg
+
+  def distinctiveFeaturesInput(dfs: DistinctiveFeatures) = exitableTextArea(
+    styles(CSS.width("300px"))
+  )(handleDistinctiveFeaturesChange(dfs))(dfs.label)
 }

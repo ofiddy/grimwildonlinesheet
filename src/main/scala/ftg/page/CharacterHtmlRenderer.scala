@@ -27,6 +27,7 @@ import scala.annotation.tailrec
 import tyrian.Attribute
 import ftg.page.elems.SheetInputs.charNameInput
 import ftg.page.elems.SheetInputs.playerNameInput
+import ftg.page.elems.SheetInputs.distinctiveFeaturesInput
 
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
@@ -47,7 +48,7 @@ object CharacterHtmlRenderer {
     p("Player Name"),
     playerNameInput(profile.playerName),
     h3("Distinctive Features"),
-    p(profile.distinctiveFeatures.label)
+    distinctiveFeaturesInput(profile.distinctiveFeatures)
   )
 
   def renderStats[T](stats: CharacterBaseStats): Html[T] =

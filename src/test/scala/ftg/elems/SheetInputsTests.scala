@@ -11,6 +11,7 @@ import ftg.command.ChangeName
 import ftg.page.Msg.SheetMsg
 import ftg.command.ChangePlayerName
 import ftg.page.elems.SheetInputs.handlePlayerNameChange
+import ftg.command.ChangeDistinctiveFeatures
 
 class CharNameInputTests extends AnyFlatSpec with should.Matchers {
   "handleCharNameChange" should "produce an eventful Msg when old and new names differ" in {
