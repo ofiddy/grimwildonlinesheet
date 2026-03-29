@@ -10,7 +10,7 @@ import ftg.Character.CharacterName.*
 import ftg.command.ValueEditCommand
 import ftg.command.CharacterLoc.CharacterNameLoc
 
-class ChangeNameTests extends AnyFlatSpec with should.Matchers {
+class ValueEditCommandTests extends AnyFlatSpec with should.Matchers {
   "ValueEditCommand" should "overwrite at provided location on modify" in {
     val premadeChar = detherilStarren
     val newName     = "NewName"

@@ -15,34 +15,25 @@ import ftg.Character.DistinctiveFeatures
 import ftg.page.elems.ExitableTextArea.exitableTextArea
 import ftg.command.CharacterLoc.*
 import ftg.Character.CharacterName.into
+import ftg.Character.FromString.FromString
 
 object SheetInputs {
-  def handleCharNameChange(name: CharacterName): (String => Msg) = s =>
-    if s.into != name then SheetMsg(ValueEditCommand(s, name, CharacterNameLoc))
-    else NoOpMsg
+  def handleChangeFor[T: FromString](
+      find: Loc[T]
+  )(old: T, newVal: String): Msg = if newVal.into == old then NoOpMsg
+  else SheetMsg(ValueEditCommand(newVal, old, find))
 
   def charNameInput(name: CharacterName) = exitableTextInput(
     styles(CSS.font("24pt bold")),
     `value` := name.label
-  )(handleCharNameChange(name))
-
-  def handlePlayerNameChange(name: PlayerName): (String => Msg) = s =>
-    if s.into != name then SheetMsg(ValueEditCommand(s, name, PlayerNameLoc))
-    else NoOpMsg
+  )(handleChangeFor(CharacterNameLoc)(name, _))
 
   def playerNameInput(name: PlayerName) = exitableTextInput(
     styles(CSS.font("18pt bold")),
     `value` := name.label
-  )(handlePlayerNameChange(name))
-
-  def handleDistinctiveFeaturesChange(
-      dfs: DistinctiveFeatures
-  ): (String => Msg) = s =>
-    if s.into != dfs then
-      SheetMsg(ValueEditCommand(s, dfs, DistinctiveFeaturesLoc))
-    else NoOpMsg
+  )(handleChangeFor(PlayerNameLoc)(name, _))
 
   def distinctiveFeaturesInput(dfs: DistinctiveFeatures) = exitableTextArea(
     styles(CSS.width("300px"))
-  )(handleDistinctiveFeaturesChange(dfs))(dfs.label)
+  )(handleChangeFor(DistinctiveFeaturesLoc)(dfs, _))(dfs.label)
 }
