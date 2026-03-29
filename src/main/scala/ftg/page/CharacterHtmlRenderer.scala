@@ -26,6 +26,7 @@ import ftg.Character.Experience
 import scala.annotation.tailrec
 import tyrian.Attribute
 import ftg.page.elems.SheetInputs.charNameInput
+import ftg.page.elems.SheetInputs.playerNameInput
 
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
@@ -44,7 +45,7 @@ object CharacterHtmlRenderer {
     p("Character Name"),
     charNameInput(profile.characterName),
     p("Player Name"),
-    h2(profile.playerName.label),
+    playerNameInput(profile.playerName),
     h3("Distinctive Features"),
     p(profile.distinctiveFeatures.mkString(", "))
   )

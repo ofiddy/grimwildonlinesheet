@@ -1,12 +1,13 @@
-package ftg.command
+package ftg.command.test
 
 import org.scalatest.*
 import flatspec.*
 import matchers.*
-import ftg.page.DefaultCharacter.detherilStarren
-import ftg.Character.CharacterName.*
 import ftg.command.ModifyCharacter.modify
 import ftg.command.ModifyCharacter.undo
+import ftg.page.DefaultCharacter.detherilStarren
+import ftg.command.ChangeName
+import ftg.Character.CharacterName.*
 
 class ChangeNameTests extends AnyFlatSpec with should.Matchers {
   "ChangeName" should "overwrite a characters name on modify" in {
