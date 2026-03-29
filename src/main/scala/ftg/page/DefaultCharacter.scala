@@ -25,14 +25,14 @@ import ftg.Character.PremadeArcs.growthArcs
 import ftg.Character.Experience.*
 import ftg.Character.CharacterClass
 import ftg.Talent.ClassTalents.FighterTalents
-import ftg.Character.DistinctiveFeatures.distinctiveFeatures
+import ftg.Character.DistinctiveFeatures.intoDistinctiveFeatures
 
 object DefaultCharacter {
   val detherilStarren = Character(
     CharacterProfile(
-      "Detheril Starren".charName,
-      "Lucy Holderton".playerName,
-      "Blue jacket, No shirt, Left peg-leg, Extremely old, Huge beard".distinctiveFeatures
+      "Detheril Starren".intoCharName,
+      "Lucy Holderton".intoPlayerName,
+      "Blue jacket, No shirt, Left peg-leg, Extremely old, Huge beard".intoDistinctiveFeatures
     ),
     CharacterBaseStats(
       BodyStats withBrawn 2 withAgility 3,
@@ -63,27 +63,27 @@ object DefaultCharacter {
     ),
     List(
       Bond(
-        "Sora".charName,
+        "Sora".intoCharName,
         PremadeBond(premadeLeftBonds(5), premadeRightBonds(1))
       ),
       Bond(
-        "Malcolm".charName,
+        "Malcolm".intoCharName,
         PremadeBond(premadeLeftBonds(0), premadeRightBonds(3))
       ),
       Bond(
-        "Aust".charName,
+        "Aust".intoCharName,
         PremadeBond(premadeLeftBonds(2), premadeRightBonds(4))
       ),
       Bond(
-        "Glynrel".charName,
+        "Glynrel".intoCharName,
         PremadeBond(premadeLeftBonds(1), premadeRightBonds(1))
       ),
       Bond(
-        "Andromeda".charName,
+        "Andromeda".intoCharName,
         PremadeBond(premadeLeftBonds(4), premadeRightBonds(0))
       ),
       Bond(
-        "Stonarta".charName,
+        "Stonarta".intoCharName,
         PremadeBond(premadeLeftBonds(2), premadeRightBonds(3))
       )
     ),

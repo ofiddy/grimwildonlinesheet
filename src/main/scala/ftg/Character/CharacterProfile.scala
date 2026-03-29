@@ -1,5 +1,7 @@
 package ftg.Character
 
+import ftg.Character.FromString.FromString
+
 opaque type CharacterName       = String
 opaque type PlayerName          = String
 opaque type DistinctiveFeatures = String
@@ -11,16 +13,29 @@ final case class CharacterProfile(
 )
 
 object CharacterName {
-  extension (s: String) def charName: CharacterName = s
-  extension (c: CharacterName) def label: String    = c
+  extension (c: CharacterName) def label: String        = c
+  extension (s: String) def intoCharName: CharacterName = s.into
+
+  given into: FromString[CharacterName] with {
+    extension (s: String) override def into: CharacterName = s
+  }
 }
 
 object PlayerName {
-  extension (s: String) def playerName: PlayerName = s
-  extension (c: PlayerName) def label: String      = c
+  extension (c: PlayerName) def label: String          = c
+  extension (s: String) def intoPlayerName: PlayerName = s.into
+
+  given into: FromString[PlayerName] with {
+    extension (s: String) override def into: PlayerName = s
+  }
 }
 
 object DistinctiveFeatures {
-  extension (s: String) def distinctiveFeatures: DistinctiveFeatures = s
-  extension (c: DistinctiveFeatures) def label: String               = c
+  extension (c: DistinctiveFeatures) def label: String = c
+  extension (s: String)
+    def intoDistinctiveFeatures: DistinctiveFeatures = s.into
+
+  given into: FromString[DistinctiveFeatures] with {
+    extension (s: String) override def into: DistinctiveFeatures = s
+  }
 }

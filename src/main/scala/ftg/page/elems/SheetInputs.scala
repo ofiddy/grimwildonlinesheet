@@ -6,19 +6,19 @@ import tyrian.Html.*
 import ftg.Character.CharacterName
 import ftg.Character.CharacterName.*
 import ftg.page.Msg.SheetMsg
-import ftg.command.ChangeName
 import ftg.page.Msg.NoOpMsg
 import ftg.page.Msg
 import ftg.Character.PlayerName
 import ftg.Character.PlayerName.*
 import ftg.command.*
 import ftg.Character.DistinctiveFeatures
-import ftg.Character.DistinctiveFeatures.distinctiveFeatures
 import ftg.page.elems.ExitableTextArea.exitableTextArea
+import ftg.command.CharacterLoc.*
+import ftg.Character.CharacterName.into
 
 object SheetInputs {
   def handleCharNameChange(name: CharacterName): (String => Msg) = s =>
-    if s.charName != name then SheetMsg(ChangeName(s, name))
+    if s.into != name then SheetMsg(ValueEditCommand(s, name, CharacterNameLoc))
     else NoOpMsg
 
   def charNameInput(name: CharacterName) = exitableTextInput(
@@ -27,7 +27,7 @@ object SheetInputs {
   )(handleCharNameChange(name))
 
   def handlePlayerNameChange(name: PlayerName): (String => Msg) = s =>
-    if s.playerName != name then SheetMsg(ChangePlayerName(s, name))
+    if s.into != name then SheetMsg(ValueEditCommand(s, name, PlayerNameLoc))
     else NoOpMsg
 
   def playerNameInput(name: PlayerName) = exitableTextInput(
@@ -38,8 +38,8 @@ object SheetInputs {
   def handleDistinctiveFeaturesChange(
       dfs: DistinctiveFeatures
   ): (String => Msg) = s =>
-    if s.distinctiveFeatures != dfs then
-      SheetMsg(ChangeDistinctiveFeatures(s, dfs))
+    if s.into != dfs then
+      SheetMsg(ValueEditCommand(s, dfs, DistinctiveFeaturesLoc))
     else NoOpMsg
 
   def distinctiveFeaturesInput(dfs: DistinctiveFeatures) = exitableTextArea(

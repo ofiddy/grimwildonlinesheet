@@ -6,40 +6,52 @@ import matchers.*
 import ftg.command.ModifyCharacter.modify
 import ftg.command.ModifyCharacter.undo
 import ftg.page.DefaultCharacter.detherilStarren
-import ftg.command.ChangeName
 import ftg.Character.CharacterName.*
+import ftg.command.ValueEditCommand
+import ftg.command.CharacterLoc.CharacterNameLoc
 
 class ChangeNameTests extends AnyFlatSpec with should.Matchers {
-  "ChangeName" should "overwrite a characters name on modify" in {
+  "ValueEditCommand" should "overwrite at provided location on modify" in {
     val premadeChar = detherilStarren
     val newName     = "NewName"
-    val cmd         = ChangeName(newName, "Detheril Starren".charName)
+    val cmd =
+      ValueEditCommand(
+        newName,
+        "Detheril Starren".intoCharName,
+        CharacterNameLoc
+      )
     val afterModify = modify(cmd, premadeChar)
-    afterModify.profile.characterName shouldBe (newName.charName)
+    afterModify.profile.characterName shouldBe (newName.intoCharName)
     afterModify.profile shouldBe premadeChar.profile.copy(characterName =
-      newName.charName
+      newName.intoCharName
     )
   }
 
-  it should "apply the old name on undo" in {
+  it should "overwrite at provided location on undo" in {
     val premadeChar = detherilStarren
     val oldName     = "OldName"
-    val cmd         = ChangeName("Detheril Starren", oldName.charName)
+    val cmd =
+      ValueEditCommand(
+        "Detheril Starren",
+        oldName.intoCharName,
+        CharacterNameLoc
+      )
     val afterModify = undo(cmd, premadeChar)
-    afterModify.profile.characterName shouldBe (oldName.charName)
+    afterModify.profile.characterName shouldBe (oldName.intoCharName)
     afterModify.profile shouldBe premadeChar.profile.copy(characterName =
-      oldName.charName
+      oldName.intoCharName
     )
   }
 
-  it should "ignore mismatch between stored and actual character name on undo" in {
+  it should "ignore mismatch between stored and actual value on undo" in {
     val premadeChar = detherilStarren
     val oldName     = "OldName"
-    val cmd         = ChangeName("Dastardly Jim", oldName.charName)
+    val cmd =
+      ValueEditCommand("Dastardly Jim", oldName.intoCharName, CharacterNameLoc)
     val afterModify = undo(cmd, premadeChar)
-    afterModify.profile.characterName shouldBe (oldName.charName)
+    afterModify.profile.characterName shouldBe (oldName.intoCharName)
     afterModify.profile shouldBe premadeChar.profile.copy(characterName =
-      oldName.charName
+      oldName.intoCharName
     )
   }
 }
