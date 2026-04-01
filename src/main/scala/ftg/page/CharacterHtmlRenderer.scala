@@ -28,6 +28,11 @@ import tyrian.Attribute
 import ftg.page.elems.SheetInputs.charNameInput
 import ftg.page.elems.SheetInputs.playerNameInput
 import ftg.page.elems.SheetInputs.distinctiveFeaturesInput
+import ftg.command.RollStatCommand.RollBrawn
+import ftg.page.Msg.SheetMsg
+import ftg.command.RollStatCommand.RollAgility
+import ftg.command.RollStatCommand.RollPresence
+import ftg.command.RollStatCommand.RollWits
 
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
@@ -51,14 +56,14 @@ object CharacterHtmlRenderer {
     distinctiveFeaturesInput(profile.distinctiveFeatures)
   )
 
-  def renderStats[T](stats: CharacterBaseStats): Html[T] =
+  def renderStats(stats: CharacterBaseStats): Html[Msg] =
     div(style(CSS.`background-color`("#DDDDDD")))(
       table(
         tr(
-          th("Brawn"),
-          th("Agility"),
-          th("Wits"),
-          th("Presence")
+          th(onClick(SheetMsg(RollBrawn)))("Brawn"),
+          th(onClick(SheetMsg(RollAgility)))("Agility"),
+          th(onClick(SheetMsg(RollWits)))("Wits"),
+          th(onClick(SheetMsg(RollPresence)))("Presence")
         ),
         tr(
           td(stats.bodyStats.brawn.dice.diceRemaining.toString()),
