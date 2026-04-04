@@ -1,31 +1,31 @@
 package ftg.page
 
-import ftg.Character.Character as Character
-import ftg.Character.CharacterProfile
-import ftg.Character.CharacterBaseStats
-import ftg.Character.BodyStats
-import ftg.Character.MentalStats
-import ftg.Character.Story
-import ftg.Character.Spark
-import ftg.Character.CharacterDetails
 import ftg.Character.Background
-import ftg.Character.CharacterTrait.TraitSection
-import ftg.Character.CharacterTrait.PremadeTrait
-import ftg.Character.CharacterName.*
-import ftg.Character.PlayerName.*
-import ftg.Character.Wise.*
+import ftg.Character.BodyStats
+import ftg.Character.Bond
+import ftg.Character.CharacterBaseStats
+import ftg.Character.CharacterClass
 import ftg.Character.CharacterDesire.DesireSection
 import ftg.Character.CharacterDesire.PremadeDesire
-import ftg.Character.Bond
+import ftg.Character.CharacterDetails
+import ftg.Character.CharacterName._
+import ftg.Character.CharacterProfile
+import ftg.Character.CharacterTrait.PremadeTrait
+import ftg.Character.CharacterTrait.TraitSection
+import ftg.Character.DistinctiveFeatures.intoDistinctiveFeatures
+import ftg.Character.Experience._
+import ftg.Character.MentalStats
+import ftg.Character.PlayerName._
+import ftg.Character.PremadeArcs.growthArcs
+import ftg.Character.PremadeArcs.struggleArcs
 import ftg.Character.PremadeBond
 import ftg.Character.PremadeBonds.premadeLeftBonds
 import ftg.Character.PremadeBonds.premadeRightBonds
-import ftg.Character.PremadeArcs.struggleArcs
-import ftg.Character.PremadeArcs.growthArcs
-import ftg.Character.Experience.*
-import ftg.Character.CharacterClass
+import ftg.Character.Spark
+import ftg.Character.Story
+import ftg.Character.Wise._
+import ftg.Character.{Character => Character}
 import ftg.Talent.ClassTalents.FighterTalents
-import ftg.Character.DistinctiveFeatures.intoDistinctiveFeatures
 
 object DefaultCharacter {
   val detherilStarren = Character(

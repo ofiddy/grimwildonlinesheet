@@ -1,9 +1,9 @@
 package ftg.page.elems
 
-import tyrian.Attr
 import ftg.page.Msg
+import tyrian.Attr
 import tyrian.Html
-import tyrian.Html.*
+import tyrian.Html._
 import tyrian.Tyrian
 
 object DicePoolEntry {

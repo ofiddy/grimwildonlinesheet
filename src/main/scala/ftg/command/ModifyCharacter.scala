@@ -1,10 +1,10 @@
 package ftg.command
 
-import ftg.Character.Character as Character
-import monocle.syntax.all.focus
 import ftg.Character.StatPool
 import ftg.Character.StatPool.diceRemainingLens
 import ftg.Character.StatPool.markedLens
+import ftg.Character.{Character => Character}
+import monocle.syntax.all.focus
 
 object ModifyCharacter {
   def modify(cmd: EffectCommand, char: Character): Character = cmd match
@@ -14,6 +14,8 @@ object ModifyCharacter {
       find(char).andThen(diceRemainingLens).replace(newDice)
     case TogglePoolMarkedCommand(find) =>
       find(char).andThen(markedLens).modify(!_)
+    case ToggleCommand(find) =>
+      find(char).modify(!_)
 
   def undo(cmd: EffectCommand, char: Character): Character = cmd match
     case ValueEditCommand(_, old, find) =>
@@ -22,4 +24,6 @@ object ModifyCharacter {
       find(char).andThen(diceRemainingLens).replace(old)
     case TogglePoolMarkedCommand(find) =>
       find(char).andThen(markedLens).modify(!_)
+    case ToggleCommand(find) =>
+      find(char).modify(!_)
 }

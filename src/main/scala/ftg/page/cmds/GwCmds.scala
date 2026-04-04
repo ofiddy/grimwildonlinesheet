@@ -1,10 +1,9 @@
 package ftg.page.cmds
 
-import tyrian.Cmd
 import cats.effect.Async
-
 import org.scalajs.dom.HTMLInputElement
 import org.scalajs.dom.document
+import tyrian.Cmd
 
 object GwCmds {
   def unfocusCurrentblur[F[_]: Async]: Cmd.SideEffect[F, Unit] =

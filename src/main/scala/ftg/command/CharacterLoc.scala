@@ -1,13 +1,12 @@
 package ftg.command
 
+import ftg.Character.BodyStats._
 import ftg.Character.CharacterName
-import monocle.syntax.all._
-import ftg.Character.Character as Character
-import ftg.Character.PlayerName
 import ftg.Character.DistinctiveFeatures
+import ftg.Character.MentalStats._
+import ftg.Character.PlayerName
 import ftg.Character.StatPool
-import ftg.Character.BodyStats.*
-import ftg.Character.MentalStats.*
+import ftg.Character.{Character => Character}
 import monocle.Lens
 import monocle.macros.GenLens
 import monocle.syntax.AppliedLens
@@ -28,6 +27,16 @@ object CharacterLoc {
 
   case object DistinctiveFeaturesLoc extends Loc[DistinctiveFeatures] {
     val lens = GenLens[Character](_.profile.distinctiveFeatures)
+  }
+
+  object HarmLocs {
+    sealed trait HarmLoc extends Loc[Boolean]
+    case object Bloodied extends HarmLoc {
+      val lens = GenLens[Character](_.stats.bodyStats).andThen(bloodiedLens)
+    }
+    case object Rattled extends HarmLoc {
+      val lens = GenLens[Character](_.stats.mentalStats).andThen(rattledLens)
+    }
   }
 
   object StatLocs {

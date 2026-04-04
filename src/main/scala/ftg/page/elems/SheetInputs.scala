@@ -1,24 +1,24 @@
 package ftg.page.elems
 
-import ftg.page.elems.ExitableInput.exitableTextInput
-import tyrian.CSS
-import tyrian.Html.*
 import ftg.Character.CharacterName
-import ftg.Character.CharacterName.*
-import ftg.page.Msg.SheetMsg
-import ftg.page.Msg.NoOpMsg
-import ftg.page.Msg
-import ftg.Character.PlayerName
-import ftg.Character.PlayerName.*
-import ftg.command.*
-import ftg.Character.DistinctiveFeatures
-import ftg.page.elems.ExitableTextArea.exitableTextArea
-import ftg.command.CharacterLoc.*
+import ftg.Character.CharacterName._
 import ftg.Character.CharacterName.into
+import ftg.Character.DistinctiveFeatures
 import ftg.Character.FromString.FromString
-import ftg.command.CharacterLoc.StatLocs.*
+import ftg.Character.PlayerName
+import ftg.Character.PlayerName._
+import ftg.Character.{Character => Character}
+import ftg.command.CharacterLoc.StatLocs._
+import ftg.command.CharacterLoc._
+import ftg.command._
+import ftg.page.Msg
+import ftg.page.Msg.NoOpMsg
+import ftg.page.Msg.SheetMsg
 import ftg.page.elems.DicePoolEntry.dicePoolEntry
-import ftg.Character.Character as Character
+import ftg.page.elems.ExitableInput.exitableTextInput
+import ftg.page.elems.ExitableTextArea.exitableTextArea
+import tyrian.CSS
+import tyrian.Html._
 
 object SheetInputs {
   def handleChangeFor[T: FromString](
@@ -53,12 +53,20 @@ object SheetInputs {
       else NoOpMsg
     )
 
-  def checkboxInput(
+  def markedInput(
       loc: StatLoc
   )(char: Character) = input(
     `type`    := "checkbox",
     `checked` := loc(char).get.isMarked,
     onClick(SheetMsg(TogglePoolMarkedCommand(loc)))
+  )
+
+  def charCheckboxInput(
+      loc: Loc[Boolean]
+  )(char: Character) = input(
+    `type`    := "checkbox",
+    `checked` := loc(char).get,
+    onClick(SheetMsg(ToggleCommand(loc)))
   )
 
 }

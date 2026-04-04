@@ -1,40 +1,44 @@
 package ftg.page
 
-import ftg.Character.Character as Character
-import tyrian.Html
-import tyrian.Html.*
-import tyrian.syntax.*
-import ftg.Character.CharacterProfile
-import ftg.Character.CharacterName.*
-import tyrian.CSS
-import ftg.Character.Condition
-import ftg.Character.ShortTermCondition
-import ftg.Character.LongTermCondition
-import ftg.Character.PermanentCondition
-import ftg.Character.UrgentCondition
-import ftg.Character.Story
-import scala.Range
-import ftg.Character.Story.toInt
-import ftg.Character.Story.startingStory
-import ftg.Character.Spark
-import ftg.Character.CharacterDetails
 import ftg.Character.Background
 import ftg.Character.Bond
-import ftg.Character.StoryArc
+import ftg.Character.CharacterDetails
+import ftg.Character.CharacterName._
+import ftg.Character.CharacterProfile
+import ftg.Character.Condition
 import ftg.Character.Experience
-import scala.annotation.tailrec
-import tyrian.Attribute
-import ftg.page.elems.SheetInputs.charNameInput
-import ftg.page.elems.SheetInputs.playerNameInput
-import ftg.page.elems.SheetInputs.distinctiveFeaturesInput
-import ftg.command.RollStatCommand.RollBrawn
-import ftg.page.Msg.SheetMsg
+import ftg.Character.LongTermCondition
+import ftg.Character.PermanentCondition
+import ftg.Character.ShortTermCondition
+import ftg.Character.Spark
+import ftg.Character.Story
+import ftg.Character.Story.startingStory
+import ftg.Character.Story.toInt
+import ftg.Character.StoryArc
+import ftg.Character.UrgentCondition
+import ftg.Character.{Character => Character}
+import ftg.command.CharacterLoc.HarmLocs.Bloodied
+import ftg.command.CharacterLoc.HarmLocs.Rattled
+import ftg.command.CharacterLoc.StatLocs._
 import ftg.command.RollStatCommand.RollAgility
+import ftg.command.RollStatCommand.RollBrawn
 import ftg.command.RollStatCommand.RollPresence
 import ftg.command.RollStatCommand.RollWits
+import ftg.page.Msg.SheetMsg
+import ftg.page.elems.SheetInputs.charCheckboxInput
+import ftg.page.elems.SheetInputs.charNameInput
+import ftg.page.elems.SheetInputs.distinctiveFeaturesInput
+import ftg.page.elems.SheetInputs.markedInput
+import ftg.page.elems.SheetInputs.playerNameInput
 import ftg.page.elems.SheetInputs.statPoolInput
-import ftg.command.CharacterLoc.StatLocs.*
-import ftg.page.elems.SheetInputs.checkboxInput
+import tyrian.Attribute
+import tyrian.CSS
+import tyrian.Html
+import tyrian.Html._
+
+import scala.Range
+import scala.annotation.tailrec
+
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
     h1("Grimwild Online Character Sheet"),
@@ -58,7 +62,6 @@ object CharacterHtmlRenderer {
   )
 
   def renderStats(char: Character): Html[Msg] =
-    val stats = char.stats
     div(style(CSS.`background-color`("#DDDDDD")))(
       table(
         tr(
@@ -94,40 +97,20 @@ object CharacterHtmlRenderer {
           td(statPoolInput(Presence)(char))
         ),
         tr(
-          td(checkboxInput(Brawn)(char)),
-          td(checkboxInput(Agility)(char)),
-          td(checkboxInput(Wits)(char)),
-          td(checkboxInput(Presence)(char))
+          td(markedInput(Brawn)(char)),
+          td(markedInput(Agility)(char)),
+          td(markedInput(Wits)(char)),
+          td(markedInput(Presence)(char))
         )
       ),
       table(
         tr(
           td("Bloodied"),
-          td(
-            div(
-              input(
-                `type`    := "checkbox",
-                `checked` := stats.bodyStats.isBloodied
-              ),
-              stats.bodyStats.bloodied
-                .map(v => button(v.diceRemaining.toString()))
-                .orEmpty
-            )
-          )
+          td(charCheckboxInput(Bloodied)(char))
         ),
         tr(
           td("Rattled"),
-          td(
-            div(
-              input(
-                `type`    := "checkbox",
-                `checked` := stats.mentalStats.isRattled
-              ),
-              stats.mentalStats.rattled
-                .map(v => button(v.diceRemaining.toString()))
-                .orEmpty
-            )
-          )
+          td(charCheckboxInput(Rattled)(char))
         )
       )
     )

@@ -1,19 +1,19 @@
 package ftg.page
 
-import ftg.Character.Character as Character
-import tyrian.Cmd
 import cats.effect.IO
-import ftg.page.Msg.NoOpMsg
-import ftg.page.Msg.SheetMsg
+import ftg.Character.{Character => Character}
+import ftg.DicePool.DicePool.given_PoolRollable_DicePool.roll
+import ftg.DicePool.RandomRollGenerator
+import ftg.DicePool.RollGenerator
 import ftg.command.CharCommand
 import ftg.command.EffectCommand
 import ftg.command.ModifyCharacter.modify
-import ftg.page.cmds.GwCmds
-import ftg.page.Msg.BlurMsg
 import ftg.command.RollStatCommand
-import ftg.DicePool.DicePool.given_PoolRollable_DicePool.roll
-import ftg.DicePool.RollGenerator
-import ftg.DicePool.RandomRollGenerator
+import ftg.page.Msg.BlurMsg
+import ftg.page.Msg.NoOpMsg
+import ftg.page.Msg.SheetMsg
+import ftg.page.cmds.GwCmds
+import tyrian.Cmd
 
 object UpdatePage {
   def update(model: Model): Msg => (Model, Cmd[IO, Msg]) =

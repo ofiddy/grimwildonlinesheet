@@ -1,10 +1,10 @@
 package ftg.page.elems
 
+import ftg.page.Msg
 import tyrian.Attr
 import tyrian.Html
-import tyrian.Html.*
+import tyrian.Html._
 import tyrian.Tyrian
-import ftg.page.Msg
 
 object ExitableTextArea {
   def exitableTextArea(

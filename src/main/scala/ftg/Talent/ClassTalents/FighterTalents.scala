@@ -1,11 +1,11 @@
 package ftg.Talent.ClassTalents
 
-import ftg.Talent.Talent
-import ftg.Talent.md
-import ftg.Talent.TalentWidget.TalentComponents.FluentCheckboxes.Checkbox
-import ftg.Talent.TalentWidgets.TalentWidget
 import ftg.DicePool.DicePool
+import ftg.Talent.Talent
+import ftg.Talent.TalentWidget.TalentComponents.FluentCheckboxes.Checkbox
 import ftg.Talent.TalentWidget.TalentComponents.FluentDicePoolComponent.d
+import ftg.Talent.TalentWidgets.TalentWidget
+import ftg.Talent.md
 
 object FighterTalents {
   val weaponMastery = Talent(

@@ -1,16 +1,16 @@
 package ftg
 
 import cats.effect.IO
-import tyrian.*
-import tyrian.Html.*
-
-import scala.scalajs.js.annotation.*
+import ftg.page.CharacterHtmlRenderer.renderCharacter
 import ftg.page.DefaultCharacter
 import ftg.page.Model
-import ftg.page.CharacterHtmlRenderer.renderCharacter
 import ftg.page.Msg
 import ftg.page.Msg.NoOpMsg
 import ftg.page.UpdatePage
+import tyrian.Html._
+import tyrian._
+
+import scala.scalajs.js.annotation._
 
 @JSExportTopLevel("TyrianApp")
 object GrimwildOnlineSheet extends TyrianIOApp[Msg, Model]:
