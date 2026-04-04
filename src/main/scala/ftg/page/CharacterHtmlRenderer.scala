@@ -34,6 +34,7 @@ import ftg.command.RollStatCommand.RollPresence
 import ftg.command.RollStatCommand.RollWits
 import ftg.page.elems.SheetInputs.statPoolInput
 import ftg.command.CharacterLoc.StatLocs.*
+import ftg.page.elems.SheetInputs.checkboxInput
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
     h1("Grimwild Online Character Sheet"),
@@ -93,34 +94,10 @@ object CharacterHtmlRenderer {
           td(statPoolInput(Presence)(char))
         ),
         tr(
-          td(
-            input(
-              `type`    := "checkbox",
-              `value`   := "isMarked",
-              `checked` := stats.bodyStats.brawn.isMarked
-            )
-          ),
-          td(
-            input(
-              `type`    := "checkbox",
-              `value`   := "isMarked",
-              `checked` := stats.bodyStats.agility.isMarked
-            )
-          ),
-          td(
-            input(
-              `type`    := "checkbox",
-              `value`   := "isMarked",
-              `checked` := stats.mentalStats.wits.isMarked
-            )
-          ),
-          td(
-            input(
-              `type`    := "checkbox",
-              `value`   := "isMarked",
-              `checked` := stats.mentalStats.presence.isMarked
-            )
-          )
+          td(checkboxInput(Brawn)(char)),
+          td(checkboxInput(Agility)(char)),
+          td(checkboxInput(Wits)(char)),
+          td(checkboxInput(Presence)(char))
         )
       ),
       table(

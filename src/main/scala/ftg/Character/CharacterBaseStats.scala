@@ -8,6 +8,7 @@ final case class StatPool(dice: DicePool, isMarked: Boolean)
 
 object StatPool {
   def diceRemainingLens = Focus[StatPool](_.dice.diceRemaining)
+  def markedLens        = Focus[StatPool](_.isMarked)
 }
 
 final case class StatGroup(

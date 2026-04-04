@@ -53,4 +53,12 @@ object SheetInputs {
       else NoOpMsg
     )
 
+  def checkboxInput(
+      loc: StatLoc
+  )(char: Character) = input(
+    `type`    := "checkbox",
+    `checked` := loc(char).get.isMarked,
+    onClick(SheetMsg(TogglePoolMarkedCommand(loc)))
+  )
+
 }

@@ -23,6 +23,10 @@ final case class EditStatPoolSizeCommand(
     f: StatLoc
 ) extends EffectCommand
 
+final case class TogglePoolMarkedCommand(
+    lens: StatLoc
+) extends EffectCommand
+
 object RollStatCommand {
   def RollBrawn: RollStatCommand    = RollStatCommand(Brawn)
   def RollAgility: RollStatCommand  = RollStatCommand(Agility)
