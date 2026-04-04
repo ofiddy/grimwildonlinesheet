@@ -2,13 +2,13 @@ package ftg.Character
 
 import ftg.DicePool.DicePool
 import monocle.syntax.all._
-import monocle.Focus
+import monocle.macros.GenLens
 
 final case class StatPool(dice: DicePool, isMarked: Boolean)
 
 object StatPool {
-  def diceRemainingLens = Focus[StatPool](_.dice.diceRemaining)
-  def markedLens        = Focus[StatPool](_.isMarked)
+  def diceRemainingLens = GenLens[StatPool](_.dice.diceRemaining)
+  def markedLens        = GenLens[StatPool](_.isMarked)
 }
 
 final case class StatGroup(
@@ -27,8 +27,8 @@ object BodyStats {
     def bloodied: Option[DicePool] = b.markedPool
   }
 
-  def brawnLens   = Focus[BodyStats](_.leftPool)
-  def agilityLens = Focus[BodyStats](_.rightPool)
+  def brawnLens   = GenLens[BodyStats](_.leftPool)
+  def agilityLens = GenLens[BodyStats](_.rightPool)
 
   protected final case class FluentWithBrawn(b: Int) {
     infix def withAgility(a: Int): BodyStats =
@@ -52,8 +52,8 @@ object MentalStats {
     def rattled: Option[DicePool] = m.markedPool
   }
 
-  def witsLens     = Focus[MentalStats](_.leftPool)
-  def presenceLens = Focus[MentalStats](_.rightPool)
+  def witsLens     = GenLens[MentalStats](_.leftPool)
+  def presenceLens = GenLens[MentalStats](_.rightPool)
 
   protected final case class FluentWithWits(w: Int) {
     infix def withPresence(p: Int): MentalStats =
