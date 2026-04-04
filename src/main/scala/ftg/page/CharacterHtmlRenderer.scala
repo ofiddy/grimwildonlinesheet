@@ -5,7 +5,6 @@ import tyrian.Html
 import tyrian.Html.*
 import tyrian.syntax.*
 import ftg.Character.CharacterProfile
-import ftg.Character.CharacterBaseStats
 import ftg.Character.CharacterName.*
 import tyrian.CSS
 import ftg.Character.Condition
@@ -33,12 +32,13 @@ import ftg.page.Msg.SheetMsg
 import ftg.command.RollStatCommand.RollAgility
 import ftg.command.RollStatCommand.RollPresence
 import ftg.command.RollStatCommand.RollWits
-
+import ftg.page.elems.SheetInputs.statPoolInput
+import ftg.command.CharacterLoc.StatLocs.*
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
     h1("Grimwild Online Character Sheet"),
     renderProfile(char.profile),
-    renderStats(char.stats),
+    renderStats(char),
     renderConditions(char.conditions),
     renderStoryAndSpark(char.story, char.spark),
     renderCharacterDetails(char.details),
@@ -56,20 +56,41 @@ object CharacterHtmlRenderer {
     distinctiveFeaturesInput(profile.distinctiveFeatures)
   )
 
-  def renderStats(stats: CharacterBaseStats): Html[Msg] =
+  def renderStats(char: Character): Html[Msg] =
+    val stats = char.stats
     div(style(CSS.`background-color`("#DDDDDD")))(
       table(
         tr(
-          th(onClick(SheetMsg(RollBrawn)))("Brawn"),
-          th(onClick(SheetMsg(RollAgility)))("Agility"),
-          th(onClick(SheetMsg(RollWits)))("Wits"),
-          th(onClick(SheetMsg(RollPresence)))("Presence")
+          th(
+            button(
+              styles(CSS.`font-weight`("bold")),
+              onClick(SheetMsg(RollBrawn))
+            )("Brawn")
+          ),
+          th(
+            button(
+              styles(CSS.`font-weight`("bold")),
+              onClick(SheetMsg(RollAgility))
+            )("Agility")
+          ),
+          th(
+            button(
+              styles(CSS.`font-weight`("bold")),
+              onClick(SheetMsg(RollWits))
+            )("Wits")
+          ),
+          th(
+            button(
+              styles(CSS.`font-weight`("bold")),
+              onClick(SheetMsg(RollPresence))
+            )("Presence")
+          )
         ),
         tr(
-          td(stats.bodyStats.brawn.dice.diceRemaining.toString()),
-          td(stats.bodyStats.agility.dice.diceRemaining.toString()),
-          td(stats.mentalStats.wits.dice.diceRemaining.toString()),
-          td(stats.mentalStats.presence.dice.diceRemaining.toString())
+          td(statPoolInput(Brawn)(char)),
+          td(statPoolInput(Agility)(char)),
+          td(statPoolInput(Wits)(char)),
+          td(statPoolInput(Presence)(char))
         ),
         tr(
           td(

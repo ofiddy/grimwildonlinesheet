@@ -28,7 +28,7 @@ object UpdatePage {
     given RollGenerator = RandomRollGenerator
     cmd match
       case r @ RollStatCommand(loc) =>
-        val stat    = loc(model.character.stats)
+        val stat    = loc(model.character).get
         val roll    = stat.dice.roll
         val rollLog = s"Rolled ${roll.diceResults}"
         (model.copy(log = rollLog :: r :: model.log), Cmd.None)

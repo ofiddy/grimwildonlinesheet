@@ -16,6 +16,9 @@ import ftg.page.elems.ExitableTextArea.exitableTextArea
 import ftg.command.CharacterLoc.*
 import ftg.Character.CharacterName.into
 import ftg.Character.FromString.FromString
+import ftg.command.CharacterLoc.StatLocs.*
+import ftg.page.elems.DicePoolEntry.dicePoolEntry
+import ftg.Character.Character as Character
 
 object SheetInputs {
   def handleChangeFor[T: FromString](
@@ -36,4 +39,18 @@ object SheetInputs {
   def distinctiveFeaturesInput(dfs: DistinctiveFeatures) = exitableTextArea(
     styles(CSS.width("300px"))
   )(handleChangeFor(DistinctiveFeaturesLoc)(dfs, _))(dfs.label)
+
+  def statPoolInput(loc: StatLoc)(char: Character) =
+    dicePoolEntry(
+      `value` := loc(char).get.dice.diceRemaining.toString,
+      styles(CSS.width("20px"), CSS.height("20px"))
+    )(i =>
+      val oldRemaining = loc(char).get.dice.diceRemaining
+      if i != oldRemaining then
+        SheetMsg(
+          EditStatPoolSizeCommand(i, loc(char).get.dice.diceRemaining, loc)
+        )
+      else NoOpMsg
+    )
+
 }
