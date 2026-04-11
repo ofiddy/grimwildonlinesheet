@@ -1,6 +1,5 @@
 package ftg.command
 
-import ftg.Character.FromString.FromString
 import ftg.command.CharacterLoc.Loc
 import ftg.command.CharacterLoc.StatLocs._
 
@@ -8,12 +7,12 @@ sealed trait CharCommand
 sealed trait PureCommand   extends CharCommand
 sealed trait EffectCommand extends CharCommand
 
-final case class ValueEditCommand[T: FromString](
-    newValue: String,
+final case class ValueEditCommand[T](
+    newValue: T,
     oldValue: T,
     loc: Loc[T]
 ) extends EffectCommand {
-  def into: T = newValue.into
+  def into: T = newValue
 }
 
 final case class RollStatCommand(f: StatLoc) extends PureCommand

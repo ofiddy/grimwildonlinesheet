@@ -10,6 +10,7 @@ import ftg.Character.{Character => Character}
 import monocle.Lens
 import monocle.macros.GenLens
 import monocle.syntax.AppliedLens
+import ftg.Character.Background
 
 object CharacterLoc {
   sealed trait Loc[T] {
@@ -27,6 +28,18 @@ object CharacterLoc {
 
   case object DistinctiveFeaturesLoc extends Loc[DistinctiveFeatures] {
     val lens = GenLens[Character](_.profile.distinctiveFeatures)
+  }
+
+  object BackgroundLocs {
+    sealed trait BackgroundLoc extends Loc[Background]
+
+    case object BackgroundLoc1 extends BackgroundLoc {
+      val lens = GenLens[Character](_.details.backgrounds._1)
+    }
+
+    case object BackgroundLoc2 extends BackgroundLoc {
+      val lens = GenLens[Character](_.details.backgrounds._2)
+    }
   }
 
   object HarmLocs {

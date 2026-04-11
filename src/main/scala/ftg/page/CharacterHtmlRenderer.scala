@@ -1,8 +1,6 @@
 package ftg.page
 
-import ftg.Character.Background
 import ftg.Character.Bond
-import ftg.Character.CharacterDetails
 import ftg.Character.CharacterName._
 import ftg.Character.CharacterProfile
 import ftg.Character.Condition
@@ -38,6 +36,8 @@ import tyrian.Html._
 
 import scala.Range
 import scala.annotation.tailrec
+import ftg.page.elems.BackgroundsElements.renderBackgroundRows
+import ftg.command.CharacterLoc.BackgroundLocs.*
 
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
@@ -46,7 +46,7 @@ object CharacterHtmlRenderer {
     renderStats(char),
     renderConditions(char.conditions),
     renderStoryAndSpark(char.story, char.spark),
-    renderCharacterDetails(char.details),
+    renderCharacterDetails(char),
     renderBonds(char.bonds),
     renderStoryArcs(char.groupArc, char.characterArc),
     renderExperience(char.experience)
@@ -151,7 +151,7 @@ object CharacterHtmlRenderer {
       .map(i => input(`type` := "checkbox", `checked` := i < filled))
       .toList
 
-  def renderCharacterDetails[T](details: CharacterDetails): Html[T] = div(
+  def renderCharacterDetails(char: Character): Html[Msg] = div(
     h2("Character Details"),
     table(
       tr(
@@ -160,34 +160,25 @@ object CharacterHtmlRenderer {
         th("Wise"),
         th("Wise")
       ),
-      renderBackgroundRows(details.backgrounds._1),
-      renderBackgroundRows(details.backgrounds._2)
+      renderBackgroundRows(char, BackgroundLoc1),
+      renderBackgroundRows(char, BackgroundLoc2)
     ),
     div(styles(CSS.`display`("flex"), CSS.`gap`("10px")))(
       div(
         h3("Traits") +:
-          details.traits.twoYouAre.map(t => p(s"✔️ ${t.label}")) :+
-          p(details.traits.oneYouArent match
+          char.details.traits.twoYouAre.map(t => p(s"✔️ ${t.label}")) :+
+          p(char.details.traits.oneYouArent match
             case None    => "❌"
             case Some(t) => s"❌ ${t.label}")
       ),
       div(
         h3("Desires") +:
-          details.desires.twoYouWant.map(t => p(s"✔️ ${t.label}")) :+
-          p(details.desires.oneYouDont match
+          char.details.desires.twoYouWant.map(t => p(s"✔️ ${t.label}")) :+
+          p(char.details.desires.oneYouDont match
             case None    => "❌"
             case Some(t) => s"❌ ${t.label}")
       )
     )
-  )
-
-  def renderBackgroundRows[T](background: Background): Html[T] = tr(
-    td(background.description.getOrElse("")) +:
-      background.wises.productIterator.toList.map {
-        _ match
-          case Some(wise) => td(wise.toString)
-          case None       => td("")
-      }
   )
 
   def renderBonds[T](bonds: List[Bond]): Html[T] = div(

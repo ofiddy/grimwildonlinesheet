@@ -2,9 +2,7 @@ package ftg.page.elems
 
 import ftg.Character.CharacterName
 import ftg.Character.CharacterName._
-import ftg.Character.CharacterName.into
 import ftg.Character.DistinctiveFeatures
-import ftg.Character.FromString.FromString
 import ftg.Character.PlayerName
 import ftg.Character.PlayerName._
 import ftg.Character.{Character => Character}
@@ -19,26 +17,30 @@ import ftg.page.elems.ExitableInput.exitableTextInput
 import ftg.page.elems.ExitableTextArea.exitableTextArea
 import tyrian.CSS
 import tyrian.Html._
+import ftg.Character.DistinctiveFeatures.intoDistinctiveFeatures
 
 object SheetInputs {
-  def handleChangeFor[T: FromString](
+  def handleChangeFor[T](
       find: Loc[T]
-  )(old: T, newVal: String): Msg = if newVal.into == old then NoOpMsg
+  )(old: T, newVal: T): Msg = if newVal == old then NoOpMsg
   else SheetMsg(ValueEditCommand(newVal, old, find))
 
-  def charNameInput(name: CharacterName) = exitableTextInput(
-    styles(CSS.font("24pt bold")),
-    `value` := name.label
-  )(handleChangeFor(CharacterNameLoc)(name, _))
+  def charNameInput(name: CharacterName) =
+    exitableTextInput(
+      styles(CSS.font("24pt bold")),
+      `value` := name.label
+    )((s: String) => handleChangeFor(CharacterNameLoc)(name, s.intoCharName))
 
   def playerNameInput(name: PlayerName) = exitableTextInput(
     styles(CSS.font("18pt bold")),
     `value` := name.label
-  )(handleChangeFor(PlayerNameLoc)(name, _))
+  )((s: String) => handleChangeFor(PlayerNameLoc)(name, s.intoPlayerName))
 
   def distinctiveFeaturesInput(dfs: DistinctiveFeatures) = exitableTextArea(
     styles(CSS.width("300px"))
-  )(handleChangeFor(DistinctiveFeaturesLoc)(dfs, _))(dfs.label)
+  )((s: String) =>
+    handleChangeFor(DistinctiveFeaturesLoc)(dfs, s.intoDistinctiveFeatures)
+  )(dfs.label)
 
   def statPoolInput(loc: StatLoc)(char: Character) =
     dicePoolEntry(
