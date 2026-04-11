@@ -16,7 +16,7 @@ class ValueEditCommandTests extends AnyFlatSpec with should.Matchers {
     val newName     = "NewName"
     val cmd =
       ValueEditCommand(
-        newName,
+        newName.intoCharName,
         "Detheril Starren".intoCharName,
         CharacterNameLoc
       )
@@ -32,7 +32,7 @@ class ValueEditCommandTests extends AnyFlatSpec with should.Matchers {
     val oldName     = "OldName"
     val cmd =
       ValueEditCommand(
-        "Detheril Starren",
+        "Detheril Starren".intoCharName,
         oldName.intoCharName,
         CharacterNameLoc
       )
@@ -47,7 +47,11 @@ class ValueEditCommandTests extends AnyFlatSpec with should.Matchers {
     val premadeChar = detherilStarren
     val oldName     = "OldName"
     val cmd =
-      ValueEditCommand("Dastardly Jim", oldName.intoCharName, CharacterNameLoc)
+      ValueEditCommand(
+        "Dastardly Jim".intoCharName,
+        oldName.intoCharName,
+        CharacterNameLoc
+      )
     val afterModify = undo(cmd, premadeChar)
     afterModify.profile.characterName shouldBe (oldName.intoCharName)
     afterModify.profile shouldBe premadeChar.profile.copy(characterName =

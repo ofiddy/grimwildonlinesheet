@@ -14,10 +14,10 @@ class SheetInputsTests extends AnyFlatSpec with should.Matchers {
   "handleChangeFor" should "produce an eventful Msg when old and new names differ" in {
     handleChangeFor(CharacterNameLoc)(
       "name1".intoCharName,
-      "name2"
+      "name2".intoCharName
     ) shouldBe SheetMsg(
       ValueEditCommand(
-        "name2",
+        "name2".intoCharName,
         "name1".intoCharName,
         CharacterNameLoc
       )
@@ -27,10 +27,10 @@ class SheetInputsTests extends AnyFlatSpec with should.Matchers {
   it should "produce eventful Msg when the new name is empty" in {
     handleChangeFor(CharacterNameLoc)(
       "name1".intoCharName,
-      ""
+      "".intoCharName
     ) shouldBe SheetMsg(
       ValueEditCommand(
-        "",
+        "".intoCharName,
         "name1".intoCharName,
         CharacterNameLoc
       )
@@ -40,7 +40,7 @@ class SheetInputsTests extends AnyFlatSpec with should.Matchers {
   it should "produce a noop Msg when the names are the same" in {
     handleChangeFor(CharacterNameLoc)(
       "name1".intoCharName,
-      "name1"
+      "name1".intoCharName
     ) shouldBe NoOpMsg
   }
 }
