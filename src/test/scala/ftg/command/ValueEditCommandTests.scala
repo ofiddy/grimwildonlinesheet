@@ -58,4 +58,15 @@ class ValueEditCommandTests extends AnyFlatSpec with should.Matchers {
       oldName.intoCharName
     )
   }
+
+  it should "be reflective on modify and undo" in {
+    val premadeChar = detherilStarren
+    val cmd =
+      ValueEditCommand(
+        "Dastardly Jim".intoCharName,
+        detherilStarren.profile.characterName,
+        CharacterNameLoc
+      )
+    undo(cmd, modify(cmd, premadeChar)) shouldBe premadeChar
+  }
 }

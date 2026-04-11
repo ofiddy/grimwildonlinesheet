@@ -50,4 +50,13 @@ class TogglePoolMarkedCommandTests extends AnyFlatSpec with should.Matchers {
     val afterUndo = undo(cmd, premadeChar)
     afterUndo.stats.bodyStats.brawn.isMarked shouldBe false
   }
+
+  it should "be reflective on modify and undo" in {
+    val premadeChar = detherilStarren
+    val cmd =
+      TogglePoolMarkedCommand(
+        Brawn
+      )
+    undo(cmd, modify(cmd, premadeChar)) shouldBe premadeChar
+  }
 }

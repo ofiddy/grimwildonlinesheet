@@ -18,7 +18,7 @@ object ModifyCharacter {
       find(char).andThen(markedLens).modify(!_)
     case ToggleCommand(find) =>
       find(char).modify(!_)
-    case AddCondition =>
+    case AddConditionCommand =>
       char
         .focus(_.conditions)
         .modify(_ :+ Condition(Some("WAhgoooo"), ShortTermCondition))
@@ -32,5 +32,5 @@ object ModifyCharacter {
       find(char).andThen(markedLens).modify(!_)
     case ToggleCommand(find) =>
       find(char).modify(!_)
-    case AddCondition => char.focus(_.conditions).modify(_.dropRight(1))
+    case AddConditionCommand => char.focus(_.conditions).modify(_.dropRight(1))
 }

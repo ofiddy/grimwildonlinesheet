@@ -62,4 +62,16 @@ class EditStatPoolSizeCommandTests extends AnyFlatSpec with should.Matchers {
     Wits(premadeChar).get shouldBe premadeChar.stats.mentalStats.wits
     Presence(premadeChar).get shouldBe premadeChar.stats.mentalStats.presence
   }
+
+  it should "be reflective on modify and undo" in {
+    val premadeChar = detherilStarren
+    val newVal      = 6
+    val cmd =
+      EditStatPoolSizeCommand(
+        newVal,
+        premadeChar.stats.bodyStats.brawn.dice.diceRemaining,
+        Brawn
+      )
+    undo(cmd, modify(cmd, premadeChar)) shouldBe premadeChar
+  }
 }
