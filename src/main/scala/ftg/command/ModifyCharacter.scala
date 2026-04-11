@@ -5,6 +5,8 @@ import ftg.Character.StatPool.diceRemainingLens
 import ftg.Character.StatPool.markedLens
 import ftg.Character.{Character => Character}
 import monocle.syntax.all.focus
+import ftg.Character.Condition
+import ftg.Character.ShortTermCondition
 
 object ModifyCharacter {
   def modify(cmd: EffectCommand, char: Character): Character = cmd match
@@ -16,6 +18,10 @@ object ModifyCharacter {
       find(char).andThen(markedLens).modify(!_)
     case ToggleCommand(find) =>
       find(char).modify(!_)
+    case AddCondition =>
+      char
+        .focus(_.conditions)
+        .modify(_ :+ Condition(Some("WAhgoooo"), ShortTermCondition))
 
   def undo(cmd: EffectCommand, char: Character): Character = cmd match
     case ValueEditCommand(_, old, find) =>
@@ -26,4 +32,5 @@ object ModifyCharacter {
       find(char).andThen(markedLens).modify(!_)
     case ToggleCommand(find) =>
       find(char).modify(!_)
+    case AddCondition => char.focus(_.conditions).modify(_.dropRight(1))
 }

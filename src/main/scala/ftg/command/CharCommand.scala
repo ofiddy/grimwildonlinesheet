@@ -30,6 +30,8 @@ final case class ToggleCommand(
     loc: Loc[Boolean]
 ) extends EffectCommand
 
+case object AddCondition extends EffectCommand
+
 object RollStatCommand {
   def RollBrawn: RollStatCommand    = RollStatCommand(Brawn)
   def RollAgility: RollStatCommand  = RollStatCommand(Agility)

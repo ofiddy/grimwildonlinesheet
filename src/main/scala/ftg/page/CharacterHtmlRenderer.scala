@@ -5,15 +5,11 @@ import ftg.Character.CharacterName._
 import ftg.Character.CharacterProfile
 import ftg.Character.Condition
 import ftg.Character.Experience
-import ftg.Character.LongTermCondition
-import ftg.Character.PermanentCondition
-import ftg.Character.ShortTermCondition
 import ftg.Character.Spark
 import ftg.Character.Story
 import ftg.Character.Story.startingStory
 import ftg.Character.Story.toInt
 import ftg.Character.StoryArc
-import ftg.Character.UrgentCondition
 import ftg.Character.{Character => Character}
 import ftg.command.CharacterLoc.HarmLocs.Bloodied
 import ftg.command.CharacterLoc.HarmLocs.Rattled
@@ -38,6 +34,7 @@ import scala.Range
 import scala.annotation.tailrec
 import ftg.page.elems.BackgroundsElements.renderBackgroundRows
 import ftg.command.CharacterLoc.BackgroundLocs.*
+import ftg.page.elems.ConditionsInput.renderConditions
 
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
@@ -115,15 +112,6 @@ object CharacterHtmlRenderer {
       )
     )
 
-  def renderConditions[T](conditions: List[Condition]): Html[T] =
-    div(
-      h3("Conditions"),
-      ul(
-        conditions.map(c => li(displayCondition(c)))
-      ),
-      p(em("VEX:"), span(" FIGHT–FLIGHT–FREEZE–FREAKOUT"))
-    )
-
   def renderStoryAndSpark[T](story: Story, spark: Spark): Html[T] = div(
     table(
       tr(
@@ -140,11 +128,8 @@ object CharacterHtmlRenderer {
     )
   )
 
-  def displayCondition(condition: Condition): String = condition match
-    case ShortTermCondition(name)    => name
-    case LongTermCondition(name)     => name
-    case PermanentCondition(name)    => name
-    case UrgentCondition(name, pool) => s"${name} ${pool.diceRemaining}d"
+  def displayCondition(condition: Condition): String =
+    condition.name.getOrElse("")
 
   def createAndFillCheckboxes[T](filled: Int, empty: Int): List[Html[T]] =
     Range(0, filled + empty)
