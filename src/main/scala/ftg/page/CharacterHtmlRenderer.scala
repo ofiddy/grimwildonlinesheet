@@ -38,6 +38,7 @@ import ftg.command.ValueEditCommand
 import ftg.command.CharacterLoc.StoryLoc
 import ftg.command.CharacterLoc.SparkLoc
 import ftg.page.elems.TraitsDesiresInput.renderTraits
+import ftg.page.elems.TraitsDesiresInput.renderDesires
 
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
@@ -182,13 +183,7 @@ object CharacterHtmlRenderer {
     ),
     div(styles(CSS.`display`("flex"), CSS.`gap`("10px")))(
       renderTraits(char.details.traits),
-      div(
-        h3("Desires") +:
-          char.details.desires.twoYouWant.map(t => p(s"✔️ ${t.label}")) :+
-          p(char.details.desires.oneYouDont match
-            case None    => "❌"
-            case Some(t) => s"❌ ${t.label}")
-      )
+      renderDesires(char.details.desires)
     )
   )
 

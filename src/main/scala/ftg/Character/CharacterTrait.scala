@@ -53,7 +53,7 @@ object CharacterDesire {
   final case class CustomDesire(label: String)  extends Desire
 
   final case class DesireSection(
-      twoYouWant: List[Desire],
+      twoYouWant: (Option[Desire], Option[Desire]),
       oneYouDont: Option[Desire]
   )
 }

@@ -57,7 +57,7 @@ object DefaultCharacter {
         Some(PremadeTrait("Honest"))
       ),
       DesireSection(
-        List(PremadeDesire("Harmony"), PremadeDesire("Thrills")),
+        (Some(PremadeDesire("Harmony")), Some(PremadeDesire("Thrills"))),
         Some(PremadeDesire("Power"))
       )
     ),

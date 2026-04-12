@@ -16,8 +16,13 @@ import ftg.command.CharacterLoc.TraitLoc
 import ftg.Character.CharacterTrait.CustomTrait
 import tyrian.Empty
 import ftg.page.elems.ExitableInput.exitableTextInput
-import PartialFunction._
 import ftg.page.elems.SheetInputs.handleChangeFor
+import ftg.command.CharacterLoc.Loc
+import ftg.Character.CharacterDesire.DesireSection
+import ftg.Character.CharacterDesire.Desire
+import ftg.Character.CharacterDesire.desireSystem
+import ftg.Character.CharacterDesire.CustomDesire
+import ftg.command.CharacterLoc.DesireLoc
 
 object TraitsDesiresInput {
   def renderTraits(ts: TraitSection): Html[Msg] = div(
@@ -27,50 +32,107 @@ object TraitsDesiresInput {
     traitSelector(ts, "❌ ", GenLens[TraitSection](_.oneYouArent))
   )
 
-  private def traitSelector(
-      t: TraitSection,
+  def renderDesires(ds: DesireSection): Html[Msg] = div(
+    h3("Desires"),
+    desiresSelector(ds, "✔️ ", GenLens[DesireSection](_.twoYouWant._1)),
+    desiresSelector(ds, "✔️ ", GenLens[DesireSection](_.twoYouWant._2)),
+    desiresSelector(ds, "❌ ", GenLens[DesireSection](_.oneYouDont))
+  )
+
+  private def traitSelector = {
+    given LargelyPrefilledSection[TraitSection, Trait] {
+      extension (ts: TraitSection) {
+        override def twoPositive: (Option[Trait], Option[Trait]) = ts.twoYouAre
+        override def oneNegative: Option[Trait] = ts.oneYouArent
+        override def sectionMap: Map[String, Trait] =
+          traitSystem.map(t => (t.label.toLowerCase(), t)).toMap
+        override def custom(s: String): Trait = CustomTrait(s)
+        override def loc: Loc[TraitSection]   = TraitLoc
+        override def extractCustomLabel(t: Option[Trait]): Option[String] =
+          t match {
+            case Some(CustomTrait(l)) => Some(l)
+            case _                    => None
+          }
+      }
+    }
+
+    traitsDesiresSelector[TraitSection, Trait]
+  }
+
+  private def desiresSelector = {
+    given LargelyPrefilledSection[DesireSection, Desire] {
+      extension (ds: DesireSection) {
+        override def twoPositive: (Option[Desire], Option[Desire]) =
+          ds.twoYouWant
+        override def oneNegative: Option[Desire] = ds.oneYouDont
+        override def sectionMap: Map[String, Desire] =
+          desireSystem.map(t => (t.label.toLowerCase(), t)).toMap
+        override def custom(s: String): Desire = CustomDesire(s)
+        override def loc: Loc[DesireSection]   = DesireLoc
+        override def extractCustomLabel(t: Option[Desire]): Option[String] =
+          t match {
+            case Some(CustomDesire(l)) => Some(l)
+            case _                     => None
+          }
+      }
+    }
+
+    traitsDesiresSelector[DesireSection, Desire]
+  }
+
+  private def traitsDesiresSelector[TS, T](
+      t: TS,
       label: String,
-      lens: Lens[TraitSection, Option[Trait]]
-  ): Html[Msg] =
+      lens: Lens[TS, Option[T]]
+  )(using TS: LargelyPrefilledSection[TS, T]): Html[Msg] = {
     val applied = AppliedLens(t, lens)
     div(styles(CSS.`display`("flex")))(
       p(label),
       select(
         onInput(s =>
-          val traitSystemMap =
-            traitSystem.map(t => (t.label.toLowerCase(), t)).toMap
-          val newTrait: Option[Trait] = s match {
+          val traitSystemMap = t.sectionMap
+          val newTrait: Option[T] = s match {
             case "none"                          => None
             case s if traitSystemMap.contains(s) => Some(traitSystemMap(s))
-            case "custom"                        => Some(CustomTrait(""))
+            case "custom"                        => Some(t.custom(""))
             case _                               => None
           }
           val newSection = applied.replace(newTrait)
-          SheetMsg(ValueEditCommand(newSection, t, TraitLoc))
+          SheetMsg(ValueEditCommand(newSection, t, t.loc))
         )
       )(
         option(`value` := "none", selected := applied.get.isEmpty)("") +:
-          traitSystem.map(t2 =>
+          t.sectionMap.toList.map((label, obj) =>
             option(
-              `value`  := t2.label.toLowerCase(),
-              selected := applied.get.map(_ == t2).getOrElse(false)
-            )(t2.label)
+              `value`  := label.toLowerCase(),
+              selected := applied.get.map(_ == obj).getOrElse(false)
+            )(label.capitalize)
           ) :+ option(
-            `value` := "custom",
-            selected := (cond(applied.get) { case Some(CustomTrait(_)) =>
-              true
-            })
+            `value`  := "custom",
+            selected := t.extractCustomLabel(applied.get).nonEmpty
           )("Custom")
       ),
-      applied.get match {
-        case Some(CustomTrait(label)) =>
+      t.extractCustomLabel(applied.get) match {
+        case Some(label) =>
           exitableTextInput(`value` := label)(s =>
-            handleChangeFor(TraitLoc)(
+            handleChangeFor(t.loc)(
               t,
-              applied.replace(Some(CustomTrait(s)))
+              applied.replace(Some(t.custom(s)))
             )
           )
         case _ => Empty
       }
     )
+  }
+
+  private trait LargelyPrefilledSection[TS, T] {
+    extension (a: TS) {
+      def twoPositive: (Option[T], Option[T])
+      def oneNegative: Option[T]
+      def sectionMap: Map[String, T]
+      def custom(s: String): T
+      def loc: Loc[TS]
+      def extractCustomLabel(t: Option[T]): Option[String]
+    }
+  }
 }
