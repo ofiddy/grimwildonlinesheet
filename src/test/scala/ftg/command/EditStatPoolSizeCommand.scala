@@ -8,8 +8,13 @@ import ftg.command.ModifyCharacter.undo
 import ftg.page.DefaultCharacter.detherilStarren
 import ftg.command.EditStatPoolSizeCommand
 import ftg.command.CharacterLoc.StatLocs.*
+import ftg.DicePool.RollGenerator
+import ftg.DicePool.UnimplementedRollGenerator
+import ftg.page.Model
 
 class EditStatPoolSizeCommandTests extends AnyFlatSpec with should.Matchers {
+  given RollGenerator = UnimplementedRollGenerator
+
   "EditStatPoolSizeCommand" should "overwrite at provided location on modify" in {
     val premadeChar = detherilStarren
     val newVal      = 6
@@ -19,7 +24,7 @@ class EditStatPoolSizeCommandTests extends AnyFlatSpec with should.Matchers {
         premadeChar.stats.bodyStats.brawn.dice.diceRemaining,
         Brawn
       )
-    val afterModify = modify(cmd, premadeChar)
+    val afterModify = modify(cmd, Model(premadeChar, Nil)).character
     afterModify.stats.bodyStats.brawn.dice.diceRemaining shouldBe newVal
     afterModify.stats.bodyStats.brawn.dice shouldBe premadeChar.stats.bodyStats.brawn.dice
       .copy(diceRemaining = newVal)
@@ -34,7 +39,7 @@ class EditStatPoolSizeCommandTests extends AnyFlatSpec with should.Matchers {
         oldVal,
         Brawn
       )
-    val afterModify = undo(cmd, premadeChar)
+    val afterModify = undo(cmd, Model(premadeChar, Nil)).character
     afterModify.stats.bodyStats.brawn.dice.diceRemaining shouldBe oldVal
     afterModify.stats.bodyStats.brawn.dice shouldBe premadeChar.stats.bodyStats.brawn.dice
       .copy(diceRemaining = oldVal)
@@ -49,7 +54,7 @@ class EditStatPoolSizeCommandTests extends AnyFlatSpec with should.Matchers {
         oldVal,
         Brawn
       )
-    val afterModify = undo(cmd, premadeChar)
+    val afterModify = undo(cmd, Model(premadeChar, Nil)).character
     afterModify.stats.bodyStats.brawn.dice.diceRemaining shouldBe oldVal
     afterModify.stats.bodyStats.brawn.dice shouldBe premadeChar.stats.bodyStats.brawn.dice
       .copy(diceRemaining = oldVal)
@@ -72,6 +77,9 @@ class EditStatPoolSizeCommandTests extends AnyFlatSpec with should.Matchers {
         premadeChar.stats.bodyStats.brawn.dice.diceRemaining,
         Brawn
       )
-    undo(cmd, modify(cmd, premadeChar)) shouldBe premadeChar
+    undo(
+      cmd,
+      modify(cmd, Model(premadeChar, Nil))
+    ).character shouldBe premadeChar
   }
 }

@@ -10,12 +10,17 @@ import ftg.command.AddConditionCommand
 import ftg.Character.ShortTermCondition
 import monocle.syntax.all.focus
 import ftg.Character.Condition
+import ftg.DicePool.UnimplementedRollGenerator
+import ftg.DicePool.RollGenerator
+import ftg.page.Model
 
 class AddConditionCommandTests extends AnyFlatSpec with should.Matchers {
+  given RollGenerator = UnimplementedRollGenerator
+
   "AddConditionCommand" should "add to a conditions list on modify" in {
     val premadeChar = detherilStarren
     val cmd         = AddConditionCommand
-    val afterModify = modify(cmd, premadeChar)
+    val afterModify = modify(cmd, Model(premadeChar, Nil)).character
     afterModify.conditions.length shouldBe premadeChar.conditions.length + 1
   }
 
@@ -28,14 +33,17 @@ class AddConditionCommandTests extends AnyFlatSpec with should.Matchers {
           Condition(None, ShortTermCondition)
         )
       )
-    val cmd         = AddConditionCommand
-    val afterModify = undo(cmd, premadeChar)
-    afterModify.conditions.length shouldBe premadeChar.conditions.length - 1
+    val cmd       = AddConditionCommand
+    val afterUndo = undo(cmd, Model(premadeChar, Nil)).character
+    afterUndo.conditions.length shouldBe premadeChar.conditions.length - 1
   }
 
   it should "be reflective on modify and undo" in {
     val premadeChar = detherilStarren
     val cmd         = AddConditionCommand
-    undo(cmd, modify(cmd, premadeChar)) shouldBe premadeChar
+    undo(
+      cmd,
+      modify(cmd, Model(premadeChar, Nil))
+    ).character shouldBe premadeChar
   }
 }

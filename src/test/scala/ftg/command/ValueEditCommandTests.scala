@@ -9,8 +9,13 @@ import ftg.page.DefaultCharacter.detherilStarren
 import ftg.Character.CharacterName.*
 import ftg.command.ValueEditCommand
 import ftg.command.CharacterLoc.CharacterNameLoc
+import ftg.page.Model
+import ftg.DicePool.RollGenerator
+import ftg.DicePool.UnimplementedRollGenerator
 
 class ValueEditCommandTests extends AnyFlatSpec with should.Matchers {
+  given RollGenerator = UnimplementedRollGenerator
+
   "ValueEditCommand" should "overwrite at provided location on modify" in {
     val premadeChar = detherilStarren
     val newName     = "NewName"
@@ -20,7 +25,7 @@ class ValueEditCommandTests extends AnyFlatSpec with should.Matchers {
         "Detheril Starren".intoCharName,
         CharacterNameLoc
       )
-    val afterModify = modify(cmd, premadeChar)
+    val afterModify = modify(cmd, Model(premadeChar, Nil)).character
     afterModify.profile.characterName shouldBe (newName.intoCharName)
     afterModify.profile shouldBe premadeChar.profile.copy(characterName =
       newName.intoCharName
@@ -36,9 +41,9 @@ class ValueEditCommandTests extends AnyFlatSpec with should.Matchers {
         oldName.intoCharName,
         CharacterNameLoc
       )
-    val afterModify = undo(cmd, premadeChar)
-    afterModify.profile.characterName shouldBe (oldName.intoCharName)
-    afterModify.profile shouldBe premadeChar.profile.copy(characterName =
+    val afterUndo = undo(cmd, Model(premadeChar, Nil)).character
+    afterUndo.profile.characterName shouldBe (oldName.intoCharName)
+    afterUndo.profile shouldBe premadeChar.profile.copy(characterName =
       oldName.intoCharName
     )
   }
@@ -52,7 +57,7 @@ class ValueEditCommandTests extends AnyFlatSpec with should.Matchers {
         oldName.intoCharName,
         CharacterNameLoc
       )
-    val afterModify = undo(cmd, premadeChar)
+    val afterModify = undo(cmd, Model(premadeChar, Nil)).character
     afterModify.profile.characterName shouldBe (oldName.intoCharName)
     afterModify.profile shouldBe premadeChar.profile.copy(characterName =
       oldName.intoCharName
@@ -67,6 +72,9 @@ class ValueEditCommandTests extends AnyFlatSpec with should.Matchers {
         detherilStarren.profile.characterName,
         CharacterNameLoc
       )
-    undo(cmd, modify(cmd, premadeChar)) shouldBe premadeChar
+    undo(
+      cmd,
+      modify(cmd, Model(premadeChar, Nil))
+    ).character shouldBe premadeChar
   }
 }

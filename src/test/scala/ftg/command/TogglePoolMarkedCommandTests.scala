@@ -9,15 +9,20 @@ import ftg.page.DefaultCharacter.detherilStarren
 import ftg.command.TogglePoolMarkedCommand
 import ftg.command.CharacterLoc.StatLocs.Brawn
 import ftg.Character.StatPool.markedLens
+import ftg.DicePool.RollGenerator
+import ftg.DicePool.UnimplementedRollGenerator
+import ftg.page.Model
 
 class TogglePoolMarkedCommandTests extends AnyFlatSpec with should.Matchers {
+  given RollGenerator = UnimplementedRollGenerator
+
   "TogglePoolMarkedCommand" should "change false to true on modify" in {
     val premadeChar = detherilStarren
     val cmd =
       TogglePoolMarkedCommand(
         Brawn
       )
-    val afterModify = modify(cmd, premadeChar)
+    val afterModify = modify(cmd, Model(premadeChar, Nil)).character
     afterModify.stats.bodyStats.brawn.isMarked shouldBe true
   }
 
@@ -27,7 +32,7 @@ class TogglePoolMarkedCommandTests extends AnyFlatSpec with should.Matchers {
       TogglePoolMarkedCommand(
         Brawn
       )
-    val afterModify = modify(cmd, premadeChar)
+    val afterModify = modify(cmd, Model(premadeChar, Nil)).character
     afterModify.stats.bodyStats.brawn.isMarked shouldBe false
   }
 
@@ -37,7 +42,7 @@ class TogglePoolMarkedCommandTests extends AnyFlatSpec with should.Matchers {
       TogglePoolMarkedCommand(
         Brawn
       )
-    val afterUndo = undo(cmd, premadeChar)
+    val afterUndo = undo(cmd, Model(premadeChar, Nil)).character
     afterUndo.stats.bodyStats.brawn.isMarked shouldBe true
   }
 
@@ -47,7 +52,7 @@ class TogglePoolMarkedCommandTests extends AnyFlatSpec with should.Matchers {
       TogglePoolMarkedCommand(
         Brawn
       )
-    val afterUndo = undo(cmd, premadeChar)
+    val afterUndo = undo(cmd, Model(premadeChar, Nil)).character
     afterUndo.stats.bodyStats.brawn.isMarked shouldBe false
   }
 
@@ -57,6 +62,9 @@ class TogglePoolMarkedCommandTests extends AnyFlatSpec with should.Matchers {
       TogglePoolMarkedCommand(
         Brawn
       )
-    undo(cmd, modify(cmd, premadeChar)) shouldBe premadeChar
+    undo(
+      cmd,
+      modify(cmd, Model(premadeChar, Nil))
+    ).character shouldBe premadeChar
   }
 }
