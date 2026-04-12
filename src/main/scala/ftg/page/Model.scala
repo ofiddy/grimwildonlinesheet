@@ -1,10 +1,17 @@
 package ftg.page
 
 import ftg.command.CharCommand
+import ftg.Character.{Character => Character}
 
-type Log = List[CharCommand | String]
+type SingleLog = CharCommand | String
+type Log       = List[SingleLog]
 
 final case class Model(
     character: ftg.Character.Character,
     log: Log
-)
+) {
+  infix def withChar(f: Character => Character): Model =
+    this.copy(character = f(this.character))
+
+  infix def log(l: SingleLog): Model = copy(log = l :: this.log)
+}

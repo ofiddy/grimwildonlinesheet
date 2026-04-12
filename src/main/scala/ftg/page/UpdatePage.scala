@@ -1,7 +1,6 @@
 package ftg.page
 
 import cats.effect.IO
-import ftg.Character.{Character => Character}
 import ftg.DicePool.DicePool.given_PoolRollable_DicePool.roll
 import ftg.DicePool.RandomRollGenerator
 import ftg.DicePool.RollGenerator
@@ -31,14 +30,11 @@ object UpdatePage {
         val stat    = loc(model.character).get
         val roll    = stat.dice.roll
         val rollLog = s"Rolled ${roll.diceResults}"
-        (model.copy(log = rollLog :: r :: model.log), Cmd.None)
+        (model log r log rollLog, Cmd.None)
 
       case e: EffectCommand =>
         (
-          model.copy(
-            character = modify(e, model.character),
-            log = e :: model.log
-          ),
+          modify(e, model) log e,
           Cmd.None
         )
 

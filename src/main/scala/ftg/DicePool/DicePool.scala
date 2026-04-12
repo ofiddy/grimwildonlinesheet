@@ -9,7 +9,7 @@ trait PoolRollable[A] {
 
     def rollAndDrop(using RollGenerator): (RollResult, A) = {
       val diceRoll = a.roll
-      (diceRoll, drop(diceRoll.messy))
+      (diceRoll, drop(diceRoll.grims))
     }
   }
 }

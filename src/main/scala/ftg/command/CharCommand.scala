@@ -2,6 +2,8 @@ package ftg.command
 
 import ftg.command.CharacterLoc.Loc
 import ftg.command.CharacterLoc.StatLocs._
+import ftg.Character.Condition
+import ftg.DicePool.DicePool
 
 sealed trait CharCommand
 sealed trait PureCommand   extends CharCommand
@@ -31,6 +33,13 @@ final case class ToggleCommand(
 ) extends EffectCommand
 
 case object AddConditionCommand extends EffectCommand
+final case class ModifyConditionCommand(
+    newCond: Condition,
+    oldCond: Condition,
+    index: Int
+) extends EffectCommand
+final case class RollAndDropConditionPoolCommand(i: Int, prevPool: DicePool)
+    extends EffectCommand
 
 object RollStatCommand {
   def RollBrawn: RollStatCommand    = RollStatCommand(Brawn)
