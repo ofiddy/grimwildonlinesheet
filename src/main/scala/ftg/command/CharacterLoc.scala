@@ -13,6 +13,7 @@ import monocle.syntax.AppliedLens
 import ftg.Character.Background
 import ftg.Character.Story
 import ftg.Character.Spark
+import ftg.Character.CharacterTrait.TraitSection
 
 object CharacterLoc {
   sealed trait Loc[T] {
@@ -38,6 +39,10 @@ object CharacterLoc {
 
   case object SparkLoc extends Loc[Spark] {
     val lens = GenLens[Character](_.spark)
+  }
+
+  case object TraitLoc extends Loc[TraitSection] {
+    val lens = GenLens[Character](_.details.traits)
   }
 
   object BackgroundLocs {

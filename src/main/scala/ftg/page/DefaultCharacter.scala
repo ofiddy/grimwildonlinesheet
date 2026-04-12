@@ -53,7 +53,7 @@ object DefaultCharacter {
         )
       ),
       TraitSection(
-        List(PremadeTrait("Brave"), PremadeTrait("Stubborn")),
+        (Some(PremadeTrait("Brave")), Some(PremadeTrait("Stubborn"))),
         Some(PremadeTrait("Honest"))
       ),
       DesireSection(
