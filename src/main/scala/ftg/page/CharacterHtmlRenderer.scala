@@ -6,9 +6,9 @@ import ftg.Character.CharacterProfile
 import ftg.Character.Condition
 import ftg.Character.Experience
 import ftg.Character.Spark
+import ftg.Character.Spark.*
 import ftg.Character.Story
-import ftg.Character.Story.startingStory
-import ftg.Character.Story.toInt
+import ftg.Character.Story.*
 import ftg.Character.StoryArc
 import ftg.Character.{Character => Character}
 import ftg.command.CharacterLoc.HarmLocs.Bloodied
@@ -29,12 +29,14 @@ import tyrian.Attribute
 import tyrian.CSS
 import tyrian.Html
 import tyrian.Html._
-
 import scala.Range
 import scala.annotation.tailrec
 import ftg.page.elems.BackgroundsElements.renderBackgroundRows
 import ftg.command.CharacterLoc.BackgroundLocs.*
 import ftg.page.elems.ConditionsInput.renderConditions
+import ftg.command.ValueEditCommand
+import ftg.command.CharacterLoc.StoryLoc
+import ftg.command.CharacterLoc.SparkLoc
 
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
@@ -112,18 +114,41 @@ object CharacterHtmlRenderer {
       )
     )
 
-  def renderStoryAndSpark[T](story: Story, spark: Spark): Html[T] = div(
+  def renderStoryAndSpark(story: Story, spark: Spark): Html[Msg] = div(
     table(
       tr(
-        td(em("STORY")) +:
+        td(em("STORY")) +: button(
+          disabled(story.toInt <= 0),
+          onClick(SheetMsg(ValueEditCommand(story.spendStory, story, StoryLoc)))
+        )("-") +:
           createAndFillCheckboxes(
             story.toInt,
-            startingStory.toInt - story.toInt
-          ).map(b => td(b))
+            maxStory.toInt - story.toInt
+          ).map(b => td(b)) :+ button(
+            disabled(story.toInt >= maxStory.toInt),
+            onClick(
+              SheetMsg(ValueEditCommand(story.gainStory, story, StoryLoc))
+            )
+          )(
+            "+"
+          )
       ),
       tr(
-        td(em("SPARK")) +:
-          createAndFillCheckboxes(spark.toInt, 2 - spark.toInt).map(b => td(b))
+        td(em("SPARK")) +: button(
+          disabled(spark.toInt <= 0),
+          onClick(SheetMsg(ValueEditCommand(spark.spendSpark, spark, SparkLoc)))
+        )("-") +:
+          createAndFillCheckboxes(
+            spark.toInt,
+            maxSpark.toInt - spark.toInt
+          ).map(b => td(b)) :+ button(
+            disabled(spark.toInt >= maxSpark.toInt),
+            onClick(
+              SheetMsg(ValueEditCommand(spark.gainSpark, spark, SparkLoc))
+            )
+          )(
+            "+"
+          )
       )
     )
   )
@@ -131,9 +156,15 @@ object CharacterHtmlRenderer {
   def displayCondition(condition: Condition): String =
     condition.name.getOrElse("")
 
-  def createAndFillCheckboxes[T](filled: Int, empty: Int): List[Html[T]] =
+  def createAndFillCheckboxes(filled: Int, empty: Int): List[Html[Msg]] =
     Range(0, filled + empty)
-      .map(i => input(`type` := "checkbox", `checked` := i < filled))
+      .map(i =>
+        input(
+          `type`    := "checkbox",
+          `checked` := i < filled,
+          onClick(Msg.NoOpMsg)
+        )
+      )
       .toList
 
   def renderCharacterDetails(char: Character): Html[Msg] = div(
