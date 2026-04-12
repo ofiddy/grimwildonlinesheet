@@ -29,7 +29,7 @@ object UpdatePage {
       case r @ RollStatCommand(loc) =>
         val stat    = loc(model.character).get
         val roll    = stat.dice.roll
-        val rollLog = s"Rolled ${roll.diceResults}"
+        val rollLog = s"Rolled ${roll}"
         (model log r log rollLog, Cmd.None)
 
       case e: EffectCommand =>
