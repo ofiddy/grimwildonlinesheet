@@ -6,7 +6,6 @@ import ftg.Character.StatPool.markedLens
 import ftg.Character.{Character => Character}
 import monocle.syntax.all.focus
 import ftg.Character.Condition
-import ftg.Character.ShortTermCondition
 import ftg.Character.UrgentCondition
 import ftg.DicePool.RollGenerator
 import ftg.page.Model
@@ -24,20 +23,15 @@ object ModifyCharacter {
         model withChar (char => find(char).andThen(markedLens).modify(!_))
       case ToggleCommand(find) =>
         model withChar (char => find(char).modify(!_))
-      case AddConditionCommand =>
+      case AddListElemCommand(factory, find) =>
         model withChar (char =>
-          char
-            .focus(_.conditions)
-            .modify(_ :+ Condition(Some("New Condition"), ShortTermCondition))
+          find(char)
+            .modify(_ :+ factory.build)
         )
-      case ModifyConditionCommand(newCond, _, i) =>
-        model withChar (char =>
-          char.focus(_.conditions).modify(_.updated(i, newCond))
-        )
-      case DeleteConditionCommand(_, index) =>
-        model withChar (char =>
-          char.focus(_.conditions).modify(_.patch(index, Nil, 1))
-        )
+      case ModifyListElemCommand(newCond, _, i, find) =>
+        model withChar (char => find(char).modify(_.updated(i, newCond)))
+      case DeleteListElemCommand(_, index, find) =>
+        model withChar (char => find(char).modify(_.patch(index, Nil, 1)))
       case RollAndDropConditionPoolCommand(i, _) =>
         rollAndDropCondition(i, model)
 
@@ -52,16 +46,13 @@ object ModifyCharacter {
       model withChar (char => find(char).andThen(markedLens).modify(!_))
     case ToggleCommand(find) =>
       model withChar (char => find(char).modify(!_))
-    case AddConditionCommand =>
-      model withChar (char => char.focus(_.conditions).modify(_.dropRight(1)))
-    case ModifyConditionCommand(_, oldCond, i) =>
+    case AddListElemCommand(_, find) =>
+      model withChar (char => find(char).modify(_.dropRight(1)))
+    case ModifyListElemCommand(_, oldCond, i, find) =>
+      model withChar (char => find(char).modify(_.updated(i, oldCond)))
+    case DeleteListElemCommand(oldCond, index, find) =>
       model withChar (char =>
-        char.focus(_.conditions).modify(_.updated(i, oldCond))
-      )
-    case DeleteConditionCommand(oldCond, index) =>
-      model withChar (char =>
-        char
-          .focus(_.conditions)
+        find(char)
           .modify(l =>
             val (front, back) = l.splitAt(index)
             front ++ (oldCond :: back)

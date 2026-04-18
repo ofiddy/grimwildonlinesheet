@@ -2,8 +2,8 @@ package ftg.command
 
 import ftg.command.CharacterLoc.Loc
 import ftg.command.CharacterLoc.StatLocs._
-import ftg.Character.Condition
 import ftg.DicePool.DicePool
+import ftg.command.CharacterListFactories.ElemFactory
 
 sealed trait CharCommand
 sealed trait PureCommand   extends CharCommand
@@ -32,17 +32,22 @@ final case class ToggleCommand(
     loc: Loc[Boolean]
 ) extends EffectCommand
 
-case object AddConditionCommand extends EffectCommand
-final case class ModifyConditionCommand(
-    newCond: Condition,
-    oldCond: Condition,
-    index: Int
+final case class AddListElemCommand[T](
+    factory: ElemFactory[T],
+    loc: Loc[List[T]]
+) extends EffectCommand
+final case class ModifyListElemCommand[T](
+    newElem: T,
+    oldElem: T,
+    index: Int,
+    loc: Loc[List[T]]
 ) extends EffectCommand
 final case class RollAndDropConditionPoolCommand(i: Int, prevPool: DicePool)
     extends EffectCommand
-final case class DeleteConditionCommand(
-    oldCond: Condition,
-    index: Int
+final case class DeleteListElemCommand[T](
+    oldCond: T,
+    index: Int,
+    loc: Loc[List[T]]
 ) extends EffectCommand
 
 object RollStatCommand {

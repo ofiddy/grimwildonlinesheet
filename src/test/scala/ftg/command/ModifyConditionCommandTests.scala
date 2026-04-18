@@ -14,7 +14,8 @@ import ftg.page.Model
 import ftg.DicePool.UnimplementedRollGenerator
 import ftg.command.ModifyCharacter.undo
 import ftg.DicePool.RollGenerator
-import ftg.command.ModifyConditionCommand
+import ftg.command.ModifyListElemCommand
+import ftg.command.CharacterLoc.ConditionsLoc
 
 class ModifyConditionCommandTests extends AnyFlatSpec with should.Matchers {
   val conds = (
@@ -30,7 +31,7 @@ class ModifyConditionCommandTests extends AnyFlatSpec with should.Matchers {
       detherilStarren.copy(conditions = List(conds._1, conds._2, conds._3))
     val testCond = Condition(Some("Test"), PermanentCondition)
     val cmd =
-      ModifyConditionCommand(testCond, conds._2, 1)
+      ModifyListElemCommand(testCond, conds._2, 1, ConditionsLoc)
     val afterModify = modify(cmd, Model(premadeChar, Nil)).character
     afterModify.conditions.length shouldBe 3
     afterModify.conditions shouldBe List(conds._1, testCond, conds._3)
@@ -41,7 +42,7 @@ class ModifyConditionCommandTests extends AnyFlatSpec with should.Matchers {
     val premadeChar =
       detherilStarren.copy(conditions = List(conds._1, testCond, conds._3))
     val cmd =
-      ModifyConditionCommand(testCond, conds._2, 1)
+      ModifyListElemCommand(testCond, conds._2, 1, ConditionsLoc)
     val afterUndo = undo(cmd, Model(premadeChar, Nil)).character
     afterUndo.conditions shouldBe List(conds._1, conds._2, conds._3)
   }
@@ -51,7 +52,7 @@ class ModifyConditionCommandTests extends AnyFlatSpec with should.Matchers {
       detherilStarren.copy(conditions = List(conds._1, conds._2, conds._3))
     val testCond = Condition(Some("Test"), PermanentCondition)
     val cmd =
-      ModifyConditionCommand(testCond, conds._2, 1)
+      ModifyListElemCommand(testCond, conds._2, 1, ConditionsLoc)
     undo(
       cmd,
       modify(cmd, Model(premadeChar, Nil))

@@ -15,6 +15,7 @@ import ftg.Character.Story
 import ftg.Character.Spark
 import ftg.Character.CharacterTrait.TraitSection
 import ftg.Character.CharacterDesire.DesireSection
+import ftg.Character.Condition
 
 object CharacterLoc {
   sealed trait Loc[T] {
@@ -48,6 +49,10 @@ object CharacterLoc {
 
   case object DesireLoc extends Loc[DesireSection] {
     val lens = GenLens[Character](_.details.desires)
+  }
+
+  case object ConditionsLoc extends Loc[List[Condition]] {
+    val lens = GenLens[Character](_.conditions)
   }
 
   object BackgroundLocs {

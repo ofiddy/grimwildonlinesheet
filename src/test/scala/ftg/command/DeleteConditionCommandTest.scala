@@ -8,10 +8,11 @@ import ftg.DicePool.DicePool
 import ftg.DicePool.RollGenerator
 import ftg.DicePool.UnimplementedRollGenerator
 import ftg.page.DefaultCharacter.detherilStarren
-import ftg.command.DeleteConditionCommand
+import ftg.command.DeleteListElemCommand
 import ftg.command.ModifyCharacter.modify
 import ftg.page.Model
 import ftg.command.ModifyCharacter.undo
+import ftg.command.CharacterLoc.ConditionsLoc
 
 class DeleteConditionCommandTest extends AnyFlatSpec with should.Matchers {
   val conds = (
@@ -26,40 +27,40 @@ class DeleteConditionCommandTest extends AnyFlatSpec with should.Matchers {
   given RollGenerator = UnimplementedRollGenerator
 
   "DeleteConditionCommand" should "successfully delete an object at the start of the list" in {
-    val cmd         = DeleteConditionCommand(conds._1, 0)
+    val cmd         = DeleteListElemCommand(conds._1, 0, ConditionsLoc)
     val afterModify = modify(cmd, Model(premadeChar, Nil)).character
     afterModify.conditions.length shouldBe 2
     afterModify.conditions shouldBe List(conds._2, conds._3)
   }
 
   it should "be reflective on deleting an object at the start of the list" in {
-    val cmd         = DeleteConditionCommand(conds._1, 0)
+    val cmd         = DeleteListElemCommand(conds._1, 0, ConditionsLoc)
     val afterModify = undo(cmd, modify(cmd, Model(premadeChar, Nil))).character
     afterModify shouldBe premadeChar
   }
 
   it should "successfully delete an object at the end of the list" in {
-    val cmd         = DeleteConditionCommand(conds._3, 2)
+    val cmd         = DeleteListElemCommand(conds._3, 2, ConditionsLoc)
     val afterModify = modify(cmd, Model(premadeChar, Nil)).character
     afterModify.conditions.length shouldBe 2
     afterModify.conditions shouldBe List(conds._1, conds._2)
   }
 
   it should "be reflective on deleting an object at the end of the list" in {
-    val cmd         = DeleteConditionCommand(conds._3, 2)
+    val cmd         = DeleteListElemCommand(conds._3, 2, ConditionsLoc)
     val afterModify = undo(cmd, modify(cmd, Model(premadeChar, Nil))).character
     afterModify shouldBe premadeChar
   }
 
   it should "successfully delete an object in the middle of of the list" in {
-    val cmd         = DeleteConditionCommand(conds._2, 1)
+    val cmd         = DeleteListElemCommand(conds._2, 1, ConditionsLoc)
     val afterModify = modify(cmd, Model(premadeChar, Nil)).character
     afterModify.conditions.length shouldBe 2
     afterModify.conditions shouldBe List(conds._1, conds._3)
   }
 
   it should "be reflective on deleting an object in the middle of the list" in {
-    val cmd         = DeleteConditionCommand(conds._2, 1)
+    val cmd         = DeleteListElemCommand(conds._2, 1, ConditionsLoc)
     val afterModify = undo(cmd, modify(cmd, Model(premadeChar, Nil))).character
     afterModify shouldBe premadeChar
   }

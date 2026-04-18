@@ -5,11 +5,11 @@ import tyrian.Html
 import ftg.page.Msg
 import tyrian.Html._
 import ftg.page.Msg.SheetMsg
-import ftg.command.AddConditionCommand
+import ftg.command.AddListElemCommand
 import tyrian.CSS
 import ftg.page.elems.ExitableInput.exitableTextInput
 import ftg.util.Util.asOption
-import ftg.command.ModifyConditionCommand
+import ftg.command.ModifyListElemCommand
 import ftg.Character.ShortTermCondition
 import ftg.Character.LongTermCondition
 import ftg.Character.PermanentCondition
@@ -18,12 +18,16 @@ import ftg.DicePool.DicePool
 import tyrian.Empty
 import ftg.page.elems.DicePoolEntry.dicePoolEntry
 import ftg.command.RollAndDropConditionPoolCommand
-import ftg.command.DeleteConditionCommand
+import ftg.command.DeleteListElemCommand
+import ftg.command.CharacterLoc.ConditionsLoc
+import ftg.command.CharacterListFactories.NewCondition
 
 object ConditionsInput {
   def renderConditions(cs: List[Condition]): Html[Msg] = {
     val addButton =
-      button(onClick(SheetMsg(AddConditionCommand)))(em("Add Condition"))
+      button(
+        onClick(SheetMsg(AddListElemCommand(NewCondition, ConditionsLoc)))
+      )(em("Add Condition"))
     div(
       h2("Conditions"),
       ul(cs.zipWithIndex.map((c, i) => renderedCondition(c, i))),
@@ -33,14 +37,18 @@ object ConditionsInput {
 
   private def renderedCondition(c: Condition, i: Int): Html[Msg] = div(
     li(styles(CSS.`display`("flex")))(
-      button(onClick(SheetMsg(DeleteConditionCommand(c, i))))("🗑️"),
+      button(onClick(SheetMsg(DeleteListElemCommand(c, i, ConditionsLoc))))(
+        "🗑️"
+      ),
       exitableTextInput(`value` := c.name.getOrElse(""))(s =>
-        SheetMsg(ModifyConditionCommand(c.copy(name = s.asOption), c, i))
+        SheetMsg(
+          ModifyListElemCommand(c.copy(name = s.asOption), c, i, ConditionsLoc)
+        )
       ),
       select(
         onInput(s =>
           SheetMsg(
-            ModifyConditionCommand(
+            ModifyListElemCommand(
               c.copy(condType = s match {
                 case "urgent"    => UrgentCondition(DicePool(4))
                 case "short"     => ShortTermCondition
@@ -48,7 +56,8 @@ object ConditionsInput {
                 case "permanent" => PermanentCondition
               }),
               c,
-              i
+              i,
+              ConditionsLoc
             )
           )
         )
@@ -83,10 +92,11 @@ object ConditionsInput {
           div(
             dicePoolEntry(`value` := pool.diceRemaining.toString)(n =>
               SheetMsg(
-                ModifyConditionCommand(
+                ModifyListElemCommand(
                   c.copy(condType = UrgentCondition(DicePool(n))),
                   c,
-                  i
+                  i,
+                  ConditionsLoc
                 )
               )
             ),
