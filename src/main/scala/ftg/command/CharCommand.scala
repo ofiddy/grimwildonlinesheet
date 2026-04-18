@@ -40,6 +40,10 @@ final case class ModifyConditionCommand(
 ) extends EffectCommand
 final case class RollAndDropConditionPoolCommand(i: Int, prevPool: DicePool)
     extends EffectCommand
+final case class DeleteConditionCommand(
+    oldCond: Condition,
+    index: Int
+) extends EffectCommand
 
 object RollStatCommand {
   def RollBrawn: RollStatCommand    = RollStatCommand(Brawn)

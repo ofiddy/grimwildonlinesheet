@@ -18,6 +18,7 @@ import ftg.DicePool.DicePool
 import tyrian.Empty
 import ftg.page.elems.DicePoolEntry.dicePoolEntry
 import ftg.command.RollAndDropConditionPoolCommand
+import ftg.command.DeleteConditionCommand
 
 object ConditionsInput {
   def renderConditions(cs: List[Condition]): Html[Msg] = {
@@ -32,6 +33,7 @@ object ConditionsInput {
 
   private def renderedCondition(c: Condition, i: Int): Html[Msg] = div(
     li(styles(CSS.`display`("flex")))(
+      button(onClick(SheetMsg(DeleteConditionCommand(c, i))))("🗑️"),
       exitableTextInput(`value` := c.name.getOrElse(""))(s =>
         SheetMsg(ModifyConditionCommand(c.copy(name = s.asOption), c, i))
       ),

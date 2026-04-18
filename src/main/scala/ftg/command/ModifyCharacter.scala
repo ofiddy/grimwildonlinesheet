@@ -34,6 +34,10 @@ object ModifyCharacter {
         model withChar (char =>
           char.focus(_.conditions).modify(_.updated(i, newCond))
         )
+      case DeleteConditionCommand(_, index) =>
+        model withChar (char =>
+          char.focus(_.conditions).modify(_.patch(index, Nil, 1))
+        )
       case RollAndDropConditionPoolCommand(i, _) =>
         rollAndDropCondition(i, model)
 
@@ -53,6 +57,15 @@ object ModifyCharacter {
     case ModifyConditionCommand(_, oldCond, i) =>
       model withChar (char =>
         char.focus(_.conditions).modify(_.updated(i, oldCond))
+      )
+    case DeleteConditionCommand(oldCond, index) =>
+      model withChar (char =>
+        char
+          .focus(_.conditions)
+          .modify(l =>
+            val (front, back) = l.splitAt(index)
+            front ++ (oldCond :: back)
+          )
       )
     case RollAndDropConditionPoolCommand(i, prevPool) =>
       model.character.conditions.lift(i) match
