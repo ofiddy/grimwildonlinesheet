@@ -1,7 +1,5 @@
 package ftg.page
 
-import ftg.Character.Bond
-import ftg.Character.CharacterName._
 import ftg.Character.CharacterProfile
 import ftg.Character.Condition
 import ftg.Character.Experience
@@ -39,6 +37,7 @@ import ftg.command.CharacterLoc.StoryLoc
 import ftg.command.CharacterLoc.SparkLoc
 import ftg.page.elems.TraitsDesiresInput.renderTraits
 import ftg.page.elems.TraitsDesiresInput.renderDesires
+import ftg.page.elems.BondsInput.renderBonds
 
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
@@ -185,25 +184,6 @@ object CharacterHtmlRenderer {
       renderTraits(char.details.traits),
       renderDesires(char.details.desires)
     )
-  )
-
-  def renderBonds[T](bonds: List[Bond]): Html[T] = div(
-    h2("Bonds"),
-    ul(
-      li("Change a Bond: The other PC takes spark"),
-      li("Quarrel: Both take spark")
-    ),
-    table(
-      tr(
-        th("PC"),
-        th("Bond")
-      ) :: bonds.map(renderBond)
-    )
-  )
-
-  def renderBond[T](bond: Bond): Html[T] = tr(
-    td(bond.pcName.label),
-    td(bond.bondDesc.label)
   )
 
   def renderStoryArcs[T](groupArc: StoryArc, charArc: StoryArc): Html[T] = div(

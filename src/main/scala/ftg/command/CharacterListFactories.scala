@@ -2,6 +2,12 @@ package ftg.command
 
 import ftg.Character.Condition
 import ftg.Character.ShortTermCondition
+import ftg.Character.Bond
+import ftg.Character.PremadeBonds
+import ftg.Character.PremadeBond
+import ftg.Character.PremadeBonds.premadeLeftBonds
+import ftg.Character.PremadeBonds.premadeRightBonds
+import ftg.Character.CharacterName._
 
 object CharacterListFactories {
   trait ElemFactory[T] {
@@ -11,5 +17,13 @@ object CharacterListFactories {
   case object NewCondition extends ElemFactory[Condition] {
     override def build: Condition =
       Condition(Some("New Condition"), ShortTermCondition)
+  }
+
+  case object NewBond extends ElemFactory[Bond] {
+    override def build: Bond =
+      Bond(
+        "Name".intoCharName,
+        PremadeBond(premadeLeftBonds(0), premadeRightBonds(0))
+      )
   }
 }
