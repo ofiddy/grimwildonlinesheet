@@ -1,6 +1,8 @@
 package ftg.Character
 
-enum CharacterClass {
+import upickle.default.ReadWriter
+
+enum CharacterClass derives ReadWriter {
   case Bard,
     Berserker,
     Cleric,

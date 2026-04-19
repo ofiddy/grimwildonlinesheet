@@ -1,6 +1,8 @@
 package ftg.DicePool
 
-final case class DicePool(diceRemaining: Int)
+import upickle.default.ReadWriter
+
+final case class DicePool(diceRemaining: Int) derives ReadWriter
 
 trait PoolRollable[A] {
   extension (a: A) {

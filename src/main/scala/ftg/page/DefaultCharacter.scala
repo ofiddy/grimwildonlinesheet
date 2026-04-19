@@ -25,7 +25,6 @@ import ftg.Character.Spark
 import ftg.Character.Story
 import ftg.Character.Wise._
 import ftg.Character.{Character => Character}
-import ftg.Talent.ClassTalents.FighterTalents
 
 object DefaultCharacter {
   val detherilStarren = Character(
@@ -91,12 +90,12 @@ object DefaultCharacter {
     Some(growthArcs(5)),
     8.xp,
     CharacterClass.Fighter,
-    List(
-      FighterTalents.weaponMastery,
-      FighterTalents.bulwark,
-      FighterTalents.gotYourBack,
-      FighterTalents.measuredTones
-    ),
+    // List(
+    //   FighterTalents.weaponMastery,
+    //   FighterTalents.bulwark,
+    //   FighterTalents.gotYourBack,
+    //   FighterTalents.measuredTones
+    // ),
     ""
   )
 }

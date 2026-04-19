@@ -1,9 +1,12 @@
 package ftg.Character
 
+import upickle.default.ReadWriter
+import upickle.default.{ReadWriter => RW}
 import ftg.Character.PremadeBonds.LeftBond
 import ftg.Character.PremadeBonds.RightBond
+import ftg.util.Util.opaqueTextRW
 
-sealed trait BondDescription {
+sealed trait BondDescription derives ReadWriter {
   def label: String
 }
 final case class CustomBond(label: String) extends BondDescription
@@ -43,6 +46,7 @@ object PremadeBonds {
       def toString: String = l
     }
 
+    given RW[LeftBond] = opaqueTextRW(identity, identity)
   }
 
   object RightBond {
@@ -54,7 +58,9 @@ object PremadeBonds {
       def toString: String = l
     }
 
+    given RW[RightBond] = opaqueTextRW(identity, identity)
   }
 }
 
 final case class Bond(pcName: CharacterName, bondDesc: BondDescription)
+    derives ReadWriter

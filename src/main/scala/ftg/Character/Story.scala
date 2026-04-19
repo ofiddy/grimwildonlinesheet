@@ -1,5 +1,8 @@
 package ftg.Character
 
+import upickle.default.{ReadWriter => RW}
+import ftg.util.Util.opaqueIntRW
+
 opaque type Story = Int
 
 object Story {
@@ -15,4 +18,6 @@ object Story {
 
   def startingStory: Story = 2
   def maxStory: Story      = 2
+
+  given RW[Story] = opaqueIntRW[Story](identity, identity)
 }

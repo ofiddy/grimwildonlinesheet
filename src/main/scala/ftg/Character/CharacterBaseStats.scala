@@ -4,7 +4,11 @@ import ftg.DicePool.DicePool
 import monocle.macros.GenLens
 import monocle.syntax.all._
 
-final case class StatPool(dice: DicePool, isMarked: Boolean)
+import upickle.default.ReadWriter
+import upickle.default.{ReadWriter => RW}
+import ftg.util.Util.opaqueRW
+
+final case class StatPool(dice: DicePool, isMarked: Boolean) derives ReadWriter
 
 object StatPool {
   def diceRemainingLens = GenLens[StatPool](_.dice.diceRemaining)
@@ -15,7 +19,7 @@ final case class StatGroup(
     leftPool: StatPool,
     rightPool: StatPool,
     marked: Boolean
-)
+) derives ReadWriter
 
 opaque type BodyStats = StatGroup
 
@@ -40,6 +44,8 @@ object BodyStats {
   }
 
   infix def withBrawn(b: Int) = FluentWithBrawn(b)
+
+  given RW[BodyStats] = opaqueRW[BodyStats, StatGroup](identity, identity)
 }
 
 opaque type MentalStats = StatGroup
@@ -65,9 +71,11 @@ object MentalStats {
   }
 
   infix def withWits(w: Int) = FluentWithWits(w)
+
+  given RW[MentalStats] = opaqueRW[MentalStats, StatGroup](identity, identity)
 }
 
 final case class CharacterBaseStats(
     bodyStats: BodyStats,
     mentalStats: MentalStats
-)
+) derives ReadWriter

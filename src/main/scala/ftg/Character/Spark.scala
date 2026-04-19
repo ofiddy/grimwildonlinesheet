@@ -1,5 +1,8 @@
 package ftg.Character
 
+import upickle.default.{ReadWriter => RW}
+import ftg.util.Util.opaqueIntRW
+
 opaque type Spark = Int
 
 object Spark {
@@ -15,4 +18,6 @@ object Spark {
 
     def toInt: Int = s
   }
+
+  given RW[Spark] = opaqueIntRW[Spark](identity, identity)
 }

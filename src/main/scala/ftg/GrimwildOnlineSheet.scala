@@ -11,6 +11,7 @@ import tyrian.Html._
 import tyrian._
 
 import scala.scalajs.js.annotation._
+import ftg.page.Toolbar.renderToolbar
 
 @JSExportTopLevel("TyrianApp")
 object GrimwildOnlineSheet extends TyrianIOApp[Msg, Model]:
@@ -26,6 +27,7 @@ object GrimwildOnlineSheet extends TyrianIOApp[Msg, Model]:
 
   def view(model: Model): Html[Msg] =
     div(
+      renderToolbar(model),
       renderCharacter(model.character),
       h1("Debug Log"),
       div(model.log.map(l => p(l.toString())))

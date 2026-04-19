@@ -50,8 +50,10 @@ libraryDependencies ++= Seq(
   "dev.optics" %%% "monocle-core"  % "3.1.0",
   "dev.optics" %%% "monocle-macro" % "3.1.0"
 )
-libraryDependencies += "org.scalactic" %%% "scalactic" % "3.2.19"
-libraryDependencies += "org.scalatest" %%% "scalatest" % "3.2.19" % "test"
+libraryDependencies += "org.scalactic" %%% "scalactic"   % "3.2.19"
+libraryDependencies += "org.scalatest" %%% "scalatest"   % "3.2.19" % "test"
+libraryDependencies += "org.scala-js"  %%% "scalajs-dom" % "2.2.0"
+libraryDependencies += "com.lihaoyi"   %%% "upickle"     % "4.4.3"
 
 Test / scalacOptions ++= Seq(
   "-Wconf:msg=unused value of type org.scalatest.Assertion:s"

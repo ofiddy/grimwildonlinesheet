@@ -3,22 +3,27 @@ package ftg.Character
 import ftg.Character.CharacterDesire.DesireSection
 import ftg.Character.CharacterTrait.TraitSection
 
+import upickle.default.ReadWriter
+import upickle.default.{ReadWriter => RW}
+import ftg.util.Util.opaqueTextRW
+
 opaque type Wise = String
 
 final case class Background(
     description: Option[String],
     wises: (Option[Wise], Option[Wise], Option[Wise])
-)
+) derives ReadWriter
 
 case class CharacterDetails(
     backgrounds: (Background, Background),
     traits: TraitSection,
     desires: DesireSection
-)
+) derives ReadWriter
 
 object Wise {
   extension (s: String) def wise: Wise     = s
   extension (w: Wise) def toString: String = w
+  given RW[Wise]                           = opaqueTextRW(identity, identity)
 }
 
 object Background {

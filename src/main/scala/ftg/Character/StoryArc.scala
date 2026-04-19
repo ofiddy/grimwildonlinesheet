@@ -1,6 +1,8 @@
 package ftg.Character
 
-sealed trait StoryArc {
+import upickle.default.ReadWriter
+
+sealed trait StoryArc derives ReadWriter {
   def label: String
 }
 final case class AmbitionArc(label: String) extends StoryArc
