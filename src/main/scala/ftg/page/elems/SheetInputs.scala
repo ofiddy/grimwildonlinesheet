@@ -3,6 +3,7 @@ package ftg.page.elems
 import ftg.Character.CharacterName
 import ftg.Character.CharacterName._
 import ftg.Character.DistinctiveFeatures
+import ftg.Character.DistinctiveFeatures.intoDistinctiveFeatures
 import ftg.Character.PlayerName
 import ftg.Character.PlayerName._
 import ftg.Character.{Character => Character}
@@ -17,7 +18,6 @@ import ftg.page.elems.ExitableInput.exitableTextInput
 import ftg.page.elems.ExitableTextArea.exitableTextArea
 import tyrian.CSS
 import tyrian.Html._
-import ftg.Character.DistinctiveFeatures.intoDistinctiveFeatures
 
 object SheetInputs {
   def handleChangeFor[T](

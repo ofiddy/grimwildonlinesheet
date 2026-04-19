@@ -1,9 +1,9 @@
 package ftg.command
 
-import ftg.command.CharacterLoc.Loc
-import ftg.command.CharacterLoc.StatLocs._
 import ftg.DicePool.DicePool
 import ftg.command.CharacterListFactories.ElemFactory
+import ftg.command.CharacterLoc.Loc
+import ftg.command.CharacterLoc.StatLocs._
 
 sealed trait CharCommand
 sealed trait PureCommand   extends CharCommand

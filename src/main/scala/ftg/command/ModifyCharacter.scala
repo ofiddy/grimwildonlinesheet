@@ -1,14 +1,14 @@
 package ftg.command
 
+import ftg.Character.Condition
 import ftg.Character.StatPool
 import ftg.Character.StatPool.diceRemainingLens
 import ftg.Character.StatPool.markedLens
-import ftg.Character.{Character => Character}
-import monocle.syntax.all.focus
-import ftg.Character.Condition
 import ftg.Character.UrgentCondition
+import ftg.Character.{Character => Character}
 import ftg.DicePool.RollGenerator
 import ftg.page.Model
+import monocle.syntax.all.focus
 
 object ModifyCharacter {
   def modify(cmd: EffectCommand, model: Model)(using RollGenerator): Model =

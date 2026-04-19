@@ -1,14 +1,14 @@
 package ftg.page.elems
 
-import tyrian.Html
-import tyrian.Html._
-import ftg.Character.StoryArc
-import ftg.page.Msg
-import ftg.page.elems.SheetInputs.handleChangeFor
 import ftg.Character.PremadeArcs.allArcs
+import ftg.Character.StoryArc
+import ftg.command.CharacterLoc.CharArcLoc
 import ftg.command.CharacterLoc.Loc
 import ftg.command.CharacterLoc.StoryArcLoc
-import ftg.command.CharacterLoc.CharArcLoc
+import ftg.page.Msg
+import ftg.page.elems.SheetInputs.handleChangeFor
+import tyrian.Html
+import tyrian.Html._
 
 object StoryArcsInput {
   def renderStoryArcs(

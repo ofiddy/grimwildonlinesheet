@@ -1,24 +1,24 @@
 package ftg.command
 
+import ftg.Character.Background
 import ftg.Character.BodyStats._
+import ftg.Character.Bond
+import ftg.Character.CharacterDesire.DesireSection
 import ftg.Character.CharacterName
+import ftg.Character.CharacterTrait.TraitSection
+import ftg.Character.Condition
 import ftg.Character.DistinctiveFeatures
+import ftg.Character.Experience
 import ftg.Character.MentalStats._
 import ftg.Character.PlayerName
+import ftg.Character.Spark
 import ftg.Character.StatPool
+import ftg.Character.Story
+import ftg.Character.StoryArc
 import ftg.Character.{Character => Character}
 import monocle.Lens
 import monocle.macros.GenLens
 import monocle.syntax.AppliedLens
-import ftg.Character.Background
-import ftg.Character.Story
-import ftg.Character.Spark
-import ftg.Character.CharacterTrait.TraitSection
-import ftg.Character.CharacterDesire.DesireSection
-import ftg.Character.Condition
-import ftg.Character.Bond
-import ftg.Character.StoryArc
-import ftg.Character.Experience
 
 object CharacterLoc {
   sealed trait Loc[T] {

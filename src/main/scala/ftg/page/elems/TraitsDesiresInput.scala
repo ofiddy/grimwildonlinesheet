@@ -1,28 +1,28 @@
 package ftg.page.elems
 
-import ftg.Character.CharacterTrait.TraitSection
-import tyrian.Html
-import ftg.page.Msg
-import tyrian.Html._
+import ftg.Character.CharacterDesire.CustomDesire
+import ftg.Character.CharacterDesire.Desire
+import ftg.Character.CharacterDesire.DesireSection
+import ftg.Character.CharacterDesire.desireSystem
+import ftg.Character.CharacterTrait.CustomTrait
 import ftg.Character.CharacterTrait.Trait
+import ftg.Character.CharacterTrait.TraitSection
 import ftg.Character.CharacterTrait.traitSystem
-import tyrian.CSS
+import ftg.command.CharacterLoc.DesireLoc
+import ftg.command.CharacterLoc.Loc
+import ftg.command.CharacterLoc.TraitLoc
+import ftg.command.ValueEditCommand
+import ftg.page.Msg
+import ftg.page.Msg.SheetMsg
+import ftg.page.elems.ExitableInput.exitableTextInput
+import ftg.page.elems.SheetInputs.handleChangeFor
 import monocle.Lens
 import monocle.macros.GenLens
 import monocle.syntax.AppliedLens
-import ftg.page.Msg.SheetMsg
-import ftg.command.ValueEditCommand
-import ftg.command.CharacterLoc.TraitLoc
-import ftg.Character.CharacterTrait.CustomTrait
+import tyrian.CSS
 import tyrian.Empty
-import ftg.page.elems.ExitableInput.exitableTextInput
-import ftg.page.elems.SheetInputs.handleChangeFor
-import ftg.command.CharacterLoc.Loc
-import ftg.Character.CharacterDesire.DesireSection
-import ftg.Character.CharacterDesire.Desire
-import ftg.Character.CharacterDesire.desireSystem
-import ftg.Character.CharacterDesire.CustomDesire
-import ftg.command.CharacterLoc.DesireLoc
+import tyrian.Html
+import tyrian.Html._
 
 object TraitsDesiresInput {
   def renderTraits(ts: TraitSection): Html[Msg] = div(

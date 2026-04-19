@@ -1,23 +1,23 @@
 package ftg.page.elems
 
-import tyrian.Html
-import tyrian.Html._
 import ftg.Character.Bond
 import ftg.Character.CharacterName._
-import ftg.page.Msg
-import ftg.page.Msg.SheetMsg
+import ftg.Character.CustomBond
+import ftg.Character.PremadeBond
+import ftg.Character.PremadeBonds.premadeLeftBonds
+import ftg.Character.PremadeBonds.premadeRightBonds
 import ftg.command.AddListElemCommand
 import ftg.command.CharacterListFactories.NewBond
 import ftg.command.CharacterLoc.BondsLoc
 import ftg.command.DeleteListElemCommand
+import ftg.command.ModifyListElemCommand
+import ftg.page.Msg
+import ftg.page.Msg.SheetMsg
 import ftg.page.elems.ExitableInput.exitableTextInput
 import ftg.page.elems.SheetInputs.handleChangeForAtIndex
-import ftg.Character.CustomBond
-import ftg.Character.PremadeBond
-import ftg.command.ModifyListElemCommand
-import ftg.Character.PremadeBonds.premadeLeftBonds
-import ftg.Character.PremadeBonds.premadeRightBonds
 import tyrian.CSS
+import tyrian.Html
+import tyrian.Html._
 
 object BondsInput {
   def renderBonds(bonds: List[Bond]): Html[Msg] = div(

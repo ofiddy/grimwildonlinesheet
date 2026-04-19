@@ -1,7 +1,7 @@
 package ftg.page
 
-import ftg.command.CharCommand
 import ftg.Character.{Character => Character}
+import ftg.command.CharCommand
 
 type SingleLog = CharCommand | String
 type Log       = List[SingleLog]

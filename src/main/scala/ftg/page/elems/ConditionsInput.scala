@@ -1,26 +1,26 @@
 package ftg.page.elems
 
 import ftg.Character.Condition
-import tyrian.Html
-import ftg.page.Msg
-import tyrian.Html._
-import ftg.page.Msg.SheetMsg
-import ftg.command.AddListElemCommand
-import tyrian.CSS
-import ftg.page.elems.ExitableInput.exitableTextInput
-import ftg.util.Util.asOption
-import ftg.Character.ShortTermCondition
 import ftg.Character.LongTermCondition
 import ftg.Character.PermanentCondition
+import ftg.Character.ShortTermCondition
 import ftg.Character.UrgentCondition
 import ftg.DicePool.DicePool
-import tyrian.Empty
-import ftg.page.elems.DicePoolEntry.dicePoolEntry
-import ftg.command.RollAndDropConditionPoolCommand
-import ftg.command.DeleteListElemCommand
-import ftg.command.CharacterLoc.ConditionsLoc
+import ftg.command.AddListElemCommand
 import ftg.command.CharacterListFactories.NewCondition
+import ftg.command.CharacterLoc.ConditionsLoc
+import ftg.command.DeleteListElemCommand
+import ftg.command.RollAndDropConditionPoolCommand
+import ftg.page.Msg
+import ftg.page.Msg.SheetMsg
+import ftg.page.elems.DicePoolEntry.dicePoolEntry
+import ftg.page.elems.ExitableInput.exitableTextInput
 import ftg.page.elems.SheetInputs.handleChangeForAtIndex
+import ftg.util.Util.asOption
+import tyrian.CSS
+import tyrian.Empty
+import tyrian.Html
+import tyrian.Html._
 
 object ConditionsInput {
   def renderConditions(cs: List[Condition]): Html[Msg] = {

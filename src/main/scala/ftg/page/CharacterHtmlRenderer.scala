@@ -3,43 +3,44 @@ package ftg.page
 import ftg.Character.CharacterProfile
 import ftg.Character.Condition
 import ftg.Character.Experience
+import ftg.Character.Experience._
 import ftg.Character.Spark
-import ftg.Character.Spark.*
+import ftg.Character.Spark._
 import ftg.Character.Story
-import ftg.Character.Story.*
+import ftg.Character.Story._
 import ftg.Character.{Character => Character}
+import ftg.command.CharacterLoc.BackgroundLocs._
+import ftg.command.CharacterLoc.ExpLoc
 import ftg.command.CharacterLoc.HarmLocs.Bloodied
 import ftg.command.CharacterLoc.HarmLocs.Rattled
+import ftg.command.CharacterLoc.SparkLoc
 import ftg.command.CharacterLoc.StatLocs._
+import ftg.command.CharacterLoc.StoryLoc
 import ftg.command.RollStatCommand.RollAgility
 import ftg.command.RollStatCommand.RollBrawn
 import ftg.command.RollStatCommand.RollPresence
 import ftg.command.RollStatCommand.RollWits
+import ftg.command.ValueEditCommand
 import ftg.page.Msg.SheetMsg
+import ftg.page.elems.BackgroundsElements.renderBackgroundRows
+import ftg.page.elems.BondsInput.renderBonds
+import ftg.page.elems.ConditionsInput.renderConditions
 import ftg.page.elems.SheetInputs.charCheckboxInput
 import ftg.page.elems.SheetInputs.charNameInput
 import ftg.page.elems.SheetInputs.distinctiveFeaturesInput
+import ftg.page.elems.SheetInputs.handleChangeFor
 import ftg.page.elems.SheetInputs.markedInput
 import ftg.page.elems.SheetInputs.playerNameInput
 import ftg.page.elems.SheetInputs.statPoolInput
+import ftg.page.elems.StoryArcsInput.renderStoryArcs
+import ftg.page.elems.TraitsDesiresInput.renderDesires
+import ftg.page.elems.TraitsDesiresInput.renderTraits
 import tyrian.CSS
 import tyrian.Html
 import tyrian.Html._
+
 import scala.Range
 import scala.annotation.tailrec
-import ftg.page.elems.BackgroundsElements.renderBackgroundRows
-import ftg.command.CharacterLoc.BackgroundLocs.*
-import ftg.page.elems.ConditionsInput.renderConditions
-import ftg.command.ValueEditCommand
-import ftg.command.CharacterLoc.StoryLoc
-import ftg.command.CharacterLoc.SparkLoc
-import ftg.page.elems.TraitsDesiresInput.renderTraits
-import ftg.page.elems.TraitsDesiresInput.renderDesires
-import ftg.page.elems.BondsInput.renderBonds
-import ftg.page.elems.StoryArcsInput.renderStoryArcs
-import ftg.page.elems.SheetInputs.handleChangeFor
-import ftg.command.CharacterLoc.ExpLoc
-import ftg.Character.Experience._
 
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(

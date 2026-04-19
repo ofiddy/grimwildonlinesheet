@@ -1,17 +1,17 @@
 package ftg.page.elems
 
-import ftg.Character.*
-import tyrian.Html
-import tyrian.Html._
-import ftg.page.Msg
+import ftg.Character.Wise._
+import ftg.Character._
 import ftg.command.CharacterLoc.BackgroundLocs.BackgroundLoc
+import ftg.page.Msg
 import ftg.page.elems.ExitableInput.exitableTextInput
 import ftg.page.elems.SheetInputs.handleChangeFor
 import ftg.util.Util.asOption
-import monocle.syntax.all.focus
-import ftg.Character.Wise.*
 import monocle.Lens
 import monocle.syntax.AppliedPLens
+import monocle.syntax.all.focus
+import tyrian.Html
+import tyrian.Html._
 
 object BackgroundsElements {
   def renderBackgroundRows(

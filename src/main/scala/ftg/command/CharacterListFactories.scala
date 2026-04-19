@@ -1,13 +1,13 @@
 package ftg.command
 
-import ftg.Character.Condition
-import ftg.Character.ShortTermCondition
 import ftg.Character.Bond
-import ftg.Character.PremadeBonds
+import ftg.Character.CharacterName._
+import ftg.Character.Condition
 import ftg.Character.PremadeBond
+import ftg.Character.PremadeBonds
 import ftg.Character.PremadeBonds.premadeLeftBonds
 import ftg.Character.PremadeBonds.premadeRightBonds
-import ftg.Character.CharacterName._
+import ftg.Character.ShortTermCondition
 
 object CharacterListFactories {
   trait ElemFactory[T] {
