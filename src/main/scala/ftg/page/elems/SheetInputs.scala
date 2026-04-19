@@ -25,6 +25,11 @@ object SheetInputs {
   )(old: T, newVal: T): Msg = if newVal == old then NoOpMsg
   else SheetMsg(ValueEditCommand(newVal, old, find))
 
+  def handleChangeForAtIndex[T](
+      find: Loc[List[T]]
+  )(old: T, newVal: T, index: Int): Msg = if newVal == old then NoOpMsg
+  else SheetMsg(ModifyListElemCommand(newVal, old, index, find))
+
   def charNameInput(name: CharacterName) =
     exitableTextInput(
       styles(CSS.font("24pt bold")),
