@@ -1,0 +1,80 @@
+package ftg.command.test
+
+import org.scalatest.*
+import flatspec.*
+import matchers.*
+import ftg.command.ModifyCharacter.modify
+import ftg.command.ModifyCharacter.undo
+import ftg.page.DefaultCharacter.detherilStarren
+import ftg.Character.CharacterName.*
+import ftg.command.ValueEditCommand
+import ftg.command.CharacterLoc.CharacterNameLoc
+import ftg.page.Model
+import ftg.DicePool.RollGenerator
+import ftg.DicePool.UnimplementedRollGenerator
+
+class ValueEditCommandTests extends AnyFlatSpec with should.Matchers {
+  given RollGenerator = UnimplementedRollGenerator
+
+  "ValueEditCommand" should "overwrite at provided location on modify" in {
+    val premadeChar = detherilStarren
+    val newName     = "NewName"
+    val cmd =
+      ValueEditCommand(
+        newName.intoCharName,
+        "Detheril Starren".intoCharName,
+        CharacterNameLoc
+      )
+    val afterModify = modify(cmd, Model(premadeChar, Nil)).character
+    afterModify.profile.characterName shouldBe (newName.intoCharName)
+    afterModify.profile shouldBe premadeChar.profile.copy(characterName =
+      newName.intoCharName
+    )
+  }
+
+  it should "overwrite at provided location on undo" in {
+    val premadeChar = detherilStarren
+    val oldName     = "OldName"
+    val cmd =
+      ValueEditCommand(
+        "Detheril Starren".intoCharName,
+        oldName.intoCharName,
+        CharacterNameLoc
+      )
+    val afterUndo = undo(cmd, Model(premadeChar, Nil)).character
+    afterUndo.profile.characterName shouldBe (oldName.intoCharName)
+    afterUndo.profile shouldBe premadeChar.profile.copy(characterName =
+      oldName.intoCharName
+    )
+  }
+
+  it should "ignore mismatch between stored and actual value on undo" in {
+    val premadeChar = detherilStarren
+    val oldName     = "OldName"
+    val cmd =
+      ValueEditCommand(
+        "Dastardly Jim".intoCharName,
+        oldName.intoCharName,
+        CharacterNameLoc
+      )
+    val afterModify = undo(cmd, Model(premadeChar, Nil)).character
+    afterModify.profile.characterName shouldBe (oldName.intoCharName)
+    afterModify.profile shouldBe premadeChar.profile.copy(characterName =
+      oldName.intoCharName
+    )
+  }
+
+  it should "be reflective on modify and undo" in {
+    val premadeChar = detherilStarren
+    val cmd =
+      ValueEditCommand(
+        "Dastardly Jim".intoCharName,
+        detherilStarren.profile.characterName,
+        CharacterNameLoc
+      )
+    undo(
+      cmd,
+      modify(cmd, Model(premadeChar, Nil))
+    ).character shouldBe premadeChar
+  }
+}

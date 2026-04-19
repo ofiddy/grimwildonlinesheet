@@ -2,9 +2,11 @@ package ftg.Character
 
 import ftg.DicePool.DicePool
 
-sealed trait Condition
+sealed trait ConditionType
 
-final case class ShortTermCondition(name: String)              extends Condition
-final case class LongTermCondition(name: String)               extends Condition
-final case class PermanentCondition(name: String)              extends Condition
-final case class UrgentCondition(name: String, pool: DicePool) extends Condition
+case object ShortTermCondition                   extends ConditionType
+case object LongTermCondition                    extends ConditionType
+case object PermanentCondition                   extends ConditionType
+final case class UrgentCondition(pool: DicePool) extends ConditionType
+
+final case class Condition(name: Option[String], condType: ConditionType)

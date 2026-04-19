@@ -31,11 +31,28 @@ lazy val grimwildonlinesheet =
         ""
       ).mkString("\n"),
       usefulTasks := Seq(
-        UsefulTask("fastLinkJS", "Rebuild the JS (use during development)").noAlias,
-        UsefulTask("fullLinkJS", "Rebuild the JS and optimise (use in production)").noAlias
+        UsefulTask(
+          "fastLinkJS",
+          "Rebuild the JS (use during development)"
+        ).noAlias,
+        UsefulTask(
+          "fullLinkJS",
+          "Rebuild the JS and optimise (use in production)"
+        ).noAlias
       ),
       logoColor        := scala.Console.MAGENTA,
       aliasColor       := scala.Console.BLUE,
       commandColor     := scala.Console.CYAN,
       descriptionColor := scala.Console.WHITE
     )
+
+libraryDependencies ++= Seq(
+  "dev.optics" %%% "monocle-core"  % "3.1.0",
+  "dev.optics" %%% "monocle-macro" % "3.1.0"
+)
+libraryDependencies += "org.scalactic" %%% "scalactic" % "3.2.19"
+libraryDependencies += "org.scalatest" %%% "scalatest" % "3.2.19" % "test"
+
+Test / scalacOptions ++= Seq(
+  "-Wconf:msg=unused value of type org.scalatest.Assertion:s"
+)

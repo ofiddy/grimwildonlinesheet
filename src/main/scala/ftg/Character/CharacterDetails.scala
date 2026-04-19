@@ -1,7 +1,7 @@
 package ftg.Character
 
-import ftg.Character.CharacterTrait.TraitSection
 import ftg.Character.CharacterDesire.DesireSection
+import ftg.Character.CharacterTrait.TraitSection
 
 opaque type Wise = String
 

@@ -33,6 +33,28 @@ object PremadeBonds {
     "Respect",
     "Rivalry"
   )
+
+  object LeftBond {
+    extension (s: String) {
+      def intoLeftBond: LeftBond = s
+    }
+
+    extension (l: LeftBond) {
+      def toString: String = l
+    }
+
+  }
+
+  object RightBond {
+    extension (s: String) {
+      def intoRightBond: RightBond = s
+    }
+
+    extension (l: RightBond) {
+      def toString: String = l
+    }
+
+  }
 }
 
 final case class Bond(pcName: CharacterName, bondDesc: BondDescription)

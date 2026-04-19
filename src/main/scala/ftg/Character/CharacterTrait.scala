@@ -24,7 +24,7 @@ object CharacterTrait {
   final case class CustomTrait(label: String)  extends Trait
 
   final case class TraitSection(
-      twoYouAre: List[Trait],
+      twoYouAre: (Option[Trait], Option[Trait]),
       oneYouArent: Option[Trait]
   )
 }
@@ -53,7 +53,7 @@ object CharacterDesire {
   final case class CustomDesire(label: String)  extends Desire
 
   final case class DesireSection(
-      twoYouWant: List[Desire],
+      twoYouWant: (Option[Desire], Option[Desire]),
       oneYouDont: Option[Desire]
   )
 }

@@ -1,12 +1,12 @@
 package ftg.Talent.ClassTalents
 
-import ftg.Talent.Talent
-import ftg.Talent.md
-import ftg.Talent.TalentWidgets.TalentWidget
-import ftg.Talent.TalentWidget.TalentComponents.FluentCheckboxes.Checkbox
-import ftg.Talent.TalentWidget.TalentComponents.DicePoolComponent
 import ftg.DicePool.DicePool
+import ftg.Talent.Talent
+import ftg.Talent.TalentWidget.TalentComponents.DicePoolComponent
+import ftg.Talent.TalentWidget.TalentComponents.FluentCheckboxes.Checkbox
 import ftg.Talent.TalentWidget.TalentComponents.StorySelectable
+import ftg.Talent.TalentWidgets.TalentWidget
+import ftg.Talent.md
 
 object WizardTalents {
   val spellcraft = Talent(

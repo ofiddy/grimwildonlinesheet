@@ -38,4 +38,6 @@ object PremadeArcs {
       "Prove Myself",
       "Settle Debts"
     ).map(GrowthArc.apply)
+
+  val allArcs = ambitionArcs ++ struggleArcs ++ growthArcs
 }

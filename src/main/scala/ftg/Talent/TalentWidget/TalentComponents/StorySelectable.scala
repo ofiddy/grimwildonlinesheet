@@ -1,6 +1,6 @@
 package ftg.Talent.TalentWidget.TalentComponents
 
-import ftg.Character.Character as Character
+import ftg.Character.{Character => Character}
 import ftg.Talent.TalentWidgets.TalentComponents.TalentComponent
 
 final case class StorySelectable(isFull: Boolean) extends TalentComponent {
