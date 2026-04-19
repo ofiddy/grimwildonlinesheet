@@ -9,7 +9,6 @@ import ftg.command.AddListElemCommand
 import tyrian.CSS
 import ftg.page.elems.ExitableInput.exitableTextInput
 import ftg.util.Util.asOption
-import ftg.command.ModifyListElemCommand
 import ftg.Character.ShortTermCondition
 import ftg.Character.LongTermCondition
 import ftg.Character.PermanentCondition
@@ -21,6 +20,7 @@ import ftg.command.RollAndDropConditionPoolCommand
 import ftg.command.DeleteListElemCommand
 import ftg.command.CharacterLoc.ConditionsLoc
 import ftg.command.CharacterListFactories.NewCondition
+import ftg.page.elems.SheetInputs.handleChangeForAtIndex
 
 object ConditionsInput {
   def renderConditions(cs: List[Condition]): Html[Msg] = {
@@ -41,24 +41,19 @@ object ConditionsInput {
         "🗑️"
       ),
       exitableTextInput(`value` := c.name.getOrElse(""))(s =>
-        SheetMsg(
-          ModifyListElemCommand(c.copy(name = s.asOption), c, i, ConditionsLoc)
-        )
+        handleChangeForAtIndex(ConditionsLoc)(c, c.copy(name = s.asOption), i)
       ),
       select(
         onInput(s =>
-          SheetMsg(
-            ModifyListElemCommand(
-              c.copy(condType = s match {
-                case "urgent"    => UrgentCondition(DicePool(4))
-                case "short"     => ShortTermCondition
-                case "long"      => LongTermCondition
-                case "permanent" => PermanentCondition
-              }),
-              c,
-              i,
-              ConditionsLoc
-            )
+          handleChangeForAtIndex(ConditionsLoc)(
+            c,
+            c.copy(condType = s match {
+              case "urgent"    => UrgentCondition(DicePool(4))
+              case "short"     => ShortTermCondition
+              case "long"      => LongTermCondition
+              case "permanent" => PermanentCondition
+            }),
+            i
           )
         )
       )(
@@ -91,13 +86,10 @@ object ConditionsInput {
         case UrgentCondition(pool) =>
           div(
             dicePoolEntry(`value` := pool.diceRemaining.toString)(n =>
-              SheetMsg(
-                ModifyListElemCommand(
-                  c.copy(condType = UrgentCondition(DicePool(n))),
-                  c,
-                  i,
-                  ConditionsLoc
-                )
+              handleChangeForAtIndex(ConditionsLoc)(
+                c,
+                c.copy(condType = UrgentCondition(DicePool(n))),
+                i
               )
             ),
             button(
