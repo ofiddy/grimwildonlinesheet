@@ -18,6 +18,7 @@ import ftg.Character.CharacterDesire.DesireSection
 import ftg.Character.Condition
 import ftg.Character.Bond
 import ftg.Character.StoryArc
+import ftg.Character.Experience
 
 object CharacterLoc {
   sealed trait Loc[T] {
@@ -67,6 +68,10 @@ object CharacterLoc {
 
   case object CharArcLoc extends Loc[Option[StoryArc]] {
     val lens = GenLens[Character](_.characterArc)
+  }
+
+  case object ExpLoc extends Loc[Experience] {
+    val lens = GenLens[Character](_.experience)
   }
 
   object BackgroundLocs {

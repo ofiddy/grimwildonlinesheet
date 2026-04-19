@@ -22,7 +22,6 @@ import ftg.page.elems.SheetInputs.distinctiveFeaturesInput
 import ftg.page.elems.SheetInputs.markedInput
 import ftg.page.elems.SheetInputs.playerNameInput
 import ftg.page.elems.SheetInputs.statPoolInput
-import tyrian.Attribute
 import tyrian.CSS
 import tyrian.Html
 import tyrian.Html._
@@ -38,6 +37,9 @@ import ftg.page.elems.TraitsDesiresInput.renderTraits
 import ftg.page.elems.TraitsDesiresInput.renderDesires
 import ftg.page.elems.BondsInput.renderBonds
 import ftg.page.elems.StoryArcsInput.renderStoryArcs
+import ftg.page.elems.SheetInputs.handleChangeFor
+import ftg.command.CharacterLoc.ExpLoc
+import ftg.Character.Experience._
 
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
@@ -186,22 +188,22 @@ object CharacterHtmlRenderer {
     )
   )
 
-  def renderExperience[T](exp: Experience): Html[T] =
+  def renderExperience(exp: Experience): Html[Msg] =
     div(styles(CSS.`background-color`("#DDDDDD")))(
       h2("Experience"),
       b("Each session, take 1 XP."),
-      renderExperienceBlocks[T](exp)
+      renderExperienceBlocks(exp)
     )
 
-  def renderExperienceBlocks[T](exp: Experience): Html[T] =
-    renderExperienceBlocks(exp, List(2, 3, 4, 5, 6, 7), List(Nil))
+  def renderExperienceBlocks(exp: Experience): Html[Msg] =
+    renderExperienceBlocks(exp, List(1, 2, 3, 4, 5, 6, 7), List(Nil))
 
   @tailrec
-  def renderExperienceBlocks[T](
+  def renderExperienceBlocks(
       exp: Experience,
       breakpoints: List[Int],
-      rows: List[List[Html[T]]]
-  ): Html[T] = breakpoints match
+      rows: List[List[Html[Msg]]]
+  ): Html[Msg] = breakpoints match
     case b :: bs =>
       val (row, finishedRows) = (rows.head, rows.tail)
       val numCreated          = rows.flatten.size
@@ -209,7 +211,8 @@ object CharacterHtmlRenderer {
         input(
           `type`    := "checkbox",
           `checked` := numCreated < exp.toInt,
-          Attribute("num", numCreated.toString)
+          `value`   := numCreated.toString,
+          onClick(handleChangeFor(ExpLoc)(exp, (numCreated + 1).toInt.xp))
         )
       val newRow = row :+ newCheckbox
       if newRow.size >= b then
