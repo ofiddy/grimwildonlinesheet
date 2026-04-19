@@ -7,7 +7,6 @@ import ftg.Character.Spark
 import ftg.Character.Spark.*
 import ftg.Character.Story
 import ftg.Character.Story.*
-import ftg.Character.StoryArc
 import ftg.Character.{Character => Character}
 import ftg.command.CharacterLoc.HarmLocs.Bloodied
 import ftg.command.CharacterLoc.HarmLocs.Rattled
@@ -38,6 +37,7 @@ import ftg.command.CharacterLoc.SparkLoc
 import ftg.page.elems.TraitsDesiresInput.renderTraits
 import ftg.page.elems.TraitsDesiresInput.renderDesires
 import ftg.page.elems.BondsInput.renderBonds
+import ftg.page.elems.StoryArcsInput.renderStoryArcs
 
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
@@ -183,21 +183,6 @@ object CharacterHtmlRenderer {
     div(styles(CSS.`display`("flex"), CSS.`gap`("10px")))(
       renderTraits(char.details.traits),
       renderDesires(char.details.desires)
-    )
-  )
-
-  def renderStoryArcs[T](groupArc: StoryArc, charArc: StoryArc): Html[T] = div(
-    h2("Story Arcs"),
-    p("Finish or move on from an arc: take spark"),
-    table(
-      tr(
-        td(b("Story Arc")),
-        td(groupArc.label)
-      ),
-      tr(
-        td(b("Character Arc")),
-        td(charArc.label)
-      )
     )
   )
 

@@ -87,8 +87,8 @@ object DefaultCharacter {
         PremadeBond(premadeLeftBonds(2), premadeRightBonds(3))
       )
     ),
-    struggleArcs(5),
-    growthArcs(5),
+    Some(struggleArcs(5)),
+    Some(growthArcs(5)),
     8.xp,
     CharacterClass.Fighter,
     List(
