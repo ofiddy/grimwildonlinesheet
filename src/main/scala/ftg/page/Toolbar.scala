@@ -6,6 +6,7 @@ import tyrian.CSS
 import ftg.page.Msg.IoMsg
 import ftg.page.IoCmd.SaveCharacterMsg
 import ftg.page.IoCmd.LoadCharacterMsg
+import ftg.page.IoCmd.NewBlankCharacterMsg
 
 object Toolbar {
   def renderToolbar(model: Model): Html[Msg] =
@@ -18,6 +19,6 @@ object Toolbar {
         `accept` := ".gw.json",
         onChange(_ => IoMsg(LoadCharacterMsg("character-upload")))
       ),
-      button("New Character")
+      button(onClick(IoMsg(NewBlankCharacterMsg)))("New Character")
     )
 }

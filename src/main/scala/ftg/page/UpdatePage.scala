@@ -19,6 +19,8 @@ import ftg.page.IoCmd.IoCmd
 import ftg.page.IoCmd.LoadCharacterMsg
 import ftg.page.Msg.TryParseAndLoadCharacter
 import ftg.Character.{Character => Character}
+import ftg.page.IoCmd.NewBlankCharacterMsg
+import ftg.page.DefaultCharacter.blankChar
 
 object UpdatePage {
   def update(model: Model): Msg => (Model, Cmd[IO, Msg]) =
@@ -52,6 +54,7 @@ object UpdatePage {
   ): (Model, Cmd[IO, Msg]) = cmd match
     case SaveCharacterMsg => (model, GwCmds.downloadCharacter(model.character))
     case LoadCharacterMsg(id) => (model, GwCmds.loadCharacter(id))
+    case NewBlankCharacterMsg => (Model.blankWithNewChar(blankChar), Cmd.None)
 
   def tryLoadCharacter(json: String, prevModel: Model): (Model, Cmd[IO, Msg]) =
     try {

@@ -98,4 +98,51 @@ object DefaultCharacter {
     // ),
     ""
   )
+
+  val blankChar = Character(
+    CharacterProfile(
+      "".intoCharName,
+      "".intoPlayerName,
+      "".intoDistinctiveFeatures
+    ),
+    CharacterBaseStats(
+      BodyStats withBrawn 1 withAgility 1,
+      MentalStats withWits 1 withPresence 1
+    ),
+    Nil,
+    Story.startingStory,
+    Spark.startingSpark,
+    CharacterDetails(
+      (
+        Background(
+          None,
+          (None, None, None)
+        ),
+        Background(
+          None,
+          (None, None, None)
+        )
+      ),
+      TraitSection(
+        (None, None),
+        None
+      ),
+      DesireSection(
+        (None, None),
+        None
+      )
+    ),
+    Nil,
+    None,
+    None,
+    1.xp,
+    CharacterClass.Fighter,
+    // List(
+    //   FighterTalents.weaponMastery,
+    //   FighterTalents.bulwark,
+    //   FighterTalents.gotYourBack,
+    //   FighterTalents.measuredTones
+    // ),
+    ""
+  )
 }
