@@ -16,13 +16,17 @@ import tyrian.Cmd
 import ftg.page.Msg.IoMsg
 import ftg.page.IoCmd.SaveCharacterMsg
 import ftg.page.IoCmd.IoCmd
+import ftg.page.IoCmd.LoadCharacterMsg
+import ftg.page.Msg.TryParseAndLoadCharacter
+import ftg.Character.{Character => Character}
 
 object UpdatePage {
   def update(model: Model): Msg => (Model, Cmd[IO, Msg]) =
-    case NoOpMsg       => (model, Cmd.None)
-    case SheetMsg(cmd) => applySheetCommand(model, cmd)
-    case BlurMsg       => (model, GwCmds.unfocusCurrentblur)
-    case IoMsg(cmd)    => applyIoCmd(model, cmd)
+    case NoOpMsg                        => (model, Cmd.None)
+    case SheetMsg(cmd)                  => applySheetCommand(model, cmd)
+    case BlurMsg                        => (model, GwCmds.unfocusCurrentblur)
+    case IoMsg(cmd)                     => applyIoCmd(model, cmd)
+    case TryParseAndLoadCharacter(json) => tryLoadCharacter(json, model)
 
   def applySheetCommand(
       model: Model,
@@ -47,5 +51,13 @@ object UpdatePage {
       cmd: IoCmd
   ): (Model, Cmd[IO, Msg]) = cmd match
     case SaveCharacterMsg => (model, GwCmds.downloadCharacter(model.character))
+    case LoadCharacterMsg(id) => (model, GwCmds.loadCharacter(id))
+
+  def tryLoadCharacter(json: String, prevModel: Model): (Model, Cmd[IO, Msg]) =
+    try {
+      val char = upickle.read[Character](json)
+      (Model.blankWithNewChar(char), Cmd.None)
+    } catch
+      _ => (prevModel, Cmd.None)
 
 }

@@ -15,3 +15,7 @@ final case class Model(
 
   infix def log(l: SingleLog): Model = copy(log = l :: this.log)
 }
+
+object Model {
+  def blankWithNewChar(c: Character): Model = Model(c, Nil)
+}

@@ -7,6 +7,9 @@ import tyrian.Cmd
 import cats.effect.IO
 import ftg.Character.{Character => Character}
 import org.scalajs.dom.html
+import tyrian.cmds.FileReader
+import tyrian.cmds.FileReader.Result
+import ftg.page.Msg
 
 object GwCmds {
   def unfocusCurrentblur[F[_]: Async]: Cmd.SideEffect[F, Unit] =
@@ -34,5 +37,12 @@ object GwCmds {
       dom.document.body.appendChild(elem): Unit
       elem.click()
       document.body.removeChild(elem): Unit
+    }
+
+  def loadCharacter(id: String): Cmd[IO, Msg] =
+    FileReader.readText(id) {
+      case tyrian.cmds.FileReader.Result.Error(message) => Msg.NoOpMsg
+      case Result.File(name, path, data) => Msg.TryParseAndLoadCharacter(data)
+      case Result.NoFile(message)        => Msg.NoOpMsg
     }
 }

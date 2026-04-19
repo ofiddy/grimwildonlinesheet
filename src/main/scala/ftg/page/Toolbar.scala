@@ -5,12 +5,19 @@ import tyrian.Html._
 import tyrian.CSS
 import ftg.page.Msg.IoMsg
 import ftg.page.IoCmd.SaveCharacterMsg
+import ftg.page.IoCmd.LoadCharacterMsg
 
 object Toolbar {
   def renderToolbar(model: Model): Html[Msg] =
     div(styles(CSS.`display`("flex")))(
       button(onClick(IoMsg(SaveCharacterMsg)))("Save Character"),
-      button("Load Character"),
+      input(
+        `type`   := "file",
+        `id`     := "character-upload",
+        `label`  := "Load Character",
+        `accept` := ".gw.json",
+        onChange(_ => IoMsg(LoadCharacterMsg("character-upload")))
+      ),
       button("New Character")
     )
 }
