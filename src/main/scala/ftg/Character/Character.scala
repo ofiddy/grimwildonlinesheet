@@ -21,7 +21,7 @@ final case class Character(
     details: CharacterDetails,
     bonds: List[Bond],
     groupArc: Option[StoryArc],
-    characterArc: Option[StoryArc],
+    characterArc: (Option[StoryArc], Option[StoryArc]),
     experience: Experience,
     charClass: CharacterClass,
     // talents: List[Talent],

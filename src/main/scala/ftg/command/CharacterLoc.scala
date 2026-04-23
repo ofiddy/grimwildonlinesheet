@@ -66,8 +66,12 @@ object CharacterLoc {
     val lens = GenLens[Character](_.groupArc)
   }
 
-  case object CharArcLoc extends Loc[Option[StoryArc]] {
-    val lens = GenLens[Character](_.characterArc)
+  case object CharArcLoc1 extends Loc[Option[StoryArc]] {
+    val lens = GenLens[Character](_.characterArc._1)
+  }
+
+  case object CharArcLoc2 extends Loc[Option[StoryArc]] {
+    val lens = GenLens[Character](_.characterArc._2)
   }
 
   case object ExpLoc extends Loc[Experience] {

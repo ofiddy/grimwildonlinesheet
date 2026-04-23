@@ -87,7 +87,7 @@ object DefaultCharacter {
       )
     ),
     Some(struggleArcs(5)),
-    Some(growthArcs(5)),
+    (Some(growthArcs(5)), None),
     8.xp,
     CharacterClass.Fighter,
     // List(
@@ -134,7 +134,7 @@ object DefaultCharacter {
     ),
     Nil,
     None,
-    None,
+    (None, None),
     1.xp,
     CharacterClass.Fighter,
     // List(
