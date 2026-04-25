@@ -12,6 +12,7 @@ import tyrian.Html
 import tyrian.Html._
 
 object StoryArcsInput {
+
   def renderStoryArcs(
       groupArc: Option[StoryArc],
       charArc: (Option[StoryArc], Option[StoryArc])

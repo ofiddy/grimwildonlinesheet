@@ -8,6 +8,7 @@ sealed trait StoryArc derives ReadWriter {
 final case class AmbitionArc(label: String) extends StoryArc
 final case class StruggleArc(label: String) extends StoryArc
 final case class GrowthArc(label: String)   extends StoryArc
+final case class CustomArc(label: String)   extends StoryArc
 
 object PremadeArcs {
 

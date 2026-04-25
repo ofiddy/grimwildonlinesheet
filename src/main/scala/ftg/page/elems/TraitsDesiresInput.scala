@@ -11,18 +11,13 @@ import ftg.Character.CharacterTrait.traitSystem
 import ftg.command.CharacterLoc.DesireLoc
 import ftg.command.CharacterLoc.Loc
 import ftg.command.CharacterLoc.TraitLoc
-import ftg.command.ValueEditCommand
 import ftg.page.Msg
-import ftg.page.Msg.SheetMsg
-import ftg.page.elems.ExitableInput.exitableTextInput
-import ftg.page.elems.SheetInputs.handleChangeFor
 import monocle.Lens
 import monocle.macros.GenLens
-import monocle.syntax.AppliedLens
-import tyrian.CSS
-import tyrian.Empty
 import tyrian.Html
 import tyrian.Html._
+import ftg.page.elems.inputPatterns.LargelyPrefilledSection
+import ftg.page.elems.inputPatterns.prefilledOrCustomSelector
 
 object TraitsDesiresInput {
   def renderTraits(ts: TraitSection): Html[Msg] = div(
@@ -42,8 +37,6 @@ object TraitsDesiresInput {
   private def traitSelector = {
     given LargelyPrefilledSection[TraitSection, Trait] {
       extension (ts: TraitSection) {
-        override def twoPositive: (Option[Trait], Option[Trait]) = ts.twoYouAre
-        override def oneNegative: Option[Trait] = ts.oneYouArent
         override def sectionMap: Map[String, Trait] =
           traitSystem.map(t => (t.label.toLowerCase(), t)).toMap
         override def custom(s: String): Trait = CustomTrait(s)
@@ -56,15 +49,12 @@ object TraitsDesiresInput {
       }
     }
 
-    traitsDesiresSelector[TraitSection, Trait]
+    prefilledOrCustomSelector[TraitSection, Trait]
   }
 
   private def desiresSelector = {
     given LargelyPrefilledSection[DesireSection, Desire] {
       extension (ds: DesireSection) {
-        override def twoPositive: (Option[Desire], Option[Desire]) =
-          ds.twoYouWant
-        override def oneNegative: Option[Desire] = ds.oneYouDont
         override def sectionMap: Map[String, Desire] =
           desireSystem.map(t => (t.label.toLowerCase(), t)).toMap
         override def custom(s: String): Desire = CustomDesire(s)
@@ -77,62 +67,6 @@ object TraitsDesiresInput {
       }
     }
 
-    traitsDesiresSelector[DesireSection, Desire]
-  }
-
-  private def traitsDesiresSelector[TS, T](
-      t: TS,
-      label: String,
-      lens: Lens[TS, Option[T]]
-  )(using TS: LargelyPrefilledSection[TS, T]): Html[Msg] = {
-    val applied = AppliedLens(t, lens)
-    div(styles(CSS.`display`("flex")))(
-      p(label),
-      select(
-        onInput(s =>
-          val traitSystemMap = t.sectionMap
-          val newTrait: Option[T] = s match {
-            case "none"                          => None
-            case s if traitSystemMap.contains(s) => Some(traitSystemMap(s))
-            case "custom"                        => Some(t.custom(""))
-            case _                               => None
-          }
-          val newSection = applied.replace(newTrait)
-          SheetMsg(ValueEditCommand(newSection, t, t.loc))
-        )
-      )(
-        option(`value` := "none", selected := applied.get.isEmpty)("") +:
-          t.sectionMap.toList.map((label, obj) =>
-            option(
-              `value`  := label.toLowerCase(),
-              selected := applied.get.map(_ == obj).getOrElse(false)
-            )(label.capitalize)
-          ) :+ option(
-            `value`  := "custom",
-            selected := t.extractCustomLabel(applied.get).nonEmpty
-          )("Custom")
-      ),
-      t.extractCustomLabel(applied.get) match {
-        case Some(label) =>
-          exitableTextInput(`value` := label)(s =>
-            handleChangeFor(t.loc)(
-              t,
-              applied.replace(Some(t.custom(s)))
-            )
-          )
-        case _ => Empty
-      }
-    )
-  }
-
-  private trait LargelyPrefilledSection[TS, T] {
-    extension (a: TS) {
-      def twoPositive: (Option[T], Option[T])
-      def oneNegative: Option[T]
-      def sectionMap: Map[String, T]
-      def custom(s: String): T
-      def loc: Loc[TS]
-      def extractCustomLabel(t: Option[T]): Option[String]
-    }
+    prefilledOrCustomSelector[DesireSection, Desire]
   }
 }
