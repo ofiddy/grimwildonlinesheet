@@ -51,7 +51,7 @@ object CharacterHtmlRenderer {
     renderStoryAndSpark(char.story, char.spark),
     renderCharacterDetails(char),
     renderBonds(char.bonds),
-    renderStoryArcs(char.groupArc, char.characterArc),
+    renderStoryArcs(char),
     renderExperience(char.experience)
   )
 
@@ -184,8 +184,8 @@ object CharacterHtmlRenderer {
       renderBackgroundRows(char, BackgroundLoc2)
     ),
     div(styles(CSS.`display`("flex"), CSS.`gap`("10px")))(
-      renderTraits(char.details.traits),
-      renderDesires(char.details.desires)
+      renderTraits(char),
+      renderDesires(char)
     )
   )
 

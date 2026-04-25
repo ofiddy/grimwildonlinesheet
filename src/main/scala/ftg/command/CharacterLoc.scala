@@ -19,6 +19,8 @@ import ftg.Character.{Character => Character}
 import monocle.Lens
 import monocle.macros.GenLens
 import monocle.syntax.AppliedLens
+import ftg.Character.CharacterTrait.Trait
+import ftg.Character.CharacterDesire.Desire
 
 object CharacterLoc {
   sealed trait Loc[T] {
@@ -62,16 +64,19 @@ object CharacterLoc {
     val lens = GenLens[Character](_.bonds)
   }
 
-  case object StoryArcLoc extends Loc[Option[StoryArc]] {
-    val lens = GenLens[Character](_.groupArc)
-  }
+  object StoryArcLocs {
+    sealed trait ArcLoc extends Loc[Option[StoryArc]]
+    case object GroupArcLoc extends ArcLoc {
+      val lens = GenLens[Character](_.groupArc)
+    }
 
-  case object CharArcLoc1 extends Loc[Option[StoryArc]] {
-    val lens = GenLens[Character](_.characterArc._1)
-  }
+    case object CharArcLoc1 extends ArcLoc {
+      val lens = GenLens[Character](_.characterArc._1)
+    }
 
-  case object CharArcLoc2 extends Loc[Option[StoryArc]] {
-    val lens = GenLens[Character](_.characterArc._2)
+    case object CharArcLoc2 extends ArcLoc {
+      val lens = GenLens[Character](_.characterArc._2)
+    }
   }
 
   case object ExpLoc extends Loc[Experience] {
@@ -118,6 +123,40 @@ object CharacterLoc {
     case object Presence extends StatLoc {
       val lens =
         GenLens[Character](_.stats.mentalStats).andThen(presenceLens)
+    }
+  }
+
+  object TraitLocs {
+    private val traitSectionLens = GenLens[Character](_.details.traits)
+    sealed trait TraitLoc extends Loc[Option[Trait]]
+    case object TraitYouAre1 extends TraitLoc {
+      val lens =
+        traitSectionLens.andThen(GenLens[TraitSection](_.twoYouAre._1))
+    }
+    case object TraitYouAre2 extends TraitLoc {
+      val lens =
+        traitSectionLens.andThen(GenLens[TraitSection](_.twoYouAre._2))
+    }
+    case object TraitYouAreNot extends TraitLoc {
+      val lens =
+        traitSectionLens.andThen(GenLens[TraitSection](_.oneYouArent))
+    }
+  }
+
+  object DesireLocs {
+    private val desireSectionLens = GenLens[Character](_.details.desires)
+    sealed trait DesireLoc extends Loc[Option[Desire]]
+    case object DesireYouWant1 extends DesireLoc {
+      val lens =
+        desireSectionLens.andThen(GenLens[DesireSection](_.twoYouWant._1))
+    }
+    case object DesireYouWant2 extends DesireLoc {
+      val lens =
+        desireSectionLens.andThen(GenLens[DesireSection](_.twoYouWant._2))
+    }
+    case object DesireYouDoNotWant extends DesireLoc {
+      val lens =
+        desireSectionLens.andThen(GenLens[DesireSection](_.oneYouDont))
     }
   }
 
