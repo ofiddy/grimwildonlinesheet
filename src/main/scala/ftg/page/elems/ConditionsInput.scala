@@ -17,7 +17,6 @@ import ftg.page.elems.DicePoolEntry.dicePoolEntry
 import ftg.page.elems.ExitableInput.exitableTextInput
 import ftg.page.elems.SheetInputs.handleChangeForAtIndex
 import ftg.util.Util.asOption
-import tyrian.CSS
 import tyrian.Empty
 import tyrian.Html
 import tyrian.Html._
@@ -36,7 +35,7 @@ object ConditionsInput {
   }
 
   private def renderedCondition(c: Condition, i: Int): Html[Msg] = div(
-    li(styles(CSS.`display`("flex")))(
+    li(cls := "horizontal")(
       button(onClick(SheetMsg(DeleteListElemCommand(c, i, ConditionsLoc))))(
         "🗑️"
       ),

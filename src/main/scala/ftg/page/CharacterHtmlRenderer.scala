@@ -35,7 +35,6 @@ import ftg.page.elems.SheetInputs.statPoolInput
 import ftg.page.elems.StoryArcsInput.renderStoryArcs
 import ftg.page.elems.TraitsDesiresInput.renderDesires
 import ftg.page.elems.TraitsDesiresInput.renderTraits
-import tyrian.CSS
 import tyrian.Html
 import tyrian.Html._
 
@@ -65,30 +64,30 @@ object CharacterHtmlRenderer {
   )
 
   def renderStats(char: Character): Html[Msg] =
-    div(style(CSS.`background-color`("#DDDDDD")))(
+    div(cls := "shaded-area")(
       table(
         tr(
           th(
             button(
-              styles(CSS.`font-weight`("bold")),
+              cls := "stat-label",
               onClick(SheetMsg(RollBrawn))
             )("Brawn")
           ),
           th(
             button(
-              styles(CSS.`font-weight`("bold")),
+              cls := "stat-label",
               onClick(SheetMsg(RollAgility))
             )("Agility")
           ),
           th(
             button(
-              styles(CSS.`font-weight`("bold")),
+              cls := "stat-label",
               onClick(SheetMsg(RollWits))
             )("Wits")
           ),
           th(
             button(
-              styles(CSS.`font-weight`("bold")),
+              cls := "stat-label",
               onClick(SheetMsg(RollPresence))
             )("Presence")
           )
@@ -183,14 +182,14 @@ object CharacterHtmlRenderer {
       renderBackgroundRows(char, BackgroundLoc1),
       renderBackgroundRows(char, BackgroundLoc2)
     ),
-    div(styles(CSS.`display`("flex"), CSS.`gap`("10px")))(
+    div(id := "traits-desires")(
       renderTraits(char),
       renderDesires(char)
     )
   )
 
   def renderExperience(exp: Experience): Html[Msg] =
-    div(styles(CSS.`background-color`("#DDDDDD")))(
+    div(cls := "shaded-area")(
       h2("Experience"),
       b("Each session, take 1 XP."),
       renderExperienceBlocks(exp)
