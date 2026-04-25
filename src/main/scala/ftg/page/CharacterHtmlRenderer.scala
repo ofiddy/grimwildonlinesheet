@@ -51,7 +51,7 @@ object CharacterHtmlRenderer {
     renderStoryAndSpark(char.story, char.spark),
     renderCharacterDetails(char),
     renderBonds(char.bonds),
-    renderStoryArcs(char.groupArc, char.characterArc),
+    renderStoryArcs(char),
     renderExperience(char.experience)
   )
 

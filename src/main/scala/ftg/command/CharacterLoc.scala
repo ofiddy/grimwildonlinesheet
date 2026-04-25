@@ -64,16 +64,19 @@ object CharacterLoc {
     val lens = GenLens[Character](_.bonds)
   }
 
-  case object StoryArcLoc extends Loc[Option[StoryArc]] {
-    val lens = GenLens[Character](_.groupArc)
-  }
+  object StoryArcLocs {
+    sealed trait ArcLoc extends Loc[Option[StoryArc]]
+    case object GroupArcLoc extends ArcLoc {
+      val lens = GenLens[Character](_.groupArc)
+    }
 
-  case object CharArcLoc1 extends Loc[Option[StoryArc]] {
-    val lens = GenLens[Character](_.characterArc._1)
-  }
+    case object CharArcLoc1 extends ArcLoc {
+      val lens = GenLens[Character](_.characterArc._1)
+    }
 
-  case object CharArcLoc2 extends Loc[Option[StoryArc]] {
-    val lens = GenLens[Character](_.characterArc._2)
+    case object CharArcLoc2 extends ArcLoc {
+      val lens = GenLens[Character](_.characterArc._2)
+    }
   }
 
   case object ExpLoc extends Loc[Experience] {
