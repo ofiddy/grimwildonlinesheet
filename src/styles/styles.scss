@@ -1,0 +1,45 @@
+$fontStack: medium 'Helvetica';
+$shadedBgColor: #DDD;
+
+body {
+    font: $fontStack;
+}
+
+div.shaded-area {
+    background-color: $shadedBgColor;
+}
+
+div.horizontal {
+    display: flex;
+}
+
+button.stat-label {
+    font-weight: bold;
+}
+
+.dice-pool-entry {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+#traits-desires {
+    display: flex;
+    gap: 10px;
+}
+
+#toolbar {
+    display: flex;
+}
+
+#char-name-input {
+    font: 24pt bold;
+}
+
+#player-name-input {
+    font: 18pt bold;
+}
+
+#distinctive-features {
+    width: 300px;
+}

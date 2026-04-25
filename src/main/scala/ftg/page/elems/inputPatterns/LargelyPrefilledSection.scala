@@ -4,7 +4,6 @@ import ftg.command.CharacterLoc.Loc
 import tyrian.Html
 import tyrian.Html._
 import ftg.page.Msg
-import tyrian.CSS
 import ftg.page.Msg.SheetMsg
 import ftg.command.ValueEditCommand
 import ftg.page.elems.ExitableInput.exitableTextInput
@@ -23,7 +22,7 @@ def prefilledOrCustomSelector[T](
     loc: Loc[Option[T]]
 )(using T: LargelyPrefilledSection[T]): Html[Msg] = {
   val applied = loc(char)
-  div(styles(CSS.`display`("flex")))(
+  div(cls := "horizontal")(
     p(label),
     select(
       onInput(s =>

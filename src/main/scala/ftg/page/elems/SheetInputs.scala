@@ -16,7 +16,6 @@ import ftg.page.Msg.SheetMsg
 import ftg.page.elems.DicePoolEntry.dicePoolEntry
 import ftg.page.elems.ExitableInput.exitableTextInput
 import ftg.page.elems.ExitableTextArea.exitableTextArea
-import tyrian.CSS
 import tyrian.Html._
 
 object SheetInputs {
@@ -32,17 +31,17 @@ object SheetInputs {
 
   def charNameInput(name: CharacterName) =
     exitableTextInput(
-      styles(CSS.font("24pt bold")),
+      id      := "char-name-input",
       `value` := name.label
     )((s: String) => handleChangeFor(CharacterNameLoc)(name, s.intoCharName))
 
   def playerNameInput(name: PlayerName) = exitableTextInput(
-    styles(CSS.font("18pt bold")),
+    id      := "player-name-input",
     `value` := name.label
   )((s: String) => handleChangeFor(PlayerNameLoc)(name, s.intoPlayerName))
 
   def distinctiveFeaturesInput(dfs: DistinctiveFeatures) = exitableTextArea(
-    styles(CSS.width("300px"))
+    id := "distinctive-features"
   )((s: String) =>
     handleChangeFor(DistinctiveFeaturesLoc)(dfs, s.intoDistinctiveFeatures)
   )(dfs.label)
@@ -50,7 +49,7 @@ object SheetInputs {
   def statPoolInput(loc: StatLoc)(char: Character) =
     dicePoolEntry(
       `value` := loc(char).get.dice.diceRemaining.toString,
-      styles(CSS.width("20px"), CSS.height("20px"))
+      cls     := "dice-pool-entry"
     )(i =>
       val oldRemaining = loc(char).get.dice.diceRemaining
       if i != oldRemaining then

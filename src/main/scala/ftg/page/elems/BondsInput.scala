@@ -15,7 +15,6 @@ import ftg.page.Msg
 import ftg.page.Msg.SheetMsg
 import ftg.page.elems.ExitableInput.exitableTextInput
 import ftg.page.elems.SheetInputs.handleChangeForAtIndex
-import tyrian.CSS
 import tyrian.Html
 import tyrian.Html._
 
@@ -108,7 +107,7 @@ object BondsInput {
     val rightBondMap =
       premadeRightBonds.map(rb => (rb.toString.toLowerCase, rb)).toMap
 
-    div(styles(CSS.`display`("flex")))(
+    div(cls := "horizontal")(
       select(
         onInput(s =>
           handleChangeForAtIndex(BondsLoc)(
