@@ -184,8 +184,8 @@ object CharacterHtmlRenderer {
       renderBackgroundRows(char, BackgroundLoc2)
     ),
     div(styles(CSS.`display`("flex"), CSS.`gap`("10px")))(
-      renderTraits(char.details.traits),
-      renderDesires(char.details.desires)
+      renderTraits(char),
+      renderDesires(char)
     )
   )
 

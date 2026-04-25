@@ -1,8 +1,6 @@
 package ftg.page.elems.inputPatterns
 
 import ftg.command.CharacterLoc.Loc
-import monocle.Lens
-import monocle.syntax.AppliedLens
 import tyrian.Html
 import tyrian.Html._
 import ftg.page.Msg
@@ -13,53 +11,49 @@ import ftg.page.elems.ExitableInput.exitableTextInput
 import tyrian.Empty
 import ftg.page.elems.SheetInputs.handleChangeFor
 
-trait LargelyPrefilledSection[TS, T] {
-  extension (a: TS) {
-    def sectionMap: Map[String, T]
-    def custom(s: String): T
-    def loc: Loc[TS]
-    def extractCustomLabel(t: Option[T]): Option[String]
-  }
+trait LargelyPrefilledSection[T] {
+  def extractCustomLabel(t: Option[T]): Option[String]
+  def sectionMap: Map[String, T]
+  def custom(s: String): T
 }
 
-def prefilledOrCustomSelector[TS, T](
-    t: TS,
+def prefilledOrCustomSelector[T](
+    char: ftg.Character.Character,
     label: String,
-    lens: Lens[TS, Option[T]]
-)(using TS: LargelyPrefilledSection[TS, T]): Html[Msg] = {
-  val applied = AppliedLens(t, lens)
+    loc: Loc[Option[T]]
+)(using T: LargelyPrefilledSection[T]): Html[Msg] = {
+  val applied = loc(char)
   div(styles(CSS.`display`("flex")))(
     p(label),
     select(
       onInput(s =>
-        val traitSystemMap = t.sectionMap
+        val traitSystemMap = T.sectionMap
         val newTrait: Option[T] = s match {
           case "none"                          => None
           case s if traitSystemMap.contains(s) => Some(traitSystemMap(s))
-          case "custom"                        => Some(t.custom(""))
+          case "custom"                        => Some(T.custom(""))
           case _                               => None
         }
-        val newSection = applied.replace(newTrait)
-        SheetMsg(ValueEditCommand(newSection, t, t.loc))
+        SheetMsg(ValueEditCommand(newTrait, applied.get, loc))
       )
     )(
       option(`value` := "none", selected := applied.get.isEmpty)("") +:
-        t.sectionMap.toList.map((label, obj) =>
+        T.sectionMap.toList.map((label, obj) =>
           option(
             `value`  := label.toLowerCase(),
             selected := applied.get.map(_ == obj).getOrElse(false)
           )(label.capitalize)
         ) :+ option(
           `value`  := "custom",
-          selected := t.extractCustomLabel(applied.get).nonEmpty
+          selected := T.extractCustomLabel(applied.get).nonEmpty
         )("Custom")
     ),
-    t.extractCustomLabel(applied.get) match {
+    T.extractCustomLabel(applied.get) match {
       case Some(label) =>
         exitableTextInput(`value` := label)(s =>
-          handleChangeFor(t.loc)(
-            t,
-            applied.replace(Some(t.custom(s)))
+          handleChangeFor(loc)(
+            applied.get,
+            Some(T.custom(s))
           )
         )
       case _ => Empty
