@@ -44,24 +44,32 @@ import scala.annotation.tailrec
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
     h1("Grimwild Online Character Sheet"),
-    renderProfile(char.profile),
-    renderStats(char),
-    renderConditions(char.conditions),
-    renderStoryAndSpark(char.story, char.spark),
-    renderCharacterDetails(char),
-    renderBonds(char.bonds),
-    renderStoryArcs(char),
-    renderExperience(char.experience)
+    div(cls := "sheet-card")(
+      renderProfile(char.profile),
+      renderStats(char),
+      renderConditions(char.conditions),
+      renderStoryAndSpark(char.story, char.spark),
+      renderCharacterDetails(char),
+      renderBonds(char.bonds),
+      renderStoryArcs(char),
+      renderExperience(char.experience)
+    )
   )
 
-  def renderProfile(profile: CharacterProfile): Html[Msg] = div(
-    p("Character Name"),
-    charNameInput(profile.characterName),
-    p("Player Name"),
-    playerNameInput(profile.playerName),
-    h3("Distinctive Features"),
-    distinctiveFeaturesInput(profile.distinctiveFeatures)
-  )
+  def renderProfile(profile: CharacterProfile): Html[Msg] =
+    div(cls := "shaded-area card-section")(
+      div(cls := "name-entry")(
+        p(cls := "name-entry")("NAME"),
+        charNameInput(profile.characterName)
+      ),
+      br(cls := "elem-gap"),
+      div(cls := "name-entry")(
+        p(cls := "name-entry")("PLAYER"),
+        playerNameInput(profile.playerName)
+      ),
+      h3("Distinctive Features"),
+      distinctiveFeaturesInput(profile.distinctiveFeatures)
+    )
 
   def renderStats(char: Character): Html[Msg] =
     div(cls := "shaded-area")(

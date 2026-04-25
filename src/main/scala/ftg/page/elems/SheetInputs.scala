@@ -31,12 +31,12 @@ object SheetInputs {
 
   def charNameInput(name: CharacterName) =
     exitableTextInput(
-      id      := "char-name-input",
+      cls     := "name-entry-input",
       `value` := name.label
     )((s: String) => handleChangeFor(CharacterNameLoc)(name, s.intoCharName))
 
   def playerNameInput(name: PlayerName) = exitableTextInput(
-    id      := "player-name-input",
+    cls     := "name-entry-input",
     `value` := name.label
   )((s: String) => handleChangeFor(PlayerNameLoc)(name, s.intoPlayerName))
 
