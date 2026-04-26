@@ -57,18 +57,24 @@ object CharacterHtmlRenderer {
   )
 
   def renderProfile(profile: CharacterProfile): Html[Msg] =
-    div(cls := "shaded-area card-section")(
-      div(cls := "name-entry")(
-        p(cls := "name-entry")("NAME"),
-        charNameInput(profile.characterName)
+    div(
+      cls := "shaded-area card-section horizontal",
+      id  := "profile-section-card"
+    )(
+      div(cls := "vertical")(
+        div(cls := "white-card-entry", id := "name-entry")(
+          p(cls := "white-card-entry")("NAME"),
+          charNameInput(profile.characterName)
+        ),
+        div(cls := "white-card-entry")(
+          p(cls := "white-card-entry")("PLAYER"),
+          playerNameInput(profile.playerName)
+        )
       ),
-      br(cls := "elem-gap"),
-      div(cls := "name-entry")(
-        p(cls := "name-entry")("PLAYER"),
-        playerNameInput(profile.playerName)
-      ),
-      h3("Distinctive Features"),
-      distinctiveFeaturesInput(profile.distinctiveFeatures)
+      div(cls := "white-card-entry")(
+        p("DISTINCTIVE FEATURES"),
+        distinctiveFeaturesInput(profile.distinctiveFeatures)
+      )
     )
 
   def renderStats(char: Character): Html[Msg] =

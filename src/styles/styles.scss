@@ -33,16 +33,18 @@ h1 {
     padding: 10px;
 }
 
-div.name-entry {
+div.white-card-entry {
     background-color: $mainBgColor;
     padding: 4pt;
+    border-radius: 8px;
 }
 
-p.name-entry {
+.white-card-entry>p {
     font: bold 12pt $fontStack;
+    margin: 4px;
 }
 
-div.name-entry>input {
+div.white-card-entry>input {
     border: none;
     width: 90%;
 }
@@ -51,12 +53,13 @@ div.shaded-area {
     background-color: $shadedBgColor;
 }
 
-br.elem-gap {
-    height: 20px;
+div.shaded-area.card-section {
+    border-radius: 8px;
 }
 
 div.horizontal {
     display: flex;
+    gap: 8px;
 }
 
 button.stat-label {
@@ -79,11 +82,32 @@ button.stat-label {
 }
 
 .name-entry-input {
-    font-size: 24pt;
+    font-size: 18pt;
     font-family: $fontStack;
     font-weight: normal;
 }
 
 #distinctive-features {
     width: 300px;
+    border: none;
+    resize: none;
+    max-height: 100%;
+    font-family: $fontStack;
+}
+
+#profile-section-card {
+    border-top: 15px black solid;
+    display: flex;
+}
+
+#name-entry {
+    margin-bottom: 10px;
+}
+
+.distinctive-features {
+    background-color: $mainBgColor;
+}
+
+div.vertical {
+    display: inline;
 }
