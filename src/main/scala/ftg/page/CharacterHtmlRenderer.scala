@@ -61,7 +61,7 @@ object CharacterHtmlRenderer {
       cls := "shaded-area card-section horizontal",
       id  := "profile-section-card"
     )(
-      div(cls := "vertical")(
+      div(cls := "vertical", id := "name-entry-section")(
         div(cls := "white-card-entry", id := "name-entry")(
           p(cls := "white-card-entry")("NAME"),
           charNameInput(profile.characterName)
@@ -71,7 +71,7 @@ object CharacterHtmlRenderer {
           playerNameInput(profile.playerName)
         )
       ),
-      div(cls := "white-card-entry")(
+      div(cls := "white-card-entry", id := "distinctive-features-section")(
         p("DISTINCTIVE FEATURES"),
         distinctiveFeaturesInput(profile.distinctiveFeatures)
       )
