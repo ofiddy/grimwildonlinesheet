@@ -25,7 +25,6 @@ import ftg.page.Msg.SheetMsg
 import ftg.page.elems.BackgroundsElements.renderBackgroundRows
 import ftg.page.elems.BondsInput.renderBonds
 import ftg.page.elems.ConditionsInput.renderConditions
-import ftg.page.elems.SheetInputs.charCheckboxInput
 import ftg.page.elems.SheetInputs.charNameInput
 import ftg.page.elems.SheetInputs.distinctiveFeaturesInput
 import ftg.page.elems.SheetInputs.handleChangeFor
@@ -40,6 +39,7 @@ import tyrian.Html._
 
 import scala.Range
 import scala.annotation.tailrec
+import ftg.page.elems.SheetInputs.charHarmInput
 
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
@@ -78,8 +78,8 @@ object CharacterHtmlRenderer {
     )
 
   def renderStats(char: Character): Html[Msg] =
-    div(cls := "shaded-area")(
-      table(
+    div(cls := "shaded-area card-section", id := "stats-section-card")(
+      table(id := "stats-section-table")(
         tr(
           th(
             button(
@@ -117,16 +117,23 @@ object CharacterHtmlRenderer {
           td(markedInput(Agility)(char)),
           td(markedInput(Wits)(char)),
           td(markedInput(Presence)(char))
-        )
-      ),
-      table(
-        tr(
-          td("Bloodied"),
-          td(charCheckboxInput(Bloodied)(char))
         ),
         tr(
-          td("Rattled"),
-          td(charCheckboxInput(Rattled)(char))
+          charHarmInput(Bloodied)(char),
+          charHarmInput(Rattled)(char)
+        )
+      ),
+      hr(id := "stats-rule"),
+      div(id := "post-stats-info")(
+        p(
+          b("MARK"),
+          span(": +1T TO STAT, THEN CLEARS | "),
+          b("HARM"),
+          span(": +1T TO ALL ROLLS")
+        ),
+        p(
+          b("CRITICAL"),
+          span(": GREATER EFFECT (DROP 1)—SECONDARY EFFECT—SETUP")
         )
       )
     )

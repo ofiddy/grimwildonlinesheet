@@ -1,13 +1,11 @@
 @use 'charsheetSections/profile';
+@use 'charsheetSections/stats';
 @use 'base';
 
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap');
 
-$shadedBgColor: #DDD;
-
-$titleFontStack: 'Alegreya SC', Garamond, serif;
-$titleFont: 800 24pt $titleFontStack;
+$titleFont: 800 24pt base.$titleFontStack;
 
 body {
     font-family: base.$fontStack;
@@ -51,7 +49,7 @@ div.white-card-entry>input {
 }
 
 div.shaded-area {
-    background-color: $shadedBgColor;
+    background-color: base.$shadedBgColor;
 }
 
 div.shaded-area.card-section {
@@ -61,16 +59,6 @@ div.shaded-area.card-section {
 div.horizontal {
     display: flex;
     gap: 8px;
-}
-
-button.stat-label {
-    font-weight: bold;
-}
-
-.dice-pool-entry {
-    width: 20px;
-    height: 20px;
-    text-align: center;
 }
 
 #traits-desires {
