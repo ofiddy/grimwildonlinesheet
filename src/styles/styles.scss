@@ -1,20 +1,21 @@
+@use 'charsheetSections/profile';
+@use 'base';
+
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap');
 
-$fontStack: 'Bitter', 'IBM Plex Serif', serif;
 $shadedBgColor: #DDD;
-$mainBgColor: white;
 
 $titleFontStack: 'Alegreya SC', Garamond, serif;
 $titleFont: 800 24pt $titleFontStack;
 
 body {
-    font-family: $fontStack;
+    font-family: base.$fontStack;
     width: 100%;
 }
 
 input {
-    font-family: $fontStack;
+    font-family: base.$fontStack;
 }
 
 h1 {
@@ -34,13 +35,13 @@ h1 {
 }
 
 div.white-card-entry {
-    background-color: $mainBgColor;
+    background-color: base.$mainBgColor;
     padding: 4pt;
     border-radius: 8px;
 }
 
 .white-card-entry>p {
-    font: bold 12pt $fontStack;
+    font: bold 12pt base.$fontStack;
     margin: 4px;
 }
 
@@ -81,41 +82,6 @@ button.stat-label {
     display: flex;
 }
 
-.name-entry-input {
-    font-size: 18pt;
-    font-family: $fontStack;
-    font-weight: normal;
-}
-
-#distinctive-features {
-    width: 95%;
-    border: none;
-    resize: none;
-    height: 80%;
-    font-family: $fontStack;
-}
-
-#profile-section-card {
-    border-top: 15px black solid;
-    display: flex;
-}
-
-#name-entry {
-    margin-bottom: 10px;
-}
-
-.distinctive-features {
-    background-color: $mainBgColor;
-}
-
 div.vertical {
     display: inline;
-}
-
-#name-entry-section {
-    flex-grow: 1;
-}
-
-#distinctive-features-section {
-    flex-grow: 1;
 }

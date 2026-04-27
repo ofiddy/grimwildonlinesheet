@@ -1,0 +1,36 @@
+@use '../base';
+
+.name-entry-input {
+  font-size: 18pt;
+  font-family: base.$fontStack;
+  font-weight: normal;
+}
+
+#distinctive-features {
+  width: 95%;
+  border: none;
+  resize: none;
+  height: 80%;
+  font-family: base.$fontStack;
+}
+
+#profile-section-card {
+  border-top: 15px black solid;
+  display: flex;
+}
+
+#name-entry-section {
+  flex-grow: 1;
+}
+
+#distinctive-features-section {
+  flex-grow: 1;
+}
+
+#name-entry {
+  margin-bottom: 10px;
+}
+
+.distinctive-features {
+  background-color: base.$mainBgColor;
+}
