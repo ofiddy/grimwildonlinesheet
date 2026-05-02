@@ -66,6 +66,7 @@ div.shaded-area.card-section {
 .white-table-entry {
   border: none;
   height: 3em;
+  width: 95%;
 }
 
 .white-table-cell {
@@ -77,4 +78,8 @@ div.shaded-area.card-section {
   border: 2px solid $shadedBgColor;
   height: 1em;
   padding: 5px;
+}
+
+.centre-cell {
+  text-align: center;
 }

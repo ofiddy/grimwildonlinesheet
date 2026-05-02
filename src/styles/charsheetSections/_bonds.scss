@@ -1,0 +1,46 @@
+@use '../base';
+
+.bond-delete-button {
+  background-color: transparent;
+  border: none;
+}
+
+#pc-header {
+  width: 200px;
+}
+
+#bonds-x-header {
+  width: 20px;
+}
+
+#bonds-switch-header {
+  width: 75px;
+}
+
+.bonds-list {
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  font-family: base.$fontStack;
+}
+
+.bond-switch-button {
+  font-family: base.$fontStack;
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+}
+
+.bond-add {
+  margin-top: 10px;
+  font-weight: bolder;
+  font-family: base.$fontStack;
+  background-color: base.$mainBgColor;
+  border: 2px black solid;
+  border-radius: 5px;
+  height: 2em;
+}
+
+.bond-add:hover {
+  background-color: base.$shadedBgColor;
+}

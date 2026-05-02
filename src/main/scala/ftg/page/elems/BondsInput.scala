@@ -19,31 +19,48 @@ import tyrian.Html
 import tyrian.Html._
 
 object BondsInput {
-  def renderBonds(bonds: List[Bond]): Html[Msg] = div(
-    h2("Bonds"),
-    ul(
-      li("Change a Bond: The other PC takes spark"),
-      li("Quarrel: Both take spark")
-    ),
-    table(
-      tr(
-        th(),
-        th("PC"),
-        th("Bond"),
-        th()
-      ) :: bonds.zipWithIndex.map(renderBond.tupled)
-    ),
-    button(onClick(SheetMsg(AddListElemCommand(NewBond, BondsLoc))))("Add Bond")
-  )
+  def renderBonds(bonds: List[Bond]): Html[Msg] =
+    div(cls := "shaded-area card-section")(
+      div(cls := "card-black-header")(
+        h2("BONDS"),
+        span(
+          "CHANGE A BOND: THE OTHER PC TAKES SPARK | QUARREL: BOTH TAKE SPARK"
+        )
+      ),
+      div(cls := "card-section-inner")(
+        div(cls := "white-card-table-wrapper")(
+          table(cls := "white-card-table")(
+            tr(cls := "white-table-header")(
+              th(id := "bonds-x-header")(),
+              th(id := "pc-header")("PC"),
+              th("Bond"),
+              th(id := "bonds-switch-header")("Switch")
+            ) :: bonds.zipWithIndex.map(renderBond.tupled)
+          )
+        ),
+        button(
+          cls := "bond-add",
+          onClick(SheetMsg(AddListElemCommand(NewBond, BondsLoc)))
+        )(
+          "Add Bond"
+        )
+      )
+    )
 
   def renderBond(bond: Bond, index: Int): Html[Msg] = tr(
-    td(
-      button(onClick(SheetMsg(DeleteListElemCommand(bond, index, BondsLoc))))(
-        "🗑️"
+    td(cls := "white-table-cell centre-cell")(
+      button(
+        cls := "bond-delete-button",
+        onClick(SheetMsg(DeleteListElemCommand(bond, index, BondsLoc)))
+      )(
+        b("X")
       )
     ),
-    td(
-      exitableTextInput(`value` := bond.pcName.toString)(s =>
+    td(cls := "white-table-cell")(
+      exitableTextInput(
+        cls     := "white-table-entry",
+        `value` := bond.pcName.toString
+      )(s =>
         handleChangeForAtIndex(BondsLoc)(
           bond,
           bond.copy(pcName = s.intoCharName),
@@ -51,10 +68,14 @@ object BondsInput {
         )
       )
     ),
-    td(
+    td(cls := "white-table-cell")(
       bond.bondDesc match
         case CustomBond(label) =>
-          exitableTextInput(`value` := label)(s =>
+          exitableTextInput(
+            cls           := "white-table-entry",
+            `value`       := label,
+            `placeholder` := "Write Bond Here"
+          )(s =>
             handleChangeForAtIndex(BondsLoc)(
               bond,
               bond.copy(bondDesc = CustomBond(s)),
@@ -64,10 +85,11 @@ object BondsInput {
         case p: PremadeBond =>
           renderPremadeBondsList(bond, p, index)
     ),
-    td(
+    td(cls := "white-table-cell centre-cell")(
       bond.bondDesc match
         case CustomBond(label) =>
           button(
+            cls := "bond-switch-button",
             onClick(
               SheetMsg(
                 ModifyListElemCommand(
@@ -80,9 +102,10 @@ object BondsInput {
                 )
               )
             )
-          )("📝")
+          )("CUSTOM")
         case PremadeBond(labelLeft, labelRight) =>
           button(
+            cls := "bond-switch-button",
             onClick(
               SheetMsg(
                 ModifyListElemCommand(
@@ -93,7 +116,7 @@ object BondsInput {
                 )
               )
             )
-          )("🔧")
+          )("PREMADE")
     )
   )
 
@@ -109,6 +132,7 @@ object BondsInput {
 
     div(cls := "horizontal")(
       select(
+        cls := "bonds-list",
         onInput(s =>
           handleChangeForAtIndex(BondsLoc)(
             bond,
@@ -129,6 +153,7 @@ object BondsInput {
         )
       ),
       select(
+        cls := "bonds-list",
         onInput(s =>
           handleChangeForAtIndex(BondsLoc)(
             bond,
