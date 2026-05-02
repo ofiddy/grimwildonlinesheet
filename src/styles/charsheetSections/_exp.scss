@@ -1,0 +1,34 @@
+@use '../base';
+
+$xpSize: 18px;
+
+.xp-subtitle {
+  font-size: 10pt;
+  margin-bottom: 10px;
+}
+
+#xp-section-inner {
+  padding: 5px;
+}
+
+#xp-block-section {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.xp-box {
+  border: 2px solid black;
+  border-radius: 3px;
+  appearance: none;
+  width: $xpSize;
+  height: $xpSize;
+  background-color: base.$mainBgColor;
+}
+
+.xp-box:checked {
+  background-color: base.$offBlack;
+}
+
+.xp-box:hover {
+  background-color: base.$shadedBgColor;
+}

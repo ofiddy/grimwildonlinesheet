@@ -55,8 +55,10 @@ object CharacterHtmlRenderer {
       ),
       renderCharacterDetails(char),
       renderBonds(char.bonds),
-      renderStoryArcs(char),
-      renderExperience(char.experience)
+      div(cls := "horizontal no-grow")(
+        renderStoryArcs(char),
+        renderExperience(char.experience)
+      )
     )
   )
 
@@ -243,10 +245,15 @@ object CharacterHtmlRenderer {
     )
 
   def renderExperience(exp: Experience): Html[Msg] =
-    div(cls := "shaded-area")(
-      h2("Experience"),
-      b("Each session, take 1 XP."),
-      renderExperienceBlocks(exp)
+    div(cls := "shaded-area card-section")(
+      div(cls := "card-black-header")(
+        h2("EXPERIENCE")
+      ),
+      div(id := "xp-section-inner")(
+        b(cls := "xp-subtitle")("Each session, take 1 XP."),
+        renderExperienceBlocks(exp),
+        b(cls := "xp-subtitle")("Each full row, take a new talent.")
+      )
     )
 
   def renderExperienceBlocks(exp: Experience): Html[Msg] =
@@ -266,6 +273,7 @@ object CharacterHtmlRenderer {
           `type`    := "checkbox",
           `checked` := numCreated < exp.toInt,
           `value`   := numCreated.toString,
+          cls       := "xp-box",
           onClick(handleChangeFor(ExpLoc)(exp, (numCreated + 1).toInt.xp))
         )
       val newRow = row :+ newCheckbox
@@ -281,6 +289,6 @@ object CharacterHtmlRenderer {
           breakpoints,
           newRow :: finishedRows
         )
-    case Nil => div(rows.reverse.map(div(_)))
+    case Nil => div(id := "xp-block-section")(rows.reverse.map(div(_)))
 
 }

@@ -28,11 +28,28 @@ object StoryArcsInput {
 
   def renderStoryArcs(
       char: ftg.Character.Character
-  ): Html[Msg] = div(
-    h2("Story Arcs"),
-    p("Finish or move on from an arc: take spark"),
-    prefilledOrCustomSelector(char, "Group Arc", GroupArcLoc),
-    prefilledOrCustomSelector(char, "Character Arc 1", CharArcLoc1),
-    prefilledOrCustomSelector(char, "Character Arc 2", CharArcLoc2)
+  ): Html[Msg] = div(id := "story-arcs", cls := "shaded-area card-section")(
+    div(cls := "card-black-header")(
+      h2("STORY ARCS"),
+      span(
+        "FINISH OR MOVE ON FROM AN ARC: TAKE SPARK"
+      )
+    ),
+    div(cls := "card-section-inner")(
+      table(id := "arc-table")(
+        tr(id := "group-arc-row")(
+          td(b("GROUP ARC: ")),
+          td(prefilledOrCustomSelector(char, "", GroupArcLoc))
+        ),
+        tr(
+          td("CHARACTER ARC: "),
+          td(prefilledOrCustomSelector(char, "", CharArcLoc1))
+        ),
+        tr(
+          td("CHARACTER ARC: "),
+          td(prefilledOrCustomSelector(char, "", CharArcLoc2))
+        )
+      )
+    )
   )
 }
