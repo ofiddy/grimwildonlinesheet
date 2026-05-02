@@ -46,7 +46,7 @@ object CharacterHtmlRenderer {
     h1("Grimwild Online Character Sheet"),
     div(cls := "sheet-card")(
       renderProfile(char.profile),
-      div(cls := "horizontal")(
+      div(cls := "horizontal no-grow")(
         renderStats(char),
         div(cls := "vertical")(
           renderStoryAndSpark(char.story, char.spark),
