@@ -22,8 +22,9 @@ object BackgroundsElements {
     def bgRow(
         lens: AppliedPLens[Background, Background, Option[Wise], Option[Wise]]
     ): Html[Msg] =
-      td(
+      td(cls := "white-table-cell")(
         exitableTextInput(
+          cls     := "white-table-entry wise-entry",
           `value` := lens.get.map(_.toString).getOrElse("")
         )(s =>
           handleChangeFor(loc)(
@@ -34,10 +35,11 @@ object BackgroundsElements {
       )
 
     tr(
-      td(
-        exitableTextInput(`value` := bg.description.getOrElse(""))(s =>
-          handleChangeFor(loc)(bg, bg.copy(description = s.asOption))
-        )
+      td(cls := "white-table-cell")(
+        exitableTextInput(
+          cls     := "white-table-entry",
+          `value` := bg.description.getOrElse("")
+        )(s => handleChangeFor(loc)(bg, bg.copy(description = s.asOption)))
       ),
       bgRow(bg.focus(_.wises._1)),
       bgRow(bg.focus(_.wises._2)),

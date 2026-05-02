@@ -1,45 +1,104 @@
-$fontStack: medium 'Helvetica';
-$shadedBgColor: #DDD;
+@use 'charsheetSections/profile';
+@use 'charsheetSections/stats';
+@use 'charsheetSections/story_spark';
+@use 'charsheetSections/conditions';
+@use 'charsheetSections/traits_desires';
+@use 'charsheetSections/bonds';
+@use 'charsheetSections/story_arcs';
+@use 'charsheetSections/exp';
+@use 'base';
+
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap');
+
+$titleFont: 800 24pt base.$titleFontStack;
 
 body {
-    font: $fontStack;
+    font-family: base.$fontStack;
+    width: 100%;
 }
 
-div.shaded-area {
-    background-color: $shadedBgColor;
+input {
+    font-family: base.$fontStack;
 }
 
-div.horizontal {
+h1 {
+    font: $titleFont;
+    font-variant-caps: small-caps;
+}
+
+.sheet-card {
+    max-width: 37.5%;
+    min-width: 850px;
+    margin: auto;
+}
+
+div.white-card-entry {
+    background-color: base.$mainBgColor;
+    padding: 4pt;
+    border-radius: 8px;
+}
+
+.white-card-entry>p {
+    font: bold 12pt base.$fontStack;
+    margin: 4px;
+}
+
+div.white-card-entry>input {
+    border: none;
+    width: 90%;
+}
+
+.horizontal {
     display: flex;
-}
-
-button.stat-label {
-    font-weight: bold;
-}
-
-.dice-pool-entry {
-    width: 20px;
-    height: 20px;
-    text-align: center;
-}
-
-#traits-desires {
-    display: flex;
-    gap: 10px;
+    gap: 8px;
 }
 
 #toolbar {
     display: flex;
 }
 
-#char-name-input {
-    font: 24pt bold;
+div.vertical {
+    display: inline;
 }
 
-#player-name-input {
-    font: 18pt bold;
+.no-grow {
+    align-items: flex-start;
+    align-content: flex-start;
 }
 
-#distinctive-features {
-    width: 300px;
+#wises-header {
+    border: none;
+}
+
+.wise-entry {
+    font-style: italic;
+    padding: 5px;
+}
+
+.prefilledorcustom-selector {
+    background-color: base.$mainBgColor;
+    border: none;
+    font-family: base.$fontStack;
+    border-radius: 5px;
+    height: 30px;
+    font-weight: bold;
+}
+
+.prefilledorcustom-selected-custom {
+    font-weight: 400;
+}
+
+.prefilledorcustom-container {
+    align-items: center;
+    display: flex;
+    gap: 5px;
+}
+
+.prefilledorcustom-entry {
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    padding: 0 5px;
+    font-weight: bold;
 }

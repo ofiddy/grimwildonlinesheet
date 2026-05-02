@@ -22,9 +22,14 @@ def prefilledOrCustomSelector[T](
     loc: Loc[Option[T]]
 )(using T: LargelyPrefilledSection[T]): Html[Msg] = {
   val applied = loc(char)
-  div(cls := "horizontal")(
+  div(cls := "prefilledorcustom-container")(
     p(label),
     select(
+      cls := s"prefilledorcustom-selector ${
+          if T.extractCustomLabel(applied.get).nonEmpty
+          then "prefilledorcustom-selected-custom"
+          else ""
+        }",
       onInput(s =>
         val traitSystemMap = T.sectionMap
         val newTrait: Option[T] = s match {
@@ -49,11 +54,12 @@ def prefilledOrCustomSelector[T](
     ),
     T.extractCustomLabel(applied.get) match {
       case Some(label) =>
-        exitableTextInput(`value` := label)(s =>
-          handleChangeFor(loc)(
-            applied.get,
-            Some(T.custom(s))
-          )
+        exitableTextInput(`value` := label, cls := "prefilledorcustom-entry")(
+          s =>
+            handleChangeFor(loc)(
+              applied.get,
+              Some(T.custom(s))
+            )
         )
       case _ => Empty
     }

@@ -1,0 +1,16 @@
+@use '../base';
+
+#traits-desires {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.traits-header {
+  align-items: center;
+}
+
+.trait-section {
+  width: 300px;
+  flex-grow: 1;
+}

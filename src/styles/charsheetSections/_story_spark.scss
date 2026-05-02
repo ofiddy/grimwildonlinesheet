@@ -1,0 +1,49 @@
+@use '../base';
+
+$storysparkBoxHeight: 20px;
+
+div.story-card {
+  padding: 5px;
+  border-radius: 10px;
+  text-align: center;
+  flex-grow: 0;
+  display: inline-block;
+}
+
+.story-checkbox {
+  width: $storysparkBoxHeight;
+  height: $storysparkBoxHeight;
+  appearance: none;
+  background-color: base.$mainBgColor;
+  border: 2px black solid;
+  border-radius: 10000px;
+  padding: 0;
+  margin: 0;
+
+  &--spark {
+    @extend .story-checkbox;
+    border-radius: 3px;
+  }
+}
+
+.story-checkbox:checked {
+  background-color: base.$offBlack;
+}
+
+div.story-checkbox {
+  padding: 0;
+  margin: 0;
+  height: $storysparkBoxHeight
+}
+
+button.story-crementer {
+  font-weight: bolder;
+  font-size: 16pt;
+  border: none;
+  background-color: transparent;
+  margin-bottom: 2px;
+}
+
+.story-buttons {
+  align-items: center;
+}

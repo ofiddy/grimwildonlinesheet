@@ -25,7 +25,6 @@ import ftg.page.Msg.SheetMsg
 import ftg.page.elems.BackgroundsElements.renderBackgroundRows
 import ftg.page.elems.BondsInput.renderBonds
 import ftg.page.elems.ConditionsInput.renderConditions
-import ftg.page.elems.SheetInputs.charCheckboxInput
 import ftg.page.elems.SheetInputs.charNameInput
 import ftg.page.elems.SheetInputs.distinctiveFeaturesInput
 import ftg.page.elems.SheetInputs.handleChangeFor
@@ -40,32 +39,53 @@ import tyrian.Html._
 
 import scala.Range
 import scala.annotation.tailrec
+import ftg.page.elems.SheetInputs.charHarmInput
 
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
     h1("Grimwild Online Character Sheet"),
-    renderProfile(char.profile),
-    renderStats(char),
-    renderConditions(char.conditions),
-    renderStoryAndSpark(char.story, char.spark),
-    renderCharacterDetails(char),
-    renderBonds(char.bonds),
-    renderStoryArcs(char),
-    renderExperience(char.experience)
+    div(cls := "sheet-card")(
+      renderProfile(char.profile),
+      div(cls := "horizontal no-grow")(
+        renderStats(char),
+        div(cls := "vertical")(
+          renderStoryAndSpark(char.story, char.spark),
+          renderConditions(char.conditions)
+        )
+      ),
+      renderCharacterDetails(char),
+      renderBonds(char.bonds),
+      div(cls := "horizontal no-grow")(
+        renderStoryArcs(char),
+        renderExperience(char.experience)
+      )
+    )
   )
 
-  def renderProfile(profile: CharacterProfile): Html[Msg] = div(
-    p("Character Name"),
-    charNameInput(profile.characterName),
-    p("Player Name"),
-    playerNameInput(profile.playerName),
-    h3("Distinctive Features"),
-    distinctiveFeaturesInput(profile.distinctiveFeatures)
-  )
+  def renderProfile(profile: CharacterProfile): Html[Msg] =
+    div(
+      cls := "shaded-area card-section horizontal card-section-inner",
+      id  := "profile-section-card"
+    )(
+      div(cls := "vertical", id := "name-entry-section")(
+        div(cls := "white-card-entry", id := "name-entry")(
+          p(cls := "white-card-entry")("NAME"),
+          charNameInput(profile.characterName)
+        ),
+        div(cls := "white-card-entry")(
+          p(cls := "white-card-entry")("PLAYER"),
+          playerNameInput(profile.playerName)
+        )
+      ),
+      div(cls := "white-card-entry", id := "distinctive-features-section")(
+        p("DISTINCTIVE FEATURES"),
+        distinctiveFeaturesInput(profile.distinctiveFeatures)
+      )
+    )
 
   def renderStats(char: Character): Html[Msg] =
-    div(cls := "shaded-area")(
-      table(
+    div(cls := "shaded-area card-section", id := "stats-section-card")(
+      table(id := "stats-section-table")(
         tr(
           th(
             button(
@@ -103,52 +123,77 @@ object CharacterHtmlRenderer {
           td(markedInput(Agility)(char)),
           td(markedInput(Wits)(char)),
           td(markedInput(Presence)(char))
-        )
-      ),
-      table(
-        tr(
-          td("Bloodied"),
-          td(charCheckboxInput(Bloodied)(char))
         ),
         tr(
-          td("Rattled"),
-          td(charCheckboxInput(Rattled)(char))
+          charHarmInput(Bloodied)(char),
+          charHarmInput(Rattled)(char)
+        )
+      ),
+      hr(id := "stats-rule"),
+      div(id := "post-stats-info")(
+        p(
+          b("MARK"),
+          span(": +1T TO STAT, THEN CLEARS | "),
+          b("HARM"),
+          span(": +1T TO ALL ROLLS")
+        ),
+        p(
+          b("CRITICAL"),
+          span(": GREATER EFFECT (DROP 1)—SECONDARY EFFECT—SETUP")
         )
       )
     )
 
   def renderStoryAndSpark(story: Story, spark: Spark): Html[Msg] = div(
-    table(
-      tr(
-        td(em("STORY")) +: button(
+    cls := "horizontal"
+  )(
+    div(cls := "shaded-area story-card")(
+      b(cls := "story-card-label")("STORY"),
+      hr,
+      div(cls := "horizontal story-buttons")(
+        button(
           disabled(story.toInt <= 0),
-          onClick(SheetMsg(ValueEditCommand(story.spendStory, story, StoryLoc)))
-        )("-") +:
+          onClick(
+            SheetMsg(ValueEditCommand(story.spendStory, story, StoryLoc))
+          ),
+          cls := "story-crementer"
+        )("–") +:
           createAndFillCheckboxes(
             story.toInt,
-            maxStory.toInt - story.toInt
-          ).map(b => td(b)) :+ button(
+            maxStory.toInt - story.toInt,
+            "story-checkbox"
+          ) :+ button(
             disabled(story.toInt >= maxStory.toInt),
             onClick(
               SheetMsg(ValueEditCommand(story.gainStory, story, StoryLoc))
-            )
+            ),
+            cls := "story-crementer"
           )(
             "+"
           )
-      ),
-      tr(
-        td(em("SPARK")) +: button(
+      )
+    ),
+    div(cls := "shaded-area story-card")(
+      b(cls := "story-card-label")("SPARK"),
+      hr,
+      div(cls := "horizontal story-buttons")(
+        button(
           disabled(spark.toInt <= 0),
-          onClick(SheetMsg(ValueEditCommand(spark.spendSpark, spark, SparkLoc)))
-        )("-") +:
+          onClick(
+            SheetMsg(ValueEditCommand(spark.spendSpark, spark, SparkLoc))
+          ),
+          cls := "story-crementer"
+        )("–") +:
           createAndFillCheckboxes(
             spark.toInt,
-            maxSpark.toInt - spark.toInt
-          ).map(b => td(b)) :+ button(
+            maxSpark.toInt - spark.toInt,
+            "story-checkbox--spark"
+          ) :+ button(
             disabled(spark.toInt >= maxSpark.toInt),
             onClick(
               SheetMsg(ValueEditCommand(spark.gainSpark, spark, SparkLoc))
-            )
+            ),
+            cls := "story-crementer"
           )(
             "+"
           )
@@ -159,40 +204,56 @@ object CharacterHtmlRenderer {
   def displayCondition(condition: Condition): String =
     condition.name.getOrElse("")
 
-  def createAndFillCheckboxes(filled: Int, empty: Int): List[Html[Msg]] =
+  def createAndFillCheckboxes(
+      filled: Int,
+      empty: Int,
+      clsExt: String
+  ): List[Html[Msg]] =
     Range(0, filled + empty)
       .map(i =>
         input(
           `type`    := "checkbox",
           `checked` := i < filled,
-          onClick(Msg.NoOpMsg)
+          onClick(Msg.NoOpMsg),
+          `cls` := clsExt
         )
       )
       .toList
 
-  def renderCharacterDetails(char: Character): Html[Msg] = div(
-    h2("Character Details"),
-    table(
-      tr(
-        th("Background"),
-        th("Wise"),
-        th("Wise"),
-        th("Wise")
+  def renderCharacterDetails(char: Character): Html[Msg] =
+    div(cls := "shaded-area card-section")(
+      div(cls := "card-black-header")(
+        h2("CHARACTER DETAILS"),
+        span("INTRODUCE A TANGLE: TAKE SPARK")
       ),
-      renderBackgroundRows(char, BackgroundLoc1),
-      renderBackgroundRows(char, BackgroundLoc2)
-    ),
-    div(id := "traits-desires")(
-      renderTraits(char),
-      renderDesires(char)
+      div(cls := "card-section-inner")(
+        div(cls := "white-card-table-wrapper")(
+          table(cls := "white-card-table")(
+            tr(cls := "white-table-header")(
+              th("BACKGROUNDS"),
+              th(`span` := 3, id := "wises-header")("WISES")
+            ),
+            renderBackgroundRows(char, BackgroundLoc1),
+            renderBackgroundRows(char, BackgroundLoc2)
+          )
+        ),
+        div(id := "traits-desires")(
+          renderTraits(char),
+          renderDesires(char)
+        )
+      )
     )
-  )
 
   def renderExperience(exp: Experience): Html[Msg] =
-    div(cls := "shaded-area")(
-      h2("Experience"),
-      b("Each session, take 1 XP."),
-      renderExperienceBlocks(exp)
+    div(cls := "shaded-area card-section")(
+      div(cls := "card-black-header")(
+        h2("EXPERIENCE")
+      ),
+      div(id := "xp-section-inner")(
+        b(cls := "xp-subtitle")("Each session, take 1 XP."),
+        renderExperienceBlocks(exp),
+        b(cls := "xp-subtitle")("Each full row, take a new talent.")
+      )
     )
 
   def renderExperienceBlocks(exp: Experience): Html[Msg] =
@@ -212,6 +273,7 @@ object CharacterHtmlRenderer {
           `type`    := "checkbox",
           `checked` := numCreated < exp.toInt,
           `value`   := numCreated.toString,
+          cls       := "xp-box",
           onClick(handleChangeFor(ExpLoc)(exp, (numCreated + 1).toInt.xp))
         )
       val newRow = row :+ newCheckbox
@@ -227,6 +289,6 @@ object CharacterHtmlRenderer {
           breakpoints,
           newRow :: finishedRows
         )
-    case Nil => div(rows.reverse.map(div(_)))
+    case Nil => div(id := "xp-block-section")(rows.reverse.map(div(_)))
 
 }

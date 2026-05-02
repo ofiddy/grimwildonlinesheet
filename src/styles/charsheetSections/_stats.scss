@@ -1,0 +1,79 @@
+@use '../base';
+
+#stats-section-card {
+  border-left: 10px solid;
+  border-right: 10px solid;
+  text-align: center;
+  padding: 10px 0 1px;
+  min-width: 520px;
+}
+
+#stats-section-table {
+  width: 100%;
+  table-layout: fixed;
+  justify-content: center;
+}
+
+#stats-section-table {
+  text-align: center;
+}
+
+button.stat-label {
+  font-weight: bolder;
+  font-variant: small-caps;
+  font-family: base.$fontStack;
+  font-size: 16pt;
+}
+
+.dice-pool-entry {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  align-self: center;
+  font-family: base.$titleFontStack;
+  font-size: 36pt;
+  font-weight: 700;
+  border: solid 2px black;
+  border-radius: 12px;
+  margin-bottom: -25px;
+  padding: 0 5px 10px 5px;
+}
+
+input.stat-mark-box {
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+  appearance: none;
+  background-color: base.$mainBgColor;
+  border: 2px black solid;
+  border-radius: 4px;
+}
+
+input:hover.stat-mark-box {
+  background-color: base.$shadedBgColor;
+}
+
+input:checked.stat-mark-box {
+  background-color: base.$offBlack;
+}
+
+table.harm-section {
+  text-align: center;
+  margin: auto;
+}
+
+.harm-section-label {
+  font-weight: bold;
+}
+
+#post-stats-info {
+  line-height: 0.3em;
+}
+
+#stats-rule {
+  height: 20px;
+  background-color: base.$darkShadedBgColor;
+  border: none;
+  margin: none;
+  width: 100%;
+}

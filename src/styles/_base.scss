@@ -1,0 +1,86 @@
+$mainBgColor: white;
+$fontStack: 'Bitter', 'IBM Plex Serif', serif;
+$titleFontStack: 'Alegreya SC', Garamond, serif;
+$shadedBgColor: #DDD;
+$darkShadedBgColor: #AAA;
+$offBlack: #777;
+
+$cardBorderRadius: 8px;
+
+.card-black-header {
+  background-color: black;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border: none;
+  border-top-left-radius: $cardBorderRadius;
+  border-top-right-radius: $cardBorderRadius;
+  height: 24px;
+}
+
+.card-black-header>h2 {
+  font-size: 12pt;
+  background-color: black;
+  color: $mainBgColor;
+  margin: 0;
+  text-align: left;
+}
+
+.card-black-header>span {
+  font-size: 10pt;
+  background-color: black;
+  color: $mainBgColor;
+  margin: 0;
+  padding: 4px 0 4px 8px;
+  margin-left: auto;
+}
+
+.card-section {
+  margin-bottom: 30px;
+}
+
+.card-section-inner {
+  padding: 10px;
+}
+
+div.shaded-area {
+  background-color: $shadedBgColor;
+}
+
+div.shaded-area.card-section {
+  border-radius: $cardBorderRadius;
+}
+
+.white-card-table-wrapper {
+  background-color: $mainBgColor;
+  border-radius: $cardBorderRadius;
+  padding: 5px;
+}
+
+.white-card-table {
+  border-collapse: collapse;
+  border-style: hidden;
+  width: 100%;
+}
+
+.white-table-entry {
+  border: none;
+  height: 3em;
+  width: 95%;
+}
+
+.white-table-cell {
+  border: 2px solid $shadedBgColor;
+}
+
+.white-table-header>th {
+  text-align: left;
+  border: 2px solid $shadedBgColor;
+  height: 1em;
+  padding: 5px;
+}
+
+.centre-cell {
+  text-align: center;
+}

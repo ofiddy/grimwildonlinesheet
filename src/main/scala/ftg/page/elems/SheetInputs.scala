@@ -31,12 +31,12 @@ object SheetInputs {
 
   def charNameInput(name: CharacterName) =
     exitableTextInput(
-      id      := "char-name-input",
+      cls     := "name-entry-input",
       `value` := name.label
     )((s: String) => handleChangeFor(CharacterNameLoc)(name, s.intoCharName))
 
   def playerNameInput(name: PlayerName) = exitableTextInput(
-    id      := "player-name-input",
+    cls     := "name-entry-input",
     `value` := name.label
   )((s: String) => handleChangeFor(PlayerNameLoc)(name, s.intoPlayerName))
 
@@ -64,15 +64,26 @@ object SheetInputs {
   )(char: Character) = input(
     `type`    := "checkbox",
     `checked` := loc(char).get.isMarked,
-    onClick(SheetMsg(TogglePoolMarkedCommand(loc)))
+    onClick(SheetMsg(TogglePoolMarkedCommand(loc))),
+    cls := "stat-mark-box"
   )
 
-  def charCheckboxInput(
+  def charHarmInput(
       loc: Loc[Boolean]
-  )(char: Character) = input(
-    `type`    := "checkbox",
-    `checked` := loc(char).get,
-    onClick(SheetMsg(ToggleCommand(loc)))
+  )(char: Character) = td(`colspan` := 2)(
+    table(cls := "harm-section")(
+      tr(
+        td(
+          input(
+            `type`    := "checkbox",
+            `checked` := loc(char).get,
+            onClick(SheetMsg(ToggleCommand(loc))),
+            cls := "stat-mark-box"
+          )
+        )
+      ),
+      tr(cls := "harm-section-label")(loc.toString.toUpperCase)
+    )
   )
 
 }

@@ -25,83 +25,99 @@ object ConditionsInput {
   def renderConditions(cs: List[Condition]): Html[Msg] = {
     val addButton =
       button(
+        cls := "add-condition",
         onClick(SheetMsg(AddListElemCommand(NewCondition, ConditionsLoc)))
-      )(em("Add Condition"))
-    div(
-      h2("Conditions"),
-      ul(cs.zipWithIndex.map((c, i) => renderedCondition(c, i))),
+      )("+")
+    div(id := "conditions-section")(
+      h2("CONDITIONS"),
+      div(
+        cs.zipWithIndex.map((c, i) => renderedCondition(c, i))
+      ),
       addButton
     )
   }
 
-  private def renderedCondition(c: Condition, i: Int): Html[Msg] = div(
-    li(cls := "horizontal")(
-      button(onClick(SheetMsg(DeleteListElemCommand(c, i, ConditionsLoc))))(
-        "🗑️"
-      ),
-      exitableTextInput(`value` := c.name.getOrElse(""))(s =>
-        handleChangeForAtIndex(ConditionsLoc)(c, c.copy(name = s.asOption), i)
-      ),
-      select(
-        onInput(s =>
-          handleChangeForAtIndex(ConditionsLoc)(
-            c,
-            c.copy(condType = s match {
-              case "urgent"    => UrgentCondition(DicePool(4))
-              case "short"     => ShortTermCondition
-              case "long"      => LongTermCondition
-              case "permanent" => PermanentCondition
-            }),
-            i
+  private def renderedCondition(c: Condition, i: Int): Html[Msg] =
+    div(cls := "condition-elem")(
+      div(cls := "horizontal condition-header")(
+        select(
+          cls := "condition-duration",
+          onInput(s =>
+            handleChangeForAtIndex(ConditionsLoc)(
+              c,
+              c.copy(condType = s match {
+                case "urgent"    => UrgentCondition(DicePool(4))
+                case "short"     => ShortTermCondition
+                case "long"      => LongTermCondition
+                case "permanent" => PermanentCondition
+              }),
+              i
+            )
           )
+        )(
+          option(
+            `value`    := "urgent",
+            `selected` := c.condType.isInstanceOf[UrgentCondition]
+          )(
+            "Urgent"
+          ),
+          option(
+            `value`    := "short",
+            `selected` := c.condType.isInstanceOf[ShortTermCondition.type]
+          )(
+            "Short"
+          ),
+          option(
+            `value`    := "long",
+            `selected` := c.condType.isInstanceOf[LongTermCondition.type]
+          )(
+            "Long"
+          ),
+          option(
+            `value`    := "permanent",
+            `selected` := c.condType.isInstanceOf[PermanentCondition.type]
+          )(
+            "Permanent"
+          )
+        ),
+        button(
+          cls := "condition-delete",
+          onClick(SheetMsg(DeleteListElemCommand(c, i, ConditionsLoc)))
+        )(
+          "X"
         )
-      )(
-        option(
-          `value`    := "urgent",
-          `selected` := c.condType.isInstanceOf[UrgentCondition]
-        )(
-          "Urgent"
-        ),
-        option(
-          `value`    := "short",
-          `selected` := c.condType.isInstanceOf[ShortTermCondition.type]
-        )(
-          "Short"
-        ),
-        option(
-          `value`    := "long",
-          `selected` := c.condType.isInstanceOf[LongTermCondition.type]
-        )(
-          "Long"
-        ),
-        option(
-          `value`    := "permanent",
-          `selected` := c.condType.isInstanceOf[PermanentCondition.type]
-        )(
-          "Permanent"
-        )
+      ),
+      exitableTextInput(
+        cls           := "condition-input",
+        `value`       := c.name.getOrElse(""),
+        `placeholder` := "Condition Text"
+      )(s =>
+        handleChangeForAtIndex(ConditionsLoc)(c, c.copy(name = s.asOption), i)
       ),
       c.condType match {
         case UrgentCondition(pool) =>
-          div(
-            dicePoolEntry(`value` := pool.diceRemaining.toString)(n =>
-              handleChangeForAtIndex(ConditionsLoc)(
-                c,
-                c.copy(condType = UrgentCondition(DicePool(n))),
-                i
-              )
-            ),
+          div(cls := "urgent-input-section")(
             button(
+              cls := "urgent-roll-button",
               onClick(
                 SheetMsg(
                   RollAndDropConditionPoolCommand(i, pool)
                 )
               )
-            )("Roll and Drop")
+            )("ROLL"),
+            dicePoolEntry(
+              cls     := "urgent-pool-entry",
+              `value` := pool.diceRemaining.toString
+            )(n =>
+              handleChangeForAtIndex(ConditionsLoc)(
+                c,
+                c.copy(condType = UrgentCondition(DicePool(n))),
+                i
+              )
+            )
           )
         case _ => Empty
       }
     )
-  )
 
 }
