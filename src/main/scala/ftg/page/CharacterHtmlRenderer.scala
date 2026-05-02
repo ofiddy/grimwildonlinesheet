@@ -48,9 +48,11 @@ object CharacterHtmlRenderer {
       renderProfile(char.profile),
       div(cls := "horizontal")(
         renderStats(char),
-        renderStoryAndSpark(char.story, char.spark)
+        div(cls := "vertical")(
+          renderStoryAndSpark(char.story, char.spark),
+          renderConditions(char.conditions)
+        )
       ),
-      renderConditions(char.conditions),
       renderCharacterDetails(char),
       renderBonds(char.bonds),
       renderStoryArcs(char),

@@ -16,7 +16,7 @@ object CharacterListFactories {
 
   case object NewCondition extends ElemFactory[Condition] {
     override def build: Condition =
-      Condition(Some("New Condition"), ShortTermCondition)
+      Condition(None, ShortTermCondition)
   }
 
   case object NewBond extends ElemFactory[Bond] {

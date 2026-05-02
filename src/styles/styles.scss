@@ -1,6 +1,7 @@
 @use 'charsheetSections/profile';
 @use 'charsheetSections/stats';
 @use 'charsheetSections/story_spark';
+@use 'charsheetSections/conditions';
 @use 'base';
 
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap');
@@ -24,7 +25,7 @@ h1 {
 
 .sheet-card {
     max-width: 37.5%;
-    min-width: 700px;
+    min-width: 850px;
     margin: auto;
 }
 
