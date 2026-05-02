@@ -46,9 +46,11 @@ object CharacterHtmlRenderer {
     h1("Grimwild Online Character Sheet"),
     div(cls := "sheet-card")(
       renderProfile(char.profile),
-      renderStats(char),
+      div(cls := "horizontal")(
+        renderStats(char),
+        renderStoryAndSpark(char.story, char.spark)
+      ),
       renderConditions(char.conditions),
-      renderStoryAndSpark(char.story, char.spark),
       renderCharacterDetails(char),
       renderBonds(char.bonds),
       renderStoryArcs(char),
@@ -139,37 +141,55 @@ object CharacterHtmlRenderer {
     )
 
   def renderStoryAndSpark(story: Story, spark: Spark): Html[Msg] = div(
-    table(
-      tr(
-        td(em("STORY")) +: button(
+    cls := "horizontal"
+  )(
+    div(cls := "shaded-area story-card")(
+      b(cls := "story-card-label")("STORY"),
+      hr,
+      div(cls := "horizontal story-buttons")(
+        button(
           disabled(story.toInt <= 0),
-          onClick(SheetMsg(ValueEditCommand(story.spendStory, story, StoryLoc)))
-        )("-") +:
+          onClick(
+            SheetMsg(ValueEditCommand(story.spendStory, story, StoryLoc))
+          ),
+          cls := "story-crementer"
+        )("–") +:
           createAndFillCheckboxes(
             story.toInt,
-            maxStory.toInt - story.toInt
-          ).map(b => td(b)) :+ button(
+            maxStory.toInt - story.toInt,
+            "story-checkbox"
+          ) :+ button(
             disabled(story.toInt >= maxStory.toInt),
             onClick(
               SheetMsg(ValueEditCommand(story.gainStory, story, StoryLoc))
-            )
+            ),
+            cls := "story-crementer"
           )(
             "+"
           )
-      ),
-      tr(
-        td(em("SPARK")) +: button(
+      )
+    ),
+    div(cls := "shaded-area story-card")(
+      b(cls := "story-card-label")("SPARK"),
+      hr,
+      div(cls := "horizontal story-buttons")(
+        button(
           disabled(spark.toInt <= 0),
-          onClick(SheetMsg(ValueEditCommand(spark.spendSpark, spark, SparkLoc)))
-        )("-") +:
+          onClick(
+            SheetMsg(ValueEditCommand(spark.spendSpark, spark, SparkLoc))
+          ),
+          cls := "story-crementer"
+        )("–") +:
           createAndFillCheckboxes(
             spark.toInt,
-            maxSpark.toInt - spark.toInt
-          ).map(b => td(b)) :+ button(
+            maxSpark.toInt - spark.toInt,
+            "story-checkbox--spark"
+          ) :+ button(
             disabled(spark.toInt >= maxSpark.toInt),
             onClick(
               SheetMsg(ValueEditCommand(spark.gainSpark, spark, SparkLoc))
-            )
+            ),
+            cls := "story-crementer"
           )(
             "+"
           )
@@ -180,13 +200,18 @@ object CharacterHtmlRenderer {
   def displayCondition(condition: Condition): String =
     condition.name.getOrElse("")
 
-  def createAndFillCheckboxes(filled: Int, empty: Int): List[Html[Msg]] =
+  def createAndFillCheckboxes(
+      filled: Int,
+      empty: Int,
+      clsExt: String
+  ): List[Html[Msg]] =
     Range(0, filled + empty)
       .map(i =>
         input(
           `type`    := "checkbox",
           `checked` := i < filled,
-          onClick(Msg.NoOpMsg)
+          onClick(Msg.NoOpMsg),
+          `cls` := clsExt
         )
       )
       .toList
