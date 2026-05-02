@@ -62,7 +62,7 @@ object CharacterHtmlRenderer {
 
   def renderProfile(profile: CharacterProfile): Html[Msg] =
     div(
-      cls := "shaded-area card-section horizontal",
+      cls := "shaded-area card-section horizontal card-section-inner",
       id  := "profile-section-card"
     )(
       div(cls := "vertical", id := "name-entry-section")(
@@ -218,23 +218,29 @@ object CharacterHtmlRenderer {
       )
       .toList
 
-  def renderCharacterDetails(char: Character): Html[Msg] = div(
-    h2("Character Details"),
-    table(
-      tr(
-        th("Background"),
-        th("Wise"),
-        th("Wise"),
-        th("Wise")
+  def renderCharacterDetails(char: Character): Html[Msg] =
+    div(cls := "shaded-area card-section")(
+      div(cls := "card-black-header")(
+        h2("CHARACTER DETAILS"),
+        span("INTRODUCE A TANGLE: TAKE SPARK")
       ),
-      renderBackgroundRows(char, BackgroundLoc1),
-      renderBackgroundRows(char, BackgroundLoc2)
-    ),
-    div(id := "traits-desires")(
-      renderTraits(char),
-      renderDesires(char)
+      div(cls := "card-section-inner")(
+        div(cls := "white-card-table-wrapper")(
+          table(cls := "white-card-table")(
+            tr(cls := "white-table-header")(
+              th("BACKGROUNDS"),
+              th(`span` := 3, id := "wises-header")("WISES")
+            ),
+            renderBackgroundRows(char, BackgroundLoc1),
+            renderBackgroundRows(char, BackgroundLoc2)
+          )
+        ),
+        div(id := "traits-desires")(
+          renderTraits(char),
+          renderDesires(char)
+        )
+      )
     )
-  )
 
   def renderExperience(exp: Experience): Html[Msg] =
     div(cls := "shaded-area")(

@@ -29,11 +29,6 @@ h1 {
     margin: auto;
 }
 
-.card-section {
-    margin-bottom: 30px;
-    padding: 10px;
-}
-
 div.white-card-entry {
     background-color: base.$mainBgColor;
     padding: 4pt;
@@ -48,14 +43,6 @@ div.white-card-entry {
 div.white-card-entry>input {
     border: none;
     width: 90%;
-}
-
-div.shaded-area {
-    background-color: base.$shadedBgColor;
-}
-
-div.shaded-area.card-section {
-    border-radius: 8px;
 }
 
 .horizontal {
@@ -79,4 +66,13 @@ div.vertical {
 .no-grow {
     align-items: flex-start;
     align-content: flex-start;
+}
+
+#wises-header {
+    border: none;
+}
+
+.wise-entry {
+    font-style: italic;
+    padding: 5px;
 }
