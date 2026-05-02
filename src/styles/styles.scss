@@ -2,6 +2,7 @@
 @use 'charsheetSections/stats';
 @use 'charsheetSections/story_spark';
 @use 'charsheetSections/conditions';
+@use 'charsheetSections/traits_desires';
 @use 'base';
 
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap');
@@ -50,11 +51,6 @@ div.white-card-entry>input {
     gap: 8px;
 }
 
-#traits-desires {
-    display: flex;
-    gap: 10px;
-}
-
 #toolbar {
     display: flex;
 }
@@ -75,4 +71,25 @@ div.vertical {
 .wise-entry {
     font-style: italic;
     padding: 5px;
+}
+
+.prefilledorcustom-selector {
+    background-color: base.$mainBgColor;
+    border: none;
+    font-family: base.$fontStack;
+    border-radius: 5px;
+    height: 30px;
+}
+
+.prefilledorcustom-container {
+    align-items: center;
+    display: flex;
+    gap: 5px;
+}
+
+.prefilledorcustom-entry {
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    padding: 0 5px;
 }

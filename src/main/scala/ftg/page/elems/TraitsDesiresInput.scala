@@ -19,19 +19,27 @@ import ftg.command.CharacterLoc.DesireLocs.DesireYouWant2
 import ftg.command.CharacterLoc.DesireLocs.DesireYouDoNotWant
 
 object TraitsDesiresInput {
-  def renderTraits(char: Character): Html[Msg] = div(
-    h3("Traits"),
-    traitSelector(char, "✔️ ", TraitYouAre1),
-    traitSelector(char, "✔️ ", TraitYouAre2),
-    traitSelector(char, "❌ ", TraitYouAreNot)
-  )
+  def renderTraits(char: Character): Html[Msg] =
+    div(cls := "vertical trait-section")(
+      div(cls := "traits-header")(
+        b("TRAITS: "),
+        span("2 you are ✔ | 1 you're really not ✘")
+      ),
+      traitSelector(char, "✔ ", TraitYouAre1),
+      traitSelector(char, "✔ ", TraitYouAre2),
+      traitSelector(char, "✘ ", TraitYouAreNot)
+    )
 
-  def renderDesires(char: Character): Html[Msg] = div(
-    h3("Desires"),
-    desiresSelector(char, "✔️ ", DesireYouWant1),
-    desiresSelector(char, "✔️ ", DesireYouWant2),
-    desiresSelector(char, "❌ ", DesireYouDoNotWant)
-  )
+  def renderDesires(char: Character): Html[Msg] =
+    div(cls := "vertical trait-section")(
+      div(cls := "traits-header")(
+        b("DESIRES: "),
+        span("2 you want ✔ | 1 you really don't ✘")
+      ),
+      desiresSelector(char, "✔ ", DesireYouWant1),
+      desiresSelector(char, "✔ ", DesireYouWant2),
+      desiresSelector(char, "✘ ", DesireYouDoNotWant)
+    )
 
   private def traitSelector = {
     given LargelyPrefilledSection[Trait] {
