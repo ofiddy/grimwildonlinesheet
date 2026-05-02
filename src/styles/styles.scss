@@ -79,6 +79,11 @@ div.vertical {
     font-family: base.$fontStack;
     border-radius: 5px;
     height: 30px;
+    font-weight: bold;
+}
+
+.prefilledorcustom-selected-custom {
+    font-weight: 400;
 }
 
 .prefilledorcustom-container {
@@ -92,4 +97,5 @@ div.vertical {
     border-radius: 5px;
     border: none;
     padding: 0 5px;
+    font-weight: bold;
 }

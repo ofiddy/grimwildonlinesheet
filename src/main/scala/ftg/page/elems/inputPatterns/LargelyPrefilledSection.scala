@@ -25,7 +25,11 @@ def prefilledOrCustomSelector[T](
   div(cls := "prefilledorcustom-container")(
     p(label),
     select(
-      cls := "prefilledorcustom-selector",
+      cls := s"prefilledorcustom-selector ${
+          if T.extractCustomLabel(applied.get).nonEmpty
+          then "prefilledorcustom-selected-custom"
+          else ""
+        }",
       onInput(s =>
         val traitSystemMap = T.sectionMap
         val newTrait: Option[T] = s match {
