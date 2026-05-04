@@ -1,8 +1,8 @@
-package ftg.Talent.TalentWidget.TalentComponents
+package ftg.Talent.TalentComponent
 
 import ftg.Character.{Character => Character}
 import ftg.DicePool.DicePool
-import ftg.Talent.TalentWidgets.TalentComponents.TalentComponent
+import ftg.Talent.TalentComponents.TalentComponent
 
 final case class DicePoolComponent(
     currentDice: DicePool,

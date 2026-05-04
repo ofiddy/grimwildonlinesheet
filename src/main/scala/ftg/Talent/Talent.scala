@@ -1,6 +1,6 @@
 package ftg.Talent
 
-import ftg.Talent.TalentWidgets.TalentWidget
+import ftg.Talent.TalentComponents.TalentComponent
 
 opaque type Markdown = String
 
@@ -15,5 +15,5 @@ extension (m: Markdown) {
 final case class Talent(
     name: String,
     description: Markdown,
-    widgets: List[TalentWidget]
+    widgets: List[TalentComponent]
 )

@@ -1,4 +1,4 @@
-package ftg.Talent.TalentWidgets.TalentComponents
+package ftg.Talent.TalentComponents
 
 import ftg.Character.{Character => Character}
 

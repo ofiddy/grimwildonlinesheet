@@ -1,7 +1,7 @@
-package ftg.Talent.TalentWidget.TalentComponents
+package ftg.Talent.TalentComponent
 
 import ftg.Character.{Character => Character}
-import ftg.Talent.TalentWidgets.TalentComponents.TalentComponent
+import ftg.Talent.TalentComponents.TalentComponent
 
 final case class CheckboxesComponent(
     boxes: Character => Int,
