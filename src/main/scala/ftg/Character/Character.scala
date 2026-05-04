@@ -26,4 +26,15 @@ final case class Character(
     charClass: CharacterClass,
     // talents: List[Talent],
     notes: String
-) derives ReadWriter
+) derives ReadWriter {
+  def level: Int = {
+    val expThresholds = List(1, 2, 3, 4, 5, 6, 7)
+    var foundLevel    = 0
+    var remainingXp   = experience.toInt
+    expThresholds.foreach { lev =>
+      remainingXp -= lev
+      if remainingXp < 0 then () else foundLevel = lev
+    }
+    return foundLevel
+  }
+}
