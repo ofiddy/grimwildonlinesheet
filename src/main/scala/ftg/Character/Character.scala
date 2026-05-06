@@ -3,6 +3,7 @@ package ftg.Character
 import ftg.util.Util.opaqueIntRW
 import upickle.default.ReadWriter
 import upickle.default.{ReadWriter => RW}
+import scala.annotation.tailrec
 
 opaque type Experience = Int
 
@@ -27,14 +28,23 @@ final case class Character(
     // talents: List[Talent],
     notes: String
 ) derives ReadWriter {
-  def level: Int = {
-    val expThresholds = List(1, 2, 3, 4, 5, 6, 7)
-    var foundLevel    = 0
-    var remainingXp   = experience.toInt
-    expThresholds.foreach { lev =>
-      remainingXp -= lev
-      if remainingXp < 0 then () else foundLevel = lev
-    }
-    return foundLevel
+  def level: Int = Character.level(experience.toInt)
+}
+
+object Character {
+  def level(xp: Int) = {
+    @tailrec
+    def levelHelper(
+        foundLevel: Int,
+        remainingXp: Int,
+        thresholds: List[Int]
+    ): Int = thresholds match
+      case head :: next =>
+        val xp2 = remainingXp - head
+        if xp2 < 0 then foundLevel else levelHelper(head, xp2, next)
+      case Nil => foundLevel
+
+    levelHelper(0, xp, List(1, 2, 3, 4, 5, 6, 7))
+
   }
 }

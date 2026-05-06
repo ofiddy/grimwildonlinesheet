@@ -2,9 +2,9 @@ package ftg.Talent.ClassTalents.BardTalents
 
 import ftg.Talent.Markdown
 import ftg.Talent.md
-import ftg.Character.LevelGrowth.given_Growable_Int
 import ftg.Talent.TalentDescriptor
 import ftg.Talent.Talent
+import ftg.Character.LevelGrowth.`and every 3 levels`
 
 object Bardsong {
   final case class BardsongTalent(bardsongs: Int, melodies: Int)
