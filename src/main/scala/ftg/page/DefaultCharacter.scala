@@ -25,6 +25,7 @@ import ftg.Character.Spark
 import ftg.Character.Story
 import ftg.Character.Wise._
 import ftg.Character.{Character => Character}
+import ftg.Talent.TalentADT.BardsongTalent
 
 object DefaultCharacter {
   val detherilStarren = Character(
@@ -90,12 +91,7 @@ object DefaultCharacter {
     (Some(growthArcs(5)), None),
     8.xp,
     CharacterClass.Fighter,
-    // List(
-    //   FighterTalents.weaponMastery,
-    //   FighterTalents.bulwark,
-    //   FighterTalents.gotYourBack,
-    //   FighterTalents.measuredTones
-    // ),
+    List(BardsongTalent(2, 2)),
     ""
   )
 
@@ -137,12 +133,7 @@ object DefaultCharacter {
     (None, None),
     1.xp,
     CharacterClass.Fighter,
-    // List(
-    //   FighterTalents.weaponMastery,
-    //   FighterTalents.bulwark,
-    //   FighterTalents.gotYourBack,
-    //   FighterTalents.measuredTones
-    // ),
+    Nil,
     ""
   )
 }

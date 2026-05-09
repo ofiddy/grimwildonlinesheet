@@ -4,6 +4,7 @@ import ftg.util.Util.opaqueIntRW
 import upickle.default.ReadWriter
 import upickle.default.{ReadWriter => RW}
 import scala.annotation.tailrec
+import ftg.Talent.TalentADT.Talent
 
 opaque type Experience = Int
 
@@ -25,7 +26,7 @@ final case class Character(
     characterArc: (Option[StoryArc], Option[StoryArc]),
     experience: Experience,
     charClass: CharacterClass,
-    // talents: List[Talent],
+    talents: List[Talent],
     notes: String
 ) derives ReadWriter {
   def level: Int = Character.level(experience.toInt)
