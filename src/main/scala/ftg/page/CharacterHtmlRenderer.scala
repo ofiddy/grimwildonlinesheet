@@ -36,28 +36,33 @@ import ftg.page.elems.TraitsDesiresInput.renderDesires
 import ftg.page.elems.TraitsDesiresInput.renderTraits
 import tyrian.Html
 import tyrian.Html._
-
 import scala.Range
 import scala.annotation.tailrec
 import ftg.page.elems.SheetInputs.charHarmInput
+import ftg.page.talentRenderers.renderTalent
 
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
     h1("Grimwild Online Character Sheet"),
-    div(cls := "sheet-card")(
-      renderProfile(char.profile),
-      div(cls := "horizontal no-grow")(
-        renderStats(char),
-        div(cls := "vertical")(
-          renderStoryAndSpark(char.story, char.spark),
-          renderConditions(char.conditions)
+    div(id := "page-cards-horizontal", cls := "no-grow")(
+      div(cls := "sheet-card")(
+        renderProfile(char.profile),
+        div(cls := "horizontal no-grow")(
+          renderStats(char),
+          div(cls := "vertical")(
+            renderStoryAndSpark(char.story, char.spark),
+            renderConditions(char.conditions)
+          )
+        ),
+        renderCharacterDetails(char),
+        renderBonds(char.bonds),
+        div(cls := "horizontal no-grow")(
+          renderStoryArcs(char),
+          renderExperience(char.experience)
         )
       ),
-      renderCharacterDetails(char),
-      renderBonds(char.bonds),
-      div(cls := "horizontal no-grow")(
-        renderStoryArcs(char),
-        renderExperience(char.experience)
+      div(cls := "sheet-card shaded-area card-section")(
+        div(cls := "card-section-inner")(char.talents.map(renderTalent))
       )
     )
   )

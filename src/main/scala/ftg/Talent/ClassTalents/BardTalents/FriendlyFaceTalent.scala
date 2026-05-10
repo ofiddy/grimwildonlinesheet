@@ -2,15 +2,9 @@ package ftg.Talent.ClassTalents.BardTalents
 
 import ftg.Talent.Markdown
 import ftg.Talent.md
-import ftg.Talent.TalentImpl
 import ftg.Talent.TalentDescriptor
 
 private[Talent] object FriendlyFace {
-
-  trait FriendlyFaceImpl extends TalentImpl {
-    override def talentDesc: TalentDescriptor = FriendlyFaceDesc
-  }
-
   case object FriendlyFaceDesc extends TalentDescriptor {
     override def apply(c: ftg.Character.Character) =
       ftg.Talent.TalentADT.FriendlyFaceTalent

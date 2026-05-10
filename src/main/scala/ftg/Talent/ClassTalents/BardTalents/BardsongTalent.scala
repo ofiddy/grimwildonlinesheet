@@ -3,15 +3,10 @@ package ftg.Talent.ClassTalents.BardTalents
 import ftg.Talent.Markdown
 import ftg.Talent.md
 import ftg.Talent.TalentDescriptor
-import ftg.Talent.TalentImpl
 import ftg.Character.LevelGrowth.`and every 3 levels`
 import ftg.Talent.TalentADT.BardsongTalent
 
 private[Talent] object Bardsong {
-  trait BardsongImpl extends TalentImpl {
-    def talentDesc: TalentDescriptor = BardsongTalentDescriptor
-  }
-
   case object BardsongTalentDescriptor extends TalentDescriptor {
     override def apply(c: ftg.Character.Character) = {
       given level: Int = c.level
