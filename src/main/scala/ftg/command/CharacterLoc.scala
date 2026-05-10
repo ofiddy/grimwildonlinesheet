@@ -21,6 +21,7 @@ import monocle.macros.GenLens
 import monocle.syntax.AppliedLens
 import ftg.Character.CharacterTrait.Trait
 import ftg.Character.CharacterDesire.Desire
+import ftg.Talent.TalentADT.Talent
 
 object CharacterLoc {
   sealed trait Loc[T] {
@@ -62,6 +63,10 @@ object CharacterLoc {
 
   case object BondsLoc extends Loc[List[Bond]] {
     val lens = GenLens[Character](_.bonds)
+  }
+
+  case object TalentsLoc extends Loc[List[Talent]] {
+    val lens = GenLens[Character](_.talents)
   }
 
   object StoryArcLocs {

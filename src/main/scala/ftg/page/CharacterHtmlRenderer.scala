@@ -40,6 +40,9 @@ import scala.Range
 import scala.annotation.tailrec
 import ftg.page.elems.SheetInputs.charHarmInput
 import ftg.page.talentRenderers.renderTalent
+import ftg.Talent.TalentADT.Talent
+import ftg.command.ModifyListElemCommand
+import ftg.command.CharacterLoc.TalentsLoc
 
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
@@ -63,7 +66,12 @@ object CharacterHtmlRenderer {
       ),
       div(cls := "sheet-card shaded-area card-section")(
         div(cls := "card-section-inner")(
-          char.talents.map(renderTalent(_, char))
+          char.talents.zipWithIndex.map((t, i) =>
+            renderTalent(t, char)(using
+              (newTal: Talent) =>
+                ModifyListElemCommand(newTal, t, i, TalentsLoc)
+            )
+          )
         )
       )
     )

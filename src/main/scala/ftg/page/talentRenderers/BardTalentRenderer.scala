@@ -8,18 +8,26 @@ import ftg.Character.{Character => Character}
 import ftg.Talent.ClassTalents.BardTalents.Bardsong.BardsongTalentDescriptor
 import ftg.page.talentRenderers.FluentTalentRenderers.fluentTalent
 import ftg.page.talentRenderers.FluentTalentRenderers.MultiCheckbox
+import monocle.syntax.all.focus
+import ftg.page.talentRenderers.FluentTalentRenderers.TalentEditBuilder
 
 object BardTalentRenderer {
-  def bardTalentRender(t: BardTalent, c: Character, acc: Html[Msg]): Html[Msg] =
+  def bardTalentRender(t: BardTalent, c: Character, acc: Html[Msg])(using
+      TalentEditBuilder
+  ): Html[Msg] =
     t match
       case t @ BardsongTalent(bardsongs, melodies) =>
         val max = BardsongTalentDescriptor(c)
         (acc
           withWidget MultiCheckbox(
             "BARDSONGS",
-            bardsongs,
+            t.focus(_.bardsongs),
             max.bardsongs
-          )) withWidget MultiCheckbox("MEDLODIES", melodies, max.melodies)
+          )) withWidget MultiCheckbox(
+          "MEDLODIES",
+          t.focus(_.melodies),
+          max.melodies
+        )
       case _ => acc
 
 }
