@@ -6,9 +6,9 @@ import ftg.Talent.TalentDescriptor
 import ftg.Character.LevelGrowth.`and every 3 levels`
 import ftg.Talent.TalentADT.BardsongTalent
 
-private[Talent] object Bardsong {
+object Bardsong {
   case object BardsongTalentDescriptor extends TalentDescriptor {
-    override def apply(c: ftg.Character.Character) = {
+    override def apply(c: ftg.Character.Character): BardsongTalent = {
       given level: Int = c.level
       val max          = 3 `and every 3 levels` (_ + 1)
       BardsongTalent(max, max)

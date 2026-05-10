@@ -4,7 +4,7 @@ import ftg.Talent.Markdown
 import ftg.Talent.md
 import ftg.Talent.TalentDescriptor
 
-private[Talent] object FriendlyFace {
+object FriendlyFace {
   case object FriendlyFaceDesc extends TalentDescriptor {
     override def apply(c: ftg.Character.Character) =
       ftg.Talent.TalentADT.FriendlyFaceTalent

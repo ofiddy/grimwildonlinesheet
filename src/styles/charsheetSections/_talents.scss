@@ -8,3 +8,54 @@ span.talent-name {
 .sheet-talent {
   margin-bottom: 20px;
 }
+
+.talent-with-widgets {
+  display: flex;
+}
+
+.widgets-sidebar {
+  min-width: 20%;
+  border-left: 1px solid base.$offBlack;
+  margin-left: 10px;
+  padding-left: 10px;
+}
+
+.widget-title {
+  font-weight: bold;
+}
+
+$widgetBoxHeight: 20px;
+
+.widget-checkbox {
+  width: $widgetBoxHeight;
+  height: $widgetBoxHeight;
+  appearance: none;
+  background-color: base.$mainBgColor;
+  border: 1px black solid;
+  padding: 0;
+  margin: 0;
+}
+
+.widget-checkbox:checked {
+  background-color: base.$offBlack;
+}
+
+div.widget-checkbox {
+  padding: 0;
+  margin: 0;
+  height: $widgetBoxHeight
+}
+
+.widget-boxes {
+  gap: 0px;
+  align-items: center;
+  display: flex;
+}
+
+.widget-boxes-inner {
+  border: 2px black solid;
+  border-radius: 3px;
+  margin: 0;
+  padding: 0;
+  height: $widgetBoxHeight
+}

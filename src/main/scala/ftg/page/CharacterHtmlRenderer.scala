@@ -62,7 +62,9 @@ object CharacterHtmlRenderer {
         )
       ),
       div(cls := "sheet-card shaded-area card-section")(
-        div(cls := "card-section-inner")(char.talents.map(renderTalent))
+        div(cls := "card-section-inner")(
+          char.talents.map(renderTalent(_, char))
+        )
       )
     )
   )
