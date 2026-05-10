@@ -59,3 +59,28 @@ div.widget-checkbox {
   padding: 0;
   height: $widgetBoxHeight
 }
+
+.widget-story-checkbox {
+  width: $widgetBoxHeight;
+  height: $widgetBoxHeight;
+  appearance: none;
+  background-color: base.$mainBgColor;
+  border: 2px black solid;
+  border-radius: 10000px;
+  padding: 0;
+  margin: 0;
+}
+
+.widget-story-checkbox:checked {
+  background-color: base.$offBlack;
+}
+
+.widget-story-checkbox:hover {
+  background-color: base.$darkShadedBgColor;
+}
+
+div.widget-story-checkbox {
+  padding: 0;
+  margin: 0;
+  height: $widgetBoxHeight
+}

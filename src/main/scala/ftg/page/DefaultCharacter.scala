@@ -27,6 +27,7 @@ import ftg.Character.Wise._
 import ftg.Character.{Character => Character}
 import ftg.Talent.TalentADT.BardsongTalent
 import ftg.Talent.TalentADT.FriendlyFaceTalent
+import ftg.Talent.TalentADT.BardicLoreTalent
 
 object DefaultCharacter {
   val detherilStarren = Character(
@@ -92,7 +93,7 @@ object DefaultCharacter {
     (Some(growthArcs(5)), None),
     8.xp,
     CharacterClass.Fighter,
-    List(BardsongTalent(2, 2), FriendlyFaceTalent),
+    List(BardsongTalent(2, 2), FriendlyFaceTalent, BardicLoreTalent(false)),
     ""
   )
 

@@ -45,6 +45,8 @@ object FluentTalentRenderers {
       ref: AppliedLens[T, Int],
       max: Int
   ) extends FluentTalentWidget
+  final case class StoryBox[T <: Talent](ref: AppliedLens[T, Boolean])
+      extends FluentTalentWidget
 
   type TalentEditBuilder = (newTal: Talent) => CharCommand
 
@@ -88,6 +90,17 @@ object FluentTalentRenderers {
             "+"
           )
         )
+      )
+
+    case StoryBox(ref) =>
+      div(cls := "horizontal")(
+        input(
+          cls       := "widget-story-checkbox",
+          `type`    := "checkbox",
+          `checked` := ref.get,
+          onClick(SheetMsg(editBuilder(ref.modify(!_))))
+        ),
+        b(cls := "widget-title")("STORY")
       )
 
 }

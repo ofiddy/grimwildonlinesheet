@@ -5,19 +5,20 @@ import ftg.Talent.TalentADT.BardTalent
 import ftg.page.Msg
 import ftg.Talent.TalentADT.BardsongTalent
 import ftg.Character.{Character => Character}
-import ftg.Talent.ClassTalents.BardTalents.Bardsong.BardsongTalentDescriptor
+import ftg.Talent.ClassTalents.BardTalents._
 import ftg.page.talentRenderers.FluentTalentRenderers.fluentTalent
-import ftg.page.talentRenderers.FluentTalentRenderers.MultiCheckbox
+import ftg.page.talentRenderers.FluentTalentRenderers._
 import monocle.syntax.all.focus
-import ftg.page.talentRenderers.FluentTalentRenderers.TalentEditBuilder
+import ftg.Talent.TalentADT.FriendlyFaceTalent
+import ftg.Talent.TalentADT.BardicLoreTalent
 
 object BardTalentRenderer {
   def bardTalentRender(t: BardTalent, c: Character, acc: Html[Msg])(using
       TalentEditBuilder
   ): Html[Msg] =
     t match
-      case t @ BardsongTalent(bardsongs, melodies) =>
-        val max = BardsongTalentDescriptor(c)
+      case t: BardsongTalent =>
+        val max = BardsongTalentDesc(c)
         (acc
           withWidget MultiCheckbox(
             "BARDSONGS",
@@ -28,6 +29,8 @@ object BardTalentRenderer {
           t.focus(_.melodies),
           max.melodies
         )
-      case _ => acc
+      case FriendlyFaceTalent => acc
+      case t: BardicLoreTalent =>
+        acc withWidget StoryBox(t.focus(_.story))
 
 }
