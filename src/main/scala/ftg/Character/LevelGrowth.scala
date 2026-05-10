@@ -2,7 +2,7 @@ package ftg.Character
 
 object LevelGrowth {
   def everyNLevels[A](n: Int, i: A, f: A => A)(using level: Int): A = {
-    val times = level % n
+    val times = level / n
     (1 to times).foldLeft(i)((x, _) => f(x))
   }
 
