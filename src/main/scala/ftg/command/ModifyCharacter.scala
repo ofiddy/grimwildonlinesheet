@@ -69,7 +69,7 @@ object ModifyCharacter {
       RollGenerator
   ): Model =
     model match
-      case Model(char, log) =>
+      case Model(char, log, _) =>
         char.conditions.lift(index) match
           case Some(cond @ Condition(name, UrgentCondition(dice))) =>
             val (rolledDice, leftoverPool) = dice.rollAndDrop

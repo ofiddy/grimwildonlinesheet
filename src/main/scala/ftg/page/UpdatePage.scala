@@ -21,6 +21,10 @@ import ftg.page.Msg.TryParseAndLoadCharacter
 import ftg.Character.{Character => Character}
 import ftg.page.IoCmd.NewBlankCharacterMsg
 import ftg.page.DefaultCharacter.blankChar
+import ftg.page.Msg.OpenTalentModal
+import ftg.page.cmds.GwCmds.openModal
+import ftg.page.cmds.GwCmds.closeModal
+import ftg.page.Msg._
 
 object UpdatePage {
   def update(model: Model): Msg => (Model, Cmd[IO, Msg]) =
@@ -29,6 +33,11 @@ object UpdatePage {
     case BlurMsg                        => (model, GwCmds.unfocusCurrentblur)
     case IoMsg(cmd)                     => applyIoCmd(model, cmd)
     case TryParseAndLoadCharacter(json) => tryLoadCharacter(json, model)
+    case OpenTalentModal =>
+      (model.copy(currentModal = Some(TalentModal(""))), openModal)
+    case CloseModal => (model.copy(currentModal = None), closeModal)
+    case EditTalentModal(s) =>
+      (model.copy(currentModal = Some(TalentModal(s))), Cmd.None)
 
   def applySheetCommand(
       model: Model,
