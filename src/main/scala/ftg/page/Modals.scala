@@ -44,10 +44,15 @@ object Modals {
       )(s => EditTalentModal(s)),
       div(id := "talent-modal-scrolling-section")(
         allBaseTalents
+          .filter(_.name.toLowerCase.contains(tm.search.toLowerCase))
           .flatMap(t =>
+            val exists =
+              if model.character.talents.exists(_.talentDesc == t) then
+                "modal-talent-exists"
+              else ""
             List(
               button(
-                cls := "sheet-talent modal-talent",
+                cls := s"sheet-talent modal-talent ${exists}",
                 onClick(
                   SheetMsg(ToggleTalentCommand(t, model.character.talents))
                 )

@@ -149,3 +149,7 @@ div.widget-story-checkbox {
 .modal-talent:hover {
   background-color: base.$darkShadedBgColor;
 }
+
+.modal-talent-exists {
+  text-decoration-line: line-through;
+}
