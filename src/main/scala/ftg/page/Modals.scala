@@ -7,6 +7,10 @@ import ftg.page.Msg.NoOpMsg
 import ftg.page.Msg.CloseModal
 import ftg.page.elems.ExitableInput.exitableTextInput
 import ftg.page.Msg.EditTalentModal
+import ftg.Talent.ClassTalents.TalentsRefs.allBaseTalents
+import ftg.page.talentRenderers.renderTalentDesc
+import ftg.page.Msg.SheetMsg
+import ftg.command.ToggleTalentCommand
 
 object Modals {
   def renderModal(model: Model): Html[Msg] =
@@ -37,6 +41,23 @@ object Modals {
       exitableTextInput(
         `placeholder` := "Search...",
         id            := "talent-modal-search"
-      )(s => EditTalentModal(s))
+      )(s => EditTalentModal(s)),
+      div(id := "talent-modal-scrolling-section")(
+        allBaseTalents
+          .flatMap(t =>
+            List(
+              button(
+                cls := "sheet-talent modal-talent",
+                onClick(
+                  SheetMsg(ToggleTalentCommand(t, model.character.talents))
+                )
+              )(
+                renderTalentDesc(t)
+              ),
+              hr
+            )
+          )
+          .dropRight(1)
+      )
     )
 }

@@ -19,7 +19,7 @@ trait TalentDescriptor {
   def apply(c: Character): Talent
 }
 
-trait TalentImpl(talentDesc: TalentDescriptor) {
+trait TalentImpl(val talentDesc: TalentDescriptor) {
   def name  = talentDesc.name
   def desc  = talentDesc.desc
   def build = talentDesc.apply

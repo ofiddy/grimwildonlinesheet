@@ -4,6 +4,8 @@ import ftg.DicePool.DicePool
 import ftg.command.CharacterListFactories.ElemFactory
 import ftg.command.CharacterLoc.Loc
 import ftg.command.CharacterLoc.StatLocs._
+import ftg.Talent.TalentDescriptor
+import ftg.Talent.TalentADT.Talent
 
 sealed trait CharCommand
 sealed trait PureCommand   extends CharCommand
@@ -56,3 +58,8 @@ object RollStatCommand {
   def RollWits: RollStatCommand     = RollStatCommand(Wits)
   def RollPresence: RollStatCommand = RollStatCommand(Presence)
 }
+
+final case class ToggleTalentCommand(
+    desc: TalentDescriptor,
+    allTalents: List[Talent]
+) extends EffectCommand

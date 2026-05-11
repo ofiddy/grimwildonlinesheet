@@ -34,6 +34,15 @@ object ModifyCharacter {
         model withChar (char => find(char).modify(_.patch(index, Nil, 1)))
       case RollAndDropConditionPoolCommand(i, _) =>
         rollAndDropCondition(i, model)
+      case ToggleTalentCommand(td, _) =>
+        model withChar (char =>
+          val without         = char.talents.filter(_.talentDesc != td)
+          val shouldHaveAdded = char.talents.length == without.length
+          val newTalents =
+            if shouldHaveAdded then (td(char) :: char.talents).sortBy(_.name)
+            else without
+          char.focus(_.talents).replace(newTalents)
+        )
 
   def undo(cmd: EffectCommand, model: Model): Model = cmd match
     case ValueEditCommand(_, old, find) =>
@@ -64,6 +73,7 @@ object ModifyCharacter {
           model withChar (_.focus(_.conditions)
             .modify(_.updated(i, Condition(name, UrgentCondition(prevPool)))))
         case _ => model
+    case ToggleTalentCommand(_, ts) => model withChar (_.copy(talents = ts))
 
   def rollAndDropCondition(index: Int, model: Model)(using
       RollGenerator

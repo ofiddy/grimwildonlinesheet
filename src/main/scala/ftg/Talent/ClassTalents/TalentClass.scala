@@ -16,3 +16,7 @@ case object BardClass extends TalentClass {
     FriendlyFaceDesc
   )
 }
+
+object TalentsRefs {
+  val allBaseTalents: List[TalentDescriptor] = BardClass.nonCoreTalents
+}

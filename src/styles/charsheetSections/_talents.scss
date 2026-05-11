@@ -107,18 +107,17 @@ div.widget-story-checkbox {
   background-color: transparent;
   width: 100%;
   height: 100%;
-  text-align: center;
-  justify-content: center;
   display: flex;
+  justify-content: center;
   align-items: center;
-}
-
-#modal-inner {
-  margin: auto;
 }
 
 #modal::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-inner {
+  width: min-content;
 }
 
 #talent-select-modal {
@@ -127,6 +126,7 @@ div.widget-story-checkbox {
   background-color: base.$shadedBgColor;
   border-radius: 10px;
   height: 1000px;
+  padding: 20px;
 }
 
 #talent-modal-search {
@@ -134,4 +134,18 @@ div.widget-story-checkbox {
   border-bottom: 1px black solid;
   font-size: 16px;
   background: transparent;
+  margin-bottom: 50px;
+}
+
+.modal-talent {
+  text-align: left;
+  appearance: none;
+  background: transparent;
+  border: none;
+  font-family: base.$fontStack;
+  font-size: 12pt;
+}
+
+.modal-talent:hover {
+  background-color: base.$darkShadedBgColor;
 }
