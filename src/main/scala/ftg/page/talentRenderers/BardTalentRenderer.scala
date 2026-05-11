@@ -25,7 +25,7 @@ object BardTalentRenderer {
             t.focus(_.bardsongs),
             max.bardsongs
           )) withWidget MultiCheckbox(
-          "MEDLODIES",
+          "MELODIES",
           t.focus(_.melodies),
           max.melodies
         )
