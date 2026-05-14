@@ -44,6 +44,7 @@ import ftg.Talent.TalentADT.Talent
 import ftg.command.ModifyListElemCommand
 import ftg.command.CharacterLoc.TalentsLoc
 import ftg.page.Msg.OpenTalentModal
+import ftg.command.CharacterLoc.CoreTalentLoc
 
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
@@ -67,6 +68,17 @@ object CharacterHtmlRenderer {
       ),
       div(cls := "sheet-card")(
         div(cls := "shaded-area card-section")(
+          div(cls := "card-black-header")(
+            h2(id := "class-title-talents")(char.charClass.name.toUpperCase())
+          ),
+          div(cls := "talent-section-header")("CORE TALENT"),
+          div(cls := "card-section-inner")(
+            renderTalent(char.coreTalent, char)(using
+              (newTal: Talent) =>
+                ValueEditCommand(newTal, char.coreTalent, CoreTalentLoc)
+            )
+          ),
+          div(cls := "talent-section-header")("PATH TALENTS"),
           div(cls := "card-section-inner")(
             char.talents.zipWithIndex.map((t, i) =>
               renderTalent(t, char)(using

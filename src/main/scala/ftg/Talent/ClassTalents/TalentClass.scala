@@ -2,10 +2,12 @@ package ftg.Talent.ClassTalents
 
 import ftg.Talent.ClassTalents.BardTalents._
 import ftg.Talent.TalentDescriptor
+import upickle.default.{ReadWriter => RW}
 
-sealed trait TalentClass {
+sealed trait TalentClass derives RW {
   def coreTalent: TalentDescriptor
   def nonCoreTalents: List[TalentDescriptor]
+  def name: String
 }
 
 case object BardClass extends TalentClass {
@@ -15,6 +17,7 @@ case object BardClass extends TalentClass {
     BardicLoreDesc,
     FriendlyFaceDesc
   )
+  override def name: String = "Bard"
 }
 
 object TalentsRefs {

@@ -69,6 +69,10 @@ object CharacterLoc {
     val lens = GenLens[Character](_.talents)
   }
 
+  case object CoreTalentLoc extends Loc[Talent] {
+    val lens = GenLens[Character](_.coreTalent)
+  }
+
   object StoryArcLocs {
     sealed trait ArcLoc extends Loc[Option[StoryArc]]
     case object GroupArcLoc extends ArcLoc {

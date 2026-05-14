@@ -19,4 +19,7 @@ final case class Model(
 
 object Model {
   def blankWithNewChar(c: Character): Model = Model(c, Nil, None)
+
+  def apply(character: ftg.Character.Character, log: Log): Model =
+    Model(character, log, None)
 }

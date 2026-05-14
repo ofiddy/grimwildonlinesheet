@@ -153,3 +153,15 @@ div.widget-story-checkbox {
 .modal-talent-exists {
   text-decoration-line: line-through;
 }
+
+#class-title-talents {
+  font-family: base.$titleFontStack;
+  font-size: 24pt;
+}
+
+.talent-section-header {
+  background-color: base.$darkShadedBgColor;
+  font-size: 14pt;
+  font-weight: bolder;
+  padding: 2px 8px;
+}
