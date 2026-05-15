@@ -93,7 +93,7 @@ object CharacterHtmlRenderer {
           cls := "shaded-area card-section"
         )(
           button(id := "add-talent-button", onClick(OpenTalentModal))(
-            "+ Add Talent"
+            "+ Manage Talents"
           )
         )
       )

@@ -43,6 +43,13 @@ object ModifyCharacter {
             else without
           char.focus(_.talents).replace(newTalents)
         )
+      case ChangeClassCommand(newClass, _) =>
+        model withChar (char =>
+          char.copy(
+            coreTalent = newClass.coreTalent(char),
+            charClass = newClass
+          )
+        )
 
   def undo(cmd: EffectCommand, model: Model): Model = cmd match
     case ValueEditCommand(_, old, find) =>
@@ -74,6 +81,13 @@ object ModifyCharacter {
             .modify(_.updated(i, Condition(name, UrgentCondition(prevPool)))))
         case _ => model
     case ToggleTalentCommand(_, ts) => model withChar (_.copy(talents = ts))
+    case ChangeClassCommand(_, (oldClass, oldTal)) =>
+      model withChar (char =>
+        char.copy(
+          coreTalent = oldTal,
+          charClass = oldClass
+        )
+      )
 
   def rollAndDropCondition(index: Int, model: Model)(using
       RollGenerator

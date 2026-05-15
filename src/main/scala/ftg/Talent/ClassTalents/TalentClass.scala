@@ -20,6 +20,16 @@ case object BardClass extends TalentClass {
   override def name: String = "Bard"
 }
 
+case object TestClass extends TalentClass {
+  override def coreTalent: TalentDescriptor =
+    FriendlyFaceDesc
+  override def nonCoreTalents: List[TalentDescriptor] = List(
+  )
+  override def name: String = "Test"
+}
+
 object TalentsRefs {
-  val allBaseTalents: List[TalentDescriptor] = BardClass.nonCoreTalents
+  def allPathTalents: List[TalentDescriptor] =
+    allClasses.flatMap(_.nonCoreTalents)
+  def allClasses = List(BardClass, TestClass)
 }

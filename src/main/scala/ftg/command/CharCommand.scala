@@ -6,6 +6,7 @@ import ftg.command.CharacterLoc.Loc
 import ftg.command.CharacterLoc.StatLocs._
 import ftg.Talent.TalentDescriptor
 import ftg.Talent.TalentADT.Talent
+import ftg.Talent.ClassTalents.TalentClass
 
 sealed trait CharCommand
 sealed trait PureCommand   extends CharCommand
@@ -50,6 +51,11 @@ final case class DeleteListElemCommand[T](
     oldCond: T,
     index: Int,
     loc: Loc[List[T]]
+) extends EffectCommand
+
+final case class ChangeClassCommand(
+    newClass: TalentClass,
+    oldState: (TalentClass, Talent)
 ) extends EffectCommand
 
 object RollStatCommand {

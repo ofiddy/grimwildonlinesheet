@@ -7,10 +7,12 @@ import ftg.page.Msg.NoOpMsg
 import ftg.page.Msg.CloseModal
 import ftg.page.elems.ExitableInput.exitableTextInput
 import ftg.page.Msg.EditTalentModal
-import ftg.Talent.ClassTalents.TalentsRefs.allBaseTalents
 import ftg.page.talentRenderers.renderTalentDesc
 import ftg.page.Msg.SheetMsg
 import ftg.command.ToggleTalentCommand
+import ftg.Talent.ClassTalents.TalentsRefs.allClasses
+import ftg.command.ChangeClassCommand
+import ftg.Talent.ClassTalents.TalentsRefs.allPathTalents
 
 object Modals {
   def renderModal(model: Model): Html[Msg] =
@@ -38,12 +40,34 @@ object Modals {
   def renderTalentModal(model: Model, tm: TalentModal): Html[Msg] =
     div(id := "talent-select-modal")(
       h1("SELECT TALENT"),
-      exitableTextInput(
-        `placeholder` := "Search...",
-        id            := "talent-modal-search"
-      )(s => EditTalentModal(s)),
+      div(cls := "horizontal")(
+        exitableTextInput(
+          `placeholder` := "Search...",
+          id            := "talent-modal-search"
+        )(s => EditTalentModal(s)),
+        select(
+          id := "class-change-selector",
+          onInput(s =>
+            if s == model.character.charClass.name then NoOpMsg
+            else
+              SheetMsg(
+                ChangeClassCommand(
+                  allClasses.find(_.name == s).get, // im sorry
+                  (model.character.charClass, model.character.coreTalent)
+                )
+              )
+          )
+        )(
+          allClasses.map(c =>
+            option(
+              `value`    := c.name,
+              `selected` := model.character.charClass == c
+            )(c.name.toUpperCase)
+          )
+        )
+      ),
       div(id := "talent-modal-scrolling-section")(
-        allBaseTalents
+        allPathTalents
           .filter(_.name.toLowerCase.contains(tm.search.toLowerCase))
           .flatMap(t =>
             val exists =
