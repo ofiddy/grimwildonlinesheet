@@ -15,4 +15,7 @@ object TalentADT {
   case class BardicLoreTalent(story: Boolean)
       extends BardTalent
       with TalentImpl(BardicLoreDesc)
+  case object DynamicEntranceTalent
+      extends BardTalent
+      with TalentImpl(DynamicEntranceDesc)
 }

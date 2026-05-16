@@ -9,8 +9,7 @@ import ftg.Talent.ClassTalents.BardTalents._
 import ftg.page.talentRenderers.FluentTalentRenderers.fluentTalent
 import ftg.page.talentRenderers.FluentTalentRenderers._
 import monocle.syntax.all.focus
-import ftg.Talent.TalentADT.FriendlyFaceTalent
-import ftg.Talent.TalentADT.BardicLoreTalent
+import ftg.Talent.TalentADT._
 
 object BardTalentRenderer {
   def bardTalentRender(t: BardTalent, c: Character, acc: Html[Msg])(using
@@ -32,5 +31,6 @@ object BardTalentRenderer {
       case FriendlyFaceTalent => acc
       case t: BardicLoreTalent =>
         acc withWidget StoryBox(t.focus(_.story))
+      case DynamicEntranceTalent => acc
 
 }
