@@ -8,7 +8,8 @@ type Log       = List[SingleLog]
 
 final case class Model(
     character: ftg.Character.Character,
-    log: Log
+    log: Log,
+    currentModal: Option[TalentModal]
 ) {
   infix def withChar(f: Character => Character): Model =
     this.copy(character = f(this.character))
@@ -17,5 +18,8 @@ final case class Model(
 }
 
 object Model {
-  def blankWithNewChar(c: Character): Model = Model(c, Nil)
+  def blankWithNewChar(c: Character): Model = Model(c, Nil, None)
+
+  def apply(character: ftg.Character.Character, log: Log): Model =
+    Model(character, log, None)
 }

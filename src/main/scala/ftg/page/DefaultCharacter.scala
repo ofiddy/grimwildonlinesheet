@@ -4,7 +4,6 @@ import ftg.Character.Background
 import ftg.Character.BodyStats
 import ftg.Character.Bond
 import ftg.Character.CharacterBaseStats
-import ftg.Character.CharacterClass
 import ftg.Character.CharacterDesire.DesireSection
 import ftg.Character.CharacterDesire.PremadeDesire
 import ftg.Character.CharacterDetails
@@ -25,6 +24,9 @@ import ftg.Character.Spark
 import ftg.Character.Story
 import ftg.Character.Wise._
 import ftg.Character.{Character => Character}
+import ftg.Talent.TalentADT.BardsongTalent
+import ftg.Talent.TalentADT.FriendlyFaceTalent
+import ftg.Talent.ClassTalents.BardClass
 
 object DefaultCharacter {
   val detherilStarren = Character(
@@ -89,13 +91,9 @@ object DefaultCharacter {
     Some(struggleArcs(5)),
     (Some(growthArcs(5)), None),
     8.xp,
-    CharacterClass.Fighter,
-    // List(
-    //   FighterTalents.weaponMastery,
-    //   FighterTalents.bulwark,
-    //   FighterTalents.gotYourBack,
-    //   FighterTalents.measuredTones
-    // ),
+    BardClass,
+    BardsongTalent(2, 2),
+    List(FriendlyFaceTalent),
     ""
   )
 
@@ -136,13 +134,9 @@ object DefaultCharacter {
     None,
     (None, None),
     1.xp,
-    CharacterClass.Fighter,
-    // List(
-    //   FighterTalents.weaponMastery,
-    //   FighterTalents.bulwark,
-    //   FighterTalents.gotYourBack,
-    //   FighterTalents.measuredTones
-    // ),
+    BardClass,
+    BardsongTalent(2, 2),
+    Nil,
     ""
   )
 }

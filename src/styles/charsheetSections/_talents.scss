@@ -1,0 +1,179 @@
+@use '../base';
+
+span.talent-name {
+  font-weight: bold;
+  font-variant: small-caps;
+}
+
+.sheet-talent {
+  margin-bottom: 20px;
+}
+
+.talent-with-widgets {
+  display: flex;
+}
+
+.widgets-sidebar {
+  min-width: 20%;
+  border-left: 1px solid base.$offBlack;
+  margin-left: 10px;
+  padding-left: 10px;
+}
+
+.widget-title {
+  font-weight: bold;
+}
+
+$widgetBoxHeight: 20px;
+
+.widget-checkbox {
+  width: $widgetBoxHeight;
+  height: $widgetBoxHeight;
+  appearance: none;
+  background-color: base.$mainBgColor;
+  border: 1px black solid;
+  padding: 0;
+  margin: 0;
+}
+
+.widget-checkbox:checked {
+  background-color: base.$offBlack;
+}
+
+div.widget-checkbox {
+  padding: 0;
+  margin: 0;
+  height: $widgetBoxHeight
+}
+
+.widget-boxes {
+  gap: 0px;
+  align-items: center;
+  display: flex;
+}
+
+.widget-boxes-inner {
+  border: 2px black solid;
+  border-radius: 3px;
+  margin: 0;
+  padding: 0;
+  height: $widgetBoxHeight
+}
+
+.widget-story-checkbox {
+  width: $widgetBoxHeight;
+  height: $widgetBoxHeight;
+  appearance: none;
+  background-color: base.$mainBgColor;
+  border: 2px black solid;
+  border-radius: 10000px;
+  padding: 0;
+  margin: 0;
+}
+
+.widget-story-checkbox:checked {
+  background-color: base.$offBlack;
+}
+
+.widget-story-checkbox:hover {
+  background-color: base.$darkShadedBgColor;
+}
+
+div.widget-story-checkbox {
+  padding: 0;
+  margin: 0;
+  height: $widgetBoxHeight
+}
+
+#add-talent-button {
+  font-family: base.$titleFontStack;
+  font-weight: bold;
+  font-size: 18pt;
+  border: 5px black solid;
+  border-radius: 10px;
+  background-color: base.$mainBgColor;
+  margin: 10px;
+}
+
+#add-talent-button:hover {
+  background-color: base.$darkShadedBgColor;
+}
+
+#modal {
+  padding: 0;
+  margin: 0;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-inner {
+  width: min-content;
+}
+
+#talent-select-modal {
+  max-width: 37.5%;
+  min-width: 850px;
+  background-color: base.$shadedBgColor;
+  border-radius: 10px;
+  height: 1000px;
+  padding: 20px;
+}
+
+#talent-modal-search {
+  border: none;
+  border-bottom: 1px black solid;
+  font-size: 16px;
+  background: transparent;
+  margin-bottom: 50px;
+}
+
+.modal-talent {
+  text-align: left;
+  appearance: none;
+  background: transparent;
+  border: none;
+  font-family: base.$fontStack;
+  font-size: 12pt;
+}
+
+.modal-talent:hover {
+  background-color: base.$darkShadedBgColor;
+}
+
+.modal-talent-exists {
+  text-decoration-line: line-through;
+}
+
+#class-title-talents {
+  font-family: base.$titleFontStack;
+  font-size: 24pt;
+}
+
+.talent-section-header {
+  background-color: base.$darkShadedBgColor;
+  font-size: 14pt;
+  font-weight: bolder;
+  padding: 2px 8px;
+}
+
+#class-change-selector {
+  background-color: inherit;
+  font: inherit;
+  color: inherit;
+  border: inherit;
+  margin-left: auto;
+  height: min-content;
+  font-weight: bold;
+  font-family: base.$titleFontStack;
+  font-size: 14pt;
+}

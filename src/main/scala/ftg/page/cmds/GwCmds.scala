@@ -45,4 +45,16 @@ object GwCmds {
       case Result.File(name, path, data) => Msg.TryParseAndLoadCharacter(data)
       case Result.NoFile(message)        => Msg.NoOpMsg
     }
+
+  def openModal[F[_]: Async]: Cmd.SideEffect[F, Unit] = Cmd.SideEffect {
+    document.getElementById("modal") match {
+      case d: html.Dialog => d.showModal()
+    }
+  }
+
+  def closeModal[F[_]: Async]: Cmd.SideEffect[F, Unit] = Cmd.SideEffect {
+    document.getElementById("modal") match {
+      case d: html.Dialog => d.close()
+    }
+  }
 }

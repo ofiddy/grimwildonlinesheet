@@ -12,6 +12,7 @@ import tyrian._
 
 import scala.scalajs.js.annotation._
 import ftg.page.Toolbar.renderToolbar
+import ftg.page.Modals.renderModal
 
 @JSExportTopLevel("TyrianApp")
 object GrimwildOnlineSheet extends TyrianIOApp[Msg, Model]:
@@ -20,7 +21,7 @@ object GrimwildOnlineSheet extends TyrianIOApp[Msg, Model]:
     Routing.none(NoOpMsg)
 
   def init(flags: Map[String, String]): (Model, Cmd[IO, Msg]) =
-    (Model(DefaultCharacter.detherilStarren, Nil), Cmd.None)
+    (Model(DefaultCharacter.detherilStarren, Nil, None), Cmd.None)
 
   def update(model: Model): Msg => (Model, Cmd[IO, Msg]) =
     UpdatePage.update(model)
@@ -29,6 +30,7 @@ object GrimwildOnlineSheet extends TyrianIOApp[Msg, Model]:
     div(
       renderToolbar(model),
       renderCharacter(model.character),
+      renderModal(model),
       h1("Debug Log"),
       div(model.log.map(l => p(l.toString())))
     )

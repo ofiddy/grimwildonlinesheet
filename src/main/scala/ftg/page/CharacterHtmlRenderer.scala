@@ -36,28 +36,66 @@ import ftg.page.elems.TraitsDesiresInput.renderDesires
 import ftg.page.elems.TraitsDesiresInput.renderTraits
 import tyrian.Html
 import tyrian.Html._
-
 import scala.Range
 import scala.annotation.tailrec
 import ftg.page.elems.SheetInputs.charHarmInput
+import ftg.page.talentRenderers.renderTalent
+import ftg.Talent.TalentADT.Talent
+import ftg.command.ModifyListElemCommand
+import ftg.command.CharacterLoc.TalentsLoc
+import ftg.page.Msg.OpenTalentModal
+import ftg.command.CharacterLoc.CoreTalentLoc
 
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
     h1("Grimwild Online Character Sheet"),
-    div(cls := "sheet-card")(
-      renderProfile(char.profile),
-      div(cls := "horizontal no-grow")(
-        renderStats(char),
-        div(cls := "vertical")(
-          renderStoryAndSpark(char.story, char.spark),
-          renderConditions(char.conditions)
+    div(id := "page-cards-horizontal", cls := "no-grow")(
+      div(cls := "sheet-card")(
+        renderProfile(char.profile),
+        div(cls := "horizontal no-grow")(
+          renderStats(char),
+          div(cls := "vertical")(
+            renderStoryAndSpark(char.story, char.spark),
+            renderConditions(char.conditions)
+          )
+        ),
+        renderCharacterDetails(char),
+        renderBonds(char.bonds),
+        div(cls := "horizontal no-grow")(
+          renderStoryArcs(char),
+          renderExperience(char.experience)
         )
       ),
-      renderCharacterDetails(char),
-      renderBonds(char.bonds),
-      div(cls := "horizontal no-grow")(
-        renderStoryArcs(char),
-        renderExperience(char.experience)
+      div(cls := "sheet-card")(
+        div(cls := "shaded-area card-section")(
+          div(cls := "card-black-header")(
+            h2(id := "class-title-talents")(char.charClass.name.toUpperCase())
+          ),
+          div(cls := "talent-section-header")("CORE TALENT"),
+          div(cls := "card-section-inner")(
+            renderTalent(char.coreTalent, char)(using
+              (newTal: Talent) =>
+                ValueEditCommand(newTal, char.coreTalent, CoreTalentLoc)
+            )
+          ),
+          div(cls := "talent-section-header")("PATH TALENTS"),
+          div(cls := "card-section-inner")(
+            char.talents.zipWithIndex.map((t, i) =>
+              renderTalent(t, char)(using
+                (newTal: Talent) =>
+                  ModifyListElemCommand(newTal, t, i, TalentsLoc)
+              )
+            )
+          )
+        ),
+        div(
+          id  := "add-talent-section",
+          cls := "shaded-area card-section"
+        )(
+          button(id := "add-talent-button", onClick(OpenTalentModal))(
+            "+ Manage Talents"
+          )
+        )
       )
     )
   )
