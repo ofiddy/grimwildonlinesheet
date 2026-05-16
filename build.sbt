@@ -51,10 +51,13 @@ libraryDependencies ++= Seq(
   "dev.optics" %%% "monocle-macro" % "3.1.0"
 )
 libraryDependencies += "org.scalactic" %%% "scalactic"   % "3.2.19"
-libraryDependencies += "org.scalatest" %%% "scalatest"   % "3.2.19" % "test"
+libraryDependencies += "org.scalatest" %%% "scalatest"   % "3.2.19"     % "test"
 libraryDependencies += "org.scala-js"  %%% "scalajs-dom" % "2.2.0"
 libraryDependencies += "com.lihaoyi"   %%% "upickle"     % "4.4.3"
+libraryDependencies += "com.lihaoyi"   %%% "utest"       % "0.10.0-RC1" % "test"
 
 Test / scalacOptions ++= Seq(
   "-Wconf:msg=unused value of type org.scalatest.Assertion:s"
 )
+
+testFrameworks += new TestFramework("utest.runner.Framework")
