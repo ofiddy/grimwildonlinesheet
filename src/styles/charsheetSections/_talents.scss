@@ -26,7 +26,7 @@ span.talent-name {
 
 $widgetBoxHeight: 20px;
 
-.widget-checkbox {
+.widget-multicheckbox-checkbox {
   width: $widgetBoxHeight;
   height: $widgetBoxHeight;
   appearance: none;
@@ -36,11 +36,11 @@ $widgetBoxHeight: 20px;
   margin: 0;
 }
 
-.widget-checkbox:checked {
+.widget-multicheckbox-checkbox:checked {
   background-color: base.$offBlack;
 }
 
-div.widget-checkbox {
+div.widget-multicheckbox-checkbox {
   padding: 0;
   margin: 0;
   height: $widgetBoxHeight
@@ -60,26 +60,35 @@ div.widget-checkbox {
   height: $widgetBoxHeight
 }
 
-.widget-story-checkbox {
+.widget-checkbox {
   width: $widgetBoxHeight;
   height: $widgetBoxHeight;
   appearance: none;
   background-color: base.$mainBgColor;
   border: 2px black solid;
-  border-radius: 10000px;
   padding: 0;
   margin: 0;
+
+  &--story {
+    @extend .widget-checkbox;
+    border-radius: 10000px;
+  }
+
+  &--push {
+    @extend .widget-checkbox;
+    border-radius: 3px;
+  }
 }
 
-.widget-story-checkbox:checked {
+.widget-checkbox:checked {
   background-color: base.$offBlack;
 }
 
-.widget-story-checkbox:hover {
+.widget-checkbox:hover {
   background-color: base.$darkShadedBgColor;
 }
 
-div.widget-story-checkbox {
+div.widget-checkbox {
   padding: 0;
   margin: 0;
   height: $widgetBoxHeight

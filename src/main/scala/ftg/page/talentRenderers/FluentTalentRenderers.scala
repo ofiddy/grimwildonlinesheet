@@ -47,6 +47,8 @@ object FluentTalentRenderers {
   ) extends FluentTalentWidget
   final case class StoryBox[T <: Talent](ref: AppliedLens[T, Boolean])
       extends FluentTalentWidget
+  final case class PushBox[T <: Talent](ref: AppliedLens[T, Boolean])
+      extends FluentTalentWidget
 
   type TalentEditBuilder = (newTal: Talent) => CharCommand
 
@@ -73,7 +75,7 @@ object FluentTalentRenderers {
             createAndFillCheckboxes(
               ref.get,
               max - ref.get,
-              "widget-checkbox"
+              "widget-multicheckbox-checkbox"
             )
           ),
           button(
@@ -95,12 +97,23 @@ object FluentTalentRenderers {
     case StoryBox(ref) =>
       div(cls := "horizontal")(
         input(
-          cls       := "widget-story-checkbox",
+          cls       := "widget-checkbox",
           `type`    := "checkbox",
           `checked` := ref.get,
           onClick(SheetMsg(editBuilder(ref.modify(!_))))
         ),
         b(cls := "widget-title")("STORY")
+      )
+
+    case PushBox(ref) =>
+      div(cls := "horizontal")(
+        input(
+          cls       := "widget-checkbox--push",
+          `type`    := "checkbox",
+          `checked` := ref.get,
+          onClick(SheetMsg(editBuilder(ref.modify(!_))))
+        ),
+        b(cls := "widget-title")("PUSH")
       )
 
 }

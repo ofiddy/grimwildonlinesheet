@@ -16,7 +16,8 @@ case object BardClass extends TalentClass {
   override def nonCoreTalents: List[TalentDescriptor] = List(
     BardicLoreDesc,
     FriendlyFaceDesc,
-    DynamicEntranceDesc
+    DynamicEntranceDesc,
+    ForkedTongueDesc
   )
   override def name: String = "Bard"
 }

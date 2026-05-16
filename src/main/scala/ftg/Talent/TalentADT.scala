@@ -12,10 +12,13 @@ object TalentADT {
   case object FriendlyFaceTalent
       extends BardTalent
       with TalentImpl(FriendlyFaceDesc)
-  case class BardicLoreTalent(story: Boolean)
+  final case class BardicLoreTalent(story: Boolean)
       extends BardTalent
       with TalentImpl(BardicLoreDesc)
   case object DynamicEntranceTalent
       extends BardTalent
       with TalentImpl(DynamicEntranceDesc)
+  final case class ForkedTongueTalent(marked: Boolean)
+      extends BardTalent
+      with TalentImpl(ForkedTongueDesc)
 }
