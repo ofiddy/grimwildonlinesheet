@@ -27,7 +27,9 @@ package object talentRenderers {
       span(cls := "talent-name")(t.name),
       span(cls := "talent-body")(
         span(": "),
-        span(new Converter().makeHtml(t.desc.toString()))
+        raw("span")(
+          new Converter().makeHtml(t.desc.toString()).drop(3).dropRight(4)
+        )
       )
     )
 }
