@@ -9,8 +9,7 @@ import ftg.Talent.ClassTalents.BardTalents._
 import ftg.page.talentRenderers.FluentTalentRenderers.fluentTalent
 import ftg.page.talentRenderers.FluentTalentRenderers._
 import monocle.syntax.all.focus
-import ftg.Talent.TalentADT.FriendlyFaceTalent
-import ftg.Talent.TalentADT.BardicLoreTalent
+import ftg.Talent.TalentADT._
 
 object BardTalentRenderer {
   def bardTalentRender(t: BardTalent, c: Character, acc: Html[Msg])(using
@@ -31,6 +30,15 @@ object BardTalentRenderer {
         )
       case FriendlyFaceTalent => acc
       case t: BardicLoreTalent =>
-        acc withWidget StoryBox(t.focus(_.story))
+        acc withWidget StoryBox(t.focus(_.story)) withFooter WisesFooter(
+          t.focus(_.wises)
+        )
+      case DynamicEntranceTalent => acc
+      case t: ForkedTongueTalent => acc withWidget PushBox(t.focus(_.marked))
+      case t: InfluenceTalent =>
+        acc withWidget MultiCheckbox("INFLUENCE", t.focus(_.influences), 2)
+      case JackOfAllTradesTalent => acc
+      case t: WordplayTalent =>
+        acc withWidget SquareBox(t.focus(_.marked), "GOAD")
 
 }

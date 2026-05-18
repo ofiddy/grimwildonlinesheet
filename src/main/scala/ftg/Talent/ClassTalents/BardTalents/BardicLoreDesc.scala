@@ -7,7 +7,7 @@ import ftg.Talent.TalentADT.BardicLoreTalent
 
 case object BardicLoreDesc extends TalentDescriptor {
   override def apply(c: ftg.Character.Character) =
-    BardicLoreTalent(true)
+    BardicLoreTalent(true, (None, None, None))
 
   override def name: String = "Bardic Lore"
 

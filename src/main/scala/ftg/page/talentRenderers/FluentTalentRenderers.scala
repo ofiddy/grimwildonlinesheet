@@ -8,19 +8,28 @@ import monocle.AppliedLens
 import ftg.Talent.TalentADT.Talent
 import ftg.page.Msg.SheetMsg
 import ftg.command.CharCommand
+import ftg.page.elems.ExitableInput.exitableTextInput
+import ftg.page.Msg.NoOpMsg
+import ftg.Character.Wise
+import ftg.Character.Wise._
+import monocle.Lens
 
 object FluentTalentRenderers {
   case class WidgetBuilding(
       html: Html[Msg],
-      widgets: List[(FluentTalentWidget, TalentEditBuilder)]
+      widgets: List[(FluentTalentWidget, TalentEditBuilder)],
+      footer: Option[(FluentTalentFooter, TalentEditBuilder)]
   ) {
     infix def withWidget(widget: FluentTalentWidget)(using
         teb: TalentEditBuilder
     ) =
-      WidgetBuilding(this.html, this.widgets :+ (widget, teb))
+      WidgetBuilding(this.html, this.widgets :+ (widget, teb), this.footer)
+
+    infix def withFooter(ft: FluentTalentFooter)(using teb: TalentEditBuilder) =
+      copy(footer = Some(ft, teb))
 
     def toHtml: Html[Msg] =
-      widgets match
+      val body = widgets match
         case Nil => html
         case x =>
           div(cls := "talent-with-widgets")(
@@ -29,11 +38,13 @@ object FluentTalentRenderers {
               widgets.map((w, teb) => buildFluent(w, teb))
             )
           )
+      footer.map((f, teb) => div(body, buildFooter(f, teb))).getOrElse(body)
 
   }
 
   given fluentTalent: Conversion[Html[Msg], WidgetBuilding] {
-    override def apply(x: Html[Msg]): WidgetBuilding = WidgetBuilding(x, Nil)
+    override def apply(x: Html[Msg]): WidgetBuilding =
+      WidgetBuilding(x, Nil, None)
   }
   given fluentTalentBuilder: Conversion[WidgetBuilding, Html[Msg]] {
     override def apply(x: WidgetBuilding): Html[Msg] = x.toHtml
@@ -47,6 +58,18 @@ object FluentTalentRenderers {
   ) extends FluentTalentWidget
   final case class StoryBox[T <: Talent](ref: AppliedLens[T, Boolean])
       extends FluentTalentWidget
+  final case class SquareBox[T <: Talent](
+      ref: AppliedLens[T, Boolean],
+      label: String
+  ) extends FluentTalentWidget
+
+  def PushBox[T <: Talent](ref: AppliedLens[T, Boolean]) =
+    SquareBox(ref, "PUSH")
+
+  sealed trait FluentTalentFooter
+  final case class WisesFooter[T <: Talent](
+      ref: AppliedLens[T, (Option[Wise], Option[Wise], Option[Wise])]
+  ) extends FluentTalentFooter
 
   type TalentEditBuilder = (newTal: Talent) => CharCommand
 
@@ -73,7 +96,7 @@ object FluentTalentRenderers {
             createAndFillCheckboxes(
               ref.get,
               max - ref.get,
-              "widget-checkbox"
+              "widget-multicheckbox-checkbox"
             )
           ),
           button(
@@ -95,12 +118,67 @@ object FluentTalentRenderers {
     case StoryBox(ref) =>
       div(cls := "horizontal")(
         input(
-          cls       := "widget-story-checkbox",
+          cls       := "widget-checkbox--story",
           `type`    := "checkbox",
           `checked` := ref.get,
           onClick(SheetMsg(editBuilder(ref.modify(!_))))
         ),
         b(cls := "widget-title")("STORY")
       )
+
+    case SquareBox(ref, label) =>
+      div(cls := "horizontal")(
+        input(
+          cls       := "widget-checkbox--push",
+          `type`    := "checkbox",
+          `checked` := ref.get,
+          onClick(SheetMsg(editBuilder(ref.modify(!_))))
+        ),
+        b(cls := "widget-title")(label)
+      )
+
+  def buildFooter(
+      w: FluentTalentFooter,
+      editBuilder: TalentEditBuilder
+  ): Html[Msg] = w match
+    case WisesFooter(ref) =>
+      def wiseCell(
+          lens: Lens[TripWise, Option[Wise]]
+      ): Html[Msg] = td(cls := "white-table-cell")(
+        exitableTextInput(
+          `value` := ref.andThen(lens).get.map(_.toString).getOrElse(""),
+          cls     := "white-table-entry wise-entry"
+        )(s =>
+          newTalOnChange(
+            editBuilder(
+              ref
+                .andThen(lens)
+                .replace(
+                  if s.isEmpty then None else Some(s.wise)
+                )
+            ),
+            s,
+            ref.andThen(lens).get.map(_.toString).getOrElse("")
+          )
+        )
+      )
+
+      div(cls := "white-card-table-wrapper wises-footer")(
+        table(cls := "white-card-table")(
+          tr(
+            td(b("WISES")),
+            wiseCell(firstWise),
+            wiseCell(secondWise),
+            wiseCell(thirdWise)
+          )
+        )
+      )
+
+  private def newTalOnChange(
+      built: CharCommand,
+      newVal: String,
+      oldVal: String
+  ): Msg =
+    if oldVal == newVal then NoOpMsg else SheetMsg(built)
 
 }
