@@ -1,13 +1,13 @@
 package ftg.Talent
 
 import upickle._
+import ftg.Talent.ClassTalents.ArtificerTalent._
 import ftg.Talent.ClassTalents.BardTalents._
 import ftg.Character.Wise
 
 object TalentADT {
   sealed trait Talent extends TalentImpl derives ReadWriter
 
-  /// BARD TALENTS
   sealed trait BardTalent extends Talent derives ReadWriter
   final case class BardsongTalent(bardsongs: Int, melodies: Int)
       extends BardTalent
@@ -35,4 +35,9 @@ object TalentADT {
   final case class WordplayTalent(marked: Boolean)
       extends BardTalent
       with TalentImpl(WordplayDesc)
+
+  sealed trait ArtificerTalent extends Talent derives ReadWriter
+  final case class IngenuityTalent(marked: Boolean)
+      extends ArtificerTalent
+      with TalentImpl(IngenuityDesc)
 }
