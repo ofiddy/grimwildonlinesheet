@@ -32,4 +32,7 @@ object TalentADT {
   case object JackOfAllTradesTalent
       extends BardTalent
       with TalentImpl(JackOfAllTradesDesc)
+  final case class WordplayTalent(marked: Boolean)
+      extends BardTalent
+      with TalentImpl(WordplayDesc)
 }

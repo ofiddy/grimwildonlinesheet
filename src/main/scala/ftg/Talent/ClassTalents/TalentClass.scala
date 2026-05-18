@@ -19,7 +19,8 @@ case object BardClass extends TalentClass {
     DynamicEntranceDesc,
     ForkedTongueDesc,
     InfluenceTalentDesc,
-    JackOfAllTradesDesc
+    JackOfAllTradesDesc,
+    WordplayDesc
   )
   override def name: String = "Bard"
 }

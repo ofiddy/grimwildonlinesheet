@@ -58,8 +58,13 @@ object FluentTalentRenderers {
   ) extends FluentTalentWidget
   final case class StoryBox[T <: Talent](ref: AppliedLens[T, Boolean])
       extends FluentTalentWidget
-  final case class PushBox[T <: Talent](ref: AppliedLens[T, Boolean])
-      extends FluentTalentWidget
+  final case class SquareBox[T <: Talent](
+      ref: AppliedLens[T, Boolean],
+      label: String
+  ) extends FluentTalentWidget
+
+  def PushBox[T <: Talent](ref: AppliedLens[T, Boolean]) =
+    SquareBox(ref, "PUSH")
 
   sealed trait FluentTalentFooter
   final case class WisesFooter[T <: Talent](
@@ -121,7 +126,7 @@ object FluentTalentRenderers {
         b(cls := "widget-title")("STORY")
       )
 
-    case PushBox(ref) =>
+    case SquareBox(ref, label) =>
       div(cls := "horizontal")(
         input(
           cls       := "widget-checkbox--push",
@@ -129,7 +134,7 @@ object FluentTalentRenderers {
           `checked` := ref.get,
           onClick(SheetMsg(editBuilder(ref.modify(!_))))
         ),
-        b(cls := "widget-title")("PUSH")
+        b(cls := "widget-title")(label)
       )
 
   def buildFooter(

@@ -38,5 +38,7 @@ object BardTalentRenderer {
       case t: InfluenceTalent =>
         acc withWidget MultiCheckbox("INFLUENCE", t.focus(_.influences), 2)
       case JackOfAllTradesTalent => acc
+      case t: WordplayTalent =>
+        acc withWidget SquareBox(t.focus(_.marked), "GOAD")
 
 }
