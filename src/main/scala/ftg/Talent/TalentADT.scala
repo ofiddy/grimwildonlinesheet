@@ -2,6 +2,7 @@ package ftg.Talent
 
 import upickle._
 import ftg.Talent.ClassTalents.BardTalents._
+import ftg.Character.Wise
 
 object TalentADT {
   sealed trait Talent     extends TalentImpl derives ReadWriter
@@ -12,8 +13,10 @@ object TalentADT {
   case object FriendlyFaceTalent
       extends BardTalent
       with TalentImpl(FriendlyFaceDesc)
-  final case class BardicLoreTalent(story: Boolean)
-      extends BardTalent
+  final case class BardicLoreTalent(
+      story: Boolean,
+      wises: (Option[Wise], Option[Wise], Option[Wise])
+  ) extends BardTalent
       with TalentImpl(BardicLoreDesc)
   case object DynamicEntranceTalent
       extends BardTalent

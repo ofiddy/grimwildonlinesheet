@@ -30,14 +30,15 @@ class ToggleTalentCommandTests extends TestSuite {
       }
 
       test("should add talent to existing list and sort alphabetically") {
-        val existingList = List(BardicLoreTalent(false), FriendlyFaceTalent)
-        val premade      = model withChar (_.copy(talents = existingList))
-        val testDesc     = BardsongTalentDesc
-        val testTalent   = testDesc(premade.character)
+        val existingList =
+          List(BardicLoreTalent(false, (None, None, None)), FriendlyFaceTalent)
+        val premade    = model withChar (_.copy(talents = existingList))
+        val testDesc   = BardsongTalentDesc
+        val testTalent = testDesc(premade.character)
         val cmd = ToggleTalentCommand(testDesc, premade.character.talents)
         val afterModify = modify(cmd, premade).character
         afterModify.talents ==> List(
-          BardicLoreTalent(false),
+          BardicLoreTalent(false, (None, None, None)),
           testTalent,
           FriendlyFaceTalent
         )

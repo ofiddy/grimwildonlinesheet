@@ -30,7 +30,9 @@ object BardTalentRenderer {
         )
       case FriendlyFaceTalent => acc
       case t: BardicLoreTalent =>
-        acc withWidget StoryBox(t.focus(_.story))
+        acc withWidget StoryBox(t.focus(_.story)) withFooter WisesFooter(
+          t.focus(_.wises)
+        )
       case DynamicEntranceTalent => acc
       case t: ForkedTongueTalent => acc withWidget PushBox(t.focus(_.marked))
 

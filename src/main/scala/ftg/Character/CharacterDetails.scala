@@ -6,12 +6,14 @@ import ftg.Character.CharacterTrait.TraitSection
 import upickle.default.ReadWriter
 import upickle.default.{ReadWriter => RW}
 import ftg.util.Util.opaqueTextRW
+import ftg.Character.Wise.TripWise
+import monocle.macros.GenLens
 
 opaque type Wise = String
 
 final case class Background(
     description: Option[String],
-    wises: (Option[Wise], Option[Wise], Option[Wise])
+    wises: TripWise
 ) derives ReadWriter
 
 case class CharacterDetails(
@@ -24,6 +26,11 @@ object Wise {
   extension (s: String) def wise: Wise     = s
   extension (w: Wise) def toString: String = w
   given RW[Wise]                           = opaqueTextRW(identity, identity)
+
+  type TripWise = (Option[Wise], Option[Wise], Option[Wise])
+  def firstWise  = GenLens[TripWise](_._1)
+  def secondWise = GenLens[TripWise](_._2)
+  def thirdWise  = GenLens[TripWise](_._3)
 }
 
 object Background {
