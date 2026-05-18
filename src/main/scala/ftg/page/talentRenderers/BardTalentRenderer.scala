@@ -37,5 +37,6 @@ object BardTalentRenderer {
       case t: ForkedTongueTalent => acc withWidget PushBox(t.focus(_.marked))
       case t: InfluenceTalent =>
         acc withWidget MultiCheckbox("INFLUENCE", t.focus(_.influences), 2)
+      case JackOfAllTradesTalent => acc
 
 }

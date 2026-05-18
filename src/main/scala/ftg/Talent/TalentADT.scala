@@ -29,4 +29,7 @@ object TalentADT {
   final case class InfluenceTalent(influences: Int)
       extends BardTalent
       with TalentImpl(InfluenceTalentDesc)
+  case object JackOfAllTradesTalent
+      extends BardTalent
+      with TalentImpl(JackOfAllTradesDesc)
 }
