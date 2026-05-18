@@ -5,7 +5,9 @@ import ftg.Talent.ClassTalents.BardTalents._
 import ftg.Character.Wise
 
 object TalentADT {
-  sealed trait Talent     extends TalentImpl derives ReadWriter
+  sealed trait Talent extends TalentImpl derives ReadWriter
+
+  /// BARD TALENTS
   sealed trait BardTalent extends Talent derives ReadWriter
   final case class BardsongTalent(bardsongs: Int, melodies: Int)
       extends BardTalent
@@ -24,4 +26,7 @@ object TalentADT {
   final case class ForkedTongueTalent(marked: Boolean)
       extends BardTalent
       with TalentImpl(ForkedTongueDesc)
+  final case class InfluenceTalent(influences: Int)
+      extends BardTalent
+      with TalentImpl(InfluenceTalentDesc)
 }
