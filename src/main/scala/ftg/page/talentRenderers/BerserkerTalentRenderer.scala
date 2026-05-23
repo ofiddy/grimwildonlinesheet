@@ -27,5 +27,6 @@ object BerserkerTalentRenderer {
     case IntoTheFrayTalent   => acc
     case JoyfulWarriorTalent => acc
     case t: MightyTalent     => acc withWidget PushBox(t.focus(_.marked))
+    case OverkillTalent      => acc
 
 }

@@ -97,6 +97,9 @@ object TalentADT {
   final case class MightyTalent(marked: Boolean)
       extends BerserkerTalent
       with TalentImpl(MightyDesc)
+  case object OverkillTalent
+      extends BerserkerTalent
+      with TalentImpl(OverkillDesc)
 
   final case class MarkableSelectable(
       marked: Boolean,
