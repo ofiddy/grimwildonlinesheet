@@ -28,5 +28,9 @@ object BerserkerTalentRenderer {
     case JoyfulWarriorTalent => acc
     case t: MightyTalent     => acc withWidget PushBox(t.focus(_.marked))
     case OverkillTalent      => acc
+    case t: WarsongsTalent =>
+      acc withWidgets List(
+        MultiCheckbox("WARSONGS", t.focus(_.warsongs), 2)
+      ) withFooter WarsongsFooter(t.focus(_.compositions))
 
 }

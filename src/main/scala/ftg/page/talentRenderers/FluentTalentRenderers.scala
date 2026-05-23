@@ -17,6 +17,9 @@ import ftg.DicePool.DicePool
 import ftg.page.elems.DicePoolEntry.dicePoolEntry
 import ftg.command.RollLogAndThen
 import ftg.Talent.TalentADT.MarkableSelectable
+import ftg.util.Util.firstStringInTrip
+import ftg.util.Util.secondStringInTrip
+import ftg.util.Util.thirdStringInTrip
 
 object FluentTalentRenderers {
   case class WidgetBuilding(
@@ -94,6 +97,9 @@ object FluentTalentRenderers {
   sealed trait FluentTalentFooter
   final case class WisesFooter[T <: Talent](
       ref: AppliedLens[T, (Option[Wise], Option[Wise], Option[Wise])]
+  ) extends FluentTalentFooter
+  final case class WarsongsFooter[T <: Talent](
+      ref: AppliedLens[T, (Option[String], Option[String], Option[String])]
   ) extends FluentTalentFooter
 
   type TalentEditBuilder = (newTal: Talent) => CharCommand
@@ -271,10 +277,36 @@ object FluentTalentRenderers {
         )
       )
 
-  private def newTalOnChange[T](
+    case WarsongsFooter(ref) => {
+      def compositionBox(
+          lens: Lens[(Option[String], Option[String], Option[String]), Option[
+            String
+          ]]
+      ): Html[Msg] = exitableTextInput(
+        `value` := ref.andThen(lens).get.getOrElse(""),
+        cls     := "footer-input"
+      )(s =>
+        newTalOnChange(
+          editBuilder(
+            ref.andThen(lens).replace(if s.isEmpty then None else Some(s))
+          ),
+          s,
+          ref.andThen(lens).get.getOrElse("")
+        )
+      )
+
+      div(cls := "horizontal footer-compositions")(
+        b("COMPOSITIONS"),
+        compositionBox(firstStringInTrip),
+        compositionBox(secondStringInTrip),
+        compositionBox(thirdStringInTrip)
+      )
+    }
+
+  private def newTalOnChange[A](
       built: CharCommand,
-      newVal: T,
-      oldVal: T
+      newVal: A,
+      oldVal: A
   ): Msg =
     if oldVal == newVal then NoOpMsg else SheetMsg(built)
 

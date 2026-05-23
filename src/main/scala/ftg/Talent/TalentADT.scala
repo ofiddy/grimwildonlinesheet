@@ -100,6 +100,11 @@ object TalentADT {
   case object OverkillTalent
       extends BerserkerTalent
       with TalentImpl(OverkillDesc)
+  final case class WarsongsTalent(
+      warsongs: Int,
+      compositions: (Option[String], Option[String], Option[String])
+  ) extends BerserkerTalent
+      with TalentImpl(WarsongsDesc)
 
   final case class MarkableSelectable(
       marked: Boolean,

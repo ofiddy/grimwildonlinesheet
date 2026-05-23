@@ -1,6 +1,7 @@
 package ftg.util
 
 import upickle.default.{ReadWriter => RW}
+import monocle.macros.GenLens
 
 object Util {
   extension (s: String)
@@ -14,4 +15,11 @@ object Util {
 
   def opaqueIntRW[I](f1: I => Int, f2: Int => I): RW[I] =
     opaqueRW[I, Int](f1, f2)
+
+  def firstStringInTrip =
+    GenLens[(Option[String], Option[String], Option[String])](_._1)
+  def secondStringInTrip =
+    GenLens[(Option[String], Option[String], Option[String])](_._2)
+  def thirdStringInTrip =
+    GenLens[(Option[String], Option[String], Option[String])](_._3)
 }

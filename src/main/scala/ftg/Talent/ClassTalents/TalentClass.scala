@@ -56,7 +56,8 @@ case object BerserkerClass extends TalentClass {
     IntoTheFrayDesc,
     JoyfulWarriorDesc,
     MightyDesc,
-    OverkillDesc
+    OverkillDesc,
+    WarsongsDesc
   )
 
   override def name: String = "Berserker"
