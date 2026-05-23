@@ -3,6 +3,7 @@ package ftg.Talent
 import upickle._
 import ftg.Talent.ClassTalents.ArtificerTalent._
 import ftg.Talent.ClassTalents.BardTalents._
+import ftg.Talent.ClassTalents.BerserkerTalents._
 import ftg.Character.Wise
 import ftg.DicePool.DicePool
 import ftg.Talent.ClassTalents.ArtificerTalent.MechanicalMountDesc.MechanicalMountFeatures
@@ -76,6 +77,11 @@ object TalentADT {
   final case class SwiftwingTalent(pool: DicePool)
       extends ArtificerTalent
       with TalentImpl(SwiftwingDesc)
+
+  sealed trait BerserkerTalent extends Talent derives ReadWriter
+  final case class FrenzyTalent(frenzy: Int)
+      extends BerserkerTalent
+      with TalentImpl(FrenzyDesc)
 
   final case class MarkableSelectable(
       marked: Boolean,
