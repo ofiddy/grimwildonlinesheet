@@ -13,6 +13,10 @@ import ftg.page.Msg.NoOpMsg
 import ftg.Character.Wise
 import ftg.Character.Wise._
 import monocle.Lens
+import ftg.DicePool.DicePool
+import ftg.page.elems.DicePoolEntry.dicePoolEntry
+import ftg.command.RollLogAndThen
+import ftg.Talent.TalentADT.MarkableSelectable
 
 object FluentTalentRenderers {
   case class WidgetBuilding(
@@ -24,6 +28,14 @@ object FluentTalentRenderers {
         teb: TalentEditBuilder
     ) =
       WidgetBuilding(this.html, this.widgets :+ (widget, teb), this.footer)
+
+    infix def withWidgets(widgets: List[FluentTalentWidget])(using
+        teb: TalentEditBuilder
+    ) = WidgetBuilding(
+      this.html,
+      this.widgets ++ widgets.map(w => (w, teb)),
+      this.footer
+    )
 
     infix def withFooter(ft: FluentTalentFooter)(using teb: TalentEditBuilder) =
       copy(footer = Some(ft, teb))
@@ -60,6 +72,19 @@ object FluentTalentRenderers {
       extends FluentTalentWidget
   final case class SquareBox[T <: Talent](
       ref: AppliedLens[T, Boolean],
+      label: String
+  ) extends FluentTalentWidget
+  final case class Pool[T <: Talent](
+      label: String,
+      ref: AppliedLens[T, DicePool]
+  ) extends FluentTalentWidget
+  final case class MarkableSelection[T <: Talent](
+      ref: AppliedLens[T, MarkableSelectable],
+      options: List[String]
+  ) extends FluentTalentWidget
+  final case class Selectable[T <: Talent](
+      ref: AppliedLens[T, Option[String]],
+      options: List[String],
       label: String
   ) extends FluentTalentWidget
 
@@ -137,6 +162,78 @@ object FluentTalentRenderers {
         b(cls := "widget-title")(label)
       )
 
+    case Pool(label, ref) =>
+      div(cls := "vertical")(
+        b(cls := "widget-title")(label),
+        button(
+          cls := "widget-dice-pool-roll",
+          onClick(
+            SheetMsg(
+              RollLogAndThen(
+                ref.get,
+                roll => editBuilder(ref.replace(DicePool(roll.hits)))
+              )
+            )
+          )
+        )("Roll"),
+        dicePoolEntry(
+          `value` := ref.get.diceRemaining.toString(),
+          cls     := "widget-dice-pool-entry"
+        )(n =>
+          newTalOnChange(editBuilder(ref.replace(DicePool(n))), n, ref.get)
+        )
+      )
+    case MarkableSelection(ref, options) =>
+      div(cls := "horizontal")(
+        input(
+          cls       := "widget-checkbox--push",
+          `type`    := "checkbox",
+          `checked` := ref.get.marked,
+          onClick(
+            SheetMsg(editBuilder(ref.modify(x => x.copy(marked = !x.marked))))
+          )
+        ),
+        div(cls := "vertical")(
+          select(
+            cls     := "widget-selectable",
+            `value` := ref.get.feature.getOrElse("none"),
+            onChange(s => {
+              val selected = if s == "none" then None else Some(s)
+              newTalOnChange(
+                editBuilder(ref.replace(ref.get.copy(feature = selected))),
+                selected,
+                ref.get
+              )
+            })
+          )(
+            option(`value` := "none")("") :: options.map(o =>
+              option(`value` := o)(o)
+            )
+          )
+        )
+      )
+
+    case Selectable(ref, options, label) =>
+      div(cls := "vertical")(
+        b(cls := "widget-title")(label),
+        select(
+          cls     := "widget-selectable",
+          `value` := ref.get.getOrElse("none"),
+          onChange(s => {
+            val selected = if s == "none" then None else Some(s)
+            newTalOnChange(
+              editBuilder(ref.replace(selected)),
+              selected,
+              ref.get
+            )
+          })
+        )(
+          option(`value` := "none")("") :: options.map(o =>
+            option(`value` := o)(o)
+          )
+        )
+      )
+
   def buildFooter(
       w: FluentTalentFooter,
       editBuilder: TalentEditBuilder
@@ -174,10 +271,10 @@ object FluentTalentRenderers {
         )
       )
 
-  private def newTalOnChange(
+  private def newTalOnChange[T](
       built: CharCommand,
-      newVal: String,
-      oldVal: String
+      newVal: T,
+      oldVal: T
   ): Msg =
     if oldVal == newVal then NoOpMsg else SheetMsg(built)
 

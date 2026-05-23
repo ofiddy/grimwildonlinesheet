@@ -7,6 +7,7 @@ import ftg.command.CharacterLoc.StatLocs._
 import ftg.Talent.TalentDescriptor
 import ftg.Talent.TalentADT.Talent
 import ftg.Talent.ClassTalents.TalentClass
+import ftg.DicePool.RollResult
 
 sealed trait CharCommand
 sealed trait PureCommand   extends CharCommand
@@ -69,3 +70,8 @@ final case class ToggleTalentCommand(
     desc: TalentDescriptor,
     allTalents: List[Talent]
 ) extends EffectCommand
+
+final case class RollLogAndThen(
+    roll: DicePool,
+    andThen: RollResult => CharCommand
+) extends CharCommand

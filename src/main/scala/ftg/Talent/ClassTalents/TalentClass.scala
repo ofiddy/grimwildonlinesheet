@@ -3,6 +3,7 @@ package ftg.Talent.ClassTalents
 import ftg.Talent.ClassTalents.BardTalents._
 import ftg.Talent.TalentDescriptor
 import upickle.default.{ReadWriter => RW}
+import ftg.Talent.ClassTalents.ArtificerTalent._
 
 sealed trait TalentClass derives RW {
   def coreTalent: TalentDescriptor
@@ -25,16 +26,27 @@ case object BardClass extends TalentClass {
   override def name: String = "Bard"
 }
 
-case object TestClass extends TalentClass {
-  override def coreTalent: TalentDescriptor =
-    FriendlyFaceDesc
-  override def nonCoreTalents: List[TalentDescriptor] = List(
-  )
-  override def name: String = "Test"
+case object ArtificerClass extends TalentClass {
+
+  override def coreTalent: TalentDescriptor = IngenuityDesc
+
+  override def nonCoreTalents: List[TalentDescriptor] =
+    List(
+      AnchorshotDesc,
+      AutomatonsDesc,
+      DoubleBarreledBlunderbussDesc,
+      GrenadesDesc,
+      MechanicalMountDesc,
+      SteamhammerDesc,
+      SwiftwingDesc
+    )
+
+  override def name: String = "Artificer"
+
 }
 
 object TalentsRefs {
   def allPathTalents: List[TalentDescriptor] =
     allClasses.flatMap(_.nonCoreTalents)
-  def allClasses = List(BardClass, TestClass)
+  def allClasses = List(BardClass, ArtificerClass)
 }

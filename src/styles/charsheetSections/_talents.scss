@@ -22,6 +22,7 @@ span.talent-name {
 
 .widget-title {
   font-weight: bold;
+  font-variant: small-caps;
 }
 
 $widgetBoxHeight: 20px;
@@ -146,6 +147,11 @@ div.widget-checkbox {
   margin-bottom: 50px;
 }
 
+#talent-modal-scrolling-section {
+  overflow-y: auto;
+  height: 80%;
+}
+
 .modal-talent {
   text-align: left;
   appearance: none;
@@ -189,4 +195,40 @@ div.widget-checkbox {
 
 .wises-footer {
   margin-top: 10px;
+}
+
+.widget-dice-pool-entry {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  align-self: center;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 2px solid black;
+  margin-top: 0px;
+  display: block;
+  font-size: 16pt;
+}
+
+.widget-dice-pool-roll {
+  background-color: transparent;
+  font-weight: bolder;
+  font-family: base.$fontStack;
+  border: none;
+  border-left: 1px black solid;
+  margin-left: 5px;
+}
+
+.widget {
+  display: flex;
+  flex-direction: column;
+}
+
+.widget-selectable {
+  background-color: base.$mainBgColor;
+  font-family: base.$fontStack;
+  font-size: 12pt;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
 }

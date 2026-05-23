@@ -1,13 +1,15 @@
 package ftg.Talent
 
 import upickle._
+import ftg.Talent.ClassTalents.ArtificerTalent._
 import ftg.Talent.ClassTalents.BardTalents._
 import ftg.Character.Wise
+import ftg.DicePool.DicePool
+import ftg.Talent.ClassTalents.ArtificerTalent.MechanicalMountDesc.MechanicalMountFeatures
 
 object TalentADT {
   sealed trait Talent extends TalentImpl derives ReadWriter
 
-  /// BARD TALENTS
   sealed trait BardTalent extends Talent derives ReadWriter
   final case class BardsongTalent(bardsongs: Int, melodies: Int)
       extends BardTalent
@@ -35,4 +37,48 @@ object TalentADT {
   final case class WordplayTalent(marked: Boolean)
       extends BardTalent
       with TalentImpl(WordplayDesc)
+
+  sealed trait ArtificerTalent extends Talent derives ReadWriter
+  final case class IngenuityTalent(marked: Boolean)
+      extends ArtificerTalent
+      with TalentImpl(IngenuityDesc)
+  final case class AnchorshotTalent(pool: DicePool)
+      extends ArtificerTalent
+      with TalentImpl(AnchorshotDesc)
+  final case class AutomatonsTalent(
+      pool1: DicePool,
+      pool2: DicePool,
+      pool3: DicePool
+  ) extends ArtificerTalent
+      with TalentImpl(AutomatonsDesc)
+  final case class DoubleBarreledBlunderbussTalent(
+      blast: Boolean,
+      drill: Boolean,
+      inferno: Boolean,
+      scatter: Boolean,
+      shrapnel: Boolean,
+      tangler: Boolean
+  ) extends ArtificerTalent
+      with TalentImpl(DoubleBarreledBlunderbussDesc)
+  final case class GrenadesTalent(
+      pool: DicePool
+  ) extends ArtificerTalent
+      with TalentImpl(GrenadesDesc)
+  final case class MechanicalMountTalent(
+      features: MechanicalMountFeatures,
+      drawback: Option[String]
+  ) extends ArtificerTalent
+      with TalentImpl(MechanicalMountDesc)
+  final case class SteamhammerTalent(
+      pool: DicePool
+  ) extends ArtificerTalent
+      with TalentImpl(SteamhammerDesc)
+  final case class SwiftwingTalent(pool: DicePool)
+      extends ArtificerTalent
+      with TalentImpl(SwiftwingDesc)
+
+  final case class MarkableSelectable(
+      marked: Boolean,
+      feature: Option[String]
+  ) derives ReadWriter
 }

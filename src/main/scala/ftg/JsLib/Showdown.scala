@@ -6,5 +6,6 @@ import scala.scalajs.js.annotation.JSImport
 @js.native
 @JSImport("showdown", "Converter")
 class Converter extends js.Object {
-  def makeHtml(text: String): String = js.native
+  def makeHtml(text: String): String              = js.native
+  def setOption(key: String, value: String): Unit = js.native
 }

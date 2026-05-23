@@ -4,10 +4,8 @@ import cats.effect.IO
 import ftg.DicePool.DicePool.given_PoolRollable_DicePool.roll
 import ftg.DicePool.RandomRollGenerator
 import ftg.DicePool.RollGenerator
-import ftg.command.CharCommand
-import ftg.command.EffectCommand
+import ftg.command._
 import ftg.command.ModifyCharacter.modify
-import ftg.command.RollStatCommand
 import ftg.page.Msg.BlurMsg
 import ftg.page.Msg.NoOpMsg
 import ftg.page.Msg.SheetMsg
@@ -56,6 +54,11 @@ object UpdatePage {
           modify(e, model) log e,
           Cmd.None
         )
+
+      case RollLogAndThen(pool, andThen) => {
+        val roll = pool.roll
+        update(model log s"Rolled ${roll}")(SheetMsg(andThen(roll)))
+      }
 
   def applyIoCmd(
       model: Model,
