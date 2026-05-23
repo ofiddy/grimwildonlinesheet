@@ -73,6 +73,9 @@ object TalentADT {
       pool: DicePool
   ) extends ArtificerTalent
       with TalentImpl(SteamhammerDesc)
+  final case class SwiftwingTalent(pool: DicePool)
+      extends ArtificerTalent
+      with TalentImpl(SwiftwingDesc)
 
   final case class MarkableSelectable(
       marked: Boolean,
