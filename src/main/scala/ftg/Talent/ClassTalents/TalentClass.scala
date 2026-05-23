@@ -35,7 +35,8 @@ case object ArtificerClass extends TalentClass {
       AnchorshotDesc,
       AutomatonsDesc,
       DoubleBarreledBlunderbussDesc,
-      GrenadesDesc
+      GrenadesDesc,
+      MechanicalMountDesc
     )
 
   override def name: String = "Artificer"

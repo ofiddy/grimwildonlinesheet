@@ -16,6 +16,7 @@ import monocle.Lens
 import ftg.DicePool.DicePool
 import ftg.page.elems.DicePoolEntry.dicePoolEntry
 import ftg.command.RollLogAndThen
+import ftg.Talent.TalentADT.MarkableSelectable
 
 object FluentTalentRenderers {
   case class WidgetBuilding(
@@ -76,6 +77,15 @@ object FluentTalentRenderers {
   final case class Pool[T <: Talent](
       label: String,
       ref: AppliedLens[T, DicePool]
+  ) extends FluentTalentWidget
+  final case class MarkableSelection[T <: Talent](
+      ref: AppliedLens[T, MarkableSelectable],
+      options: List[String]
+  ) extends FluentTalentWidget
+  final case class Selectable[T <: Talent](
+      ref: AppliedLens[T, Option[String]],
+      options: List[String],
+      label: String
   ) extends FluentTalentWidget
 
   def PushBox[T <: Talent](ref: AppliedLens[T, Boolean]) =
@@ -171,6 +181,56 @@ object FluentTalentRenderers {
           cls     := "widget-dice-pool-entry"
         )(n =>
           newTalOnChange(editBuilder(ref.replace(DicePool(n))), n, ref.get)
+        )
+      )
+    case MarkableSelection(ref, options) =>
+      div(cls := "horizontal")(
+        input(
+          cls       := "widget-checkbox--push",
+          `type`    := "checkbox",
+          `checked` := ref.get.marked,
+          onClick(
+            SheetMsg(editBuilder(ref.modify(x => x.copy(marked = !x.marked))))
+          )
+        ),
+        div(cls := "vertical")(
+          select(
+            cls     := "widget-selectable",
+            `value` := ref.get.feature.getOrElse("none"),
+            onChange(s => {
+              val selected = if s == "none" then None else Some(s)
+              newTalOnChange(
+                editBuilder(ref.replace(ref.get.copy(feature = selected))),
+                selected,
+                ref.get
+              )
+            })
+          )(
+            option(`value` := "none")("") :: options.map(o =>
+              option(`value` := o)(o)
+            )
+          )
+        )
+      )
+
+    case Selectable(ref, options, label) =>
+      div(cls := "vertical")(
+        b(cls := "widget-title")(label),
+        select(
+          cls     := "widget-selectable",
+          `value` := ref.get.getOrElse("none"),
+          onChange(s => {
+            val selected = if s == "none" then None else Some(s)
+            newTalOnChange(
+              editBuilder(ref.replace(selected)),
+              selected,
+              ref.get
+            )
+          })
+        )(
+          option(`value` := "none")("") :: options.map(o =>
+            option(`value` := o)(o)
+          )
         )
       )
 

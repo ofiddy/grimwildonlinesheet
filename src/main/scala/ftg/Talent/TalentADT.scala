@@ -5,6 +5,7 @@ import ftg.Talent.ClassTalents.ArtificerTalent._
 import ftg.Talent.ClassTalents.BardTalents._
 import ftg.Character.Wise
 import ftg.DicePool.DicePool
+import ftg.Talent.ClassTalents.ArtificerTalent.MechanicalMountDesc.MechanicalMountFeatures
 
 object TalentADT {
   sealed trait Talent extends TalentImpl derives ReadWriter
@@ -63,4 +64,14 @@ object TalentADT {
       pool: DicePool
   ) extends ArtificerTalent
       with TalentImpl(GrenadesDesc)
+  final case class MechanicalMountTalent(
+      features: MechanicalMountFeatures,
+      drawback: Option[String]
+  ) extends ArtificerTalent
+      with TalentImpl(MechanicalMountDesc)
+
+  final case class MarkableSelectable(
+      marked: Boolean,
+      feature: Option[String]
+  ) derives ReadWriter
 }
