@@ -4,6 +4,7 @@ import ftg.Talent.ClassTalents.BardTalents._
 import ftg.Talent.TalentDescriptor
 import upickle.default.{ReadWriter => RW}
 import ftg.Talent.ClassTalents.ArtificerTalent.IngenuityDesc
+import ftg.Talent.ClassTalents.ArtificerTalent.AnchorshotDesc
 
 sealed trait TalentClass derives RW {
   def coreTalent: TalentDescriptor
@@ -30,7 +31,7 @@ case object ArtificerClass extends TalentClass {
 
   override def coreTalent: TalentDescriptor = IngenuityDesc
 
-  override def nonCoreTalents: List[TalentDescriptor] = List()
+  override def nonCoreTalents: List[TalentDescriptor] = List(AnchorshotDesc)
 
   override def name: String = "Artificer"
 

@@ -4,7 +4,7 @@ import ftg.Talent.TalentADT.ArtificerTalent
 import ftg.page.talentRenderers.FluentTalentRenderers.TalentEditBuilder
 import ftg.page.Msg
 import tyrian.Html
-import ftg.Talent.TalentADT.IngenuityTalent
+import ftg.Talent.TalentADT._
 import ftg.page.talentRenderers.FluentTalentRenderers._
 import ftg.page.talentRenderers.FluentTalentRenderers.fluentTalent
 import monocle.syntax.all.focus
@@ -17,6 +17,7 @@ object ArtificerTalentRender {
   )(using
       TalentEditBuilder
   ): Html[Msg] = t match
-    case t: IngenuityTalent => acc withWidget PushBox(t.focus(_.marked))
+    case t: IngenuityTalent  => acc withWidget PushBox(t.focus(_.marked))
+    case t: AnchorshotTalent => acc withWidget Pool("Anchor", t.focus(_.pool))
 
 }

@@ -4,6 +4,7 @@ import upickle._
 import ftg.Talent.ClassTalents.ArtificerTalent._
 import ftg.Talent.ClassTalents.BardTalents._
 import ftg.Character.Wise
+import ftg.DicePool.DicePool
 
 object TalentADT {
   sealed trait Talent extends TalentImpl derives ReadWriter
@@ -40,4 +41,7 @@ object TalentADT {
   final case class IngenuityTalent(marked: Boolean)
       extends ArtificerTalent
       with TalentImpl(IngenuityDesc)
+  final case class AnchorshotTalent(pool: DicePool)
+      extends ArtificerTalent
+      with TalentImpl(AnchorshotDesc)
 }

@@ -13,6 +13,9 @@ import ftg.page.Msg.NoOpMsg
 import ftg.Character.Wise
 import ftg.Character.Wise._
 import monocle.Lens
+import ftg.DicePool.DicePool
+import ftg.page.elems.DicePoolEntry.dicePoolEntry
+import ftg.command.RollLogAndThen
 
 object FluentTalentRenderers {
   case class WidgetBuilding(
@@ -61,6 +64,10 @@ object FluentTalentRenderers {
   final case class SquareBox[T <: Talent](
       ref: AppliedLens[T, Boolean],
       label: String
+  ) extends FluentTalentWidget
+  final case class Pool[T <: Talent](
+      label: String,
+      ref: AppliedLens[T, DicePool]
   ) extends FluentTalentWidget
 
   def PushBox[T <: Talent](ref: AppliedLens[T, Boolean]) =
@@ -137,6 +144,28 @@ object FluentTalentRenderers {
         b(cls := "widget-title")(label)
       )
 
+    case Pool(label, ref) =>
+      div(cls := "vertical")(
+        b(cls := "widget-title")(label),
+        button(
+          cls := "widget-dice-pool-roll",
+          onClick(
+            SheetMsg(
+              RollLogAndThen(
+                ref.get,
+                roll => editBuilder(ref.replace(DicePool(roll.hits)))
+              )
+            )
+          )
+        )("Roll"),
+        dicePoolEntry(
+          `value` := ref.get.diceRemaining.toString(),
+          cls     := "widget-dice-pool-entry"
+        )(n =>
+          newTalOnChange(editBuilder(ref.replace(DicePool(n))), n, ref.get)
+        )
+      )
+
   def buildFooter(
       w: FluentTalentFooter,
       editBuilder: TalentEditBuilder
@@ -174,10 +203,10 @@ object FluentTalentRenderers {
         )
       )
 
-  private def newTalOnChange(
+  private def newTalOnChange[T](
       built: CharCommand,
-      newVal: String,
-      oldVal: String
+      newVal: T,
+      oldVal: T
   ): Msg =
     if oldVal == newVal then NoOpMsg else SheetMsg(built)
 
