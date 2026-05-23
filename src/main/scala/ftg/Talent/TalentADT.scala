@@ -85,6 +85,9 @@ object TalentADT {
   final case class FearsomeTalent(marked: Boolean)
       extends BerserkerTalent
       with TalentImpl(FearsomeDesc)
+  final case class FleshWoundsTalent(wounds: Int)
+      extends BerserkerTalent
+      with TalentImpl(FleshWoundsDesc)
 
   final case class MarkableSelectable(
       marked: Boolean,
