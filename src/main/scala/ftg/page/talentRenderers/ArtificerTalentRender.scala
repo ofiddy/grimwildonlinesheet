@@ -51,4 +51,6 @@ object ArtificerTalentRender {
         )
       )
 
+    case t: SteamhammerTalent => acc withWidget Pool("STEAM", t.focus(_.pool))
+
 }

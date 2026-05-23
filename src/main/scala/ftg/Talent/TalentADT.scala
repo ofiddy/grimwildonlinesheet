@@ -69,6 +69,10 @@ object TalentADT {
       drawback: Option[String]
   ) extends ArtificerTalent
       with TalentImpl(MechanicalMountDesc)
+  final case class SteamhammerTalent(
+      pool: DicePool
+  ) extends ArtificerTalent
+      with TalentImpl(SteamhammerDesc)
 
   final case class MarkableSelectable(
       marked: Boolean,
