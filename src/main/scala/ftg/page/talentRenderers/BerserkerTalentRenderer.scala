@@ -24,6 +24,7 @@ object BerserkerTalentRenderer {
     case t: FearsomeTalent => acc withWidget PushBox(t.focus(_.marked))
     case t: FleshWoundsTalent =>
       acc withWidget MultiCheckbox("WOUNDS", t.focus(_.wounds), t.wounds + 1)
-    case t: IntoTheFrayTalent.type => acc
+    case IntoTheFrayTalent   => acc
+    case JoyfulWarriorTalent => acc
 
 }
