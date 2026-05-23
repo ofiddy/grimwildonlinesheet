@@ -12,6 +12,7 @@ import ftg.JsLib.Converter
 import ftg.page.talentRenderers.ArtificerTalentRender.artificerTalentRender
 import ftg.Talent.Markdown
 import ftg.page.talentRenderers.TalentRenderHelpers.ConvertMd
+import ftg.page.talentRenderers.BerserkerTalentRenderer.berserkerTalentRender
 
 package object talentRenderers {
   object TalentRenderHelpers {
@@ -31,6 +32,7 @@ package object talentRenderers {
     val afterProcess = t match {
       case t: ArtificerTalent => artificerTalentRender(t, c, base)
       case t: BardTalent      => bardTalentRender(t, c, base)
+      case t: BerserkerTalent => berserkerTalentRender(t, c, base)
     }
     div(cls := "sheet-talent")(afterProcess)
   }
