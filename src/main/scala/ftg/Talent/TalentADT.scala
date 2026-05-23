@@ -44,4 +44,10 @@ object TalentADT {
   final case class AnchorshotTalent(pool: DicePool)
       extends ArtificerTalent
       with TalentImpl(AnchorshotDesc)
+  final case class AutomatonsTalent(
+      pool1: DicePool,
+      pool2: DicePool,
+      pool3: DicePool
+  ) extends ArtificerTalent
+      with TalentImpl(AutomatonsDesc)
 }
