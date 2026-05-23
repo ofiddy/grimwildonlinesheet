@@ -82,6 +82,9 @@ object TalentADT {
   final case class FrenzyTalent(frenzy: Int)
       extends BerserkerTalent
       with TalentImpl(FrenzyDesc)
+  final case class FearsomeTalent(marked: Boolean)
+      extends BerserkerTalent
+      with TalentImpl(FearsomeDesc)
 
   final case class MarkableSelectable(
       marked: Boolean,

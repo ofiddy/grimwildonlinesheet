@@ -1,9 +1,8 @@
 package ftg.page.talentRenderers
 
 import tyrian.Html
-import ftg.Talent.TalentADT.BerserkerTalent
+import ftg.Talent.TalentADT._
 import ftg.page.Msg
-import ftg.Talent.TalentADT.FrenzyTalent
 import ftg.page.talentRenderers.FluentTalentRenderers._
 import monocle.syntax.all.focus
 import ftg.Talent.ClassTalents.BerserkerTalents.FrenzyDesc
@@ -21,5 +20,7 @@ object BerserkerTalentRenderer {
       val max = FrenzyDesc(c).frenzy
       acc withWidget MultiCheckbox("FRENZY", t.focus(_.frenzy), max)
     }
+
+    case t: FearsomeTalent => acc withWidget PushBox(t.focus(_.marked))
 
 }

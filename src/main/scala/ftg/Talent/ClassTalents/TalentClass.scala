@@ -5,6 +5,7 @@ import ftg.Talent.TalentDescriptor
 import upickle.default.{ReadWriter => RW}
 import ftg.Talent.ClassTalents.ArtificerTalent._
 import ftg.Talent.ClassTalents.BerserkerTalents.FrenzyDesc
+import ftg.Talent.ClassTalents.BerserkerTalents.FearsomeDesc
 
 sealed trait TalentClass derives RW {
   def coreTalent: TalentDescriptor
@@ -50,7 +51,9 @@ case object BerserkerClass extends TalentClass {
 
   override def coreTalent: TalentDescriptor = FrenzyDesc
 
-  override def nonCoreTalents: List[TalentDescriptor] = List()
+  override def nonCoreTalents: List[TalentDescriptor] = List(
+    FearsomeDesc
+  )
 
   override def name: String = "Berserker"
 
