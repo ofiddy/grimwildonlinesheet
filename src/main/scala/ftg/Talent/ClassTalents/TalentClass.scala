@@ -7,6 +7,7 @@ import ftg.Talent.ClassTalents.ArtificerTalent._
 import ftg.Talent.ClassTalents.BerserkerTalents.FrenzyDesc
 import ftg.Talent.ClassTalents.BerserkerTalents.FearsomeDesc
 import ftg.Talent.ClassTalents.BerserkerTalents.FleshWoundsDesc
+import ftg.Talent.ClassTalents.BerserkerTalents.IntoTheFrayDesc
 
 sealed trait TalentClass derives RW {
   def coreTalent: TalentDescriptor
@@ -54,7 +55,8 @@ case object BerserkerClass extends TalentClass {
 
   override def nonCoreTalents: List[TalentDescriptor] = List(
     FearsomeDesc,
-    FleshWoundsDesc
+    FleshWoundsDesc,
+    IntoTheFrayDesc
   )
 
   override def name: String = "Berserker"
