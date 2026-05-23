@@ -33,5 +33,6 @@ object ArtificerTalentRender {
         SquareBox(t.focus(_.shrapnel), "SHRAPNEL"),
         SquareBox(t.focus(_.tangler), "TANGLER")
       )
+    case t: GrenadesTalent => acc withWidget Pool("GRENADES", t.focus(_.pool))
 
 }

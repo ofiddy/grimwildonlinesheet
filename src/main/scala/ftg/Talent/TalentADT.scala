@@ -59,4 +59,8 @@ object TalentADT {
       tangler: Boolean
   ) extends ArtificerTalent
       with TalentImpl(DoubleBarreledBlunderbussDesc)
+  final case class GrenadesTalent(
+      pool: DicePool
+  ) extends ArtificerTalent
+      with TalentImpl(GrenadesDesc)
 }
