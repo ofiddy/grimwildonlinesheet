@@ -213,3 +213,8 @@ div.widget-checkbox {
   border-left: 1px black solid;
   margin-left: 5px;
 }
+
+.widget {
+  display: flex;
+  flex-direction: column;
+}

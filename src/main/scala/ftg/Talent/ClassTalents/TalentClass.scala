@@ -31,7 +31,7 @@ case object ArtificerClass extends TalentClass {
   override def coreTalent: TalentDescriptor = IngenuityDesc
 
   override def nonCoreTalents: List[TalentDescriptor] =
-    List(AnchorshotDesc, AutomatonsDesc)
+    List(AnchorshotDesc, AutomatonsDesc, DoubleBarreledBlunderbussDesc)
 
   override def name: String = "Artificer"
 

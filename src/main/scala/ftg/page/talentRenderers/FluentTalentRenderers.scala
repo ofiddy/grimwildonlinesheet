@@ -28,6 +28,14 @@ object FluentTalentRenderers {
     ) =
       WidgetBuilding(this.html, this.widgets :+ (widget, teb), this.footer)
 
+    infix def withWidgets(widgets: List[FluentTalentWidget])(using
+        teb: TalentEditBuilder
+    ) = WidgetBuilding(
+      this.html,
+      this.widgets ++ widgets.map(w => (w, teb)),
+      this.footer
+    )
+
     infix def withFooter(ft: FluentTalentFooter)(using teb: TalentEditBuilder) =
       copy(footer = Some(ft, teb))
 

@@ -50,4 +50,13 @@ object TalentADT {
       pool3: DicePool
   ) extends ArtificerTalent
       with TalentImpl(AutomatonsDesc)
+  final case class DoubleBarreledBlunderbussTalent(
+      blast: Boolean,
+      drill: Boolean,
+      inferno: Boolean,
+      scatter: Boolean,
+      shrapnel: Boolean,
+      tangler: Boolean
+  ) extends ArtificerTalent
+      with TalentImpl(DoubleBarreledBlunderbussDesc)
 }

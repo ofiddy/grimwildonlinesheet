@@ -18,11 +18,20 @@ object ArtificerTalentRender {
       TalentEditBuilder
   ): Html[Msg] = t match
     case t: IngenuityTalent  => acc withWidget PushBox(t.focus(_.marked))
-    case t: AnchorshotTalent => acc withWidget Pool("Anchor", t.focus(_.pool))
+    case t: AnchorshotTalent => acc withWidget Pool("ANCHOR", t.focus(_.pool))
     case t: AutomatonsTalent =>
       acc withWidget Pool("Helper", t.focus(_.pool1)) withWidget Pool(
         "Helper",
         t.focus(_.pool2)
       ) withWidget Pool("Helper", t.focus(_.pool3))
+    case t: DoubleBarreledBlunderbussTalent =>
+      acc withWidgets List(
+        SquareBox(t.focus(_.blast), "BLAST"),
+        SquareBox(t.focus(_.drill), "DRILL"),
+        SquareBox(t.focus(_.inferno), "INFERNO"),
+        SquareBox(t.focus(_.scatter), "SCATTER"),
+        SquareBox(t.focus(_.shrapnel), "SHRAPNEL"),
+        SquareBox(t.focus(_.tangler), "TANGLER")
+      )
 
 }
