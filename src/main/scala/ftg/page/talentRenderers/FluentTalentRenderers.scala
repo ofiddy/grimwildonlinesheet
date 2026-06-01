@@ -20,6 +20,9 @@ import ftg.Talent.TalentADT.MarkableSelectable
 import ftg.util.Util.firstStringInTrip
 import ftg.util.Util.secondStringInTrip
 import ftg.util.Util.thirdStringInTrip
+import ftg.Talent.TalentADT.ChannelDivinityTalent
+import ftg.Talent.TalentADT.LabelledPool
+import monocle.syntax.all.focus
 
 object FluentTalentRenderers {
   case class WidgetBuilding(
@@ -100,6 +103,9 @@ object FluentTalentRenderers {
   ) extends FluentTalentFooter
   final case class WarsongsFooter[T <: Talent](
       ref: AppliedLens[T, (Option[String], Option[String], Option[String])]
+  ) extends FluentTalentFooter
+  final case class ChannelDivinityFooter(
+      tal: ChannelDivinityTalent
   ) extends FluentTalentFooter
 
   type TalentEditBuilder = (newTal: Talent) => CharCommand
@@ -303,11 +309,58 @@ object FluentTalentRenderers {
       )
     }
 
+    case ChannelDivinityFooter(tal) => {
+      div(cls := "horizontal channel-divinity-footer")(
+        clericBox(tal.focus(_.pools._1), editBuilder),
+        clericBox(tal.focus(_.pools._2), editBuilder),
+        clericBox(tal.focus(_.pools._3), editBuilder)
+      )
+    }
+
   private def newTalOnChange[A](
       built: CharCommand,
       newVal: A,
       oldVal: A
   ): Msg =
     if oldVal == newVal then NoOpMsg else SheetMsg(built)
+
+  private def clericBox[T <: Talent](
+      ref: AppliedLens[T, LabelledPool],
+      teb: TalentEditBuilder
+  ): Html[Msg] = div(
+    `cls` := "cleric-box"
+  )(
+    dicePoolEntry(
+      `value` := ref.get.pool.diceRemaining.toString(),
+      cls     := "widget-dice-pool-entry--cleric"
+    )(n =>
+      newTalOnChange(teb(ref.modify(_.copy(pool = DicePool(n)))), n, ref.get)
+    ),
+    div(
+      exitableTextInput(
+        `value` := ref.get.label.getOrElse(""),
+        cls     := "channel-divinity-input"
+      )(s =>
+        newTalOnChange(
+          teb(
+            ref.modify(_.copy(label = if s.isEmpty then None else Some(s)))
+          ),
+          s,
+          ref.get
+        )
+      ),
+      button(
+        cls := "widget-dice-pool-roll--cleric",
+        onClick(
+          SheetMsg(
+            RollLogAndThen(
+              ref.get.pool,
+              roll => teb(ref.modify(_.copy(pool = DicePool(roll.hits))))
+            )
+          )
+        )
+      )("Roll")
+    )
+  )
 
 }
