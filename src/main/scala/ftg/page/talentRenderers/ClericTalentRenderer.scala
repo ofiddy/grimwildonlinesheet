@@ -5,12 +5,11 @@ import ftg.page.Msg
 import tyrian.Html
 import ftg.page.talentRenderers.FluentTalentRenderers.TalentEditBuilder
 import ftg.Talent.TalentADT.ChannelDivinityTalent
-import ftg.page.talentRenderers.FluentTalentRenderers.ChannelDivinityFooter
-import ftg.page.talentRenderers.FluentTalentRenderers.fluentTalent
+import ftg.page.talentRenderers.FluentTalentRenderers._
 import ftg.Character.LevelGrowth.`and every 2 levels`
 import ftg.Talent.TalentADT._
-import ftg.page.talentRenderers.FluentTalentRenderers.SquareBox
 import monocle.syntax.all.focus
+import ftg.page.talentRenderers.FluentTalentRenderers.fluentTalent
 
 object ClericTalentRenderer {
   def clericTalentRenderer(
@@ -29,6 +28,8 @@ object ClericTalentRenderer {
         acc withWidget SquareBox(t.focus(_.marked), "Used")
       case DevoutTalent => acc
       case HealerTalent => acc
+      case t: IronWillTalent =>
+        acc withWidget Pool("IRON WILL", t.focus(_.pool))
   }
 
 }
