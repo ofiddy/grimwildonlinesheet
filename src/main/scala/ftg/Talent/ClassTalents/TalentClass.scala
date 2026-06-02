@@ -69,7 +69,7 @@ case object ClericClass extends TalentClass {
   override def coreTalent: TalentDescriptor = ChannelDivinityDesc
 
   override def nonCoreTalents: List[TalentDescriptor] =
-    List(BlessedTalentDesc, DevoutDesc)
+    List(BlessedDesc, DevoutDesc)
 
   override def name: String = "Cleric"
 }
