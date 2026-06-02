@@ -113,6 +113,10 @@ object TalentADT {
       upgrades: (Int, Int, Int)
   ) extends ClericTalent
       with TalentImpl(ChannelDivinityDesc)
+  final case class BlessedTalent(
+      marked: Boolean
+  ) extends ClericTalent
+      with TalentImpl(BlessedTalentDesc)
 
   final case class MarkableSelectable(
       marked: Boolean,
