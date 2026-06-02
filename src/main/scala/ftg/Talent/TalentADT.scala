@@ -4,6 +4,7 @@ import upickle._
 import ftg.Talent.ClassTalents.ArtificerTalent._
 import ftg.Talent.ClassTalents.BardTalents._
 import ftg.Talent.ClassTalents.BerserkerTalents._
+import ftg.Talent.ClassTalents.ClericTalents._
 import ftg.Character.Wise
 import ftg.DicePool.DicePool
 import ftg.Talent.ClassTalents.ArtificerTalent.MechanicalMountDesc.MechanicalMountFeatures
@@ -106,8 +107,29 @@ object TalentADT {
   ) extends BerserkerTalent
       with TalentImpl(WarsongsDesc)
 
+  sealed trait ClericTalent extends Talent derives ReadWriter
+  final case class ChannelDivinityTalent(
+      pools: (LabelledPool, LabelledPool, LabelledPool),
+      upgrades: (Int, Int, Int)
+  ) extends ClericTalent
+      with TalentImpl(ChannelDivinityDesc)
+  final case class BlessedTalent(
+      marked: Boolean
+  ) extends ClericTalent
+      with TalentImpl(BlessedDesc)
+  case object DevoutTalent extends ClericTalent with TalentImpl(DevoutDesc)
+  case object HealerTalent extends ClericTalent with TalentImpl(HealerDesc)
+  final case class IronWillTalent(pool: DicePool)
+      extends ClericTalent
+      with TalentImpl(IronWillDesc)
+
   final case class MarkableSelectable(
       marked: Boolean,
       feature: Option[String]
+  ) derives ReadWriter
+
+  final case class LabelledPool(
+      label: Option[String],
+      pool: DicePool
   ) derives ReadWriter
 }

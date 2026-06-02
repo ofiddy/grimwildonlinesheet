@@ -20,6 +20,10 @@ import ftg.Talent.TalentADT.MarkableSelectable
 import ftg.util.Util.firstStringInTrip
 import ftg.util.Util.secondStringInTrip
 import ftg.util.Util.thirdStringInTrip
+import ftg.Talent.TalentADT.ChannelDivinityTalent
+import ftg.Talent.TalentADT.LabelledPool
+import monocle.syntax.all.focus
+import tyrian.Empty
 
 object FluentTalentRenderers {
   case class WidgetBuilding(
@@ -100,6 +104,10 @@ object FluentTalentRenderers {
   ) extends FluentTalentFooter
   final case class WarsongsFooter[T <: Talent](
       ref: AppliedLens[T, (Option[String], Option[String], Option[String])]
+  ) extends FluentTalentFooter
+  final case class ChannelDivinityFooter(
+      tal: ChannelDivinityTalent,
+      maxUpgrades: Int
   ) extends FluentTalentFooter
 
   type TalentEditBuilder = (newTal: Talent) => CharCommand
@@ -303,11 +311,108 @@ object FluentTalentRenderers {
       )
     }
 
+    case ChannelDivinityFooter(tal, max) => {
+      val total        = tal.upgrades._1 + tal.upgrades._2 + tal.upgrades._3
+      val canIncrement = total < max
+      val showUpgrades = max > 0
+      div(cls := "horizontal channel-divinity-footer")(
+        div(
+          clericBox(tal.focus(_.pools._1), editBuilder),
+          if showUpgrades then
+            tinyCrementer(tal.focus(_.upgrades._1), editBuilder, canIncrement)
+          else Empty
+        ),
+        div(
+          clericBox(tal.focus(_.pools._2), editBuilder),
+          if showUpgrades then
+            tinyCrementer(tal.focus(_.upgrades._2), editBuilder, canIncrement)
+          else Empty
+        ),
+        div(
+          clericBox(tal.focus(_.pools._3), editBuilder),
+          if showUpgrades then
+            tinyCrementer(tal.focus(_.upgrades._3), editBuilder, canIncrement)
+          else Empty
+        )
+      )
+    }
+
   private def newTalOnChange[A](
       built: CharCommand,
       newVal: A,
       oldVal: A
   ): Msg =
     if oldVal == newVal then NoOpMsg else SheetMsg(built)
+
+  private def clericBox[T <: Talent](
+      ref: AppliedLens[T, LabelledPool],
+      teb: TalentEditBuilder
+  ): Html[Msg] = div(
+    `cls` := "cleric-box"
+  )(
+    dicePoolEntry(
+      `value` := ref.get.pool.diceRemaining.toString(),
+      cls     := "widget-dice-pool-entry--cleric"
+    )(n =>
+      newTalOnChange(teb(ref.modify(_.copy(pool = DicePool(n)))), n, ref.get)
+    ),
+    div(
+      exitableTextInput(
+        `value` := ref.get.label.getOrElse(""),
+        cls     := "channel-divinity-input"
+      )(s =>
+        newTalOnChange(
+          teb(
+            ref.modify(_.copy(label = if s.isEmpty then None else Some(s)))
+          ),
+          s,
+          ref.get
+        )
+      ),
+      button(
+        cls := "widget-dice-pool-roll--cleric",
+        onClick(
+          SheetMsg(
+            RollLogAndThen(
+              ref.get.pool,
+              roll => teb(ref.modify(_.copy(pool = DicePool(roll.hits))))
+            )
+          )
+        )
+      )("Roll")
+    )
+  )
+
+  private def tinyCrementer[T <: Talent](
+      ref: AppliedLens[T, Int],
+      teb: TalentEditBuilder,
+      canIncrement: Boolean
+  ): Html[Msg] = div(cls := "horizontal tiny-crementer")(
+    button(
+      disabled(ref.get <= 0),
+      cls := "story-crementer",
+      onClick(
+        SheetMsg(
+          teb(
+            ref.modify(_ - 1)
+          )
+        )
+      )
+    )("–"),
+    p(b(ref.get.toString)),
+    button(
+      disabled(!canIncrement || ref.get >= 2),
+      cls := "story-crementer",
+      onClick(
+        SheetMsg(
+          teb(
+            ref.modify(_ + 1)
+          )
+        )
+      )
+    )(
+      "+"
+    )
+  )
 
 }
