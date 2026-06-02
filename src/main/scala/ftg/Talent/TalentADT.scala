@@ -117,6 +117,7 @@ object TalentADT {
       marked: Boolean
   ) extends ClericTalent
       with TalentImpl(BlessedTalentDesc)
+  case object DevoutTalent extends ClericTalent with TalentImpl(DevoutDesc)
 
   final case class MarkableSelectable(
       marked: Boolean,
