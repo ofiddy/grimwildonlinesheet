@@ -282,3 +282,19 @@ div.widget-checkbox {
   align-items: start;
   align-content: start;
 }
+
+.tiny-crementer {
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  margin-top: -18px;
+}
+
+.tiny-crementer>button {
+  height: fit-content;
+}
+
+.tiny-crementer>p {
+  height: fit-content;
+  line-height: 0;
+}

@@ -7,6 +7,7 @@ import ftg.page.talentRenderers.FluentTalentRenderers.TalentEditBuilder
 import ftg.Talent.TalentADT.ChannelDivinityTalent
 import ftg.page.talentRenderers.FluentTalentRenderers.ChannelDivinityFooter
 import ftg.page.talentRenderers.FluentTalentRenderers.fluentTalent
+import ftg.Character.LevelGrowth.`and every 2 levels`
 
 object ClericTalentRenderer {
   def clericTalentRenderer(
@@ -15,7 +16,12 @@ object ClericTalentRenderer {
       acc: Html[Msg]
   )(using
       TalentEditBuilder
-  ): Html[Msg] = t match
-    case t: ChannelDivinityTalent => acc withFooter ChannelDivinityFooter(t)
+  ): Html[Msg] = {
+    given charLevel: Int = c.level
+    t match
+      case t: ChannelDivinityTalent =>
+        val max = 0 `and every 2 levels` (_ + 1)
+        acc withFooter ChannelDivinityFooter(t, max)
+  }
 
 }

@@ -23,6 +23,7 @@ import ftg.util.Util.thirdStringInTrip
 import ftg.Talent.TalentADT.ChannelDivinityTalent
 import ftg.Talent.TalentADT.LabelledPool
 import monocle.syntax.all.focus
+import tyrian.Empty
 
 object FluentTalentRenderers {
   case class WidgetBuilding(
@@ -105,7 +106,8 @@ object FluentTalentRenderers {
       ref: AppliedLens[T, (Option[String], Option[String], Option[String])]
   ) extends FluentTalentFooter
   final case class ChannelDivinityFooter(
-      tal: ChannelDivinityTalent
+      tal: ChannelDivinityTalent,
+      maxUpgrades: Int
   ) extends FluentTalentFooter
 
   type TalentEditBuilder = (newTal: Talent) => CharCommand
@@ -309,11 +311,29 @@ object FluentTalentRenderers {
       )
     }
 
-    case ChannelDivinityFooter(tal) => {
+    case ChannelDivinityFooter(tal, max) => {
+      val total        = tal.upgrades._1 + tal.upgrades._2 + tal.upgrades._3
+      val canIncrement = total < max
+      val showUpgrades = max > 0
       div(cls := "horizontal channel-divinity-footer")(
-        clericBox(tal.focus(_.pools._1), editBuilder),
-        clericBox(tal.focus(_.pools._2), editBuilder),
-        clericBox(tal.focus(_.pools._3), editBuilder)
+        div(
+          clericBox(tal.focus(_.pools._1), editBuilder),
+          if showUpgrades then
+            tinyCrementer(tal.focus(_.upgrades._1), editBuilder, canIncrement)
+          else Empty
+        ),
+        div(
+          clericBox(tal.focus(_.pools._2), editBuilder),
+          if showUpgrades then
+            tinyCrementer(tal.focus(_.upgrades._2), editBuilder, canIncrement)
+          else Empty
+        ),
+        div(
+          clericBox(tal.focus(_.pools._3), editBuilder),
+          if showUpgrades then
+            tinyCrementer(tal.focus(_.upgrades._3), editBuilder, canIncrement)
+          else Empty
+        )
       )
     }
 
@@ -360,6 +380,38 @@ object FluentTalentRenderers {
           )
         )
       )("Roll")
+    )
+  )
+
+  private def tinyCrementer[T <: Talent](
+      ref: AppliedLens[T, Int],
+      teb: TalentEditBuilder,
+      canIncrement: Boolean
+  ): Html[Msg] = div(cls := "horizontal tiny-crementer")(
+    button(
+      disabled(ref.get <= 0),
+      cls := "story-crementer",
+      onClick(
+        SheetMsg(
+          teb(
+            ref.modify(_ - 1)
+          )
+        )
+      )
+    )("–"),
+    p(b(ref.get.toString)),
+    button(
+      disabled(!canIncrement || ref.get >= 2),
+      cls := "story-crementer",
+      onClick(
+        SheetMsg(
+          teb(
+            ref.modify(_ + 1)
+          )
+        )
+      )
+    )(
+      "+"
     )
   )
 
