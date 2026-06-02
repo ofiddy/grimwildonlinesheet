@@ -28,6 +28,7 @@ object ClericTalentRenderer {
       case t: BlessedTalent =>
         acc withWidget SquareBox(t.focus(_.marked), "Used")
       case DevoutTalent => acc
+      case HealerTalent => acc
   }
 
 }
