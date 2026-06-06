@@ -10,6 +10,7 @@ import ftg.Talent.ClassTalents.DruidTalents._
 import ftg.Talent.ClassTalents.FighterTalents._
 import ftg.Talent.ClassTalents.MonkTalents._
 import ftg.Talent.ClassTalents.PaladinTalents._
+import ftg.Talent.ClassTalents.PsionTalents._
 
 sealed trait TalentClass derives RW {
   def coreTalent: TalentDescriptor
@@ -138,6 +139,21 @@ case object PaladinClass extends TalentClass {
   override def name: String = "Paladin"
 }
 
+case object PsionClass extends TalentClass {
+  override def coreTalent: TalentDescriptor = AwakenedMindDesc
+  override def nonCoreTalents: List[TalentDescriptor] =
+    List(
+      DisturbedMindDesc,
+      MindSeedDesc,
+      MindThiefDesc,
+      PsychicWarriorDesc,
+      ReaderDesc,
+      TumultuousMindDesc,
+      WilderDesc
+    )
+  override def name: String = "Psion"
+}
+
 object TalentsRefs {
   def allPathTalents: List[TalentDescriptor] =
     allClasses.flatMap(_.nonCoreTalents)
@@ -150,6 +166,7 @@ object TalentsRefs {
       DruidClass,
       FighterClass,
       MonkClass,
-      PaladinClass
+      PaladinClass,
+      PsionClass
     )
 }

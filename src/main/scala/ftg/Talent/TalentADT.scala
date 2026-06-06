@@ -12,6 +12,7 @@ import ftg.Talent.ClassTalents.PaladinTalents._
 import ftg.Character.Wise
 import ftg.DicePool.DicePool
 import ftg.Talent.ClassTalents.ArtificerTalent.MechanicalMountDesc.MechanicalMountFeatures
+import ftg.Talent.ClassTalents.PsionTalents._
 
 object TalentADT {
   sealed trait Talent extends TalentImpl derives ReadWriter
@@ -243,6 +244,36 @@ object TalentADT {
       with TalentImpl(DivineBlessingDesc)
   case object GuardianTalent extends PaladinTalent with TalentImpl(GuardianDesc)
   case object RebukeTalent   extends PaladinTalent with TalentImpl(RebukeDesc)
+
+  sealed trait PsionTalent extends Talent derives ReadWriter
+  final case class AwakenedMindTalent(
+      power: Int,
+      bastions: (
+          Option[String],
+          Option[String],
+          Option[String],
+          Option[String],
+          Option[String]
+      )
+  ) extends PsionTalent
+      with TalentImpl(AwakenedMindDesc)
+  final case class DisturbedMindTalent(marked: Boolean)
+      extends PsionTalent
+      with TalentImpl(DisturbedMindDesc)
+  final case class MindSeedTalent(marked: Boolean)
+      extends PsionTalent
+      with TalentImpl(MindSeedDesc)
+  case object MindThiefTalent extends PsionTalent with TalentImpl(MindThiefDesc)
+  case object PsychicWarriorTalent
+      extends PsionTalent
+      with TalentImpl(PsychicWarriorDesc)
+  case object TumultuousMindTalent
+      extends PsionTalent
+      with TalentImpl(TumultuousMindDesc)
+  case object WilderTalent extends PsionTalent with TalentImpl(WilderDesc)
+  final case class ReaderTalent(marked: Boolean)
+      extends PsionTalent
+      with TalentImpl(ReaderDesc)
 
   // HELPERS
   final case class MarkableSelectable(
