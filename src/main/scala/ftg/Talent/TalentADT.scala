@@ -336,6 +336,16 @@ object TalentADT {
   final case class LurkerTalent(marked: Boolean)
       extends RogueTalent
       with TalentImpl(LurkerDesc)
+  final case class OpportunistTalent(marked: Boolean)
+      extends RogueTalent
+      with TalentImpl(OpportunistDesc)
+  final case class PoisonerTalent(pool: DicePool)
+      extends RogueTalent
+      with TalentImpl(PoisonerDesc)
+  case object TrapSenseTalent extends RogueTalent with TalentImpl(TrapSenseDesc)
+  final case class WeaselTalent(marked: Boolean)
+      extends RogueTalent
+      with TalentImpl(WeaselDesc)
 
   // HELPERS
   final case class MarkableSelectable(

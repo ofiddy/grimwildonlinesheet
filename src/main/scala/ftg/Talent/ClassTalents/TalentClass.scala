@@ -174,7 +174,15 @@ case object RangerClass extends TalentClass {
 case object RogueClass extends TalentClass {
   override def coreTalent: TalentDescriptor = ExpertiseDesc
   override def nonCoreTalents: List[TalentDescriptor] =
-    List(AccordingToPlanDesc, EldritchAffinityDesc, LurkerDesc)
+    List(
+      AccordingToPlanDesc,
+      EldritchAffinityDesc,
+      LurkerDesc,
+      OpportunistDesc,
+      PoisonerDesc,
+      TrapSenseDesc,
+      WeaselDesc
+    )
   override def name: String = "Rogue"
 }
 

@@ -34,7 +34,11 @@ object RogueTalentRenderer {
           t.focus(_.pathsAndTechs),
           "Paths & Techniques"
         )
-      case t: LurkerTalent => acc withWidget PushBox(t.focus(_.marked))
+      case t: LurkerTalent      => acc withWidget PushBox(t.focus(_.marked))
+      case t: OpportunistTalent => acc withWidget PushBox(t.focus(_.marked))
+      case t: PoisonerTalent => acc withWidget Pool("POISONS", t.focus(_.pool))
+      case TrapSenseTalent   => acc
+      case t: WeaselTalent   => acc withWidget PushBox(t.focus(_.marked))
 
   }
 }
