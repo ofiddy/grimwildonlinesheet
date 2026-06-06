@@ -13,6 +13,7 @@ import ftg.Character.Wise
 import ftg.DicePool.DicePool
 import ftg.Talent.ClassTalents.ArtificerTalent.MechanicalMountDesc.MechanicalMountFeatures
 import ftg.Talent.ClassTalents.PsionTalents._
+import ftg.Talent.ClassTalents.RangerTalents._
 
 object TalentADT {
   sealed trait Talent extends TalentImpl derives ReadWriter
@@ -274,6 +275,49 @@ object TalentADT {
   final case class ReaderTalent(marked: Boolean)
       extends PsionTalent
       with TalentImpl(ReaderDesc)
+
+  sealed trait RangerTalent extends Talent derives ReadWriter
+  final case class HuntersMarkTalent(weakness: Int)
+      extends RangerTalent
+      with TalentImpl(HuntersMarkDesc)
+  final case class AnimalCompanionTalent(
+      tricks: (
+          Option[String],
+          Option[String],
+          Option[String]
+      ),
+      flaws: (Option[String], Option[String]),
+      marked: Boolean,
+      hurt: Boolean
+  ) extends RangerTalent
+      with TalentImpl(AnimalCompanionDesc)
+  final case class AnimalCompanionIITalent(
+      tricks: (
+          Option[String],
+          Option[String],
+          Option[String]
+      ),
+      marked: Boolean
+  ) extends RangerTalent
+      with TalentImpl(AnimalCompanionIIDesc)
+  case object KeenSensesTalent
+      extends RangerTalent
+      with TalentImpl(KeenSensesDesc)
+  case object RelentlessTalent
+      extends RangerTalent
+      with TalentImpl(RelentlessDesc)
+  final case class ScoutAheadTalent(marked: Boolean)
+      extends RangerTalent
+      with TalentImpl(ScoutAheadDesc)
+  final case class SeasonedHunterTalent(marked: Boolean)
+      extends RangerTalent
+      with TalentImpl(SeasonedHunterDesc)
+  final case class SharpshooterTalent(marked: Boolean)
+      extends RangerTalent
+      with TalentImpl(SharpshooterDesc)
+  final case class TrophiesTalent(trophy: Option[String])
+      extends RangerTalent
+      with TalentImpl(TrophiesDesc)
 
   // HELPERS
   final case class MarkableSelectable(
