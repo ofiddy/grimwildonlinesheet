@@ -131,7 +131,9 @@ case object PaladinClass extends TalentClass {
       AuthorityDesc,
       ChallengeDesc,
       DauntlessDesc,
-      DivineBlessingDesc
+      DivineBlessingDesc,
+      GuardianDesc,
+      RebukeDesc
     )
   override def name: String = "Paladin"
 }

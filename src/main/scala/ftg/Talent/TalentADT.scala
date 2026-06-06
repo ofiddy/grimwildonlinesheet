@@ -241,6 +241,8 @@ object TalentADT {
   final case class DivineBlessingTalent(lPool: LabelledPool)
       extends PaladinTalent
       with TalentImpl(DivineBlessingDesc)
+  case object GuardianTalent extends PaladinTalent with TalentImpl(GuardianDesc)
+  case object RebukeTalent   extends PaladinTalent with TalentImpl(RebukeDesc)
 
   // HELPERS
   final case class MarkableSelectable(

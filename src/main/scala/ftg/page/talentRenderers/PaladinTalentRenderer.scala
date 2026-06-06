@@ -33,6 +33,8 @@ object PaladinTalentRenderer {
       case DauntlessTalent    => acc
       case t: DivineBlessingTalent =>
         acc withWidget LabelledPoolEntry(t.focus(_.lPool))
+      case GuardianTalent => acc
+      case RebukeTalent   => acc
   }
 
 }
