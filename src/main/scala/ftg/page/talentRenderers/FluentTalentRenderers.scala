@@ -107,8 +107,9 @@ object FluentTalentRenderers {
   final case class WisesFooter[T <: Talent](
       ref: AppliedLens[T, (Option[Wise], Option[Wise], Option[Wise])]
   ) extends FluentTalentFooter
-  final case class WarsongsFooter[T <: Talent](
-      ref: AppliedLens[T, (Option[String], Option[String], Option[String])]
+  final case class TripleTextFooter[T <: Talent](
+      ref: AppliedLens[T, (Option[String], Option[String], Option[String])],
+      title: String
   ) extends FluentTalentFooter
   final case class ChannelDivinityFooter(
       tal: ChannelDivinityTalent,
@@ -310,7 +311,7 @@ object FluentTalentRenderers {
         )
       )
 
-    case WarsongsFooter(ref) => {
+    case TripleTextFooter(ref, label) => {
       def compositionBox(
           lens: Lens[(Option[String], Option[String], Option[String]), Option[
             String
@@ -329,7 +330,7 @@ object FluentTalentRenderers {
       )
 
       div(cls := "horizontal footer-compositions")(
-        b("COMPOSITIONS"),
+        b(label),
         compositionBox(firstStringInTrip),
         compositionBox(secondStringInTrip),
         compositionBox(thirdStringInTrip)

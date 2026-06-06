@@ -23,6 +23,12 @@ object FighterTalentRenderer {
         val masteryDice = 3 `and every 3 levels` (_ + 1)
         acc withWidget TextEntry(s"MASTERY: ${masteryDice}", t.focus(_.style))
       }
+
+      case t: ArcaneTrainingTalent =>
+        acc withWidgets List(
+          MultiCheckbox("SPELLS", t.focus(_.spells), 3),
+          SquareBox(t.focus(_.potent), "POTENT")
+        )
   }
 
 }

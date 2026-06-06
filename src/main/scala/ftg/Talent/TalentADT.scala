@@ -162,6 +162,12 @@ object TalentADT {
   final case class WeaponMasteryTalent(style: Option[String])
       extends FighterTalent
       with TalentImpl(WeaponMasteryDesc)
+  final case class ArcaneTrainingTalent(
+      spells: Int,
+      potent: Boolean,
+      theorems: (Option[String], Option[String], Option[String])
+  ) extends FighterTalent
+      with TalentImpl(ArcaneTrainingDesc)
 
   // HELPERS
   final case class MarkableSelectable(
