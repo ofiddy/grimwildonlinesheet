@@ -8,6 +8,7 @@ import ftg.Talent.TalentADT._
 import monocle.syntax.all.focus
 import ftg.page.talentRenderers.FluentTalentRenderers.fluentTalent
 import ftg.Talent.ClassTalents.RangerTalents.HuntersMarkDesc
+import monocle.AppliedLens
 
 object RangerTalentRenderer {
   def rangerTalentRenderer(
@@ -22,5 +23,61 @@ object RangerTalentRenderer {
         val max = HuntersMarkDesc(c).weakness
         acc withWidget MultiCheckbox("WEAKNESS", t.focus(_.weakness), max)
       }
+      case t: AnimalCompanionTalent => {
+        acc withWidgets List(
+          companionTrickSelector(t.focus(_.tricks._1)),
+          companionTrickSelector(t.focus(_.tricks._2)),
+          companionTrickSelector(t.focus(_.tricks._3)),
+          companionFlawSelector(t.focus(_.flaws._1)),
+          companionFlawSelector(t.focus(_.flaws._2)),
+          SquareBox(t.focus(_.marked), "MARKED"),
+          SquareBox(t.focus(_.hurt), "HURT")
+        )
+      }
+      case t: AnimalCompanionIITalent =>
+        acc withWidgets List(
+          companionTrickSelector(t.focus(_.tricks._1)),
+          companionTrickSelector(t.focus(_.tricks._2)),
+          companionTrickSelector(t.focus(_.tricks._3)),
+          SquareBox(t.focus(_.marked), "MARKED")
+        )
+
   }
+
+  def companionTrickSelector[T <: Talent](
+      ref: AppliedLens[T, Option[String]]
+  ): Selectable[T] = Selectable(
+    ref,
+    List(
+      "DISTRACT",
+      "FIGHT",
+      "GUARD",
+      "PERFORM",
+      "RESCUE",
+      "RETRIEVE",
+      "SCOUT",
+      "SEARCH",
+      "TRACK",
+      "WARN"
+    ),
+    "TRICK"
+  )
+
+  def companionFlawSelector(
+      ref: AppliedLens[AnimalCompanionTalent, Option[String]]
+  ): Selectable[AnimalCompanionTalent] = Selectable(
+    ref,
+    List(
+      "AGGRESIVE",
+      "CLUMSY",
+      "GRUMPY",
+      "INSATIABLE",
+      "JUMPY",
+      "NOISY",
+      "OVERPROTECTIVE",
+      "SCARY",
+      "UNRULY"
+    ),
+    "FLAW"
+  )
 }

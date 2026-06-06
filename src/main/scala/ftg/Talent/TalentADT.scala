@@ -280,6 +280,26 @@ object TalentADT {
   final case class HuntersMarkTalent(weakness: Int)
       extends RangerTalent
       with TalentImpl(HuntersMarkDesc)
+  final case class AnimalCompanionTalent(
+      tricks: (
+          Option[String],
+          Option[String],
+          Option[String]
+      ),
+      flaws: (Option[String], Option[String]),
+      marked: Boolean,
+      hurt: Boolean
+  ) extends RangerTalent
+      with TalentImpl(AnimalCompanionDesc)
+  final case class AnimalCompanionIITalent(
+      tricks: (
+          Option[String],
+          Option[String],
+          Option[String]
+      ),
+      marked: Boolean
+  ) extends RangerTalent
+      with TalentImpl(AnimalCompanionIIDesc)
 
   // HELPERS
   final case class MarkableSelectable(

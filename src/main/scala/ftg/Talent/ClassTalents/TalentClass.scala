@@ -156,9 +156,12 @@ case object PsionClass extends TalentClass {
 }
 
 case object RangerClass extends TalentClass {
-  override def coreTalent: TalentDescriptor           = HuntersMarkDesc
-  override def nonCoreTalents: List[TalentDescriptor] = List()
-  override def name: String                           = "Ranger"
+  override def coreTalent: TalentDescriptor = HuntersMarkDesc
+  override def nonCoreTalents: List[TalentDescriptor] = List(
+    AnimalCompanionDesc,
+    AnimalCompanionIIDesc
+  )
+  override def name: String = "Ranger"
 }
 
 object TalentsRefs {
