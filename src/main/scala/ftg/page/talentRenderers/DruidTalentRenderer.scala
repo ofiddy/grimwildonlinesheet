@@ -30,6 +30,7 @@ object DruidTalentRenderer {
           TextEntry("MINOR", t.focus(_.minorHerb)),
           SquareBox(t.focus(_.usedMythic), "MYTHIC")
         )
+      case KindredSpiritsTalent => acc
   }
 
 }

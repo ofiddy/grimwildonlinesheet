@@ -137,6 +137,9 @@ object TalentADT {
       usedMythic: Boolean
   ) extends DruidTalent
       with TalentImpl(HerbalismDesc)
+  case object KindredSpiritsTalent
+      extends DruidTalent
+      with TalentImpl(KindredSpiritsDesc)
 
   // HELPERS
   final case class MarkableSelectable(
