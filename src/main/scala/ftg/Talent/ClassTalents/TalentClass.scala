@@ -83,7 +83,9 @@ case object DruidClass extends TalentClass {
       HerbalismDesc,
       KindredSpiritsDesc,
       PrimordialBondsDesc,
-      TrueShapeDesc
+      TrueShapeDesc,
+      VerdantWhispersDesc,
+      WindcallerDesc
     )
   override def name: String = "Druid"
 }

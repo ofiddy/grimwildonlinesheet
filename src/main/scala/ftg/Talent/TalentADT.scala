@@ -148,6 +148,12 @@ object TalentADT {
   ) extends DruidTalent
       with TalentImpl(PrimordialBondsDesc)
   case object TrueShapeTalent extends DruidTalent with TalentImpl(TrueShapeDesc)
+  case object VerdantWhispersTalent
+      extends DruidTalent
+      with TalentImpl(VerdantWhispersDesc)
+  final case class WindcallerTalent(marked: Boolean)
+      extends DruidTalent
+      with TalentImpl(WindcallerDesc)
 
   // HELPERS
   final case class MarkableSelectable(
