@@ -34,6 +34,11 @@ object MonkTalentRenderer {
         renderPrimordialForces(acc, t.focus(_.elem), t.focus(_.charged))
       case t: PrimordialForcesIITalent =>
         renderPrimordialForces(acc, t.focus(_.elem), t.focus(_.charged))
+      case t: TetherTalent =>
+        acc withWidgets List(
+          SquareBox(t.focus(_.tether), "TETHER"),
+          PushBox(t.focus(_.push))
+        )
 
   }
 

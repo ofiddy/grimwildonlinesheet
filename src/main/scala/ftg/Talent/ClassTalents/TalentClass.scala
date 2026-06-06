@@ -115,7 +115,8 @@ case object MonkClass extends TalentClass {
     LightningReflexesDesc,
     MindOverMatterDesc,
     PrimordialForcesDesc,
-    PrimordialForcesIIDesc
+    PrimordialForcesIIDesc,
+    TetherDesc
   )
   override def name: String = "Monk"
 }

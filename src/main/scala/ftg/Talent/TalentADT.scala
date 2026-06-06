@@ -212,6 +212,9 @@ object TalentADT {
       charged: Boolean
   ) extends MonkTalent
       with TalentImpl(PrimordialForcesIIDesc)
+  final case class TetherTalent(tether: Boolean, push: Boolean)
+      extends MonkTalent
+      with TalentImpl(TetherDesc)
 
   // HELPERS
   final case class MarkableSelectable(
