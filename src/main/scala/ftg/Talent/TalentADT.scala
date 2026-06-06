@@ -14,6 +14,7 @@ import ftg.DicePool.DicePool
 import ftg.Talent.ClassTalents.ArtificerTalent.MechanicalMountDesc.MechanicalMountFeatures
 import ftg.Talent.ClassTalents.PsionTalents._
 import ftg.Talent.ClassTalents.RangerTalents._
+import ftg.Talent.ClassTalents.RogueTalents._
 
 object TalentADT {
   sealed trait Talent extends TalentImpl derives ReadWriter
@@ -318,6 +319,33 @@ object TalentADT {
   final case class TrophiesTalent(trophy: Option[String])
       extends RangerTalent
       with TalentImpl(TrophiesDesc)
+
+  sealed trait RogueTalent extends Talent derives ReadWriter
+  final case class ExpertiseTalent(
+      expertise: Option[String],
+      contingency: DicePool
+  ) extends RogueTalent
+      with TalentImpl(ExpertiseDesc)
+  final case class AccordingToPlanTalent(marked: Boolean)
+      extends RogueTalent
+      with TalentImpl(AccordingToPlanDesc)
+  final case class EldritchAffinityTalent(
+      pathsAndTechs: (Option[String], Option[String], Option[String])
+  ) extends RogueTalent
+      with TalentImpl(EldritchAffinityDesc)
+  final case class LurkerTalent(marked: Boolean)
+      extends RogueTalent
+      with TalentImpl(LurkerDesc)
+  final case class OpportunistTalent(marked: Boolean)
+      extends RogueTalent
+      with TalentImpl(OpportunistDesc)
+  final case class PoisonerTalent(pool: DicePool)
+      extends RogueTalent
+      with TalentImpl(PoisonerDesc)
+  case object TrapSenseTalent extends RogueTalent with TalentImpl(TrapSenseDesc)
+  final case class WeaselTalent(marked: Boolean)
+      extends RogueTalent
+      with TalentImpl(WeaselDesc)
 
   // HELPERS
   final case class MarkableSelectable(
