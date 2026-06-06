@@ -16,6 +16,7 @@ import ftg.Talent.ClassTalents.PsionTalents._
 import ftg.Talent.ClassTalents.RangerTalents._
 import ftg.Talent.ClassTalents.RogueTalents._
 import ftg.Talent.ClassTalents.SorcererTalents._
+import ftg.Talent.ClassTalents.WarlockTalents._
 
 object TalentADT {
   sealed trait Talent extends TalentImpl derives ReadWriter
@@ -382,6 +383,13 @@ object TalentADT {
   ) extends SorcererTalent
       with TalentImpl(WispsDesc)
   case object WrathTalent extends SorcererTalent with TalentImpl(WrathDesc)
+
+  sealed trait WarlockTalent extends Talent derives ReadWriter
+  final case class PactTalent(
+      gifts: (Option[String], Option[String]),
+      patience: DicePool
+  ) extends WarlockTalent
+      with TalentImpl(PactDesc)
 
   // HELPERS
   final case class MarkableSelectable(
