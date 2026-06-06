@@ -147,7 +147,9 @@ object TalentADT {
       water: (Int, Boolean)
   ) extends DruidTalent
       with TalentImpl(PrimordialBondsDesc)
-  case object TrueShapeTalent extends DruidTalent with TalentImpl(TrueShapeDesc)
+  final case class TrueShapeTalent(form: Option[String])
+      extends DruidTalent
+      with TalentImpl(TrueShapeDesc)
   case object VerdantWhispersTalent
       extends DruidTalent
       with TalentImpl(VerdantWhispersDesc)

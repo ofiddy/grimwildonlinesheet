@@ -46,7 +46,8 @@ object DruidTalentRenderer {
             if t.water._2 then 2 else 1
           )
         ) withFooter PrimordialBondsFooter(t)
-      case TrueShapeTalent       => acc
+      case t: TrueShapeTalent =>
+        acc withWidget TextEntry("FORM", t.focus(_.form))
       case VerdantWhispersTalent => acc
       case t: WindcallerTalent   => acc withWidget PushBox(t.focus(_.marked))
   }
