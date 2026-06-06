@@ -8,6 +8,7 @@ import ftg.Talent.ClassTalents.ClericTalents._
 import ftg.Talent.ClassTalents.DruidTalents._
 import ftg.Talent.ClassTalents.FighterTalents._
 import ftg.Talent.ClassTalents.MonkTalents._
+import ftg.Talent.ClassTalents.PaladinTalents._
 import ftg.Character.Wise
 import ftg.DicePool.DicePool
 import ftg.Talent.ClassTalents.ArtificerTalent.MechanicalMountDesc.MechanicalMountFeatures
@@ -218,6 +219,30 @@ object TalentADT {
   case object ThereIsNoTryTalent
       extends MonkTalent
       with TalentImpl(ThereIsNoTryDesc)
+
+  sealed trait PaladinTalent extends Talent derives ReadWriter
+  final case class OathswornTalent(
+      smite: Int,
+      tenets: (Option[String], Option[String], Option[String])
+  ) extends PaladinTalent
+      with TalentImpl(OathswornDesc)
+  final case class AegisTalent(marked: Boolean)
+      extends PaladinTalent
+      with TalentImpl(AegisDesc)
+  final case class AuthorityTalent(marked: Boolean)
+      extends PaladinTalent
+      with TalentImpl(AuthorityDesc)
+  final case class ChallengeTalent(marked: Boolean)
+      extends PaladinTalent
+      with TalentImpl(ChallengeDesc)
+  case object DauntlessTalent
+      extends PaladinTalent
+      with TalentImpl(DauntlessDesc)
+  final case class DivineBlessingTalent(lPool: LabelledPool)
+      extends PaladinTalent
+      with TalentImpl(DivineBlessingDesc)
+  case object GuardianTalent extends PaladinTalent with TalentImpl(GuardianDesc)
+  case object RebukeTalent   extends PaladinTalent with TalentImpl(RebukeDesc)
 
   // HELPERS
   final case class MarkableSelectable(
