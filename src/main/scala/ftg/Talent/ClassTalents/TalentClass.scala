@@ -78,7 +78,13 @@ case object ClericClass extends TalentClass {
 case object DruidClass extends TalentClass {
   override def coreTalent: TalentDescriptor = WildShapeDesc
   override def nonCoreTalents: List[TalentDescriptor] =
-    List(AwakenDesc, HerbalismDesc, KindredSpiritsDesc, PrimordialBondsDesc)
+    List(
+      AwakenDesc,
+      HerbalismDesc,
+      KindredSpiritsDesc,
+      PrimordialBondsDesc,
+      TrueShapeDesc
+    )
   override def name: String = "Druid"
 }
 

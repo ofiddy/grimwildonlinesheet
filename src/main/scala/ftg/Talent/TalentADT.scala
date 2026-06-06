@@ -147,6 +147,7 @@ object TalentADT {
       water: (Int, Boolean)
   ) extends DruidTalent
       with TalentImpl(PrimordialBondsDesc)
+  case object TrueShapeTalent extends DruidTalent with TalentImpl(TrueShapeDesc)
 
   // HELPERS
   final case class MarkableSelectable(

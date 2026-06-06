@@ -46,6 +46,7 @@ object DruidTalentRenderer {
             if t.water._2 then 2 else 1
           )
         ) withFooter PrimordialBondsFooter(t)
+      case TrueShapeTalent => acc
   }
 
 }
