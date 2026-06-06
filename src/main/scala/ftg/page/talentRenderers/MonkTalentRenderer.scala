@@ -25,6 +25,10 @@ object MonkTalentRenderer {
           MultiCheckbox("INTERRUPT", t.focus(_.interrupt), max.interrupt)
         )
       }
+      case FlowStateTalent         => acc
+      case HealingHandsTalent      => acc
+      case LightningReflexesTalent => acc
+      case MindOverMatterTalent    => acc
   }
 
 }

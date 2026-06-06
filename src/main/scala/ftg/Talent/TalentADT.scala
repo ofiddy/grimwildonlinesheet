@@ -192,6 +192,16 @@ object TalentADT {
   final case class DisciplineTalent(flow: Int, interrupt: Int)
       extends MonkTalent
       with TalentImpl(DisciplineDesc)
+  case object FlowStateTalent extends MonkTalent with TalentImpl(FlowStateDesc)
+  case object HealingHandsTalent
+      extends MonkTalent
+      with TalentImpl(HealingHandsDesc)
+  case object LightningReflexesTalent
+      extends MonkTalent
+      with TalentImpl(LightningReflexesDesc)
+  case object MindOverMatterTalent
+      extends MonkTalent
+      with TalentImpl(MindOverMatterDesc)
 
   // HELPERS
   final case class MarkableSelectable(

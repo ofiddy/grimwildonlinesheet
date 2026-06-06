@@ -108,9 +108,14 @@ case object FighterClass extends TalentClass {
 }
 
 case object MonkClass extends TalentClass {
-  override def coreTalent: TalentDescriptor           = DisciplineDesc
-  override def nonCoreTalents: List[TalentDescriptor] = List()
-  override def name: String                           = "Monk"
+  override def coreTalent: TalentDescriptor = DisciplineDesc
+  override def nonCoreTalents: List[TalentDescriptor] = List(
+    FlowStateDesc,
+    HealingHandsDesc,
+    LightningReflexesDesc,
+    MindOverMatterDesc
+  )
+  override def name: String = "Monk"
 }
 
 object TalentsRefs {
