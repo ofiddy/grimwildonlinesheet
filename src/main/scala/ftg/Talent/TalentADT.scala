@@ -5,6 +5,7 @@ import ftg.Talent.ClassTalents.ArtificerTalent._
 import ftg.Talent.ClassTalents.BardTalents._
 import ftg.Talent.ClassTalents.BerserkerTalents._
 import ftg.Talent.ClassTalents.ClericTalents._
+import ftg.Talent.ClassTalents.DruidTalents._
 import ftg.Character.Wise
 import ftg.DicePool.DicePool
 import ftg.Talent.ClassTalents.ArtificerTalent.MechanicalMountDesc.MechanicalMountFeatures
@@ -122,6 +123,11 @@ object TalentADT {
   final case class IronWillTalent(pool: DicePool)
       extends ClericTalent
       with TalentImpl(IronWillDesc)
+
+  sealed trait DruidTalent extends Talent derives ReadWriter
+  final case class WildShapeTalent(pool: DicePool)
+      extends DruidTalent
+      with TalentImpl(WildShapeDesc)
 
   final case class MarkableSelectable(
       marked: Boolean,
