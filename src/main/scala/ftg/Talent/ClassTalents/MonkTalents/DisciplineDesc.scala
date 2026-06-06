@@ -15,6 +15,7 @@ Never face a disadvantage due to a weapon matchup. Once per session, you can ***
 ◆ Ignore difficulty thorns from: *being outnumbered*—*a single powerful opponent*.
 ◆ Attempt a ***fluid maneuver***. Before rolling, declare you want to also: *disarm them*—*redirect momentum*—*reposition you, them, or both*. On a perfect or messy, it happens.
 ◆ Pull off a ***potent feat of mystical grace***, like running across water or falling harmlessly from a great height. *For 1 more flow*, extend this to those you’re touching.
+[Growth: 3 levels/+1 flow per scene and +1 interrupts per session]
 """.md
 
   override def apply(c: ftg.Character.Character): DisciplineTalent =
