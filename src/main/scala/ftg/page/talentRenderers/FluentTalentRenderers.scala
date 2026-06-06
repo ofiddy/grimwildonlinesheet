@@ -94,6 +94,10 @@ object FluentTalentRenderers {
       options: List[String],
       label: String
   ) extends FluentTalentWidget
+  final case class TextEntry[T <: Talent](
+      label: String,
+      ref: AppliedLens[T, Option[String]]
+  ) extends FluentTalentWidget
 
   def PushBox[T <: Talent](ref: AppliedLens[T, Boolean]) =
     SquareBox(ref, "PUSH")
@@ -244,6 +248,23 @@ object FluentTalentRenderers {
         )(
           option(`value` := "none")("") :: options.map(o =>
             option(`value` := o)(o)
+          )
+        )
+      )
+
+    case TextEntry(label, ref) =>
+      div(cls := "vertical")(
+        p(cls := "widget-title")(b(cls := "widget-title")(label)),
+        exitableTextInput(
+          `value` := ref.get.getOrElse(""),
+          cls     := "talent-widget-text-input"
+        )(s =>
+          newTalOnChange(
+            editBuilder(
+              ref.replace(if s.isEmpty then None else Some(s))
+            ),
+            s,
+            ref.get.getOrElse("")
           )
         )
       )

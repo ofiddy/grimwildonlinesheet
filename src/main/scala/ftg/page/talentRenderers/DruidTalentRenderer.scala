@@ -24,6 +24,12 @@ object DruidTalentRenderer {
           Pool("AWAKENED", t.focus(_.pool)),
           SquareBox(t.focus(_.ritual), "RITUAL")
         )
+      case t: HerbalismTalent =>
+        acc withWidgets List(
+          TextEntry("MAJOR", t.focus(_.majorHerb)),
+          TextEntry("MINOR", t.focus(_.minorHerb)),
+          SquareBox(t.focus(_.usedMythic), "MYTHIC")
+        )
   }
 
 }

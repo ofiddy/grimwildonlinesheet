@@ -131,6 +131,12 @@ object TalentADT {
   final case class AwakenTalent(pool: DicePool, ritual: Boolean)
       extends DruidTalent
       with TalentImpl(AwakenDesc)
+  final case class HerbalismTalent(
+      majorHerb: Option[String],
+      minorHerb: Option[String],
+      usedMythic: Boolean
+  ) extends DruidTalent
+      with TalentImpl(HerbalismDesc)
 
   // HELPERS
   final case class MarkableSelectable(
