@@ -263,6 +263,17 @@ object TalentADT {
   final case class MindSeedTalent(marked: Boolean)
       extends PsionTalent
       with TalentImpl(MindSeedDesc)
+  case object MindThiefTalent extends PsionTalent with TalentImpl(MindThiefDesc)
+  case object PsychicWarriorTalent
+      extends PsionTalent
+      with TalentImpl(PsychicWarriorDesc)
+  case object TumultuousMindTalent
+      extends PsionTalent
+      with TalentImpl(TumultuousMindDesc)
+  case object WilderTalent extends PsionTalent with TalentImpl(WilderDesc)
+  final case class ReaderTalent(marked: Boolean)
+      extends PsionTalent
+      with TalentImpl(ReaderDesc)
 
   // HELPERS
   final case class MarkableSelectable(

@@ -142,7 +142,15 @@ case object PaladinClass extends TalentClass {
 case object PsionClass extends TalentClass {
   override def coreTalent: TalentDescriptor = AwakenedMindDesc
   override def nonCoreTalents: List[TalentDescriptor] =
-    List(DisturbedMindDesc, MindSeedDesc)
+    List(
+      DisturbedMindDesc,
+      MindSeedDesc,
+      MindThiefDesc,
+      PsychicWarriorDesc,
+      ReaderDesc,
+      TumultuousMindDesc,
+      WilderDesc
+    )
   override def name: String = "Psion"
 }
 

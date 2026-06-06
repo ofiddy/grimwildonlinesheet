@@ -40,6 +40,11 @@ object PsionTalentRenderer {
         acc withWidget SquareBox(t.focus(_.marked), "VEX")
       case t: MindSeedTalent =>
         acc withWidget SquareBox(t.focus(_.marked), "INTERRUPT")
+      case MindThiefTalent      => acc
+      case PsychicWarriorTalent => acc
+      case t: ReaderTalent      => acc withWidget StoryBox(t.focus(_.marked))
+      case TumultuousMindTalent => acc
+      case WilderTalent         => acc
   }
 
   final case class Bastion(
