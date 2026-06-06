@@ -128,7 +128,11 @@ object TalentADT {
   final case class WildShapeTalent(pool: DicePool)
       extends DruidTalent
       with TalentImpl(WildShapeDesc)
+  final case class AwakenTalent(pool: DicePool, ritual: Boolean)
+      extends DruidTalent
+      with TalentImpl(AwakenDesc)
 
+  // HELPERS
   final case class MarkableSelectable(
       marked: Boolean,
       feature: Option[String]
@@ -138,4 +142,5 @@ object TalentADT {
       label: Option[String],
       pool: DicePool
   ) derives ReadWriter
+
 }

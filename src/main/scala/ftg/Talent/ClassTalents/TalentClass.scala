@@ -6,7 +6,7 @@ import upickle.default.{ReadWriter => RW}
 import ftg.Talent.ClassTalents.ArtificerTalent._
 import ftg.Talent.ClassTalents.BerserkerTalents._
 import ftg.Talent.ClassTalents.ClericTalents._
-import ftg.Talent.ClassTalents.DruidTalents.WildShapeDesc
+import ftg.Talent.ClassTalents.DruidTalents._
 
 sealed trait TalentClass derives RW {
   def coreTalent: TalentDescriptor
@@ -76,13 +76,14 @@ case object ClericClass extends TalentClass {
 }
 
 case object DruidClass extends TalentClass {
-  override def coreTalent: TalentDescriptor = WildShapeDesc
-  override def nonCoreTalents: List[TalentDescriptor] = List()
-  override def name: String = "Druid"
+  override def coreTalent: TalentDescriptor           = WildShapeDesc
+  override def nonCoreTalents: List[TalentDescriptor] = List(AwakenDesc)
+  override def name: String                           = "Druid"
 }
 
 object TalentsRefs {
   def allPathTalents: List[TalentDescriptor] =
     allClasses.flatMap(_.nonCoreTalents)
-  def allClasses = List(ArtificerClass, BardClass, BerserkerClass, ClericClass, DruidClass)
+  def allClasses =
+    List(ArtificerClass, BardClass, BerserkerClass, ClericClass, DruidClass)
 }

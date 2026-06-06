@@ -19,6 +19,11 @@ object DruidTalentRenderer {
     t match
       case t: WildShapeTalent =>
         acc withWidget Pool("WILD SHAPE", t.focus(_.pool))
+      case t: AwakenTalent =>
+        acc withWidgets List(
+          Pool("AWAKENED", t.focus(_.pool)),
+          SquareBox(t.focus(_.ritual), "RITUAL")
+        )
   }
 
 }
