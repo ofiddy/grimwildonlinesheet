@@ -30,6 +30,7 @@ object PaladinTalentRenderer {
       case t: AegisTalent     => acc withWidget PushBox(t.focus(_.marked))
       case t: AuthorityTalent => acc withWidget PushBox(t.focus(_.marked))
       case t: ChallengeTalent => acc withWidget PushBox(t.focus(_.marked))
+      case DauntlessTalent    => acc
   }
 
 }
