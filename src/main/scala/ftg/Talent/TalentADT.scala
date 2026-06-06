@@ -7,6 +7,7 @@ import ftg.Talent.ClassTalents.BerserkerTalents._
 import ftg.Talent.ClassTalents.ClericTalents._
 import ftg.Talent.ClassTalents.DruidTalents._
 import ftg.Talent.ClassTalents.FighterTalents._
+import ftg.Talent.ClassTalents.MonkTalents._
 import ftg.Character.Wise
 import ftg.DicePool.DicePool
 import ftg.Talent.ClassTalents.ArtificerTalent.MechanicalMountDesc.MechanicalMountFeatures
@@ -186,6 +187,37 @@ object TalentADT {
   final case class TacticianTalent(marked: Boolean)
       extends FighterTalent
       with TalentImpl(TacticianDesc)
+
+  sealed trait MonkTalent extends Talent derives ReadWriter
+  final case class DisciplineTalent(flow: Int, interrupt: Int)
+      extends MonkTalent
+      with TalentImpl(DisciplineDesc)
+  case object FlowStateTalent extends MonkTalent with TalentImpl(FlowStateDesc)
+  case object HealingHandsTalent
+      extends MonkTalent
+      with TalentImpl(HealingHandsDesc)
+  case object LightningReflexesTalent
+      extends MonkTalent
+      with TalentImpl(LightningReflexesDesc)
+  case object MindOverMatterTalent
+      extends MonkTalent
+      with TalentImpl(MindOverMatterDesc)
+  final case class PrimordialForcesTalent(
+      elem: Option[String],
+      charged: Boolean
+  ) extends MonkTalent
+      with TalentImpl(PrimordialForcesDesc)
+  final case class PrimordialForcesIITalent(
+      elem: Option[String],
+      charged: Boolean
+  ) extends MonkTalent
+      with TalentImpl(PrimordialForcesIIDesc)
+  final case class TetherTalent(tether: Boolean, push: Boolean)
+      extends MonkTalent
+      with TalentImpl(TetherDesc)
+  case object ThereIsNoTryTalent
+      extends MonkTalent
+      with TalentImpl(ThereIsNoTryDesc)
 
   // HELPERS
   final case class MarkableSelectable(
