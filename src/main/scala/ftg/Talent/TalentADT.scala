@@ -202,6 +202,16 @@ object TalentADT {
   case object MindOverMatterTalent
       extends MonkTalent
       with TalentImpl(MindOverMatterDesc)
+  final case class PrimordialForcesTalent(
+      elem: Option[String],
+      charged: Boolean
+  ) extends MonkTalent
+      with TalentImpl(PrimordialForcesDesc)
+  final case class PrimordialForcesIITalent(
+      elem: Option[String],
+      charged: Boolean
+  ) extends MonkTalent
+      with TalentImpl(PrimordialForcesIIDesc)
 
   // HELPERS
   final case class MarkableSelectable(

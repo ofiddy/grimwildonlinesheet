@@ -8,6 +8,7 @@ import ftg.Talent.TalentADT._
 import monocle.syntax.all.focus
 import ftg.page.talentRenderers.FluentTalentRenderers.fluentTalent
 import ftg.Talent.ClassTalents.MonkTalents.DisciplineDesc
+import monocle.AppliedLens
 
 object MonkTalentRenderer {
   def monkTalentRenderer(
@@ -29,6 +30,25 @@ object MonkTalentRenderer {
       case HealingHandsTalent      => acc
       case LightningReflexesTalent => acc
       case MindOverMatterTalent    => acc
+      case t: PrimordialForcesTalent =>
+        renderPrimordialForces(acc, t.focus(_.elem), t.focus(_.charged))
+      case t: PrimordialForcesIITalent =>
+        renderPrimordialForces(acc, t.focus(_.elem), t.focus(_.charged))
+
+  }
+
+  private def renderPrimordialForces[T <: Talent](
+      acc: Html[Msg],
+      elem: AppliedLens[T, Option[String]],
+      charged: AppliedLens[T, Boolean]
+  )(using
+      TalentEditBuilder
+  ) = {
+    val elems = List("AIR", "EARTH", "FIRE", "WATER")
+    acc withWidgets List(
+      SquareBox(charged, "CHARGED"),
+      Selectable(elem, elems, "Elem")
+    )
   }
 
 }
