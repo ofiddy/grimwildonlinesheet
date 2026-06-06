@@ -140,6 +140,13 @@ object TalentADT {
   case object KindredSpiritsTalent
       extends DruidTalent
       with TalentImpl(KindredSpiritsDesc)
+  final case class PrimordialBondsTalent(
+      air: (Int, Boolean),
+      earth: (Int, Boolean),
+      fire: (Int, Boolean),
+      water: (Int, Boolean)
+  ) extends DruidTalent
+      with TalentImpl(PrimordialBondsDesc)
 
   // HELPERS
   final case class MarkableSelectable(

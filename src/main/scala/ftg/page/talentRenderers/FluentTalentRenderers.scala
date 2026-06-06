@@ -24,6 +24,7 @@ import ftg.Talent.TalentADT.ChannelDivinityTalent
 import ftg.Talent.TalentADT.LabelledPool
 import monocle.syntax.all.focus
 import tyrian.Empty
+import ftg.Talent.TalentADT.PrimordialBondsTalent
 
 object FluentTalentRenderers {
   case class WidgetBuilding(
@@ -112,6 +113,9 @@ object FluentTalentRenderers {
   final case class ChannelDivinityFooter(
       tal: ChannelDivinityTalent,
       maxUpgrades: Int
+  ) extends FluentTalentFooter
+  final case class PrimordialBondsFooter(
+      tal: PrimordialBondsTalent
   ) extends FluentTalentFooter
 
   type TalentEditBuilder = (newTal: Talent) => CharCommand
@@ -354,6 +358,39 @@ object FluentTalentRenderers {
           if showUpgrades then
             tinyCrementer(tal.focus(_.upgrades._3), editBuilder, canIncrement)
           else Empty
+        )
+      )
+    }
+
+    case PrimordialBondsFooter(tal) => {
+      div(cls := "horizontal")(
+        b("DEEP AIR"),
+        input(
+          cls       := "widget-checkbox--push primordial-bonds-deep-box",
+          `type`    := "checkbox",
+          `checked` := tal.air._2,
+          onClick(SheetMsg(editBuilder(tal.focus(_.air._2).modify(!_))))
+        ),
+        b("DEEP EARTH"),
+        input(
+          cls       := "widget-checkbox--push primordial-bonds-deep-box",
+          `type`    := "checkbox",
+          `checked` := tal.earth._2,
+          onClick(SheetMsg(editBuilder(tal.focus(_.earth._2).modify(!_))))
+        ),
+        b("DEEP FIRE"),
+        input(
+          cls       := "widget-checkbox--push primordial-bonds-deep-box",
+          `type`    := "checkbox",
+          `checked` := tal.fire._2,
+          onClick(SheetMsg(editBuilder(tal.focus(_.fire._2).modify(!_))))
+        ),
+        b("DEEP WATER"),
+        input(
+          cls       := "widget-checkbox--push primordial-bonds-deep-box",
+          `type`    := "checkbox",
+          `checked` := tal.water._2,
+          onClick(SheetMsg(editBuilder(tal.focus(_.water._2).modify(!_))))
         )
       )
     }

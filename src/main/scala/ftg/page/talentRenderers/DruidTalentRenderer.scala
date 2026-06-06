@@ -31,6 +31,21 @@ object DruidTalentRenderer {
           SquareBox(t.focus(_.usedMythic), "MYTHIC")
         )
       case KindredSpiritsTalent => acc
+      case t: PrimordialBondsTalent =>
+        acc withWidgets List(
+          MultiCheckbox("AIR", t.focus(_.air._1), if t.air._2 then 2 else 1),
+          MultiCheckbox(
+            "EARTH",
+            t.focus(_.earth._1),
+            if t.earth._2 then 2 else 1
+          ),
+          MultiCheckbox("FIRE", t.focus(_.fire._1), if t.fire._2 then 2 else 1),
+          MultiCheckbox(
+            "WATER",
+            t.focus(_.water._1),
+            if t.water._2 then 2 else 1
+          )
+        ) withFooter PrimordialBondsFooter(t)
   }
 
 }
