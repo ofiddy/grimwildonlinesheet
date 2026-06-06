@@ -390,6 +390,23 @@ object TalentADT {
       patience: DicePool
   ) extends WarlockTalent
       with TalentImpl(PactDesc)
+  final case class EldritchWeaponryTalent(marked: Boolean)
+      extends WarlockTalent
+      with TalentImpl(EldritchWeaponryDesc)
+  case object HexTalent extends WarlockTalent with TalentImpl(HexDesc)
+  final case class KnowingGazeTalent(marked: Boolean)
+      extends WarlockTalent
+      with TalentImpl(KnowingGazeDesc)
+  case object OtherworldlyFormTalent
+      extends WarlockTalent
+      with TalentImpl(OtherworldlyFormDesc)
+  case object RitualistTalent
+      extends WarlockTalent
+      with TalentImpl(RitualistDesc)
+  case object VisionsTalent extends WarlockTalent with TalentImpl(VisionsDesc)
+  final case class WayfarerTalent(marked: Boolean)
+      extends WarlockTalent
+      with TalentImpl(WayfarerDesc)
 
   // HELPERS
   final case class MarkableSelectable(

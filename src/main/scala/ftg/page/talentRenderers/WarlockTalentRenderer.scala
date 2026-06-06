@@ -23,5 +23,13 @@ object WarlockTalentRenderer {
           TextEntry("", t.focus(_.gifts._2)),
           Pool("PATIENCE", t.focus(_.patience))
         )
+      case t: EldritchWeaponryTalent =>
+        acc withWidget PushBox(t.focus(_.marked))
+      case HexTalent              => acc
+      case t: KnowingGazeTalent   => acc withWidget PushBox(t.focus(_.marked))
+      case OtherworldlyFormTalent => acc
+      case RitualistTalent        => acc
+      case VisionsTalent          => acc
+      case t: WayfarerTalent      => acc withWidget PushBox(t.focus(_.marked))
   }
 }
