@@ -15,6 +15,7 @@ import ftg.Talent.ClassTalents.ArtificerTalent.MechanicalMountDesc.MechanicalMou
 import ftg.Talent.ClassTalents.PsionTalents._
 import ftg.Talent.ClassTalents.RangerTalents._
 import ftg.Talent.ClassTalents.RogueTalents._
+import ftg.Talent.ClassTalents.SorcererTalents._
 
 object TalentADT {
   sealed trait Talent extends TalentImpl derives ReadWriter
@@ -346,6 +347,41 @@ object TalentADT {
   final case class WeaselTalent(marked: Boolean)
       extends RogueTalent
       with TalentImpl(WeaselDesc)
+
+  sealed trait SorcererTalent extends Talent derives ReadWriter
+  final case class SorceryTalent(
+      pathsAndTechs: (
+          Option[String],
+          Option[String],
+          Option[String],
+          Option[String],
+          Option[String],
+          Option[String],
+          Option[String]
+      )
+  ) extends SorcererTalent
+      with TalentImpl(SorceryDesc)
+  case object EldritchGrowthTalent
+      extends SorcererTalent
+      with TalentImpl(EldritchGrowthDesc)
+  case object MaelstromTalent
+      extends SorcererTalent
+      with TalentImpl(MaelstromDesc)
+  case object MagicSenseTalent
+      extends SorcererTalent
+      with TalentImpl(MagicSenseDesc)
+  final case class SpelleaterTalent(pool: DicePool, essence: Int)
+      extends SorcererTalent
+      with TalentImpl(SpelleaterDesc)
+  case object SubtleCastingTalent
+      extends SorcererTalent
+      with TalentImpl(SubtleCastingDesc)
+  final case class WispsTalent(
+      traits: (Option[String], Option[String]),
+      sacrificed: Int
+  ) extends SorcererTalent
+      with TalentImpl(WispsDesc)
+  case object WrathTalent extends SorcererTalent with TalentImpl(WrathDesc)
 
   // HELPERS
   final case class MarkableSelectable(
