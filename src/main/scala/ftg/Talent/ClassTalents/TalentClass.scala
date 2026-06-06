@@ -7,6 +7,7 @@ import ftg.Talent.ClassTalents.ArtificerTalent._
 import ftg.Talent.ClassTalents.BerserkerTalents._
 import ftg.Talent.ClassTalents.ClericTalents._
 import ftg.Talent.ClassTalents.DruidTalents._
+import ftg.Talent.ClassTalents.FighterTalents._
 
 sealed trait TalentClass derives RW {
   def coreTalent: TalentDescriptor
@@ -90,9 +91,22 @@ case object DruidClass extends TalentClass {
   override def name: String = "Druid"
 }
 
+case object FighterClass extends TalentClass {
+  override def coreTalent: TalentDescriptor           = WeaponMasteryDesc
+  override def nonCoreTalents: List[TalentDescriptor] = List()
+  override def name: String                           = "Fighter"
+}
+
 object TalentsRefs {
   def allPathTalents: List[TalentDescriptor] =
     allClasses.flatMap(_.nonCoreTalents)
   def allClasses =
-    List(ArtificerClass, BardClass, BerserkerClass, ClericClass, DruidClass)
+    List(
+      ArtificerClass,
+      BardClass,
+      BerserkerClass,
+      ClericClass,
+      DruidClass,
+      FighterClass
+    )
 }
