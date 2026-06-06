@@ -7,6 +7,7 @@ import ftg.Talent.ClassTalents.BerserkerTalents._
 import ftg.Talent.ClassTalents.ClericTalents._
 import ftg.Talent.ClassTalents.DruidTalents._
 import ftg.Talent.ClassTalents.FighterTalents._
+import ftg.Talent.ClassTalents.MonkTalents._
 import ftg.Character.Wise
 import ftg.DicePool.DicePool
 import ftg.Talent.ClassTalents.ArtificerTalent.MechanicalMountDesc.MechanicalMountFeatures
@@ -186,6 +187,11 @@ object TalentADT {
   final case class TacticianTalent(marked: Boolean)
       extends FighterTalent
       with TalentImpl(TacticianDesc)
+
+  sealed trait MonkTalent extends Talent derives ReadWriter
+  final case class DisciplineTalent(flow: Int, interrupt: Int)
+      extends MonkTalent
+      with TalentImpl(DisciplineDesc)
 
   // HELPERS
   final case class MarkableSelectable(
