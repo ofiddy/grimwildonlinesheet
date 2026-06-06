@@ -188,9 +188,10 @@ case object RogueClass extends TalentClass {
 }
 
 case object SorcererClass extends TalentClass {
-  override def coreTalent: TalentDescriptor           = SorceryDesc
-  override def nonCoreTalents: List[TalentDescriptor] = List()
-  override def name: String                           = "Sorcerer"
+  override def coreTalent: TalentDescriptor = SorceryDesc
+  override def nonCoreTalents: List[TalentDescriptor] =
+    List(EldritchGrowthDesc, MaelstromDesc, MagicSenseDesc, SpelleaterDesc)
+  override def name: String = "Sorcerer"
 }
 
 object TalentsRefs {

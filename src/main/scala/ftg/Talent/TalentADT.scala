@@ -361,6 +361,18 @@ object TalentADT {
       )
   ) extends SorcererTalent
       with TalentImpl(SorceryDesc)
+  case object EldritchGrowthTalent
+      extends SorcererTalent
+      with TalentImpl(EldritchGrowthDesc)
+  case object MaelstromTalent
+      extends SorcererTalent
+      with TalentImpl(MaelstromDesc)
+  case object MagicSenseTalent
+      extends SorcererTalent
+      with TalentImpl(MagicSenseDesc)
+  final case class SpelleaterTalent(pool: DicePool, essence: Int)
+      extends SorcererTalent
+      with TalentImpl(SpelleaterDesc)
 
   // HELPERS
   final case class MarkableSelectable(

@@ -29,5 +29,13 @@ object SorcererTalentRenderer {
           TextEntry("", t.focus(_.pathsAndTechs._6)),
           TextEntry("", t.focus(_.pathsAndTechs._7))
         ).take(4 `and every 2 levels` (_ + 1))
+      case EldritchGrowthTalent => acc
+      case MaelstromTalent      => acc
+      case MagicSenseTalent     => acc
+      case t: SpelleaterTalent =>
+        acc withWidgets List(
+          Pool("SPELLEATER", t.focus(_.pool)),
+          MultiCheckbox("ESSENCE", t.focus(_.essence), 2)
+        )
   }
 }
