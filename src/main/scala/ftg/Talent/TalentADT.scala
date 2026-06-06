@@ -15,6 +15,7 @@ import ftg.Talent.ClassTalents.ArtificerTalent.MechanicalMountDesc.MechanicalMou
 import ftg.Talent.ClassTalents.PsionTalents._
 import ftg.Talent.ClassTalents.RangerTalents._
 import ftg.Talent.ClassTalents.RogueTalents._
+import ftg.Talent.ClassTalents.SorcererTalents._
 
 object TalentADT {
   sealed trait Talent extends TalentImpl derives ReadWriter
@@ -346,6 +347,20 @@ object TalentADT {
   final case class WeaselTalent(marked: Boolean)
       extends RogueTalent
       with TalentImpl(WeaselDesc)
+
+  sealed trait SorcererTalent extends Talent derives ReadWriter
+  final case class SorceryTalent(
+      pathsAndTechs: (
+          Option[String],
+          Option[String],
+          Option[String],
+          Option[String],
+          Option[String],
+          Option[String],
+          Option[String]
+      )
+  ) extends SorcererTalent
+      with TalentImpl(SorceryDesc)
 
   // HELPERS
   final case class MarkableSelectable(
