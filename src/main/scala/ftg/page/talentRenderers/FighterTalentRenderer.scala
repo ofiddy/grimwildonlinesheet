@@ -31,6 +31,11 @@ object FighterTalentRenderer {
         ) withFooter TripleTextFooter(t.focus(_.theorems), "THEOREMS")
 
       case t: BulwarkTalent => acc withWidget Pool("BULWARK", t.focus(_.pool))
+      case t: ControlTalent => acc withWidget PushBox(t.focus(_.marked))
+      case t: GotYourBackTalent   => acc withWidget PushBox(t.focus(_.marked))
+      case t: MeasuredTonesTalent => acc withWidget PushBox(t.focus(_.marked))
+      case SwiftRecoveryTalent    => acc
+      case t: TacticianTalent     => acc withWidget PushBox(t.focus(_.marked))
   }
 
 }

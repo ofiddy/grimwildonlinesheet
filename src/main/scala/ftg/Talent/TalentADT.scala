@@ -171,6 +171,21 @@ object TalentADT {
   final case class BulwarkTalent(pool: DicePool)
       extends FighterTalent
       with TalentImpl(BulwarkDesc)
+  final case class ControlTalent(marked: Boolean)
+      extends FighterTalent
+      with TalentImpl(ControlDesc)
+  final case class GotYourBackTalent(marked: Boolean)
+      extends FighterTalent
+      with TalentImpl(GotYourBackDesc)
+  final case class MeasuredTonesTalent(marked: Boolean)
+      extends FighterTalent
+      with TalentImpl(MeasuredTonesDesc)
+  case object SwiftRecoveryTalent
+      extends FighterTalent
+      with TalentImpl(SwiftRecoveryDesc)
+  final case class TacticianTalent(marked: Boolean)
+      extends FighterTalent
+      with TalentImpl(TacticianDesc)
 
   // HELPERS
   final case class MarkableSelectable(
