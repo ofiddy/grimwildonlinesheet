@@ -326,6 +326,16 @@ object TalentADT {
       contingency: DicePool
   ) extends RogueTalent
       with TalentImpl(ExpertiseDesc)
+  final case class AccordingToPlanTalent(marked: Boolean)
+      extends RogueTalent
+      with TalentImpl(AccordingToPlanDesc)
+  final case class EldritchAffinityTalent(
+      pathsAndTechs: (Option[String], Option[String], Option[String])
+  ) extends RogueTalent
+      with TalentImpl(EldritchAffinityDesc)
+  final case class LurkerTalent(marked: Boolean)
+      extends RogueTalent
+      with TalentImpl(LurkerDesc)
 
   // HELPERS
   final case class MarkableSelectable(

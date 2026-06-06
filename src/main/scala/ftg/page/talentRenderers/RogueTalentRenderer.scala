@@ -27,5 +27,14 @@ object RogueTalentRenderer {
           Pool("CONTINGENCY", t.focus(_.contingency))
         )
 
+      case t: AccordingToPlanTalent =>
+        acc withWidget StoryBox(t.focus(_.marked))
+      case t: EldritchAffinityTalent =>
+        acc withFooter TripleTextFooter(
+          t.focus(_.pathsAndTechs),
+          "Paths & Techniques"
+        )
+      case t: LurkerTalent => acc withWidget PushBox(t.focus(_.marked))
+
   }
 }
