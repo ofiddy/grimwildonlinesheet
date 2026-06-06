@@ -215,6 +215,9 @@ object TalentADT {
   final case class TetherTalent(tether: Boolean, push: Boolean)
       extends MonkTalent
       with TalentImpl(TetherDesc)
+  case object ThereIsNoTryTalent
+      extends MonkTalent
+      with TalentImpl(ThereIsNoTryDesc)
 
   // HELPERS
   final case class MarkableSelectable(

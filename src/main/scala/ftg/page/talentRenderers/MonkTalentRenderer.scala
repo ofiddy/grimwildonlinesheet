@@ -39,6 +39,7 @@ object MonkTalentRenderer {
           SquareBox(t.focus(_.tether), "TETHER"),
           PushBox(t.focus(_.push))
         )
+      case ThereIsNoTryTalent => acc
 
   }
 
