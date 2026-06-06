@@ -226,6 +226,9 @@ object TalentADT {
       tenets: (Option[String], Option[String], Option[String])
   ) extends PaladinTalent
       with TalentImpl(OathswornDesc)
+  final case class AegisTalent(marked: Boolean)
+      extends PaladinTalent
+      with TalentImpl(AegisDesc)
 
   // HELPERS
   final case class MarkableSelectable(

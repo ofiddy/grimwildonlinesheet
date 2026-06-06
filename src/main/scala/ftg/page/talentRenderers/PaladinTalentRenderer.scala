@@ -26,6 +26,8 @@ object PaladinTalentRenderer {
           max
         ) withFooter TripleTextFooter(t.focus(_.tenets), "TENETS")
       }
+
+      case t: AegisTalent => acc withWidget PushBox(t.focus(_.marked))
   }
 
 }
