@@ -28,7 +28,7 @@ object FighterTalentRenderer {
         acc withWidgets List(
           MultiCheckbox("SPELLS", t.focus(_.spells), 3),
           SquareBox(t.focus(_.potent), "POTENT")
-        )
+        ) withFooter TripleTextFooter(t.focus(_.theorems), "THEOREMS")
   }
 
 }
