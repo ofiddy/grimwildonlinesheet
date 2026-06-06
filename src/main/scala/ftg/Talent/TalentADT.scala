@@ -5,6 +5,7 @@ import ftg.Talent.ClassTalents.ArtificerTalent._
 import ftg.Talent.ClassTalents.BardTalents._
 import ftg.Talent.ClassTalents.BerserkerTalents._
 import ftg.Talent.ClassTalents.ClericTalents._
+import ftg.Talent.ClassTalents.DruidTalents._
 import ftg.Character.Wise
 import ftg.DicePool.DicePool
 import ftg.Talent.ClassTalents.ArtificerTalent.MechanicalMountDesc.MechanicalMountFeatures
@@ -123,6 +124,40 @@ object TalentADT {
       extends ClericTalent
       with TalentImpl(IronWillDesc)
 
+  sealed trait DruidTalent extends Talent derives ReadWriter
+  final case class WildShapeTalent(pool: DicePool)
+      extends DruidTalent
+      with TalentImpl(WildShapeDesc)
+  final case class AwakenTalent(pool: DicePool, ritual: Boolean)
+      extends DruidTalent
+      with TalentImpl(AwakenDesc)
+  final case class HerbalismTalent(
+      majorHerb: Option[String],
+      minorHerb: Option[String],
+      usedMythic: Boolean
+  ) extends DruidTalent
+      with TalentImpl(HerbalismDesc)
+  case object KindredSpiritsTalent
+      extends DruidTalent
+      with TalentImpl(KindredSpiritsDesc)
+  final case class PrimordialBondsTalent(
+      air: (Int, Boolean),
+      earth: (Int, Boolean),
+      fire: (Int, Boolean),
+      water: (Int, Boolean)
+  ) extends DruidTalent
+      with TalentImpl(PrimordialBondsDesc)
+  final case class TrueShapeTalent(form: Option[String])
+      extends DruidTalent
+      with TalentImpl(TrueShapeDesc)
+  case object VerdantWhispersTalent
+      extends DruidTalent
+      with TalentImpl(VerdantWhispersDesc)
+  final case class WindcallerTalent(marked: Boolean)
+      extends DruidTalent
+      with TalentImpl(WindcallerDesc)
+
+  // HELPERS
   final case class MarkableSelectable(
       marked: Boolean,
       feature: Option[String]
@@ -132,4 +167,5 @@ object TalentADT {
       label: Option[String],
       pool: DicePool
   ) derives ReadWriter
+
 }
