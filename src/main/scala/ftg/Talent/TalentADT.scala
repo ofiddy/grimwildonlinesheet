@@ -300,6 +300,24 @@ object TalentADT {
       marked: Boolean
   ) extends RangerTalent
       with TalentImpl(AnimalCompanionIIDesc)
+  case object KeenSensesTalent
+      extends RangerTalent
+      with TalentImpl(KeenSensesDesc)
+  case object RelentlessTalent
+      extends RangerTalent
+      with TalentImpl(RelentlessDesc)
+  final case class ScoutAheadTalent(marked: Boolean)
+      extends RangerTalent
+      with TalentImpl(ScoutAheadDesc)
+  final case class SeasonedHunterTalent(marked: Boolean)
+      extends RangerTalent
+      with TalentImpl(SeasonedHunterDesc)
+  final case class SharpshooterTalent(marked: Boolean)
+      extends RangerTalent
+      with TalentImpl(SharpshooterDesc)
+  final case class TrophiesTalent(trophy: Option[String])
+      extends RangerTalent
+      with TalentImpl(TrophiesDesc)
 
   // HELPERS
   final case class MarkableSelectable(

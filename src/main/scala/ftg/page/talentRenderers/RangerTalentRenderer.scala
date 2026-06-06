@@ -41,6 +41,14 @@ object RangerTalentRenderer {
           companionTrickSelector(t.focus(_.tricks._3)),
           SquareBox(t.focus(_.marked), "MARKED")
         )
+      case KeenSensesTalent    => acc
+      case RelentlessTalent    => acc
+      case t: ScoutAheadTalent => acc withWidget StoryBox(t.focus(_.marked))
+      case t: SeasonedHunterTalent =>
+        acc withWidget SquareBox(t.focus(_.marked), "LOOK OUT!")
+      case t: SharpshooterTalent => acc withWidget PushBox(t.focus(_.marked))
+      case t: TrophiesTalent =>
+        acc withWidget TextEntry("TROPHY", t.focus(_.trophy))
 
   }
 

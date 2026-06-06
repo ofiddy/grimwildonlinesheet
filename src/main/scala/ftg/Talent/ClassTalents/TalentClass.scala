@@ -159,7 +159,13 @@ case object RangerClass extends TalentClass {
   override def coreTalent: TalentDescriptor = HuntersMarkDesc
   override def nonCoreTalents: List[TalentDescriptor] = List(
     AnimalCompanionDesc,
-    AnimalCompanionIIDesc
+    AnimalCompanionIIDesc,
+    KeenSensesDesc,
+    RelentlessDesc,
+    ScoutAheadDesc,
+    SeasonedHunterDesc,
+    SharpshooterDesc,
+    TrophiesDesc
   )
   override def name: String = "Ranger"
 }
