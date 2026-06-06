@@ -27,7 +27,8 @@ object PaladinTalentRenderer {
         ) withFooter TripleTextFooter(t.focus(_.tenets), "TENETS")
       }
 
-      case t: AegisTalent => acc withWidget PushBox(t.focus(_.marked))
+      case t: AegisTalent     => acc withWidget PushBox(t.focus(_.marked))
+      case t: AuthorityTalent => acc withWidget PushBox(t.focus(_.marked))
   }
 
 }

@@ -229,6 +229,9 @@ object TalentADT {
   final case class AegisTalent(marked: Boolean)
       extends PaladinTalent
       with TalentImpl(AegisDesc)
+  final case class AuthorityTalent(marked: Boolean)
+      extends PaladinTalent
+      with TalentImpl(AuthorityDesc)
 
   // HELPERS
   final case class MarkableSelectable(
