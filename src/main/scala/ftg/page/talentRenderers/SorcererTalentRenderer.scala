@@ -37,5 +37,13 @@ object SorcererTalentRenderer {
           Pool("SPELLEATER", t.focus(_.pool)),
           MultiCheckbox("ESSENCE", t.focus(_.essence), 2)
         )
+      case SubtleCastingTalent => acc
+      case WrathTalent         => acc
+      case t: WispsTalent =>
+        acc withWidgets List(
+          TextEntry("TRAIT", t.focus(_.traits._1)),
+          TextEntry("TRAIT", t.focus(_.traits._2)),
+          MultiCheckbox("SACRIFICED", t.focus(_.sacrificed), 2)
+        )
   }
 }

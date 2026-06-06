@@ -373,6 +373,15 @@ object TalentADT {
   final case class SpelleaterTalent(pool: DicePool, essence: Int)
       extends SorcererTalent
       with TalentImpl(SpelleaterDesc)
+  case object SubtleCastingTalent
+      extends SorcererTalent
+      with TalentImpl(SubtleCastingDesc)
+  final case class WispsTalent(
+      traits: (Option[String], Option[String]),
+      sacrificed: Int
+  ) extends SorcererTalent
+      with TalentImpl(WispsDesc)
+  case object WrathTalent extends SorcererTalent with TalentImpl(WrathDesc)
 
   // HELPERS
   final case class MarkableSelectable(
