@@ -241,7 +241,7 @@ object FluentTalentRenderers {
 
     case Selectable(ref, options, label) =>
       div(cls := "vertical")(
-        b(cls := "widget-title")(label),
+        p(cls := "widget-title")(b(cls := "widget-title")(label)),
         select(
           cls     := "widget-selectable",
           `value` := ref.get.getOrElse("none"),
