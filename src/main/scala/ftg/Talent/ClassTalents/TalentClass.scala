@@ -11,6 +11,7 @@ import ftg.Talent.ClassTalents.FighterTalents._
 import ftg.Talent.ClassTalents.MonkTalents._
 import ftg.Talent.ClassTalents.PaladinTalents._
 import ftg.Talent.ClassTalents.PsionTalents.AwakenedMindDesc
+import ftg.Talent.ClassTalents.PsionTalents.DisturbedMindDesc
 
 sealed trait TalentClass derives RW {
   def coreTalent: TalentDescriptor
@@ -141,7 +142,7 @@ case object PaladinClass extends TalentClass {
 
 case object PsionClass extends TalentClass {
   override def coreTalent: TalentDescriptor           = AwakenedMindDesc
-  override def nonCoreTalents: List[TalentDescriptor] = List()
+  override def nonCoreTalents: List[TalentDescriptor] = List(DisturbedMindDesc)
   override def name: String                           = "Psion"
 }
 

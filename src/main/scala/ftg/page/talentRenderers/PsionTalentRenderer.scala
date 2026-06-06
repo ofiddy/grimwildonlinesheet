@@ -35,6 +35,9 @@ object PsionTalentRenderer {
             bastionSelectable(t.focus(_.bastions._5), c)
           ).take(numBastions))
       }
+
+      case t: DisturbedMindTalent =>
+        acc withWidget SquareBox(t.focus(_.marked), "VEX")
   }
 
   final case class Bastion(
