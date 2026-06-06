@@ -31,6 +31,8 @@ object PaladinTalentRenderer {
       case t: AuthorityTalent => acc withWidget PushBox(t.focus(_.marked))
       case t: ChallengeTalent => acc withWidget PushBox(t.focus(_.marked))
       case DauntlessTalent    => acc
+      case t: DivineBlessingTalent =>
+        acc withWidget LabelledPoolEntry(t.focus(_.lPool))
   }
 
 }

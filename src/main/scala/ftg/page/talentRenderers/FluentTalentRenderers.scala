@@ -99,6 +99,9 @@ object FluentTalentRenderers {
       label: String,
       ref: AppliedLens[T, Option[String]]
   ) extends FluentTalentWidget
+  final case class LabelledPoolEntry[T <: Talent](
+      ref: AppliedLens[T, LabelledPool]
+  ) extends FluentTalentWidget
 
   def PushBox[T <: Talent](ref: AppliedLens[T, Boolean]) =
     SquareBox(ref, "PUSH")
@@ -272,6 +275,11 @@ object FluentTalentRenderers {
             ref.get.getOrElse("")
           )
         )
+      )
+
+    case LabelledPoolEntry(ref) =>
+      div(
+        clericBox(ref, editBuilder)
       )
 
   def buildFooter(
