@@ -17,6 +17,7 @@ import ftg.page.talentRenderers.ClericTalentRenderer.clericTalentRenderer
 import ftg.page.talentRenderers.DruidTalentRenderer.druidTalentRenderer
 import ftg.page.talentRenderers.FighterTalentRenderer.fighterTalentRenderer
 import ftg.page.talentRenderers.MonkTalentRenderer.monkTalentRenderer
+import ftg.page.talentRenderers.PaladinTalentRenderer.paladinTalentRenderer
 
 package object talentRenderers {
   object TalentRenderHelpers {
@@ -41,6 +42,7 @@ package object talentRenderers {
       case t: DruidTalent     => druidTalentRenderer(t, c, base)
       case t: FighterTalent   => fighterTalentRenderer(t, c, base)
       case t: MonkTalent      => monkTalentRenderer(t, c, base)
+      case t: PaladinTalent   => paladinTalentRenderer(t, c, base)
     }
     div(cls := "sheet-talent")(afterProcess)
   }

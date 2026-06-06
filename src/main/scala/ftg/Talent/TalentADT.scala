@@ -8,6 +8,7 @@ import ftg.Talent.ClassTalents.ClericTalents._
 import ftg.Talent.ClassTalents.DruidTalents._
 import ftg.Talent.ClassTalents.FighterTalents._
 import ftg.Talent.ClassTalents.MonkTalents._
+import ftg.Talent.ClassTalents.PaladinTalents._
 import ftg.Character.Wise
 import ftg.DicePool.DicePool
 import ftg.Talent.ClassTalents.ArtificerTalent.MechanicalMountDesc.MechanicalMountFeatures
@@ -218,6 +219,13 @@ object TalentADT {
   case object ThereIsNoTryTalent
       extends MonkTalent
       with TalentImpl(ThereIsNoTryDesc)
+
+  sealed trait PaladinTalent extends Talent derives ReadWriter
+  final case class OathswornTalent(
+      smite: Int,
+      tenets: (Option[String], Option[String], Option[String])
+  ) extends PaladinTalent
+      with TalentImpl(OathswornDesc)
 
   // HELPERS
   final case class MarkableSelectable(
