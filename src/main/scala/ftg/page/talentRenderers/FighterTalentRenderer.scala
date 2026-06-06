@@ -29,6 +29,8 @@ object FighterTalentRenderer {
           MultiCheckbox("SPELLS", t.focus(_.spells), 3),
           SquareBox(t.focus(_.potent), "POTENT")
         ) withFooter TripleTextFooter(t.focus(_.theorems), "THEOREMS")
+
+      case t: BulwarkTalent => acc withWidget Pool("BULWARK", t.focus(_.pool))
   }
 
 }

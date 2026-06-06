@@ -168,6 +168,9 @@ object TalentADT {
       theorems: (Option[String], Option[String], Option[String])
   ) extends FighterTalent
       with TalentImpl(ArcaneTrainingDesc)
+  final case class BulwarkTalent(pool: DicePool)
+      extends FighterTalent
+      with TalentImpl(BulwarkDesc)
 
   // HELPERS
   final case class MarkableSelectable(

@@ -92,9 +92,10 @@ case object DruidClass extends TalentClass {
 }
 
 case object FighterClass extends TalentClass {
-  override def coreTalent: TalentDescriptor           = WeaponMasteryDesc
-  override def nonCoreTalents: List[TalentDescriptor] = List(ArcaneTrainingDesc)
-  override def name: String                           = "Fighter"
+  override def coreTalent: TalentDescriptor = WeaponMasteryDesc
+  override def nonCoreTalents: List[TalentDescriptor] =
+    List(ArcaneTrainingDesc, BulwarkDesc)
+  override def name: String = "Fighter"
 }
 
 object TalentsRefs {
