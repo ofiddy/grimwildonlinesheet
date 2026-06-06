@@ -126,7 +126,7 @@ case object MonkClass extends TalentClass {
 case object PaladinClass extends TalentClass {
   override def coreTalent: TalentDescriptor = OathswornDesc
   override def nonCoreTalents: List[TalentDescriptor] =
-    List(AegisDesc, AuthorityDesc)
+    List(AegisDesc, AuthorityDesc, ChallengeDesc)
   override def name: String = "Paladin"
 }
 
