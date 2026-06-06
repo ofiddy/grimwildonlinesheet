@@ -260,6 +260,9 @@ object TalentADT {
   final case class DisturbedMindTalent(marked: Boolean)
       extends PsionTalent
       with TalentImpl(DisturbedMindDesc)
+  final case class MindSeedTalent(marked: Boolean)
+      extends PsionTalent
+      with TalentImpl(MindSeedDesc)
 
   // HELPERS
   final case class MarkableSelectable(

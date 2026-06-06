@@ -38,6 +38,8 @@ object PsionTalentRenderer {
 
       case t: DisturbedMindTalent =>
         acc withWidget SquareBox(t.focus(_.marked), "VEX")
+      case t: MindSeedTalent =>
+        acc withWidget SquareBox(t.focus(_.marked), "INTERRUPT")
   }
 
   final case class Bastion(
