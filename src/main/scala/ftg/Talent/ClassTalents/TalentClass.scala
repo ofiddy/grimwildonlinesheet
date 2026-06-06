@@ -11,6 +11,7 @@ import ftg.Talent.ClassTalents.FighterTalents._
 import ftg.Talent.ClassTalents.MonkTalents._
 import ftg.Talent.ClassTalents.PaladinTalents._
 import ftg.Talent.ClassTalents.PsionTalents._
+import ftg.Talent.ClassTalents.RangerTalents._
 
 sealed trait TalentClass derives RW {
   def coreTalent: TalentDescriptor
@@ -154,6 +155,12 @@ case object PsionClass extends TalentClass {
   override def name: String = "Psion"
 }
 
+case object RangerClass extends TalentClass {
+  override def coreTalent: TalentDescriptor           = HuntersMarkDesc
+  override def nonCoreTalents: List[TalentDescriptor] = List()
+  override def name: String                           = "Ranger"
+}
+
 object TalentsRefs {
   def allPathTalents: List[TalentDescriptor] =
     allClasses.flatMap(_.nonCoreTalents)
@@ -167,6 +174,7 @@ object TalentsRefs {
       FighterClass,
       MonkClass,
       PaladinClass,
-      PsionClass
+      PsionClass,
+      RangerClass
     )
 }

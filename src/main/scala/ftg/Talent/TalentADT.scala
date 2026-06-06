@@ -13,6 +13,7 @@ import ftg.Character.Wise
 import ftg.DicePool.DicePool
 import ftg.Talent.ClassTalents.ArtificerTalent.MechanicalMountDesc.MechanicalMountFeatures
 import ftg.Talent.ClassTalents.PsionTalents._
+import ftg.Talent.ClassTalents.RangerTalents._
 
 object TalentADT {
   sealed trait Talent extends TalentImpl derives ReadWriter
@@ -274,6 +275,11 @@ object TalentADT {
   final case class ReaderTalent(marked: Boolean)
       extends PsionTalent
       with TalentImpl(ReaderDesc)
+
+  sealed trait RangerTalent extends Talent derives ReadWriter
+  final case class HuntersMarkTalent(weakness: Int)
+      extends RangerTalent
+      with TalentImpl(HuntersMarkDesc)
 
   // HELPERS
   final case class MarkableSelectable(
