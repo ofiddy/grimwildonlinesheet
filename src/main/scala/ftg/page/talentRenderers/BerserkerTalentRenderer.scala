@@ -31,6 +31,6 @@ object BerserkerTalentRenderer {
     case t: WarsongsTalent =>
       acc withWidgets List(
         MultiCheckbox("WARSONGS", t.focus(_.warsongs), 2)
-      ) withFooter WarsongsFooter(t.focus(_.compositions))
+      ) withFooter TripleTextFooter(t.focus(_.compositions), "COMPOSITIONS")
 
 }
