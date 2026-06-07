@@ -52,7 +52,6 @@ jobs:
         name: 'js-build'
         path: './dist/'
   
-  # deploy:
-  #   needs: build
-  #   if: (github.head_ref || github.ref_name) == 'deployment-test'
-  #   uses: ./.github/workflows/static.yml
+  deploy:
+    needs: build
+    uses: ./.github/workflows/static.yml
