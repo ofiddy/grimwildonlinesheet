@@ -6,7 +6,7 @@ import ftg.Talent.TalentADT.TetherTalent
 import ftg.Talent.Markdown
 import ftg.Talent.md
 
-object TetherDesc extends TalentDescriptor {
+case object TetherDesc extends TalentDescriptor {
 
   override def name: String = "Tether"
 

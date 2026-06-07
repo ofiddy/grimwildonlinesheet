@@ -30,6 +30,13 @@ object ClericTalentRenderer {
       case HealerTalent => acc
       case t: IronWillTalent =>
         acc withWidget Pool("IRON WILL", t.focus(_.pool))
+      case RingsFalseTalent => acc
+      case ShepherdTalent   => acc
+      case t: SermonsTalent =>
+        acc withWidgets List(
+          PushBox(t.focus(_.push)),
+          SquareBox(t.focus(_.ritual), "RITUAL")
+        )
   }
 
 }

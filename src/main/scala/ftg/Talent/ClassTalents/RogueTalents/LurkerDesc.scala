@@ -6,7 +6,7 @@ import ftg.Talent.TalentADT.LurkerTalent
 import ftg.Talent.Markdown
 import ftg.Talent.md
 
-object LurkerDesc extends TalentDescriptor {
+case object LurkerDesc extends TalentDescriptor {
 
   override def name: String = "Lurker"
 

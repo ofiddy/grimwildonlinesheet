@@ -6,7 +6,7 @@ import ftg.Talent.Markdown
 import ftg.Talent.md
 import ftg.Talent.TalentADT.OverkillTalent
 
-object OverkillDesc extends TalentDescriptor {
+case object OverkillDesc extends TalentDescriptor {
 
   override def name: String = "Overkill"
 

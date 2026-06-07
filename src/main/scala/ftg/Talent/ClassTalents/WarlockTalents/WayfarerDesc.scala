@@ -6,7 +6,7 @@ import ftg.Talent.Markdown
 import ftg.Talent.md
 import ftg.Talent.TalentADT.WayfarerTalent
 
-object WayfarerDesc extends TalentDescriptor {
+case object WayfarerDesc extends TalentDescriptor {
 
   override def name: String = "Wayfarer"
 

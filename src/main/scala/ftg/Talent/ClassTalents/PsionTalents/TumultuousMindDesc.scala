@@ -6,7 +6,7 @@ import ftg.Talent.TalentADT.TumultuousMindTalent
 import ftg.Talent.Markdown
 import ftg.Talent.md
 
-object TumultuousMindDesc extends TalentDescriptor {
+case object TumultuousMindDesc extends TalentDescriptor {
 
   override def name: String = "Tumultuous Mind"
 

@@ -8,7 +8,7 @@ import ftg.Talent.md
 import ftg.Talent.TalentADT.LabelledPool
 import ftg.DicePool.DicePool
 
-object DivineBlessingDesc extends TalentDescriptor {
+case object DivineBlessingDesc extends TalentDescriptor {
 
   override def name: String = "Divine Blessing"
 

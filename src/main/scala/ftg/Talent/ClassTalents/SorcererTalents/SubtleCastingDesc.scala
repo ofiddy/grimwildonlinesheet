@@ -6,7 +6,7 @@ import ftg.Talent.TalentADT.SubtleCastingTalent
 import ftg.Talent.Markdown
 import ftg.Talent.md
 
-object SubtleCastingDesc extends TalentDescriptor {
+case object SubtleCastingDesc extends TalentDescriptor {
 
   override def name: String = "Subtle Casting"
 

@@ -6,7 +6,7 @@ import ftg.Talent.Markdown
 import ftg.Talent.md
 import ftg.Talent.TalentADT.PrimordialBondsTalent
 
-object PrimordialBondsDesc extends TalentDescriptor {
+case object PrimordialBondsDesc extends TalentDescriptor {
 
   override def name: String = "Primordial Bonds"
 

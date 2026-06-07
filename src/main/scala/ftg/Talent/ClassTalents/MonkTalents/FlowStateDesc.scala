@@ -6,7 +6,7 @@ import ftg.Talent.TalentADT.FlowStateTalent
 import ftg.Talent.Markdown
 import ftg.Talent.md
 
-object FlowStateDesc extends TalentDescriptor {
+case object FlowStateDesc extends TalentDescriptor {
 
   override def name: String = "Flow State"
 

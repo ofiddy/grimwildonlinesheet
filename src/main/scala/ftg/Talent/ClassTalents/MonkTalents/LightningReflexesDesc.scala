@@ -6,7 +6,7 @@ import ftg.Talent.TalentADT.LightningReflexesTalent
 import ftg.Talent.Markdown
 import ftg.Talent.md
 
-object LightningReflexesDesc extends TalentDescriptor {
+case object LightningReflexesDesc extends TalentDescriptor {
 
   override def name: String = "Lightning Reflexes"
 

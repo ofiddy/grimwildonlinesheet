@@ -6,7 +6,7 @@ import ftg.Talent.TalentADT.PreparedSpellTalent
 import ftg.Talent.Markdown
 import ftg.Talent.md
 
-object PreparedSpellDesc extends TalentDescriptor {
+case object PreparedSpellDesc extends TalentDescriptor {
 
   override def name: String = "Prepared Spell"
 

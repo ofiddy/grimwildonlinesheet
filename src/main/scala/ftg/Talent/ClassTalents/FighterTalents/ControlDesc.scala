@@ -6,7 +6,7 @@ import ftg.Talent.TalentADT.ControlTalent
 import ftg.Talent.Markdown
 import ftg.Talent.md
 
-object ControlDesc extends TalentDescriptor {
+case object ControlDesc extends TalentDescriptor {
 
   override def name: String = "Control"
 

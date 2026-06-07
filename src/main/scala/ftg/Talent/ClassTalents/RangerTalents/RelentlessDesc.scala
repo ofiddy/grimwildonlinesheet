@@ -6,7 +6,7 @@ import ftg.Talent.TalentADT.Talent
 import ftg.Talent.Markdown
 import ftg.Talent.md
 
-object RelentlessDesc extends TalentDescriptor {
+case object RelentlessDesc extends TalentDescriptor {
 
   override def name: String = "Relentless"
 

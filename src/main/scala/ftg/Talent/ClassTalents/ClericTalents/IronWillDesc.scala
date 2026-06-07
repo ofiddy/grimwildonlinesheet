@@ -7,7 +7,7 @@ import ftg.Talent.md
 import ftg.DicePool.DicePool
 import ftg.Talent.TalentADT.IronWillTalent
 
-object IronWillDesc extends TalentDescriptor {
+case object IronWillDesc extends TalentDescriptor {
 
   override def name: String = "Iron Will"
 

@@ -8,7 +8,7 @@ import ftg.Talent.md
 import ftg.DicePool.DicePool
 import ftg.Character.LevelGrowth.`and every 3 levels`
 
-object PactDesc extends TalentDescriptor {
+case object PactDesc extends TalentDescriptor {
 
   override def name: String = "Pact"
 

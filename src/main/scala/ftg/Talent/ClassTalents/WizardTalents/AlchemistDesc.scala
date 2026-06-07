@@ -7,7 +7,7 @@ import ftg.Talent.Markdown
 import ftg.Talent.md
 import ftg.DicePool.DicePool
 
-object AlchemistDesc extends TalentDescriptor {
+case object AlchemistDesc extends TalentDescriptor {
 
   override def name: String = "Alchemist"
 

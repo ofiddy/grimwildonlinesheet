@@ -6,7 +6,7 @@ import ftg.Talent.TalentADT.ThereIsNoTryTalent
 import ftg.Talent.Markdown
 import ftg.Talent.md
 
-object ThereIsNoTryDesc extends TalentDescriptor {
+case object ThereIsNoTryDesc extends TalentDescriptor {
 
   override def name: String = "There Is No Try"
 
