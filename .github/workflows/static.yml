@@ -4,7 +4,7 @@ name: Deploy static content to Pages
 on:
   workflow_run:
       workflows: ["Scala CI"]
-      branches: [main, deployment-test]
+      branches: ["main", "deployment-test"]
       types: 
         - completed
 
@@ -26,6 +26,7 @@ concurrency:
 jobs:
   # Single deploy job since we're just deploying
   deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
