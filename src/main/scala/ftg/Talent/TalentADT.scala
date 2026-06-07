@@ -215,8 +215,10 @@ object TalentADT {
   ) extends MonkTalent
       with TalentImpl(PrimordialForcesDesc)
   final case class PrimordialForcesIITalent(
-      elem: Option[String],
-      charged: Boolean
+      air: Boolean,
+      earth: Boolean,
+      fire: Boolean,
+      water: Boolean
   ) extends MonkTalent
       with TalentImpl(PrimordialForcesIIDesc)
   final case class TetherTalent(tether: Boolean, push: Boolean)
