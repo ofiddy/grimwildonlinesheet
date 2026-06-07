@@ -6,7 +6,7 @@ import ftg.Talent.TalentADT.HexTalent
 import ftg.Talent.Markdown
 import ftg.Talent.md
 
-object HexDesc extends TalentDescriptor {
+case object HexDesc extends TalentDescriptor {
 
   override def name: String = "Hex"
 

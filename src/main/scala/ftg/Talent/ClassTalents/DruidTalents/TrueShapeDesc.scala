@@ -6,7 +6,7 @@ import ftg.Talent.Markdown
 import ftg.Talent.md
 import ftg.Talent.TalentADT.TrueShapeTalent
 
-object TrueShapeDesc extends TalentDescriptor {
+case object TrueShapeDesc extends TalentDescriptor {
 
   override def name: String = "True Shape"
 

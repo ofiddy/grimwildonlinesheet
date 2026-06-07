@@ -6,7 +6,7 @@ import ftg.Talent.Markdown
 import ftg.Talent.md
 import ftg.Character.LevelGrowth.`and every 2 levels`
 
-object OathswornDesc extends TalentDescriptor {
+case object OathswornDesc extends TalentDescriptor {
 
   override def name: String = "Oathsworn"
 

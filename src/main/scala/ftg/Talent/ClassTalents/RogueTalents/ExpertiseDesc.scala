@@ -8,7 +8,7 @@ import ftg.Talent.md
 import ftg.DicePool.DicePool
 import ftg.Character.LevelGrowth.`and every 2 levels`
 
-object ExpertiseDesc extends TalentDescriptor {
+case object ExpertiseDesc extends TalentDescriptor {
 
   override def name: String = "Expertise"
 

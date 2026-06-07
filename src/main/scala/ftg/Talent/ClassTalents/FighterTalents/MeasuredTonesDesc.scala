@@ -6,7 +6,7 @@ import ftg.Talent.TalentADT.MeasuredTonesTalent
 import ftg.Talent.Markdown
 import ftg.Talent.md
 
-object MeasuredTonesDesc extends TalentDescriptor {
+case object MeasuredTonesDesc extends TalentDescriptor {
 
   override def name: String = "Measured Tones"
 

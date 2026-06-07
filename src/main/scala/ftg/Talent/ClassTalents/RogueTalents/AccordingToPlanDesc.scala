@@ -6,7 +6,7 @@ import ftg.Talent.TalentADT.AccordingToPlanTalent
 import ftg.Talent.Markdown
 import ftg.Talent.md
 
-object AccordingToPlanDesc extends TalentDescriptor {
+case object AccordingToPlanDesc extends TalentDescriptor {
 
   override def name: String = "According to Plan"
 

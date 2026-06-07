@@ -6,7 +6,7 @@ import ftg.Talent.md
 import ftg.Talent.TalentADT.AwakenedMindTalent
 import ftg.Character.LevelGrowth.`and every 2 levels`
 
-object AwakenedMindDesc extends TalentDescriptor {
+case object AwakenedMindDesc extends TalentDescriptor {
 
   override def name: String = "Awakened Mind"
 

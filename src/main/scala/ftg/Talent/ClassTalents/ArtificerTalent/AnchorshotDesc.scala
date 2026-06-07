@@ -7,7 +7,7 @@ import ftg.Talent.md
 import ftg.Talent.TalentADT.AnchorshotTalent
 import ftg.DicePool.DicePool
 
-object AnchorshotDesc extends TalentDescriptor {
+case object AnchorshotDesc extends TalentDescriptor {
 
   override def name: String = "Anchorshot"
 

@@ -6,7 +6,7 @@ import ftg.Talent.Markdown
 import ftg.Talent.md
 import ftg.Talent.TalentADT.OtherworldlyFormTalent
 
-object OtherworldlyFormDesc extends TalentDescriptor {
+case object OtherworldlyFormDesc extends TalentDescriptor {
 
   override def name: String = "Otherworldly Form"
 

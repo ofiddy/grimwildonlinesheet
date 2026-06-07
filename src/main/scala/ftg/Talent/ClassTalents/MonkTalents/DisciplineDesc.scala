@@ -6,7 +6,7 @@ import ftg.Talent.md
 import ftg.Talent.TalentADT.DisciplineTalent
 import ftg.Character.LevelGrowth.`and every 3 levels`
 
-object DisciplineDesc extends TalentDescriptor {
+case object DisciplineDesc extends TalentDescriptor {
 
   override def name: String = "Discipline"
 

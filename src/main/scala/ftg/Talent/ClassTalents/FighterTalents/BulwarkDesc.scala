@@ -7,7 +7,7 @@ import ftg.Talent.md
 import ftg.DicePool.DicePool
 import ftg.Talent.TalentADT.BulwarkTalent
 
-object BulwarkDesc extends TalentDescriptor {
+case object BulwarkDesc extends TalentDescriptor {
 
   override def name: String = "Bulwark"
 

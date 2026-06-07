@@ -7,7 +7,7 @@ import ftg.Talent.md
 import ftg.Talent.TalentADT.PrimordialForcesTalent
 import ftg.Talent.TalentADT.PrimordialForcesIITalent
 
-object PrimordialForcesDesc extends TalentDescriptor {
+case object PrimordialForcesDesc extends TalentDescriptor {
 
   override def name: String = "Primordial Forces"
 
@@ -19,7 +19,7 @@ object PrimordialForcesDesc extends TalentDescriptor {
 
 }
 
-object PrimordialForcesIIDesc extends TalentDescriptor {
+case object PrimordialForcesIIDesc extends TalentDescriptor {
 
   override def name: String = "Primordial Forces (II)"
 

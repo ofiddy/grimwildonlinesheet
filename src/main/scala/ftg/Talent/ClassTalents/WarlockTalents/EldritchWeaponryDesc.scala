@@ -6,7 +6,7 @@ import ftg.Talent.TalentADT.EldritchWeaponryTalent
 import ftg.Talent.Markdown
 import ftg.Talent.md
 
-object EldritchWeaponryDesc extends TalentDescriptor {
+case object EldritchWeaponryDesc extends TalentDescriptor {
 
   override def name: String = "Eldritch Weaponry"
 

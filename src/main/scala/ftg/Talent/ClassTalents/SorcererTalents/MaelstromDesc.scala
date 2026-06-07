@@ -6,7 +6,7 @@ import ftg.Talent.TalentADT.MaelstromTalent
 import ftg.Talent.Markdown
 import ftg.Talent.md
 
-object MaelstromDesc extends TalentDescriptor {
+case object MaelstromDesc extends TalentDescriptor {
 
   override def name: String = "Maelstrom"
 

@@ -6,7 +6,7 @@ import ftg.Talent.TalentADT.WeaselTalent
 import ftg.Talent.Markdown
 import ftg.Talent.md
 
-object WeaselDesc extends TalentDescriptor {
+case object WeaselDesc extends TalentDescriptor {
 
   override def name: String = "Weasel"
 

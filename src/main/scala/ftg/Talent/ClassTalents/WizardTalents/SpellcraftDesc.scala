@@ -6,7 +6,7 @@ import ftg.Talent.md
 import ftg.Character.LevelGrowth.`and every 2 levels`
 import ftg.Talent.TalentADT.SpellcraftTalent
 
-object SpellcraftDesc extends TalentDescriptor {
+case object SpellcraftDesc extends TalentDescriptor {
 
   override def name: String = "Spellcraft"
 

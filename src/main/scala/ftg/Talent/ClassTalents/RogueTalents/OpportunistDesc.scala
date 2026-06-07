@@ -6,7 +6,7 @@ import ftg.Talent.TalentADT.OpportunistTalent
 import ftg.Talent.Markdown
 import ftg.Talent.md
 
-object OpportunistDesc extends TalentDescriptor {
+case object OpportunistDesc extends TalentDescriptor {
 
   override def name: String = "Opportunist"
 

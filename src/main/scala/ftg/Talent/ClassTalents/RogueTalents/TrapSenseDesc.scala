@@ -6,7 +6,7 @@ import ftg.Talent.TalentADT.TrapSenseTalent
 import ftg.Talent.Markdown
 import ftg.Talent.md
 
-object TrapSenseDesc extends TalentDescriptor {
+case object TrapSenseDesc extends TalentDescriptor {
 
   override def name: String = "Trap Sense"
 

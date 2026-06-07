@@ -6,7 +6,7 @@ import ftg.Talent.TalentADT.SwiftRecoveryTalent
 import ftg.Talent.Markdown
 import ftg.Talent.md
 
-object SwiftRecoveryDesc extends TalentDescriptor {
+case object SwiftRecoveryDesc extends TalentDescriptor {
 
   override def name: String = "Swift Recovery"
 

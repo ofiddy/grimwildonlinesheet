@@ -6,7 +6,7 @@ import ftg.Talent.TalentADT.MasteredTheoremTalent
 import ftg.Talent.Markdown
 import ftg.Talent.md
 
-object MasteredTheoremDesc extends TalentDescriptor {
+case object MasteredTheoremDesc extends TalentDescriptor {
 
   override def name: String = "Mastered Theorem"
 
