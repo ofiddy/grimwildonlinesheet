@@ -132,6 +132,13 @@ object TalentADT {
   final case class IronWillTalent(pool: DicePool)
       extends ClericTalent
       with TalentImpl(IronWillDesc)
+  case object RingsFalseTalent
+      extends ClericTalent
+      with TalentImpl(RingsFalseDesc)
+  final case class SermonsTalent(push: Boolean, ritual: Boolean)
+      extends ClericTalent
+      with TalentImpl(SermonsDesc)
+  case object ShepherdTalent extends ClericTalent with TalentImpl(ShepherdDesc)
 
   sealed trait DruidTalent extends Talent derives ReadWriter
   final case class WildShapeTalent(pool: DicePool)
