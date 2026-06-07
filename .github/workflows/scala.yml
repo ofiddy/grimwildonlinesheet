@@ -35,6 +35,9 @@ jobs:
         cmd: install
     - name: Run tests
       run: sbt test
+
+    - name: debug
+      run: echo ${{ github.ref_name }}
     
     - name: Build And Deploy Page
       uses: ./.github/workflows/static.yml
