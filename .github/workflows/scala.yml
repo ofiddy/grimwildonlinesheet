@@ -6,7 +6,7 @@
 name: Scala CI
 
 env:
- BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
+ BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
 
 on:
   push:
@@ -38,6 +38,21 @@ jobs:
         cmd: install
     - name: Run tests
       run: sbt test
-    - name: Build And Deploy Page
-      uses: ./.github/workflows/static.yml
+    - name: Build Prod Artifact (Scala)
       if: ${{ env.BRANCH_NAME == 'deployment-test' }}
+      run: sbt fullLinkJs
+    - name: Build Prod Artifact (JS)
+      if: ${{ env.BRANCH_NAME == 'deployment-test' }}
+      run: yarn parcel build tyranapp.js
+    - name: Upload Prod Artifact
+      if: ${{ env.BRANCH_NAME == 'deployment-test' }}
+      uses: actions/upload-artifact@v4
+      with:
+        # Artifact name
+        name: 'js-build'
+        path: './dist/'
+  
+  deploy:
+    needs: build
+    if: (github.head_ref || github.ref_name) == 'deployment-test'
+    uses: ./.github/workflows/static.yml
