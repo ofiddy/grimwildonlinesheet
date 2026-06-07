@@ -43,7 +43,7 @@ jobs:
       run: sbt fullLinkJS
     - name: Build Prod Artifact (JS)
       if: ${{ env.BRANCH_NAME == 'deployment-test' }}
-      run: yarn parcel build tyranapp.js
+      run: yarn parcel build index.html
     - name: Upload Prod Artifact
       if: ${{ env.BRANCH_NAME == 'deployment-test' }}
       uses: actions/upload-artifact@v4
