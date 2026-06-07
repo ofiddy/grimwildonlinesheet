@@ -38,4 +38,4 @@ jobs:
     
     - name: Build And Deploy Page
       uses: ./.github/workflows/static.yml
-      if: ${{ github.head_ref == 'test-deployment' }}
+      if: ${{ github.ref == 'test-deployment' }}
