@@ -36,6 +36,6 @@ jobs:
     - name: Run tests
       run: sbt test
     
-      if: ${{ github.head_ref == 'test-deployment' }}
     - name: Build And Deploy Page
-      uses: ./.github/static.yml
+      uses: ./.github/workflows/static.yml
+      if: ${{ github.head_ref == 'test-deployment' }}
