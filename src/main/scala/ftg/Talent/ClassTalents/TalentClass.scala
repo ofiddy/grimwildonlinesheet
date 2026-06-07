@@ -15,6 +15,7 @@ import ftg.Talent.ClassTalents.RangerTalents._
 import ftg.Talent.ClassTalents.RogueTalents._
 import ftg.Talent.ClassTalents.SorcererTalents._
 import ftg.Talent.ClassTalents.WarlockTalents._
+import ftg.Talent.ClassTalents.WizardTalents._
 
 sealed trait TalentClass derives RW {
   def coreTalent: TalentDescriptor
@@ -217,6 +218,12 @@ case object WarlockClass extends TalentClass {
   override def name: String = "Warlock"
 }
 
+case object WizardClass extends TalentClass {
+  override def coreTalent: TalentDescriptor           = SpellcraftDesc
+  override def name: String                           = "Wizard"
+  override def nonCoreTalents: List[TalentDescriptor] = List()
+}
+
 object TalentsRefs {
   def allPathTalents: List[TalentDescriptor] =
     allClasses.flatMap(_.nonCoreTalents)
@@ -234,6 +241,7 @@ object TalentsRefs {
       RangerClass,
       RogueClass,
       SorcererClass,
-      WarlockClass
+      WarlockClass,
+      WizardClass
     )
 }

@@ -121,6 +121,10 @@ object FluentTalentRenderers {
   final case class PrimordialBondsFooter(
       tal: PrimordialBondsTalent
   ) extends FluentTalentFooter
+  final case class TextEntryFooter[T <: Talent](
+      label: String,
+      entries: List[AppliedLens[T, Option[String]]]
+  ) extends FluentTalentFooter
 
   type TalentEditBuilder = (newTal: Talent) => CharCommand
 
@@ -403,6 +407,26 @@ object FluentTalentRenderers {
         )
       )
     }
+
+    case TextEntryFooter(label, entries) =>
+      div(cls := "vertical")(
+        p(b(label)) +: entries.map(e =>
+          div(
+            exitableTextInput(
+              `value` := e.get.getOrElse(""),
+              cls     := "talent-footer-text-input"
+            )(s =>
+              newTalOnChange(
+                editBuilder(
+                  e.replace(if s.isEmpty then None else Some(s))
+                ),
+                s,
+                e.get.getOrElse("")
+              )
+            )
+          )
+        )
+      )
 
   private def newTalOnChange[A](
       built: CharCommand,

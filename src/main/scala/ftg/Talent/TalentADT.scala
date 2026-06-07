@@ -17,6 +17,7 @@ import ftg.Talent.ClassTalents.RangerTalents._
 import ftg.Talent.ClassTalents.RogueTalents._
 import ftg.Talent.ClassTalents.SorcererTalents._
 import ftg.Talent.ClassTalents.WarlockTalents._
+import ftg.Talent.ClassTalents.WizardTalents._
 
 object TalentADT {
   sealed trait Talent extends TalentImpl derives ReadWriter
@@ -407,6 +408,22 @@ object TalentADT {
   final case class WayfarerTalent(marked: Boolean)
       extends WarlockTalent
       with TalentImpl(WayfarerDesc)
+
+  sealed trait WizardTalent extends Talent derives ReadWriter
+  final case class SpellcraftTalent(
+      spells: Int,
+      potentSpells: Int,
+      theorems: (
+          Option[String],
+          Option[String],
+          Option[String],
+          Option[String],
+          Option[String],
+          Option[String],
+          Option[String]
+      )
+  ) extends WizardTalent
+      with TalentImpl(SpellcraftDesc)
 
   // HELPERS
   final case class MarkableSelectable(
