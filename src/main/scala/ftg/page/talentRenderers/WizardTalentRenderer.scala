@@ -54,5 +54,10 @@ object WizardTalentRenderer {
             t.focus(_.recipes._2)
           )
         )
+
+      case t: ArcaneSpecialtyTalent =>
+        acc withWidget TextEntry("SCHOOL", t.focus(_.school))
+      case ArcanistTalent   => acc
+      case ColleaguesTalent => acc
   }
 }

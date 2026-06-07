@@ -429,6 +429,13 @@ object TalentADT {
       recipes: (Option[String], Option[String])
   ) extends WizardTalent
       with TalentImpl(AlchemistDesc)
+  final case class ArcaneSpecialtyTalent(school: Option[String])
+      extends WizardTalent
+      with TalentImpl(ArcaneSpecialtyDesc)
+  case object ArcanistTalent extends WizardTalent with TalentImpl(ArcanistDesc)
+  case object ColleaguesTalent
+      extends WizardTalent
+      with TalentImpl(ColleaguesDesc)
 
   // HELPERS
   final case class MarkableSelectable(

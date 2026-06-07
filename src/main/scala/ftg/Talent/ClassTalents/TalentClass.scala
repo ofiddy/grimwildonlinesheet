@@ -219,9 +219,10 @@ case object WarlockClass extends TalentClass {
 }
 
 case object WizardClass extends TalentClass {
-  override def coreTalent: TalentDescriptor           = SpellcraftDesc
-  override def name: String                           = "Wizard"
-  override def nonCoreTalents: List[TalentDescriptor] = List(AlchemistDesc)
+  override def coreTalent: TalentDescriptor = SpellcraftDesc
+  override def name: String                 = "Wizard"
+  override def nonCoreTalents: List[TalentDescriptor] =
+    List(AlchemistDesc, ArcaneSpecialtyDesc, ArcanistDesc, ColleaguesDesc)
 }
 
 object TalentsRefs {
