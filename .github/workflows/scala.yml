@@ -39,13 +39,13 @@ jobs:
     - name: Run tests
       run: sbt test
     - name: Build Prod Artifact (Scala)
-      if: ${{ env.BRANCH_NAME == 'deployment-test' }}
+      if: ${{ env.BRANCH_NAME == 'main' }}
       run: sbt fullLinkJS
     - name: Build Prod Artifact (JS)
-      if: ${{ env.BRANCH_NAME == 'deployment-test' }}
+      if: ${{ env.BRANCH_NAME == 'main' }}
       run: cp tyrianapp-prod.js tyrianapp.js | yarn parcel build index.html --public-url ./
     - name: Upload Prod Artifact
-      if: ${{ env.BRANCH_NAME == 'deployment-test' }}
+      if: ${{ env.BRANCH_NAME == 'main' }}
       uses: actions/upload-artifact@v4
       with:
         # Artifact name
@@ -61,7 +61,7 @@ jobs:
     concurrency:
       group: "pages"
       cancel-in-progress: false
-    if: ${{ github.head_ref || github.ref_name == 'deployment-test' }}
+    if: ${{ github.head_ref || github.ref_name == 'main' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
