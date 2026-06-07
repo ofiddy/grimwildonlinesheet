@@ -436,6 +436,15 @@ object TalentADT {
   case object ColleaguesTalent
       extends WizardTalent
       with TalentImpl(ColleaguesDesc)
+  final case class FamiliarTalent(marked: Boolean)
+      extends WizardTalent
+      with TalentImpl(FamiliarDesc)
+  final case class MasteredTheoremTalent(marked: Boolean)
+      extends WizardTalent
+      with TalentImpl(MasteredTheoremDesc)
+  final case class PreparedSpellTalent(marked: Boolean)
+      extends WizardTalent
+      with TalentImpl(PreparedSpellDesc)
 
   // HELPERS
   final case class MarkableSelectable(

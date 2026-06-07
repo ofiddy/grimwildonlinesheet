@@ -222,7 +222,15 @@ case object WizardClass extends TalentClass {
   override def coreTalent: TalentDescriptor = SpellcraftDesc
   override def name: String                 = "Wizard"
   override def nonCoreTalents: List[TalentDescriptor] =
-    List(AlchemistDesc, ArcaneSpecialtyDesc, ArcanistDesc, ColleaguesDesc)
+    List(
+      AlchemistDesc,
+      ArcaneSpecialtyDesc,
+      ArcanistDesc,
+      ColleaguesDesc,
+      FamiliarDesc,
+      MasteredTheoremDesc,
+      PreparedSpellDesc
+    )
 }
 
 object TalentsRefs {

@@ -57,7 +57,11 @@ object WizardTalentRenderer {
 
       case t: ArcaneSpecialtyTalent =>
         acc withWidget TextEntry("SCHOOL", t.focus(_.school))
-      case ArcanistTalent   => acc
-      case ColleaguesTalent => acc
+      case ArcanistTalent    => acc
+      case ColleaguesTalent  => acc
+      case t: FamiliarTalent => acc withWidget PushBox(t.focus(_.marked))
+      case t: MasteredTheoremTalent =>
+        acc withWidget SquareBox(t.focus(_.marked), "POTENT")
+      case t: PreparedSpellTalent => acc withWidget StoryBox(t.focus(_.marked))
   }
 }
