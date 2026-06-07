@@ -42,5 +42,17 @@ object WizardTalentRenderer {
           ).take(4 `and every 2 levels` (_ + 1))
         )
       }
+
+      case t: AlchemistTalent =>
+        acc withWidget Pool(
+          "POTIONS",
+          t.focus(_.pool)
+        ) withFooter TextEntryFooter(
+          "BONUS RECIPES",
+          List(
+            t.focus(_.recipes._1),
+            t.focus(_.recipes._2)
+          )
+        )
   }
 }

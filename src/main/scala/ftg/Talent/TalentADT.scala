@@ -424,6 +424,11 @@ object TalentADT {
       )
   ) extends WizardTalent
       with TalentImpl(SpellcraftDesc)
+  final case class AlchemistTalent(
+      pool: DicePool,
+      recipes: (Option[String], Option[String])
+  ) extends WizardTalent
+      with TalentImpl(AlchemistDesc)
 
   // HELPERS
   final case class MarkableSelectable(
