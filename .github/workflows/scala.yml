@@ -5,6 +5,9 @@
 
 name: Scala CI
 
+env:
+ BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+
 on:
   push:
     branches: [ "main" ]
@@ -35,3 +38,49 @@ jobs:
         cmd: install
     - name: Run tests
       run: sbt test
+    - name: Build Prod Artifact (Scala)
+      if: ${{ env.BRANCH_NAME == 'main' }}
+      run: sbt fullLinkJS
+    - name: Build Prod Artifact (JS)
+      if: ${{ env.BRANCH_NAME == 'main' }}
+      run: cp tyrianapp-prod.js tyrianapp.js | yarn parcel build index.html --public-url ./
+    - name: Upload Prod Artifact
+      if: ${{ env.BRANCH_NAME == 'main' }}
+      uses: actions/upload-artifact@v4
+      with:
+        # Artifact name
+        name: 'js-build'
+        path: './dist/'
+  
+  deploy:
+    needs: build
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+    if: ${{ github.head_ref || github.ref_name == 'main' }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          # Artifact name
+          name: 'js-build'
+          path: './dist/'
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: './dist/'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
