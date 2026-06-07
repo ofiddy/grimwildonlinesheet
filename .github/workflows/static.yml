@@ -37,10 +37,10 @@ jobs:
         uses: actions/download-artifact@v3.1.0
         with:
           # Artifact name
-          name: js-output
-          path: dist
+          name: 'js-build'
+          path: './dist/'
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: './dist/'
       - name: Deploy to GitHub Pages
