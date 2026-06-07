@@ -54,5 +54,5 @@ jobs:
   
   deploy:
     needs: build
-    if: (github.head_ref || github.ref_name) == 'deployment-test'
+    # if: (github.head_ref || github.ref_name) == 'deployment-test'
     uses: ./.github/workflows/static.yml
