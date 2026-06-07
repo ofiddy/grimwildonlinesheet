@@ -53,5 +53,4 @@ jobs:
         path: './dist/'
   
   deploy:
-    needs: build
     uses: ./.github/workflows/static.yml
