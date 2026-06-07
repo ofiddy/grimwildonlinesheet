@@ -51,3 +51,6 @@ jobs:
         # Artifact name
         name: 'js-build'
         path: './dist/'
+  
+  deploy:
+    uses: ./.github/workflows/static.yml
