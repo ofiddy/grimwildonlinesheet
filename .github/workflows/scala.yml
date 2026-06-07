@@ -35,3 +35,7 @@ jobs:
         cmd: install
     - name: Run tests
       run: sbt test
+    
+    - if: GITHUB_HEAD_REF == "deployment-test"
+    - name: Build And Deploy Page
+      uses: ./.github/static.yml
