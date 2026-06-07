@@ -38,10 +38,6 @@ jobs:
         cmd: install
     - name: Run tests
       run: sbt test
-
-    - name: debug
-      run: echo ${{ env.BRANCH_NAME }}
-    
     - name: Build And Deploy Page
       uses: ./.github/workflows/static.yml
       if: ${{ env.BRANCH_NAME == 'deployment-test' }}
