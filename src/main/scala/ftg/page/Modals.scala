@@ -83,13 +83,13 @@ object Modals {
                 else ""
               List(
                 button(
-                  cls := s"sheet-talent modal-talent ${exists}",
+                  cls := s"sheet-talent modal-talent",
                   onClick(
                     SheetMsg(ToggleTalentCommand(t, model.character.talents))
                   )
                 )(
                   div(cls := "talent-selector-line")(
-                    renderTalentDesc(t),
+                    renderTalentDesc(t, exists),
                     p(cls := "talent-selector-class-label")(name.toUpperCase())
                   )
                 ),

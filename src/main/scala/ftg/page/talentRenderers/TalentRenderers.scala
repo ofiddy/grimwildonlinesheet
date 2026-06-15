@@ -39,7 +39,7 @@ package object talentRenderers {
   def renderTalent(t: Talent & TalentImpl, c: Character)(using
       TalentEditBuilder
   ): Html[Msg] = {
-    val base = renderTalentDesc(t.talentDesc)
+    val base = renderTalentDesc(t.talentDesc, "")
     val afterProcess = t match {
       case t: ArtificerTalent => artificerTalentRender(t, c, base)
       case t: BardTalent      => bardTalentRender(t, c, base)
@@ -59,8 +59,8 @@ package object talentRenderers {
     div(cls := "sheet-talent")(afterProcess)
   }
 
-  def renderTalentDesc(t: TalentDescriptor): Html[Msg] =
-    span(cls := "talent-desc")(
+  def renderTalentDesc(t: TalentDescriptor, clsAdd: String): Html[Msg] =
+    span(cls := s"talent-desc ${clsAdd}")(
       span(cls := "talent-name")(t.name),
       span(cls := "talent-body")(
         span(": "),
