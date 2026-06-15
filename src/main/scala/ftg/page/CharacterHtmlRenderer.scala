@@ -1,7 +1,6 @@
 package ftg.page
 
 import ftg.Character.CharacterProfile
-import ftg.Character.Condition
 import ftg.Character.Experience
 import ftg.Character.Experience._
 import ftg.Character.Spark
@@ -45,6 +44,8 @@ import ftg.command.ModifyListElemCommand
 import ftg.command.CharacterLoc.TalentsLoc
 import ftg.page.Msg.OpenTalentModal
 import ftg.command.CharacterLoc.CoreTalentLoc
+import ftg.page.elems.ExitableTextArea.exitableTextArea
+import ftg.command.CharacterLoc.NotesLoc
 
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
@@ -94,6 +95,17 @@ object CharacterHtmlRenderer {
         )(
           button(id := "add-talent-button", onClick(OpenTalentModal))(
             "+ Manage Talents"
+          )
+        ),
+        div(
+          id  := "notes-section",
+          cls := "card-section"
+        )(
+          h3("NOTES"),
+          exitableTextArea(id := "notes-input")(s =>
+            handleChangeFor(NotesLoc)(char.notes, s)
+          )(
+            char.notes
           )
         )
       )
@@ -238,9 +250,6 @@ object CharacterHtmlRenderer {
       )
     )
   )
-
-  def displayCondition(condition: Condition): String =
-    condition.name.getOrElse("")
 
   def createAndFillCheckboxes(
       filled: Int,

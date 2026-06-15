@@ -84,3 +84,19 @@ div.shaded-area.card-section {
 .centre-cell {
   text-align: center;
 }
+
+#notes-section {
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 0px 10px;
+}
+
+#notes-input {
+  width: 99%;
+  border: none;
+  margin: 0 0 5px 0;
+  resize: vertical;
+  font-family: $fontStack;
+  min-height: 20vh;
+}
