@@ -12,7 +12,6 @@ import ftg.page.Msg.SheetMsg
 import ftg.command.ToggleTalentCommand
 import ftg.Talent.ClassTalents.TalentsRefs.allClasses
 import ftg.command.ChangeClassCommand
-import ftg.Talent.ClassTalents.TalentsRefs.allPathTalents
 
 object Modals {
   def renderModal(model: Model): Html[Msg] =
@@ -67,24 +66,36 @@ object Modals {
         )
       ),
       div(id := "talent-modal-scrolling-section")(
-        allPathTalents
-          .filter(_.name.toLowerCase.contains(tm.search.toLowerCase))
-          .flatMap(t =>
-            val exists =
-              if model.character.talents.exists(_.talentDesc == t) then
-                "modal-talent-exists"
-              else ""
-            List(
-              button(
-                cls := s"sheet-talent modal-talent ${exists}",
-                onClick(
-                  SheetMsg(ToggleTalentCommand(t, model.character.talents))
-                )
-              )(
-                renderTalentDesc(t)
+        allClasses
+          .map(x =>
+            (
+              x.nonCoreTalents.filter(
+                _.name.toLowerCase.contains(tm.search.toLowerCase)
               ),
-              hr
+              x.name
             )
+          )
+          .flatMap((ts, name) =>
+            ts.flatMap(t => {
+              val exists =
+                if model.character.talents.exists(_.talentDesc == t) then
+                  "modal-talent-exists"
+                else ""
+              List(
+                button(
+                  cls := s"sheet-talent modal-talent ${exists}",
+                  onClick(
+                    SheetMsg(ToggleTalentCommand(t, model.character.talents))
+                  )
+                )(
+                  div(cls := "talent-selector-line")(
+                    renderTalentDesc(t),
+                    p(cls := "talent-selector-class-label")(name.toUpperCase())
+                  )
+                ),
+                hr
+              )
+            })
           )
           .dropRight(1)
       )

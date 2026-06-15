@@ -242,8 +242,6 @@ case object WizardClass extends TalentClass {
 }
 
 object TalentsRefs {
-  def allPathTalents: List[TalentDescriptor] =
-    allClasses.flatMap(_.nonCoreTalents)
   def allClasses =
     List(
       ArtificerClass,

@@ -166,6 +166,7 @@ div.widget-checkbox {
   border: none;
   font-family: base.$fontStack;
   font-size: 12pt;
+  width: 100%;
 }
 
 .modal-talent:hover {
@@ -328,4 +329,22 @@ div.widget-checkbox {
   padding: 2px 16px;
   font-weight: bold;
   font-style: italic;
+}
+
+.talent-selector-line {
+  display: flex;
+  align-items: start;
+}
+
+p.talent-selector-class-label {
+  background-color: base.$darkShadedBgColor;
+  margin: 4px 16px;
+  padding: 6px;
+  height: 0%;
+  font-weight: bold;
+  text-decoration-line: none;
+}
+
+.talent-desc {
+  margin-right: auto;
 }
