@@ -151,7 +151,7 @@ div.widget-checkbox {
   border-bottom: 1px black solid;
   font-size: 16px;
   background: transparent;
-  margin-bottom: 50px;
+  margin-right: auto;
 }
 
 #talent-modal-scrolling-section {
@@ -189,12 +189,11 @@ div.widget-checkbox {
   padding: 2px 8px;
 }
 
-#class-change-selector {
+.talent-modal-selector {
   background-color: inherit;
   font: inherit;
   color: inherit;
   border: inherit;
-  margin-left: auto;
   height: min-content;
   font-weight: bold;
   font-family: base.$titleFontStack;
@@ -347,4 +346,13 @@ p.talent-selector-class-label {
 
 .talent-desc {
   margin-right: auto;
+}
+
+.talent-select-interact-header {
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+#class-filter-selector {
+  margin-right: 30px;
 }
