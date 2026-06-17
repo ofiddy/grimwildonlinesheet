@@ -151,7 +151,7 @@ div.widget-checkbox {
   border-bottom: 1px black solid;
   font-size: 16px;
   background: transparent;
-  margin-bottom: 50px;
+  margin-right: auto;
 }
 
 #talent-modal-scrolling-section {
@@ -166,6 +166,7 @@ div.widget-checkbox {
   border: none;
   font-family: base.$fontStack;
   font-size: 12pt;
+  width: 100%;
 }
 
 .modal-talent:hover {
@@ -188,12 +189,11 @@ div.widget-checkbox {
   padding: 2px 8px;
 }
 
-#class-change-selector {
+.talent-modal-selector {
   background-color: inherit;
   font: inherit;
   color: inherit;
   border: inherit;
-  margin-left: auto;
   height: min-content;
   font-weight: bold;
   font-family: base.$titleFontStack;
@@ -328,4 +328,31 @@ div.widget-checkbox {
   padding: 2px 16px;
   font-weight: bold;
   font-style: italic;
+}
+
+.talent-selector-line {
+  display: flex;
+  align-items: start;
+}
+
+p.talent-selector-class-label {
+  background-color: base.$darkShadedBgColor;
+  margin: 4px 16px;
+  padding: 6px;
+  height: 0%;
+  font-weight: bold;
+  text-decoration-line: none;
+}
+
+.talent-desc {
+  margin-right: auto;
+}
+
+.talent-select-interact-header {
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+#class-filter-selector {
+  margin-right: 30px;
 }

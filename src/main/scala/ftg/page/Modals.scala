@@ -12,7 +12,7 @@ import ftg.page.Msg.SheetMsg
 import ftg.command.ToggleTalentCommand
 import ftg.Talent.ClassTalents.TalentsRefs.allClasses
 import ftg.command.ChangeClassCommand
-import ftg.Talent.ClassTalents.TalentsRefs.allPathTalents
+import ftg.page.Msg.EditTalentModalFilter
 
 object Modals {
   def renderModal(model: Model): Html[Msg] =
@@ -40,13 +40,38 @@ object Modals {
   def renderTalentModal(model: Model, tm: TalentModal): Html[Msg] =
     div(id := "talent-select-modal")(
       h1("SELECT TALENT"),
-      div(cls := "horizontal")(
+      div(cls := "horizontal talent-select-interact-header")(
         exitableTextInput(
           `placeholder` := "Search...",
           id            := "talent-modal-search"
         )(s => EditTalentModal(s)),
+        span(b("FILTER:")),
         select(
-          id := "class-change-selector",
+          cls := "talent-modal-selector",
+          id  := "class-filter-selector",
+          onInput(s =>
+            if model.classFilter.map(_.name == s).getOrElse(s == "None") then
+              NoOpMsg
+            else
+              EditTalentModalFilter(
+                allClasses.find(_.name == s).map(Some(_)).getOrElse(None)
+              )
+          )
+        )(
+          option(
+            `value`    := "NONE",
+            `selected` := model.classFilter == None
+          )("NONE") :: allClasses.map(c =>
+            option(
+              `value`    := c.name,
+              `selected` := model.classFilter == Some(c)
+            )(c.name.toUpperCase)
+          )
+        ),
+        span(b("CLASS:")),
+        select(
+          cls := "talent-modal-selector",
+          id  := "class-change-selector",
           onInput(s =>
             if s == model.character.charClass.name then NoOpMsg
             else
@@ -67,24 +92,38 @@ object Modals {
         )
       ),
       div(id := "talent-modal-scrolling-section")(
-        allPathTalents
-          .filter(_.name.toLowerCase.contains(tm.search.toLowerCase))
-          .flatMap(t =>
-            val exists =
-              if model.character.talents.exists(_.talentDesc == t) then
-                "modal-talent-exists"
-              else ""
-            List(
-              button(
-                cls := s"sheet-talent modal-talent ${exists}",
-                onClick(
-                  SheetMsg(ToggleTalentCommand(t, model.character.talents))
-                )
-              )(
-                renderTalentDesc(t)
+        model.classFilter
+          .map(List(_))
+          .getOrElse(allClasses)
+          .map(x =>
+            (
+              x.nonCoreTalents.filter(t =>
+                t.name.toLowerCase.contains(tm.search.toLowerCase)
               ),
-              hr
+              x.name
             )
+          )
+          .flatMap((ts, name) =>
+            ts.flatMap(t => {
+              val exists =
+                if model.character.talents.exists(_.talentDesc == t) then
+                  "modal-talent-exists"
+                else ""
+              List(
+                button(
+                  cls := s"sheet-talent modal-talent",
+                  onClick(
+                    SheetMsg(ToggleTalentCommand(t, model.character.talents))
+                  )
+                )(
+                  div(cls := "talent-selector-line")(
+                    renderTalentDesc(t, exists),
+                    p(cls := "talent-selector-class-label")(name.toUpperCase())
+                  )
+                ),
+                hr
+              )
+            })
           )
           .dropRight(1)
       )

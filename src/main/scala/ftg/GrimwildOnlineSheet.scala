@@ -21,7 +21,7 @@ object GrimwildOnlineSheet extends TyrianIOApp[Msg, Model]:
     Routing.none(NoOpMsg)
 
   def init(flags: Map[String, String]): (Model, Cmd[IO, Msg]) =
-    (Model(DefaultCharacter.detherilStarren, Nil, None), Cmd.None)
+    (Model(DefaultCharacter.detherilStarren, Nil, None, None), Cmd.None)
 
   def update(model: Model): Msg => (Model, Cmd[IO, Msg]) =
     UpdatePage.update(model)

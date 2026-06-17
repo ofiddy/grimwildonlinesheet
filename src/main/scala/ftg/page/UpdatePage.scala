@@ -36,6 +36,8 @@ object UpdatePage {
     case CloseModal => (model.copy(currentModal = None), closeModal)
     case EditTalentModal(s) =>
       (model.copy(currentModal = Some(TalentModal(s))), Cmd.None)
+    case EditTalentModalFilter(talentClass) =>
+      (model.copy(classFilter = talentClass), Cmd.None)
 
   def applySheetCommand(
       model: Model,
