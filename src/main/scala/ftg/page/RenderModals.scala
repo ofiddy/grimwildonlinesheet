@@ -19,20 +19,19 @@ object Modals {
     dialog(id := "modal", onClick(CloseModal))(
       model.currentModal
         .map(m =>
-          m match
-            case t: TalentModal =>
-              div(
-                cls := "modal-inner",
-                onEvent(
-                  "click",
-                  e => {
-                    e.stopPropagation()
-                    NoOpMsg
-                  }
-                )
-              )(
-                renderTalentModal(model, t)
-              )
+          div(
+            cls := "modal-inner",
+            onEvent(
+              "click",
+              e => {
+                e.stopPropagation()
+                NoOpMsg
+              }
+            )
+          )(m match {
+            case t: TalentModal   => renderTalentModal(model, t)
+            case d: DiceRollModal => renderDiceRollModal(model, d)
+          })
         )
         .orEmpty
     )
@@ -127,5 +126,11 @@ object Modals {
           )
           .dropRight(1)
       )
+    )
+
+  def renderDiceRollModal(model: Model, dm: DiceRollModal): Html[Msg] =
+    div(id := "dice-roll-modal")(
+      h1("ROLL RESULT"),
+      p(dm.roll.toString)
     )
 }

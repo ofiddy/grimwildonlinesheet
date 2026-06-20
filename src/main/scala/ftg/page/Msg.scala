@@ -12,7 +12,7 @@ object Msg {
   object NoOpMsg                                          extends Msg
   final case class IoMsg(cmd: IoCmd)                      extends Msg
   final case class TryParseAndLoadCharacter(json: String) extends Msg
-  case object OpenTalentModal                             extends Msg
+  case object OpenModal                                   extends Msg
   case object CloseModal                                  extends Msg
   final case class EditTalentModal(search: String)        extends Msg
   final case class EditTalentModalFilter(talentClass: Option[TalentClass])

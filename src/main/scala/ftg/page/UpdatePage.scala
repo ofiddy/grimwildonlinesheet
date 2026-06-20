@@ -19,7 +19,7 @@ import ftg.page.Msg.TryParseAndLoadCharacter
 import ftg.Character.{Character => Character}
 import ftg.page.IoCmd.NewBlankCharacterMsg
 import ftg.page.DefaultCharacter.blankChar
-import ftg.page.Msg.OpenTalentModal
+import ftg.page.Msg.OpenModal
 import ftg.page.cmds.GwCmds.openModal
 import ftg.page.cmds.GwCmds.closeModal
 import ftg.page.Msg._
@@ -31,7 +31,7 @@ object UpdatePage {
     case BlurMsg                        => (model, GwCmds.unfocusCurrentblur)
     case IoMsg(cmd)                     => applyIoCmd(model, cmd)
     case TryParseAndLoadCharacter(json) => tryLoadCharacter(json, model)
-    case OpenTalentModal =>
+    case OpenModal =>
       (model.copy(currentModal = Some(TalentModal(""))), openModal)
     case CloseModal => (model.copy(currentModal = None), closeModal)
     case EditTalentModal(s) =>
@@ -46,10 +46,9 @@ object UpdatePage {
     given RollGenerator = RandomRollGenerator
     cmd match
       case r @ RollStatCommand(loc) =>
-        val stat    = loc(model.character).get
-        val roll    = stat.dice.roll
-        val rollLog = s"Rolled ${roll}"
-        (model log r log rollLog, Cmd.None)
+        val stat = loc(model.character).get
+        val roll = stat.dice.roll
+        (model log r withModal Some(DiceRollModal(roll)), openModal)
 
       case e: EffectCommand =>
         (

@@ -42,7 +42,7 @@ import ftg.page.talentRenderers.renderTalent
 import ftg.Talent.TalentADT.Talent
 import ftg.command.ModifyListElemCommand
 import ftg.command.CharacterLoc.TalentsLoc
-import ftg.page.Msg.OpenTalentModal
+import ftg.page.Msg.OpenModal
 import ftg.command.CharacterLoc.CoreTalentLoc
 import ftg.page.elems.ExitableTextArea.exitableTextArea
 import ftg.command.CharacterLoc.NotesLoc
@@ -93,7 +93,7 @@ object CharacterHtmlRenderer {
           id  := "add-talent-section",
           cls := "shaded-area card-section"
         )(
-          button(id := "add-talent-button", onClick(OpenTalentModal))(
+          button(id := "add-talent-button", onClick(OpenModal))(
             "+ Manage Class / Talents"
           )
         ),

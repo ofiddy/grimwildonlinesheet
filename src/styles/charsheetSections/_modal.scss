@@ -1,0 +1,11 @@
+@use '../base';
+
+#dice-roll-modal {
+  max-width: 10%;
+  min-width: 300px;
+  background-color: base.$shadedBgColor;
+  border-radius: 10px;
+  height: 30vh;
+  padding: 20px;
+  text-align: center;
+}
