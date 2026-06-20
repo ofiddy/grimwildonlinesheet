@@ -48,7 +48,10 @@ object UpdatePage {
       case r @ RollStatCommand(loc) =>
         val stat = loc(model.character).get
         val roll = stat.dice.roll
-        (model log r withModal Some(DiceRollModal(roll)), openModal)
+        (
+          model log r log roll.toString withModal Some(DiceRollModal(roll)),
+          openModal
+        )
 
       case e: EffectCommand =>
         (
@@ -58,7 +61,12 @@ object UpdatePage {
 
       case RollLogAndThen(pool, andThen) => {
         val roll = pool.roll
-        update(model log s"Rolled ${roll}")(SheetMsg(andThen(roll)))
+        val (model2, cmd) =
+          update(model log roll.toString withModal Some(DiceRollModal(roll)))(
+            SheetMsg(andThen(roll))
+          )
+        (model2, cmd.combine(openModal))
+
       }
 
   def applyIoCmd(
