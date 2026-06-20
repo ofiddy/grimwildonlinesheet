@@ -61,7 +61,7 @@ jobs:
     concurrency:
       group: "pages"
       cancel-in-progress: false
-    if: ${{ github.head_ref || github.ref_name == 'main' }}
+    if: ${{ github.head_ref == 'main' || github.ref_name == 'main' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
