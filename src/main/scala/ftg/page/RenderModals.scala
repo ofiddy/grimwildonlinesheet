@@ -19,20 +19,19 @@ object Modals {
     dialog(id := "modal", onClick(CloseModal))(
       model.currentModal
         .map(m =>
-          m match
-            case t: TalentModal =>
-              div(
-                cls := "modal-inner",
-                onEvent(
-                  "click",
-                  e => {
-                    e.stopPropagation()
-                    NoOpMsg
-                  }
-                )
-              )(
-                renderTalentModal(model, t)
-              )
+          div(
+            cls := "modal-inner",
+            onEvent(
+              "click",
+              e => {
+                e.stopPropagation()
+                NoOpMsg
+              }
+            )
+          )(m match {
+            case t: TalentModal   => renderTalentModal(model, t)
+            case d: DiceRollModal => renderDiceRollModal(model, d)
+          })
         )
         .orEmpty
     )
@@ -128,4 +127,63 @@ object Modals {
           .dropRight(1)
       )
     )
+
+  def renderDiceRollModal(model: Model, dm: DiceRollModal): Html[Msg] = {
+    val roll    = dm.roll
+    val perfect = roll(6)
+    val messy   = (roll(5), roll(4))
+    val grim    = (roll(3), roll(2), roll(1))
+    val label = (perfect, messy, grim) match {
+      case (0, (0, 0), (0, 0, 0)) => span("No Dice!")
+      case (0, (0, 0), _) => span(cls := "grim-label roll-label")("GRIM")
+      case (0, _, _)      => span(cls := "messy-label roll-label")("MESSY")
+      case (1, _, _)      => span(cls := "perfect-label roll-label")("PERFECT")
+      case (_, _, _)      => span(cls := "perfect-label roll-label")("CRITICAL")
+    }
+
+    div(id := "dice-roll-modal")(
+      h1("ROLL RESULT"),
+      h2(label),
+      p(
+        Range(0, perfect)
+          .flatMap(_ =>
+            List(span(cls := "perfect-dice roll-dice")("6"), span(" "))
+          )
+          .dropRight(1)
+          .toList
+      ),
+      p(
+        (Range(0, messy._1)
+          .flatMap(_ =>
+            List(span(cls := "messy-dice roll-dice")("5"), span(" "))
+          )
+          ++
+            Range(0, messy._2)
+              .flatMap(_ =>
+                List(span(cls := "messy-dice roll-dice")("4"), span(" "))
+              ))
+          .dropRight(1)
+          .toList
+      ),
+      p(
+        (Range(0, grim._1)
+          .flatMap(_ =>
+            List(span(cls := "grim-dice roll-dice")("3"), span(" "))
+          )
+          ++
+            Range(0, grim._2)
+              .flatMap(_ =>
+                List(span(cls := "grim-dice roll-dice")("2"), span(" "))
+              )
+            ++
+            Range(0, grim._3)
+              .flatMap(_ =>
+                List(span(cls := "grim-dice roll-dice")("1"), span(" "))
+              ))
+          .dropRight(1)
+          .toList
+      )
+    )
+  }
+
 }

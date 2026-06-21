@@ -10,13 +10,15 @@ type Log       = List[SingleLog]
 final case class Model(
     character: ftg.Character.Character,
     log: Log,
-    currentModal: Option[TalentModal],
+    currentModal: Option[Modal],
     classFilter: Option[TalentClass]
 ) {
   infix def withChar(f: Character => Character): Model =
     this.copy(character = f(this.character))
 
   infix def log(l: SingleLog): Model = copy(log = l :: this.log)
+
+  infix def withModal(m: Option[Modal]): Model = this.copy(currentModal = m)
 }
 
 object Model {

@@ -1,0 +1,47 @@
+@use '../base';
+
+$perfectColour: green;
+$messyColour: goldenrod;
+$grimColour: red;
+
+#dice-roll-modal {
+  max-width: 10%;
+  min-width: 300px;
+  background-color: base.$shadedBgColor;
+  border-radius: 10px;
+  height: 30vh;
+  padding: 20px;
+  text-align: center;
+}
+
+.perfect-label,
+.perfect-dice {
+  color: $perfectColour;
+}
+
+.messy-label {
+  color: $messyColour;
+}
+
+.messy-dice {
+  color: gold;
+}
+
+.grim-label,
+.grim-dice {
+  color: $grimColour;
+}
+
+.roll-dice {
+  font-family: base.$fontStack;
+  font-size: 24pt;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 2px solid black;
+  border-radius: 3px;
+  font-weight: bolder;
+  padding: 0;
+  margin: 5px;
+  background-color: base.$darkShadedBgColor;
+}
