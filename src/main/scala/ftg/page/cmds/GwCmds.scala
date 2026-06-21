@@ -46,6 +46,10 @@ object GwCmds {
       case Result.NoFile(message)        => Msg.NoOpMsg
     }
 
+  def openLoadCharacter(): Cmd[IO, Msg] = Cmd.SideEffect {
+    document.getElementById("character-upload").asInstanceOf[html.Input].click()
+  }
+
   def openModal[F[_]: Async]: Cmd.SideEffect[F, Unit] = Cmd.SideEffect {
     document.getElementById("modal") match {
       case d: html.Dialog => d.showModal()
