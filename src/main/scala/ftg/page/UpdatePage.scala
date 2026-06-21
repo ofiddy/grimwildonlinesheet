@@ -23,6 +23,7 @@ import ftg.page.Msg.OpenModal
 import ftg.page.cmds.GwCmds.openModal
 import ftg.page.cmds.GwCmds.closeModal
 import ftg.page.Msg._
+import ftg.page.IoCmd.OpenLoadCharacterDialogMsg
 
 object UpdatePage {
   def update(model: Model): Msg => (Model, Cmd[IO, Msg]) =
@@ -79,6 +80,7 @@ object UpdatePage {
     case SaveCharacterMsg => (model, GwCmds.downloadCharacter(model.character))
     case LoadCharacterMsg(id) => (model, GwCmds.loadCharacter(id))
     case NewBlankCharacterMsg => (Model.blankWithNewChar(blankChar), Cmd.None)
+    case OpenLoadCharacterDialogMsg => (model, GwCmds.openLoadCharacter())
 
   def tryLoadCharacter(json: String, prevModel: Model): (Model, Cmd[IO, Msg]) =
     try {

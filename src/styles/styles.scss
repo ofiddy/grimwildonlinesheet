@@ -27,6 +27,9 @@ input {
 h1 {
     font: $titleFont;
     font-variant-caps: small-caps;
+    font-size: 36pt;
+    text-align: center;
+    margin-bottom: 8px;
 }
 
 .sheet-card {
@@ -65,6 +68,17 @@ div.white-card-entry>input {
 
 #toolbar {
     display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: base.$fontStack;
+    margin-bottom: 24px;
+    gap: 3vw;
+}
+
+.toolbar-button {
+    font-family: base.$fontStack;
+    font-size: 12pt;
 }
 
 div.vertical {
@@ -110,4 +124,8 @@ div.vertical {
     border: none;
     padding: 0 5px;
     font-weight: bold;
+}
+
+#character-upload {
+    display: none;
 }

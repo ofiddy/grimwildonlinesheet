@@ -28,10 +28,11 @@ object GrimwildOnlineSheet extends TyrianIOApp[Msg, Model]:
 
   def view(model: Model): Html[Msg] =
     div(
+      h1("Grimwild Online Character Sheet"),
       renderToolbar(model),
       renderCharacter(model.character),
       renderModal(model),
-      h1("Debug Log"),
+      h2("Debug Log"),
       div(model.log.map(l => p(l.toString())))
     )
 

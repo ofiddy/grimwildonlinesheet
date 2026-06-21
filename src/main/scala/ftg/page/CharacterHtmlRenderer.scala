@@ -49,7 +49,6 @@ import ftg.command.CharacterLoc.NotesLoc
 
 object CharacterHtmlRenderer {
   def renderCharacter(char: Character): Html[Msg] = div(
-    h1("Grimwild Online Character Sheet"),
     div(id := "page-cards-horizontal", cls := "no-grow")(
       div(cls := "sheet-card")(
         renderProfile(char.profile),
