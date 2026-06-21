@@ -9,6 +9,7 @@ import ftg.Character.{Character => Character}
 import ftg.DicePool.RollGenerator
 import ftg.page.Model
 import monocle.syntax.all.focus
+import ftg.page.DiceRollModal
 
 object ModifyCharacter {
   def modify(cmd: EffectCommand, model: Model)(using RollGenerator): Model =
@@ -100,7 +101,9 @@ object ModifyCharacter {
             val newCond = Condition(name, UrgentCondition(leftoverPool))
             model withChar (c =>
               c.focus(_.conditions).modify(_.updated(index, newCond))
-            ) log s"Rolled ${rolledDice}"
+            ) log s"Rolled ${rolledDice}" withModal Some(
+              DiceRollModal(rolledDice)
+            )
 
           case _ =>
             model log s"Failed to roll and drop on condition index ${index}. No changes made, undo will also make no changes."

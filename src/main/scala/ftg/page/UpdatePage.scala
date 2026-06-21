@@ -56,7 +56,10 @@ object UpdatePage {
       case e: EffectCommand =>
         (
           modify(e, model) log e,
-          Cmd.None
+          e match {
+            case _: RollAndDropConditionPoolCommand => openModal
+            case _                                  => Cmd.None
+          }
         )
 
       case RollLogAndThen(pool, andThen) => {
