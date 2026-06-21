@@ -25,8 +25,12 @@ import ftg.Character.Story
 import ftg.Character.Wise._
 import ftg.Character.{Character => Character}
 import ftg.Talent.TalentADT.BardsongTalent
-import ftg.Talent.TalentADT.FriendlyFaceTalent
 import ftg.Talent.ClassTalents.BardClass
+import ftg.Talent.ClassTalents.FighterClass
+import ftg.Talent.TalentADT.WeaponMasteryTalent
+import ftg.Talent.TalentADT.GotYourBackTalent
+import ftg.Talent.TalentADT.MeasuredTonesTalent
+import ftg.Talent.TalentADT.SwiftRecoveryTalent
 
 object DefaultCharacter {
   val detherilStarren = Character(
@@ -91,9 +95,13 @@ object DefaultCharacter {
     Some(struggleArcs(5)),
     (Some(growthArcs(5)), None),
     8.xp,
-    BardClass,
-    BardsongTalent(2, 2),
-    List(FriendlyFaceTalent),
+    FighterClass,
+    WeaponMasteryTalent(Some("Bulwark")),
+    List(
+      GotYourBackTalent(false),
+      MeasuredTonesTalent(true),
+      SwiftRecoveryTalent
+    ),
     ""
   )
 
@@ -135,7 +143,7 @@ object DefaultCharacter {
     (None, None),
     1.xp,
     BardClass,
-    BardsongTalent(2, 2),
+    BardsongTalent(3, 3),
     Nil,
     ""
   )
