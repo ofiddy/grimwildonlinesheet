@@ -96,7 +96,7 @@ object DefaultCharacter {
     (Some(growthArcs(5)), None),
     8.xp,
     FighterClass,
-    WeaponMasteryTalent(Some("Bulwark")),
+    WeaponMasteryTalent(Some("one-handed weapons")),
     List(
       GotYourBackTalent(false),
       MeasuredTonesTalent(true),
